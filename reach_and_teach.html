@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reach & Teach - Spatial Thread</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;700&display=swap');
+        
+        body { 
+            font-family: 'Rajdhani', sans-serif; 
+            background-color: #050505; 
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .font-cyber { font-family: 'Orbitron', sans-serif; }
+
+        /* Smooth fade-out for the loading screen */
+        .fade-out {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1.5s ease-in-out, visibility 1.5s;
+        }
+
+        /* Hover Pop-Up Window Styling */
+        .hover-modal {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid #dc2626; /* Red border */
+            box-shadow: 0 10px 40px rgba(220, 38, 38, 0.3);
+        }
+
+        /* Floating Text Animation for the Scroll Section */
+        @keyframes floatFade {
+            0%   { opacity: 0; transform: translateY(30px); }
+            20%  { opacity: 1; transform: translateY(0px); }
+            80%  { opacity: 1; transform: translateY(0px); }
+            100% { opacity: 0; transform: translateY(-30px); }
+        }
+        .animate-float-fade {
+            animation: floatFade 6s infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STATE 0: The White Loading Screen -->
+    <div id="loader" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
+        <!-- Top Right Website Text -->
+        <div class="absolute top-6 right-8 font-cyber text-gray-800 tracking-widest uppercase font-bold text-xl md:text-2xl">
+            EachOneTeach.One
+        </div>
+        
+        <!-- Center White Plaque with Stacked Red Blocks Image -->
+        <div class="bg-white p-4 shadow-[0_20px_50px_rgba(0,0,0,0.2)] rounded-sm border border-gray-100">
+            <img src="landing_pageR&T.jpeg" alt="Loading Red Blocks" class="w-64 md:w-96 h-auto object-cover">
+            <p class="text-center text-red-600 font-cyber tracking-[0.3em] uppercase text-xs mt-4 animate-pulse">Initializing Thread...</p>
+        </div>
+    </div>
+
+    <!-- STATE 1: Main Spatial Background -->
+    <main class="w-full min-h-screen relative flex flex-col justify-end pb-12" style="background-image: url('MediaLandingPage.jpeg'); background-size: cover; background-position: center; background-attachment: fixed;">
+        
+        <!-- STATE 2: Bottom Thumbnails & HUD Triggers -->
+        <div class="w-full flex justify-center gap-12 z-20">
+            
+            <!-- THUMBNAIL 1: REACH -->
+            <div class="group relative">
+                <!-- Red Bordered Bottom Trigger Box -->
+                <div class="w-32 h-24 bg-black border-4 border-red-600 cursor-pointer overflow-hidden shadow-[0_0_15px_rgba(220,38,38,0.5)]">
+                    <div class="w-full h-full flex items-center justify-center text-white font-cyber text-lg uppercase bg-black/50 hover:bg-transparent transition-all tracking-widest">REACH</div>
+                </div>
+
+                <!-- HUD Node 1 (LEFT): Top Center-Left Pop-Up Modal -->
+                <div class="opacity-0 group-hover:opacity-100 fixed top-24 left-[5%] lg:left-[10%] flex w-[600px] hover-modal p-4 rounded-sm transition-opacity duration-300 pointer-events-none z-50">
+                    <div class="w-1/3 pr-6 flex flex-col justify-center">
+                        <h4 class="text-red-500 font-cyber uppercase tracking-widest text-sm mb-2">Reach Request</h4>
+                        <p class="text-gray-300 text-xs leading-relaxed">This user is seeking real-world insight on navigating the modern digital landscape. A Maker responds with visual guidance.</p>
+                    </div>
+                    <div class="w-2/3 bg-black border border-gray-800">
+                        <video src="reachClip1.mp4" autoplay loop muted class="w-full h-auto object-cover"></video>
+                    </div>
+                </div>
+
+                <!-- HUD Node 2 (LEFT): Bottom Left Cell Phone Ad (Holding Phone - BIGGER) -->
+                <div class="opacity-0 group-hover:opacity-100 fixed bottom-12 left-12 flex gap-6 transition-opacity duration-300 pointer-events-none z-50">
+                    <img src="holdingphoneAD.jpeg" alt="Hand Holding Phone" class="w-72 lg:w-80 h-auto object-cover border-2 border-red-600 shadow-[0_0_30px_rgba(220,38,38,0.7)] rounded-sm">
+                </div>
+            </div>
+
+            <!-- THUMBNAIL 2: TEACH -->
+            <div class="group relative">
+                <!-- Red Bordered Bottom Trigger Box -->
+                <div class="w-32 h-24 bg-black border-4 border-red-600 cursor-pointer overflow-hidden shadow-[0_0_15px_rgba(220,38,38,0.5)]">
+                    <div class="w-full h-full flex items-center justify-center text-white font-cyber text-lg uppercase bg-black/50 hover:bg-transparent transition-all tracking-widest">TEACH</div>
+                </div>
+
+                <!-- HUD Node 1 (RIGHT): Top Center-Right Pop-Up Modal (Same Spot) -->
+                <div class="opacity-0 group-hover:opacity-100 fixed top-24 right-[5%] lg:right-[10%] flex w-[600px] hover-modal p-4 rounded-sm transition-opacity duration-300 pointer-events-none z-50">
+                    <div class="w-1/3 pr-6 flex flex-col justify-center">
+                        <h4 class="text-red-500 font-cyber uppercase tracking-widest text-sm mb-2">Teach Response</h4>
+                        <p class="text-gray-300 text-xs leading-relaxed">Here is the direct response protocol. By offering a Teach, the ecosystem routes experience directly to the Youth tier.</p>
+                    </div>
+                    <div class="w-2/3 bg-black border border-gray-800">
+                        <video src="reachClip2.mp4" autoplay loop muted class="w-full h-auto object-cover"></video>
+                    </div>
+                </div>
+
+                <!-- HUD Node 2 (RIGHT): Bottom Right Cell Phone Ad (Phone Pic - BIGGER) -->
+                <div class="opacity-0 group-hover:opacity-100 fixed bottom-12 right-12 flex gap-6 transition-opacity duration-300 pointer-events-none z-50">
+                    <img src="phonepicAD.jpeg" alt="Red Border Video Chat" class="w-72 lg:w-80 h-auto object-cover border-2 border-red-600 shadow-[0_0_30px_rgba(220,38,38,0.7)] rounded-sm">
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- STATE 3: The Summary Ad Scroll Section with Email Sign-up -->
+    <section class="w-full min-h-screen relative flex flex-col items-center justify-center pt-24" style="background-image: url('mainReach.jpeg'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <!-- Dark overlay to ensure text is readable -->
+        <div class="absolute inset-0 bg-black/50 z-0"></div>
+        
+        <!-- Floating Animated Text -->
+        <div class="relative z-10 text-center animate-float-fade flex-grow flex flex-col justify-center mt-12">
+            <h2 class="font-cyber text-5xl md:text-7xl text-white tracking-[0.2em] drop-shadow-[0_0_20px_rgba(255,255,255,0.5)] uppercase mb-4">
+                The Connection is Live
+            </h2>
+            <p class="text-red-400 font-bold tracking-[0.4em] uppercase text-xl md:text-2xl drop-shadow-md">
+                One Reach. One Teach. Zero Friction.
+            </p>
+        </div>
+
+        <!-- Email Sign-Up Form Form at the Bottom -->
+        <div class="relative z-20 mb-16 w-full max-w-lg px-6 mt-auto">
+            <div class="bg-black/80 p-8 rounded-sm border border-red-600/50 shadow-[0_0_30px_rgba(220,38,38,0.2)] backdrop-blur-md">
+                <h3 class="text-white font-cyber uppercase tracking-widest text-xl mb-2 text-center">Join The Network</h3>
+                <p class="text-gray-400 text-xs text-center mb-8 uppercase tracking-wider">Sign up to receive routing updates and community alerts.</p>
+                <form class="flex flex-col gap-5" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="ENTER YOUR EMAIL" class="w-full bg-gray-900 border border-gray-700 text-white px-4 py-3 text-sm focus:outline-none focus:border-red-500 font-cyber tracking-widest rounded-sm placeholder-gray-600 transition-colors">
+                    <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 uppercase tracking-[0.2em] text-xs rounded-sm transition-colors shadow-[0_0_15px_rgba(220,38,38,0.4)]">
+                        Initialize Subscription
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Execution Script for Loader -->
+    <script>
+        // Wait for the window (and all heavy images/videos) to load
+        window.addEventListener('load', function() {
+            // Add a 1.5 second delay so they see your white loading plaque, then fade it out
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('fade-out');
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

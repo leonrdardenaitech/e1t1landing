@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassITOn - Each One Teach One</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;700&display=swap');
+        
+        body { 
+            font-family: 'Rajdhani', sans-serif; 
+            background-color: #050505; 
+            color: #e5e5e5; 
+        }
+        
+        .bg-hero { 
+            background-image: linear-gradient(to bottom, rgba(5,5,5,0.85), rgba(5,5,5,0.98)), url('background2.jpeg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed; 
+        }
+        
+        .corporate-glass { 
+            background: rgba(15, 15, 15, 0.6); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255,255,255,0.1); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .font-cyber { font-family: 'Orbitron', sans-serif; }
+    </style>
+</head>
+<body class="bg-hero min-h-screen flex flex-col items-center p-4 md:p-8">
+    
+    <!-- Executive Header (No Logo, Added Reach & Teach Link) -->
+    <header class="w-full max-w-6xl flex flex-col md:flex-row justify-between items-center mb-12 border-b border-gray-800 pb-6 z-10 mt-4">
+        <div class="mb-6 md:mb-0">
+            <h1 class="text-3xl md:text-5xl font-cyber tracking-[0.2em] uppercase text-white drop-shadow-md">Each One Teach One</h1>
+            <h2 class="text-sm md:text-lg text-gray-400 tracking-[0.3em] uppercase mt-1">PassITOn Initiative</h2>
+        </div>
+        <div class="flex gap-4">
+            <!-- Replace your current Reach & Teach button with this exact link -->
+<a href="reach_and_teach.html" class="bg-transparent border border-blue-500 text-blue-400 px-6 py-3 font-bold tracking-widest hover:bg-blue-900/50 transition-colors uppercase text-sm shadow-[0_0_15px_rgba(59,130,246,0.2)] flex items-center justify-center">
+    Access Reach & Teach Thread
+</a>
+            <button class="bg-gray-200 text-black px-8 py-3 font-bold tracking-widest hover:bg-white transition-colors uppercase text-sm border border-transparent hover:border-white">
+                Initiate Partnership
+            </button>
+        </div>
+    </header>
+
+    <!-- TOP ROW: Corporate Briefing Grid -->
+    <main class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8 z-10 mb-8">
+        
+        <!-- Left Wing: The Mission -->
+        <div class="corporate-glass p-8 rounded-sm">
+            <h3 class="font-cyber text-2xl text-white mb-6 border-b border-gray-700 pb-2 uppercase tracking-widest">Executive Mission</h3>
+            <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                Overcoming inequality by empowering African American youth and assisting ex-convicts with higher earning career opportunities to stop recidivism.
+            </p>
+            <div class="space-y-6">
+                <div class="border-l-2 border-gray-500 pl-4">
+                    <h4 class="text-xl font-bold text-gray-100 mb-2 uppercase tracking-wider">Mentor-Based IT Training</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Providing free, elite IT Training with career placement in AI, Robotics, Machine Learning, Coding, CyberSecurity, and Cloud Technologies.
+                    </p>
+                </div>
+                <div class="border-l-2 border-gray-500 pl-4">
+                    <h4 class="text-xl font-bold text-gray-100 mb-2 uppercase tracking-wider">The 0% Recidivism Goal</h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Diverting incarcerated individuals from life in prison by offering life skills and rehabilitation through enterprise-grade technology training.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Wing: Corporate Call to Action -->
+        <div class="corporate-glass p-8 rounded-sm flex flex-col">
+            <h3 class="font-cyber text-2xl text-white mb-6 border-b border-gray-700 pb-2 uppercase tracking-widest">Strategic Coalitions</h3>
+            <p class="text-sm text-gray-300 mb-8 leading-relaxed">
+                We are building strategic partnerships with industry titans to establish tech incubators. Progress has been made, but now is the time to take action.
+            </p>
+            <div class="bg-black/60 border border-gray-800 p-6 rounded-sm mb-auto">
+                <h4 class="text-sm font-bold text-gray-500 mb-4 uppercase tracking-widest border-b border-gray-800 pb-2">Target Network:</h4>
+                <ul class="text-gray-300 text-sm space-y-3 font-cyber tracking-wider">
+                    <li class="flex items-center gap-2"><span class="w-2 h-2 bg-gray-500 rounded-full"></span> AMAZON OPERATIONS</li>
+                    <li class="flex items-center gap-2"><span class="w-2 h-2 bg-gray-500 rounded-full"></span> MICROSOFT IMAGINE SOCIETY</li>
+                    <li class="flex items-center gap-2"><span class="w-2 h-2 bg-gray-500 rounded-full"></span> GOOGLE & TESLA</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- BOTTOM ROW: Darden Trust & Anergi.io Training Wing -->
+    <section class="w-full max-w-6xl corporate-glass p-8 rounded-sm z-10 mb-12 flex flex-col lg:flex-row gap-8 border-t-4 border-t-gray-500">
+        
+        <!-- Left Side: Anergi & Darden Info -->
+        <div class="lg:w-1/2 flex flex-col justify-center">
+            <h3 class="font-cyber text-2xl text-white mb-2 uppercase tracking-widest">Infrastructure & Training</h3>
+            <p class="text-xs text-gray-500 tracking-widest uppercase mb-6 border-b border-gray-700 pb-2">Supported by Darden Trust & Anergi.io</p>
+            
+            <p class="text-sm text-gray-300 mb-6 leading-relaxed">
+                The <span class="text-white font-bold">Darden Trust</span> provides the foundational architecture and community support routing for the EachOneTeachOne initiative. 
+                In parallel, <span class="text-white font-bold">Anergi.io</span> offers elite resources and direct training pathways for students entering the Cybersecurity and IT sectors.
+            </p>
+
+            <div class="bg-black/40 p-4 rounded border border-gray-800 mb-6">
+                <h4 class="text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Anergi Consulting Operations:</h4>
+                <ul class="text-sm text-gray-300 space-y-2">
+                    <li>&bull; Advanced Cybersecurity Protocols</li>
+                    <li>&bull; IT Infrastructure & Cloud Architecture</li>
+                    <li>&bull; Enterprise Technology Advocacy</li>
+                </ul>
+            </div>
+
+            <!-- Contact Us Button -->
+            <a href="mailto:rstallworth@anergiconsulting" class="w-full text-center bg-transparent border-2 border-gray-400 text-gray-200 font-bold py-4 rounded-sm hover:bg-gray-200 hover:text-black transition-all uppercase tracking-[0.2em] text-sm shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                Contact Us - Seek Training Material
+            </a>
+        </div>
+
+        <!-- Right Side: Video Embed -->
+        <div class="lg:w-1/2 flex flex-col">
+            <h4 class="text-sm font-bold text-gray-400 mb-4 uppercase tracking-widest flex items-center gap-2">
+                <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                Beginner Cybersecurity Briefing
+            </h4>
+            <!-- YouTube Embed iframe -->
+            <!-- Video Bypass Module -->
+            <div class="w-full bg-black/60 border border-gray-700 p-8 flex flex-col items-center justify-center rounded-sm text-center shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]">
+                
+                <!-- Custom Play Button Graphic -->
+                <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(220,38,38,0.6)] border-2 border-red-400">
+                    <span class="text-white text-xl ml-1">&#9658;</span>
+                </div>
+                
+                <h4 class="text-gray-300 font-cyber tracking-widest uppercase mb-6 text-sm">Anergi.io Cybersecurity Module</h4>
+                
+                <!-- Direct Link Out -->
+                <a href="https://youtu.be/r0vYfBNqi-k" target="_blank" class="bg-transparent border border-red-500 text-red-400 px-8 py-3 font-bold tracking-widest hover:bg-red-900/50 hover:text-white transition-colors uppercase text-xs shadow-[0_0_15px_rgba(220,38,38,0.2)]">
+                    Initialize Video Protocol
+                </a>
+            </div>
+
+    </section>
+
+    <!-- Sub-footer -->
+    <footer class="w-full max-w-6xl text-center mt-auto pb-8 z-10 border-t border-gray-800 pt-6">
+        <p class="text-xs text-gray-600 tracking-widest uppercase">
+            Each One Teach One &bull; Each One Reach One &bull; PassITOn Non-Profit
+        </p>
+    </footer>
+
+</body>
+</html>
