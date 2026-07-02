@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Street Smarts: 2026 AI-SOC Survival Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19; 
+            color: #e0f2fe; 
+        }
+
+        /* Sleek Cyberpunk Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #1e1b4b; }
+        ::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4ade80; box-shadow: 0 0 10px #4ade80; } 
+
+        /* Blue-Violet Glassmorphism Panels */
+        .glass-panel {
+            background: rgba(30, 27, 75, 0.85); 
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(56, 189, 248, 0.25); 
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+        }
+
+        .glass-card {
+            background: rgba(49, 46, 129, 0.4); 
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            box-shadow: 0 10px 40px rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+        }
+
+        /* Sidebar Module Button Styling */
+        .sidebar-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 4px solid transparent;
+        }
+        .sidebar-item:hover {
+            background: linear-gradient(90deg, rgba(56, 189, 248, 0.15) 0%, transparent 100%);
+            border-left: 4px solid #38bdf8;
+            padding-left: 1.5rem;
+        }
+        .sidebar-item.active {
+            background: linear-gradient(90deg, rgba(74, 222, 128, 0.2) 0%, transparent 100%);
+            border-left: 4px solid #4ade80; 
+            color: #4ade80 !important;
+            font-weight: 700;
+            box-shadow: inset 0 0 20px rgba(74, 222, 128, 0.1);
+        }
+
+        .sidebar-icon-default { color: #38bdf8; transition: all 0.3s ease; }
+        .sidebar-item:hover .sidebar-icon-default { color: #4ade80; text-shadow: 0 0 12px #4ade80; transform: scale(1.1); }
+        .sidebar-item.active .sidebar-icon-default { color: #4ade80; text-shadow: 0 0 12px #4ade80; }
+
+        /* Fix for logo background transparency */
+        .blend-logo {
+            mix-blend-mode: screen; /* Strips black backgrounds. Use 'multiply' if the background is white */
+            filter: contrast(1.2) drop-shadow(0 0 15px rgba(74,222,128,0.5));
+        }
+
+    </style>
+</head>
+<body class="h-screen flex overflow-hidden relative">
+
+    <!-- GLOBAL BRANDED BACKGROUND -->
+    <div class="fixed inset-0 z-[-1] bg-[url('C:\\Users\\Leonr\\Downloads2\\AGY_New_Team_HQ\\Team3_Breakroom\\redblockapp\\cybereachone.png')] bg-cover bg-center bg-no-repeat opacity-5 mix-blend-overlay pointer-events-none"></div>
+
+    <!-- Mobile overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/80 z-20 hidden md:hidden transition-opacity backdrop-blur-sm" onclick="toggleSidebar()"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed md:static inset-y-0 left-0 w-80 glass-panel z-30 transform -translate-x-full md:translate-x-0 transition-transform duration-300 flex flex-col h-full border-r border-sky-500/40 shadow-[4px_0_24px_rgba(30,27,75,0.8)]">
+        
+        <!-- Logo Section -->
+        <div class="p-6 border-b border-sky-500/30 flex flex-col justify-center items-center bg-indigo-950/90 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-sky-500/10 to-transparent pointer-events-none"></div>
+            <!-- Blend mode applied here to force transparency -->
+            <img src="maineachonelogo.png" alt="EachOneTeachOne Logo" class="h-16 mb-3 object-contain blend-logo" onerror="this.style.display='none'">
+            <h1 class="text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-sky-100 to-sky-300 tracking-wider text-center drop-shadow-[0_2px_10px_rgba(56,189,248,0.5)]">DIGITAL STREET SMARTS</h1>
+            <p class="text-[10px] text-green-400 mt-1 uppercase tracking-[0.25em] font-bold drop-shadow-[0_0_8px_rgba(74,222,128,0.6)]">2026-2027 AI Standards</p>
+            <button onclick="toggleSidebar()" class="md:hidden absolute top-4 right-4 text-sky-400 hover:text-green-400 transition-colors">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Progress Overview -->
+        <div class="p-5 border-b border-sky-500/20 bg-indigo-900/40">
+            <div class="flex justify-between items-end mb-2">
+                <span class="text-xs font-semibold text-sky-300 uppercase tracking-wider">Academy Progress</span>
+                <span id="progress-text" class="text-sm font-bold text-green-400 drop-shadow-[0_0_8px_#4ade80]">0%</span>
+            </div>
+            <div class="w-full bg-indigo-950 rounded-full h-2.5 border border-sky-900/50 shadow-inner">
+                <div id="progress-bar" class="bg-gradient-to-r from-sky-500 to-green-400 h-2 rounded-full transition-all duration-700 ease-out shadow-[0_0_10px_#4ade80]" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Navigation List -->
+        <div class="flex-1 overflow-y-auto py-2 custom-scroll" id="nav-list"></div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full relative overflow-hidden bg-gradient-to-br from-[#0b0f19]/90 via-[#111827]/90 to-[#171332]/90">
+        
+        <!-- Top Header -->
+        <header class="h-16 glass-panel border-b border-sky-500/20 flex items-center justify-between px-4 lg:px-8 z-10 shrink-0 shadow-md">
+            <div class="flex items-center gap-3">
+                <button onclick="toggleSidebar()" class="md:hidden p-2 rounded-lg text-sky-400 hover:bg-sky-900/50 transition-colors">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+                <div id="header-date" class="text-sm font-semibold text-sky-300 hidden sm:block tracking-wide drop-shadow-md"></div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="relative group">
+                    <select id="status-select" onchange="updateStatus(this.value)" class="appearance-none bg-indigo-950/80 border border-sky-500/50 text-sky-100 py-1.5 pl-4 pr-10 rounded-lg text-sm font-bold focus:outline-none focus:border-green-400 focus:ring-1 focus:ring-green-400 cursor-pointer transition-all shadow-[0_0_10px_rgba(56,189,248,0.1)] group-hover:shadow-[0_0_15px_rgba(74,222,128,0.2)]">
+                        <option value="Not Started" class="bg-indigo-950">Not Started</option>
+                        <option value="In Progress" class="bg-indigo-950 text-amber-400">In Progress</option>
+                        <option value="Completed" class="bg-indigo-950 text-green-400">Completed</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-sky-400 group-hover:text-green-400 transition-colors">
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Scrollable Content -->
+        <div class="flex-1 overflow-y-auto p-4 lg:p-8">
+            <div class="max-w-6xl mx-auto space-y-6 pb-20">
+                
+                <!-- Title & Meta Header -->
+                <div class="glass-card rounded-2xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)] relative overflow-hidden border border-sky-500/30">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-sky-500/15 rounded-full blur-[90px] -mr-20 -mt-20 pointer-events-none"></div>
+                    
+                    <div class="flex flex-wrap gap-3 mb-4 relative z-10" id="meta-tags"></div>
+                    
+                    <h2 id="day-title" class="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-sky-200 mb-2 tracking-tight drop-shadow-lg relative z-10"></h2>
+                    
+                    <h3 id="day-subtitle" class="text-lg text-green-400 mb-6 font-semibold tracking-wide drop-shadow-[0_0_8px_rgba(74,222,128,0.4)] relative z-10"></h3>
+
+                    <!-- Uniform Syllabus Info -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-5 bg-[#0b0f19]/80 rounded-xl border border-sky-500/30 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] relative z-10">
+                        <div class="flex flex-col items-center text-center p-2 group">
+                            <p class="text-[10px] text-sky-400 uppercase font-bold tracking-widest mb-1.5 group-hover:text-sky-300 transition-colors">Labs</p>
+                            <p id="meta-labs" class="text-lg font-bold text-white"><i class="fas fa-flask text-sky-500 mr-2 drop-shadow-[0_0_5px_#0ea5e9]"></i> --</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center p-2 border-l border-sky-500/20 group">
+                            <p class="text-[10px] text-sky-400 uppercase font-bold tracking-widest mb-1.5 group-hover:text-sky-300 transition-colors">Rules Built</p>
+                            <p id="meta-rules" class="text-lg font-bold text-white"><i class="fas fa-shield-virus text-green-400 mr-2 drop-shadow-[0_0_5px_#4ade80]"></i> --</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center p-2 border-l border-sky-500/20 group">
+                            <p class="text-[10px] text-sky-400 uppercase font-bold tracking-widest mb-1.5 group-hover:text-sky-300 transition-colors">Assessment</p>
+                            <p id="meta-assessment" class="text-sm font-bold text-white truncate w-full" title="..."><i class="fas fa-clipboard-check text-sky-300 mr-2"></i> --</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center p-2 border-l border-sky-500/20 group">
+                            <p class="text-[10px] text-sky-400 uppercase font-bold tracking-widest mb-1.5 group-hover:text-sky-300 transition-colors">Prerequisites</p>
+                            <p id="meta-prereq" class="text-sm font-bold text-white truncate w-full"><i class="fas fa-link text-sky-300 mr-2"></i> --</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Left/Center Column: Topics, Deliverables & Video -->
+                    <div class="lg:col-span-2 space-y-6">
+                        
+                        <!-- Technical Topics -->
+                        <div class="glass-card rounded-2xl p-6 shadow-lg">
+                            <h4 class="text-lg font-bold text-sky-200 mb-5 flex items-center gap-3 border-b border-sky-500/20 pb-3">
+                                <i class="fas fa-microchip text-green-400 drop-shadow-[0_0_8px_#4ade80]"></i> Core Frameworks & Topics
+                            </h4>
+                            <div id="tech-topics" class="flex flex-wrap gap-3"></div>
+                        </div>
+
+                        <!-- Deliverables -->
+                        <div class="glass-card rounded-2xl p-6 shadow-lg">
+                            <h4 class="text-lg font-bold text-sky-200 mb-5 flex items-center gap-3 border-b border-sky-500/20 pb-3">
+                                <i class="fas fa-box-open text-sky-400 drop-shadow-[0_0_8px_#38bdf8]"></i> Daily Mission Deliverables
+                            </h4>
+                            <ul id="deliverables-list" class="space-y-4"></ul>
+                        </div>
+
+                        <!-- Center Bottom - IMMERSIVE VIDEO COLLAGE HUB -->
+                        <div class="glass-card rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.6)] border border-sky-500/40 relative overflow-hidden group min-h-[350px] flex flex-col justify-between">
+                            
+                            <!-- The Background Looping Videos Grid -->
+                            <div class="absolute inset-0 z-0 flex opacity-50 group-hover:opacity-70 transition-opacity duration-700 pointer-events-none filter saturate-[0.8] group-hover:saturate-100">
+                                <div class="w-7/12 h-full overflow-hidden border-r border-sky-500/30 relative">
+                                    <video src="Logo_figures_come_alive_sequence_202607012225.mp4" autoplay loop muted playsinline class="w-full h-full object-cover scale-[1.05]"></video>
+                                    <div class="absolute inset-0 bg-sky-900/20 mix-blend-color"></div>
+                                </div>
+                                <div class="w-5/12 h-full flex flex-col">
+                                    <div class="h-1/2 overflow-hidden border-b border-sky-500/30 relative">
+                                         <video src="ReachCampaign.mp4" autoplay loop muted playsinline class="w-full h-full object-cover scale-[1.05]"></video>
+                                    </div>
+                                    <div class="h-1/2 overflow-hidden relative">
+                                         <video src="commercial_2.mp4" autoplay loop muted playsinline class="w-full h-full object-cover scale-[1.05]"></video>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Deep Gradient Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-[#0b0f19]/70 to-[#0b0f19]/30 z-0 pointer-events-none"></div>
+
+                            <div class="p-6 relative z-10 flex flex-col h-full justify-between">
+                                <h4 class="text-xl font-bold text-white flex items-center gap-3 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                                    <i class="fab fa-youtube text-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.8)] text-2xl"></i> Weekly Cyber Shorts Hub
+                                </h4>
+
+                                <!-- Interactive Play Pop-up Button -->
+                                <div class="flex-1 flex items-center justify-center mt-4">
+                                    <button onclick="openShortsPopUp()" class="bg-red-600/80 hover:bg-red-500 text-white rounded-full w-24 h-24 flex items-center justify-center shadow-[0_0_40px_rgba(239,68,68,0.5)] hover:shadow-[0_0_60px_rgba(239,68,68,1)] transition-all duration-300 transform scale-100 hover:scale-110 border border-red-400/50 backdrop-blur-md group">
+                                        <i class="fas fa-play text-4xl ml-2 group-hover:text-white text-red-100 drop-shadow-md"></i>
+                                    </button>
+                                </div>
+                                <p class="text-center text-xs text-sky-300/80 mt-6 font-semibold tracking-widest uppercase pointer-events-none">Click to Open Command Window</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Resources & Notes -->
+                    <div class="space-y-6">
+                        <!-- Resources -->
+                        <div class="glass-card rounded-2xl p-6 shadow-lg">
+                            <h4 class="text-lg font-bold text-sky-200 mb-5 flex items-center gap-3 border-b border-sky-500/20 pb-3">
+                                <i class="fas fa-satellite-dish text-green-400 drop-shadow-[0_0_8px_#4ade80]"></i> Active Comms & Resources
+                            </h4>
+                            <div class="space-y-5">
+                                <div>
+                                    <h5 class="text-[10px] font-bold text-sky-400 uppercase tracking-wider mb-2"><i class="fas fa-unlock text-green-400 mr-1"></i> Open Source Frameworks</h5>
+                                    <p id="res-free" class="text-sm bg-[#0b0f19]/80 p-3 rounded-lg border border-sky-500/20 shadow-inner"></p>
+                                </div>
+                                <div>
+                                    <h5 class="text-[10px] font-bold text-sky-400 uppercase tracking-wider mb-2"><i class="fas fa-star text-amber-400 mr-1 drop-shadow-[0_0_5px_#fbbf24]"></i> Premium Labs</h5>
+                                    <p id="res-premium" class="text-sm bg-[#0b0f19]/80 p-3 rounded-lg border border-sky-500/20 shadow-inner"></p>
+                                </div>
+                                <div>
+                                    <h5 class="text-[10px] font-bold text-sky-400 uppercase tracking-wider mb-2"><i class="fas fa-video text-red-400 mr-1"></i> Video Briefings</h5>
+                                    <p id="res-youtube" class="text-sm bg-[#0b0f19]/80 p-3 rounded-lg border border-sky-500/20 shadow-inner"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Personal Notes & SAVE BUTTON -->
+                        <div class="glass-card rounded-2xl p-6 shadow-lg flex flex-col h-[380px]">
+                            <h4 class="text-lg font-bold text-sky-200 mb-4 flex items-center gap-3 border-b border-sky-500/20 pb-3">
+                                <i class="fas fa-terminal text-sky-400 drop-shadow-[0_0_8px_#38bdf8]"></i> Analyst Terminal
+                            </h4>
+                            <textarea id="personal-notes" class="flex-1 w-full p-4 bg-[#0b0f19]/90 border border-sky-500/30 rounded-xl text-sm text-green-400 font-mono focus:outline-none focus:border-green-400 focus:ring-1 focus:ring-green-400 resize-none transition-shadow shadow-inner placeholder-sky-800/70" placeholder="> Enter mission logs here..."></textarea>
+                            
+                            <button onclick="manualSave()" id="save-btn" class="mt-4 w-full bg-indigo-600/80 hover:bg-sky-600 text-white font-bold py-3 px-4 rounded-xl shadow-[0_0_15px_rgba(56,189,248,0.3)] hover:shadow-[0_0_20px_rgba(56,189,248,0.6)] transition-all duration-300 flex items-center justify-center gap-2 border border-sky-400/50 hover:border-sky-300">
+                                <i class="fas fa-save"></i> <span>Save Logs to Vault</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer with Logos and Links -->
+                <footer class="mt-12 pt-8 border-t border-sky-500/20 flex flex-col items-center justify-center gap-4 relative z-10">
+                    <img src="cybereachone.png" alt="Cyber Each One" class="h-14 object-contain opacity-90 drop-shadow-[0_0_15px_rgba(74,222,128,0.4)] hover:opacity-100 transition-opacity blend-logo" onerror="this.style.display='none'">
+                    <div class="text-sky-300/60 text-xs font-medium tracking-wide flex flex-wrap justify-center gap-2">
+                        &copy; 2026-2027
+                        <a href="https://leonrdarden.com" target="_blank" class="text-sky-400 hover:text-green-400 hover:underline transition-colors">leonrdarden.com</a>
+                        <span class="text-sky-700">|</span>
+                        <a href="https://anergi.io" target="_blank" class="text-sky-400 hover:text-green-400 hover:underline transition-colors">anergi.io</a>.
+                        All Rights Reserved.
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const uiDing = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
+        uiDing.volume = 0.3;
+
+        // Custom function to open YouTube Shorts in a dedicated vertical popup
+        function openShortsPopUp() {
+            window.open(
+                'https://www.youtube.com/@Digital_Street_Smarts/shorts', 
+                'CyberShortsPopUp', 
+                'width=450,height=800,top=100,left=100,resizable=yes,scrollbars=yes,status=no,toolbar=no,menubar=no'
+            );
+        }
+
+        const trainingData = [
+            { day: 1, week: 1, date: "07/01/2026", focusMaster: "AI-Augmented Networking", focusComplete: "SOC Fundamentals", topics: "TCP/IP, Packet Analysis, Wireshark, AI Network Anomaly Parsing", labs: 3, rules: 2, hours: 8, difficulty: "Beginner", prereq: "None", deliverables: "PCAP analysis, LLM Summary Generation", assessment: "Self-check quiz", resFree: "SANS, NIST CSF 2.0, MITRE", resPrem: "TCM SOC L1, THM", resYT: "John Hammond, Black Hills", memory: "MTTD<15min, MTTR<60min" },
+            { day: 2, week: 1, date: "07/02/2026", focusMaster: "SIEM & SQM Query Gen", focusComplete: "Threat Intelligence", topics: "Splunk, SPL, Retrieval-Augmented Query Generation, Alerting", labs: 3, rules: 2, hours: 8, difficulty: "Beginner", prereq: "Day 1", deliverables: "Correlation rules, AI Dashboard", assessment: "SPL/AI query test", resFree: "OTX, VirusTotal, MISP", resPrem: "TCM Hunting, INE TI", resYT: "13Cubed, SANS", memory: "IOC types, Pyramid of Pain" },
+            { day: 3, week: 1, date: "07/03/2026", focusMaster: "The IVAM Triage Loop", focusComplete: "Alert Triage", topics: "Investigation Validation & Active Monitoring, ATT&CK mapping", labs: 2, rules: 2, hours: 8, difficulty: "Intermediate", prereq: "Day 1-2", deliverables: "Triage 10 alerts via Copilot", assessment: "AI Triage speed test", resFree: "NIST 800-61, SANS IR", resPrem: "THM Cyber Defense", resYT: "Black Hills IR", memory: "Severity: CHML, SLA: EPS" },
+            { day: 4, week: 1, date: "07/04/2026", focusMaster: "Identity as Perimeter", focusComplete: "MITRE ATT&CK", topics: "OAuth Consent, Shadow AI Detection, PowerShell, Sysinternals", labs: 3, rules: 2, hours: 8, difficulty: "Intermediate", prereq: "Day 2-3", deliverables: "Log analysis, Credential theft detection", assessment: "Event ID quiz", resFree: "ATT&CK Training, Sigma", resPrem: "TCM Detection", resYT: "IppSec", memory: "14 tactics, 193 techniques" },
+            { day: 5, week: 1, date: "07/05/2026", focusMaster: "Cloud Workload Internals", focusComplete: "Incident Response", topics: "Kubernetes Logging, Bash, Auditd, Agentic Log Parsing", labs: 3, rules: 2, hours: 8, difficulty: "Intermediate", prereq: "Day 2-4", deliverables: "Log parsing, Bash detection", assessment: "Cloud forensics", resFree: "SANS IR Poster", resPrem: "TCM Malware, HTB", resYT: "13Cubed DFIR", memory: "PICERL phases" },
+            { day: 6, week: 1, date: "07/06/2026", focusMaster: "AI Copilot Forensics", focusComplete: "Forensics", topics: "SANS 6-phase, Volatility, Autopsy, Automated Evidence Chaining", labs: 3, rules: 3, hours: 8, difficulty: "Advanced", prereq: "Day 1-5", deliverables: "Memory forensics, LLM IR report", assessment: "IR methodology", resFree: "NIST 800-86", resPrem: "INE DFIR", resYT: "13Cubed, SANS", memory: "Volatility order, Event IDs" },
+            { day: 7, week: 1, date: "07/07/2026", focusMaster: "Week 1 Capstone", focusComplete: "Week 1 Capstone", topics: "Ransomware Sim - Full AI-Assisted IR Lifecycle", labs: 0, rules: 5, hours: 8, difficulty: "Advanced", prereq: "Day 1-6", deliverables: "Complete IR, Board brief", assessment: "Capstone grade", resFree: "Practice scenarios", resPrem: "HTB Forensics", resYT: "None - hands-on", memory: "Apply all Week 1 skills" },
+            { day: 8, week: 2, date: "07/08/2026", focusMaster: "CTEM Threat Hunting", focusComplete: "Blue Team Ops", topics: "Continuous Threat Exposure Management, Hypothesis hunting", labs: 2, rules: 3, hours: 8, difficulty: "Advanced", prereq: "Day 1-7", deliverables: "Hunt exercises, Exposure mapping", assessment: "Hunt report", resFree: "MITRE Shield, CIS", resPrem: "THM Defense", resYT: "Black Hills", memory: "CIS Top 18 controls" },
+            { day: 9, week: 2, date: "07/09/2026", focusMaster: "Detection-as-Code", focusComplete: "Threat Hunting", topics: "Sigma, YARA, BAS (Breach & Attack Sim) Generation", labs: 3, rules: 5, hours: 8, difficulty: "Advanced", prereq: "Day 1-8", deliverables: "Rule library (15+ deterministic rules)", assessment: "Rule validation", resFree: "MITRE CAR", resPrem: "TCM Hunting", resYT: "SANS", memory: "Hunt loop methodology" },
+            { day: 10, week: 2, date: "07/10/2026", focusMaster: "Autonomous Sandboxing", focusComplete: "SIEM & Logs", topics: "Agentic Malware Analysis, IOC auto-extraction", labs: 3, rules: 2, hours: 8, difficulty: "Advanced", prereq: "Day 1-9", deliverables: "Malware report, IOCs", assessment: "Analysis report", resFree: "Splunk Free course", resPrem: "THM SIEM", resYT: "13Cubed", memory: "Critical Event IDs" },
+            { day: 11, week: 2, date: "07/11/2026", focusMaster: "Advanced Forensics", focusComplete: "AI SOAR Automation", topics: "Volatility advanced, AI Prompt Injection detection", labs: 2, rules: 3, hours: 8, difficulty: "Expert", prereq: "Day 6, 10", deliverables: "Advanced memory analysis", assessment: "Forensics exam", resFree: "Tines Community", resPrem: "INE SOAR", resYT: "Black Hills", memory: "Governed Autonomy" },
+            { day: 12, week: 2, date: "07/12/2026", focusMaster: "Zero Trust Networking", focusComplete: "Vuln Management", topics: "Zeek, Traffic baselining, Protocol analysis in ZTNA", labs: 3, rules: 2, hours: 8, difficulty: "Advanced", prereq: "Day 1, 2", deliverables: "Zeek logs, C2 detection", assessment: "Network exam", resFree: "NIST 800-40, CISA KEV", resPrem: "Cloud Academy", resYT: "Professor Messer", memory: "CVSS, risk-based priority" },
+            { day: 13, week: 2, date: "07/13/2026", focusMaster: "MXDR Operations", focusComplete: "Purple Team", topics: "Managed XDR, CloudTrail, Cross-tenant correlation", labs: 3, rules: 3, hours: 8, difficulty: "Advanced", prereq: "Day 1-12", deliverables: "Cloud IR playbook", assessment: "Cloud quiz", resFree: "MITRE Engenuity", resPrem: "Antisyphon", resYT: "Black Hills", memory: "Detection validation" },
+            { day: 14, week: 2, date: "07/14/2026", focusMaster: "Week 2 Capstone", focusComplete: "Week 2 Capstone", topics: "AI vs AI APT Hunt - Multi-stage investigation", labs: 0, rules: 8, hours: 8, difficulty: "Expert", prereq: "Day 1-13", deliverables: "APT report, TTP mapping", assessment: "Capstone grade", resFree: "Multi-incident sim", resPrem: "HTB Labs", resYT: "None - hands-on", memory: "Apply all Week 2 skills" },
+            { day: 15, week: 3, date: "07/15/2026", focusMaster: "The Trust Gradient", focusComplete: "GRC Frameworks", topics: "Governed Autonomy, Python API integration, SOAR", labs: 3, rules: 2, hours: 8, difficulty: "Advanced", prereq: "Day 1-14", deliverables: "Automation scripts, Containment approvals", assessment: "Code review", resFree: "NIST RMF, ISO docs", resPrem: "Cloud Academy GRC", resYT: "None", memory: "Auto-execute vs Approve" },
+            { day: 16, week: 3, date: "07/16/2026", focusMaster: "Adversarial AI Intel", focusComplete: "SOC 2 Audit", topics: "Collection, Analysis of Malicious LLMs, Operationalization", labs: 2, rules: 3, hours: 8, difficulty: "Advanced", prereq: "Day 2, 8", deliverables: "TI report, IOC feeds", assessment: "TI assessment", resFree: "AICPA SOC 2 docs", resPrem: "Infosec Compliance", resYT: "None", memory: "CC1-CC9 criteria" },
+            { day: 17, week: 3, date: "07/17/2026", focusMaster: "Purple Team Ops", focusComplete: "TPRM", topics: "Detection validation, Red vs Blue collaboration", labs: 2, rules: 3, hours: 8, difficulty: "Expert", prereq: "Day 1-16", deliverables: "Purple team report", assessment: "Detection rate", resFree: "NIST 800-161", resPrem: "Infosec GRC", resYT: "None", memory: "Vendor tier 1/2/3" },
+            { day: 18, week: 3, date: "07/18/2026", focusMaster: "MTTR ROI Metrics", focusComplete: "BC/DR", topics: "Decomposing MTTR to MTTD/MTTT/MTTC, Board Reporting", labs: 1, rules: 2, hours: 8, difficulty: "Expert", prereq: "Day 1-17", deliverables: "Program framework, Financial dashboard", assessment: "Metrics quiz", resFree: "NIST 800-34", resPrem: "Cloud Academy", resYT: "None", memory: "RTO, RPO, 3-2-1 backup" },
+            { day: 19, week: 3, date: "07/19/2026", focusMaster: "Advanced Forensics", focusComplete: "Security Awareness", topics: "Timeline analysis, Artifact reconstruction", labs: 2, rules: 4, hours: 8, difficulty: "Expert", prereq: "Day 6, 11", deliverables: "Complex timeline", assessment: "Forensics exam", resFree: "SANS Awareness", resPrem: "KnowBe4 (trial)", resYT: "None", memory: "Phish-prone <5%" },
+            { day: 20, week: 3, date: "07/20/2026", focusMaster: "Multi-Tenant AI SOC", focusComplete: "Budgeting & ROI", topics: "Multi-tenant, N-able Adlumin, Scale operations with AI", labs: 2, rules: 3, hours: 8, difficulty: "Expert", prereq: "Day 1-19", deliverables: "MDR playbooks", assessment: "Platform exam", resFree: "Gartner reports", resPrem: "None", resYT: "None", memory: "40% people, 50% tech, 10% services" },
+            { day: 21, week: 3, date: "07/21/2026", focusMaster: "Final Board Capstone", focusComplete: "Final Capstone", topics: "AI-speed incident containment + CISO presentation", labs: 0, rules: 10, hours: 8, difficulty: "Expert", prereq: "Day 1-20", deliverables: "All deliverables, $1.76M ROI Pitch", assessment: "Final assessment", resFree: "Board presentation", resPrem: "None", resYT: "None - presentation", memory: "All skills integrated" }
+        ];
+
+        let currentDay = 1;
+        let userData = JSON.parse(localStorage.getItem('socTrainingData_v2')) || {};
+
+        if (Object.keys(userData).length === 0) {
+            for (let i = 1; i <= 21; i++) {
+                userData[i] = { status: 'Not Started', notes: '' };
+            }
+            saveDataLocal();
+        }
+
+        function saveDataLocal() {
+            localStorage.setItem('socTrainingData_v2', JSON.stringify(userData));
+            updateOverallProgress();
+            renderSidebar();
+        }
+
+        function manualSave() {
+            userData[currentDay].notes = document.getElementById('personal-notes').value;
+            saveDataLocal();
+            
+            const btn = document.getElementById('save-btn');
+            const originalHTML = btn.innerHTML;
+            const originalClass = btn.className;
+            
+            btn.innerHTML = '<i class="fas fa-check-circle"></i> <span>Vault Synced Successfully</span>';
+            btn.className = "mt-4 w-full bg-green-500 text-slate-900 font-extrabold py-3 px-4 rounded-xl shadow-[0_0_20px_rgba(74,222,128,0.8)] transition-all duration-300 flex items-center justify-center gap-2 border border-green-300 scale-[1.02]";
+            
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.className = originalClass;
+            }, 2000);
+        }
+
+        function renderSidebar() {
+            const navList = document.getElementById('nav-list');
+            navList.innerHTML = '';
+            let currentWeek = 0;
+            
+            trainingData.forEach(day => {
+                if (day.week !== currentWeek) {
+                    currentWeek = day.week;
+                    const weekHeader = document.createElement('div');
+                    weekHeader.className = 'px-5 py-3 mt-2 text-[10px] font-extrabold text-sky-400 uppercase tracking-widest border-y border-sky-500/20 bg-indigo-950/60 shadow-inner';
+                    weekHeader.innerText = `Phase ${currentWeek}`;
+                    navList.appendChild(weekHeader);
+                }
+                
+                const item = document.createElement('button');
+                const status = userData[day.day].status;
+                let statusIcon = 'fa-circle';
+                let iconColor = 'text-sky-800';
+                
+                if (status === 'Completed') {
+                    statusIcon = 'fa-check-circle';
+                    iconColor = 'text-green-400 drop-shadow-[0_0_8px_#4ade80]';
+                } else if (status === 'In Progress') {
+                    statusIcon = 'fa-bolt';
+                    iconColor = 'text-amber-400 drop-shadow-[0_0_8px_#fbbf24]';
+                }
+                
+                const isActive = day.day === currentDay;
+                item.className = `w-full text-left px-5 py-3 flex items-center justify-between sidebar-item group cursor-pointer border-b border-sky-500/5 ${isActive ? 'active bg-sky-900/30' : 'text-sky-200'}`;
+                
+                item.onclick = () => {
+                    uiDing.currentTime = 0;
+                    uiDing.play().catch(e => console.log("Audio play blocked"));
+                    selectDay(day.day);
+                };
+                
+                item.innerHTML = `
+                    <div class="flex items-center gap-4 truncate">
+                        <div class="w-6 flex justify-center">
+                            <i class="fas ${isActive && status === 'Not Started' ? 'fa-crosshairs text-sky-400 drop-shadow-[0_0_5px_#38bdf8]' : statusIcon} ${iconColor} text-sm sidebar-icon-default"></i>
+                        </div>
+                        <div class="flex flex-col truncate">
+                            <span class="text-xs font-bold ${isActive ? 'text-green-400' : 'text-sky-300'}">Day ${day.day}</span>
+                            <span class="text-sm truncate font-medium opacity-90 group-hover:text-white transition-colors">${day.focusMaster.split(' ')} ${day.focusMaster.split(' ')[4] || ''}</span>
+                        </div>
+                    </div>
+                `;
+                navList.appendChild(item);
+            });
+        }
+
+        const urlMap = {
+            "SANS": "https://www.sans.org/cyber-security-courses/", "NIST CSF 2.0": "https://www.nist.gov/cyberframework", "MITRE": "https://attack.mitre.org/",
+            "TCM SOC L1": "https://academy.tcm-sec.com/", "THM": "https://tryhackme.com/", "John Hammond": "https://www.youtube.com/c/JohnHammond010",
+            "Black Hills": "https://www.youtube.com/c/BlackHillsInformationSecurity", "OTX": "https://otx.alienvault.com/", "VirusTotal": "https://www.virustotal.com/"
+        };
+
+        function formatLinks(resourceString) {
+            if (!resourceString || resourceString === 'None' || resourceString.startsWith('None -')) {
+                return `<em class="text-sky-700 font-mono text-xs font-bold tracking-widest">NO ASSETS REQUIRED</em>`;
+            }
+            const items = resourceString.split(',').map(item => item.trim());
+            const linkedItems = items.map(item => {
+                const url = urlMap[item] || `https://www.google.com/search?q=${encodeURIComponent(item + ' cybersecurity 2026')}`;
+                return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:text-green-400 hover:underline inline-flex items-center gap-1.5 font-bold transition-all bg-indigo-950/60 px-2 py-1 rounded border border-sky-500/30 hover:border-green-400/50 hover:shadow-[0_0_10px_rgba(74,222,128,0.2)]">
+                    ${item} <i class="fas fa-external-link-alt text-[10px] opacity-70"></i>
+                </a>`;
+            });
+            return linkedItems.join('<span class="text-sky-800 mx-1"></span>');
+        }
+
+        function updateOverallProgress() {
+            const total = 21;
+            const completed = Object.values(userData).filter(d => d.status === 'Completed').length;
+            const percentage = Math.round((completed / total) * 100);
+            document.getElementById('progress-bar').style.width = `${percentage}%`;
+            document.getElementById('progress-text').innerText = `${percentage}%`;
+        }
+
+        function selectDay(dayNum) {
+            currentDay = dayNum;
+            const data = trainingData.find(d => d.day === dayNum);
+            const userDayData = userData[dayNum];
+            
+            renderSidebar();
+            
+            document.getElementById('header-date').innerHTML = `<i class="far fa-calendar-alt text-sky-500 mr-2"></i> ${data.date}`;
+            document.getElementById('status-select').value = userDayData.status;
+            
+            const diffColor = data.difficulty === 'Beginner' ? 'bg-green-900/40 text-green-400 border-green-500/40' :
+                              data.difficulty === 'Intermediate' ? 'bg-sky-900/40 text-sky-400 border-sky-500/40' :
+                              data.difficulty === 'Advanced' ? 'bg-amber-900/40 text-amber-400 border-amber-500/40' : 'bg-red-900/40 text-red-400 border-red-500/40';
+            
+            document.getElementById('meta-tags').innerHTML = `
+                <span class="px-3 py-1.5 text-xs font-bold rounded-lg border ${diffColor} shadow-inner uppercase tracking-wider">${data.difficulty}</span>
+                <span class="px-3 py-1.5 text-xs font-bold rounded-lg border bg-indigo-900/60 text-sky-300 border-sky-500/40 shadow-inner"><i class="far fa-clock mr-1 text-sky-500"></i> ${data.hours} HRS</span>
+                <span class="px-3 py-1.5 text-xs font-bold rounded-lg border bg-[#1e1b4b]/80 text-purple-400 border-purple-500/40 shadow-inner uppercase tracking-wider">Phase ${data.week}</span>
+            `;
+            
+            document.getElementById('day-title').innerText = `Mission ${data.day}: ${data.focusMaster}`;
+            document.getElementById('day-subtitle').innerText = `Primary Directive: ${data.focusComplete}`;
+            document.getElementById('meta-labs').innerHTML = `<i class="fas fa-flask text-sky-400 mr-1 drop-shadow-[0_0_5px_#38bdf8]"></i> ${data.labs}`;
+            document.getElementById('meta-rules').innerHTML = `<i class="fas fa-shield-virus text-green-400 mr-1 drop-shadow-[0_0_5px_#4ade80]"></i> ${data.rules}`;
+            document.getElementById('meta-assessment').innerHTML = `${data.assessment}`;
+            document.getElementById('meta-prereq').innerHTML = `${data.prereq}`;
+            
+            const topicsHtml = data.topics.split(',').map(topic => 
+                `<span class="px-3 py-1.5 bg-indigo-950/90 text-sky-200 rounded border border-sky-500/40 text-xs font-bold shadow-[0_0_10px_rgba(56,189,248,0.15)] hover:border-green-400 hover:text-green-400 transition-all cursor-default">${topic.trim()}</span>`
+            ).join('');
+            document.getElementById('tech-topics').innerHTML = topicsHtml;
+            
+            const delivs = data.deliverables.split(',');
+            const delivHtml = delivs.map(d => `
+                <li class="flex items-start gap-3 text-sm text-sky-100 font-medium bg-[#0b0f19]/70 p-3 rounded-lg border border-sky-500/20 hover:border-sky-400/50 transition-colors shadow-inner">
+                    <i class="fas fa-check-square text-green-400 mt-0.5 drop-shadow-[0_0_8px_#4ade80]"></i>
+                    <span>${d.trim()}</span>
+                </li>
+            `).join('');
+            document.getElementById('deliverables-list').innerHTML = delivHtml;
+            
+            document.getElementById('res-free').innerHTML = formatLinks(data.resFree);
+            document.getElementById('res-premium').innerHTML = formatLinks(data.resPrem);
+            document.getElementById('res-youtube').innerHTML = formatLinks(data.resYT);
+            document.getElementById('personal-notes').value = userDayData.notes || '';
+            
+            if (window.innerWidth < 1024) {
+                document.getElementById('sidebar').classList.add('-translate-x-full');
+                document.getElementById('mobile-overlay').classList.add('hidden');
+            }
+        }
+
+        function updateStatus(val) {
+            userData[currentDay].status = val;
+            saveDataLocal();
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('mobile-overlay');
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
+        window.onload = () => {
+            updateOverallProgress();
+            selectDay(1);
+        };
+    </script>
+</body>
+</html>

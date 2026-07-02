@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Street Smarts | eachoneteach.one</title>
+    <!-- Tailwind for structural power, custom CSS for Vesper's neon glows -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --neon-green: #39ff14;
+            --neon-blue: #00f3ff;
+            --text-main: #e0e0e0;
+            --text-muted: #8892b0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: #000; /* Fallback for video */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Cyberpunk Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(10, 10, 12, 0.8); }
+        ::-webkit-scrollbar-thumb { background: var(--neon-blue); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--neon-green); box-shadow: 0 0 10px var(--neon-green); }
+
+        /* The Looping Cinematic Video Background */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            object-fit: cover;
+            transform: scale(1.05); /* Prevents edge bleeding */
+            filter: saturate(0.8);
+        }
+        
+        /* Dark Gradient Overlay for Text Readability */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: linear-gradient(to bottom, rgba(10, 10, 12, 0.85), rgba(10, 10, 12, 0.7), rgba(10, 10, 12, 0.9));
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* The Blue Border Title Array */
+        .header-title-box {
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.3), inset 0 0 20px rgba(0, 243, 255, 0.1);
+            background: rgba(13, 17, 30, 0.7);
+            backdrop-filter: blur(16px);
+            border-radius: 12px;
+            padding: 2rem 3rem;
+            margin: 1.5rem auto;
+            display: inline-block;
+        }
+        .header h1 {
+            color: var(--neon-green);
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Darkened Glassmorphism Cards */
+        .card, .upsell-section {
+            background: rgba(10, 13, 22, 0.85); /* Highly darkened but slightly transparent */
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: var(--neon-blue);
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+        .card:hover {
+            border-color: rgba(0, 243, 255, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 243, 255, 0.2);
+            transform: translateY(-4px);
+            background: rgba(10, 13, 22, 0.95);
+        }
+
+        .card h2 { color: #fff; font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between; font-weight: 700; }
+        .time-badge { font-size: 0.8rem; background: rgba(0, 243, 255, 0.1); color: var(--neon-blue); padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid rgba(0, 243, 255, 0.3); font-weight: 600;}
+        .section-title { color: var(--neon-green); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: 700;}
+        
+        .links-box {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--neon-green);
+            margin: 1.5rem 0;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+        }
+        .links-box a { color: var(--neon-blue); text-decoration: none; transition: all 0.2s; font-weight: 600;}
+        .links-box a:hover { text-shadow: 0 0 12px var(--neon-blue); text-decoration: underline; color: #fff;}
+
+        /* Targeted MITRE Link Fix */
+        .mitre-link {
+            font-weight: 900 !important;
+            color: var(--neon-green) !important;
+            text-shadow: 0 0 15px rgba(57, 255, 20, 0.6) !important;
+            font-size: 1.05em;
+            letter-spacing: 0.5px;
+            text-decoration: underline;
+        }
+        .mitre-link:hover {
+            color: #fff !important;
+            text-shadow: 0 0 20px var(--neon-green) !important;
+        }
+
+        /* Upsell Gateway Section */
+        .upsell-section {
+            background: linear-gradient(145deg, rgba(18, 18, 23, 0.9) 0%, rgba(10, 25, 16, 0.9) 100%);
+            border: 2px solid var(--neon-green);
+            text-align: center;
+            box-shadow: 0 0 40px rgba(57, 255, 20, 0.15);
+            margin-top: 3rem;
+        }
+        .upsell-section h2 {
+            color: var(--neon-green);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+            font-weight: 900;
+        }
+        .upsell-list { list-style: none; margin: 2.5rem auto; max-width: 650px; text-align: left; }
+        .upsell-list li { margin-bottom: 1.25rem; padding-left: 2.5rem; position: relative; font-size: 1.05rem; font-weight: 500; line-height: 1.6;}
+        .upsell-list li::before { content: '►'; position: absolute; left: 0; color: var(--neon-blue); font-size: 1rem; top: 2px; text-shadow: 0 0 10px var(--neon-blue);}
+
+        /* Animated Gateway Button to 21dashboard.html */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: rgba(57, 255, 20, 0.1);
+            color: var(--neon-green);
+            font-size: 1.3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            padding: 1.25rem 3.5rem;
+            border: 2px solid var(--neon-green);
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+            backdrop-filter: blur(5px);
+            margin-top: 1rem;
+        }
+        .cta-button:hover {
+            background: var(--neon-green);
+            color: #000;
+            box-shadow: 0 0 40px rgba(57, 255, 20, 0.8);
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- GLOBAL BACKGROUND LOOPING VIDEO -->
+    <video src="digital street smarts.mp4" autoplay loop muted playsinline class="video-bg"></video>
+    <div class="video-overlay"></div>
+
+    <div class="container">
+
+        <header class="text-center mb-12 header">
+            <!-- TITLE WITH GLOWING BLUE BORDER -->
+            <div class="header-title-box">
+                <h1>🛡️ Digital Street Smarts</h1>
+                <p class="text-[var(--text-muted)] text-xl font-semibold tracking-wide mt-2">The 10-Minute Cyber Survival Guide</p>
+            </div>
+        </header>
+
+        <div class="grid gap-8 mb-12">
+
+            <!-- Module 1 -->
+            <div class="card">
+                <h2>Module 1: Read the Hacker's Playbook <span class="time-badge">3 Minutes</span></h2>
+                <div class="section-title">The Street Smart Lesson</div>
+                <p>Hackers do not improvise; they follow a highly structured playbook. If you know their playbook, you can see them coming.</p>
+                
+                <div class="links-box">
+                    <div class="section-title" style="margin-top:0">The Professional Links</div>
+                    <!-- TARGETED MITRE LINK FIX -->
+                    <p>Introduction to the <a href="https://attack.mitre.org/" target="_blank" class="mitre-link">MITRE ATT&CK 101 framework</a>. Explore the free MITRE ATT&CK training and the Enterprise Matrix Navigator.</p>
+                </div>
+
+                <div class="section-title">What You Learn</div>
+                <p>Attackers use 14 specific tactics (like "Initial Access" and "Credential Access") to compromise targets. We translate this into plain English so beginners realize cyber attacks are predictable, not magic.</p>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="card" style="--neon-blue: #ff00ff;">
+                <h2>Module 2: Social Engineering & The Human Exploit <span class="time-badge border-[#ff00ff]/30 text-[#ff00ff] bg-[#ff00ff]/10">3 Minutes</span></h2>
+                <div class="section-title">The Street Smart Lesson</div>
+                <p>Remember the commercial: <em>They don't break in, they log in.</em> Your biggest vulnerability isn't your firewall; it is a fake email link or a rogue OAuth consent screen.</p>
+                
+                <div class="links-box" style="border-left-color: #ff00ff;">
+                    <div class="section-title" style="margin-top:0; color: #ff00ff;">The Professional Links</div>
+                    <p>Access the <a href="#" style="color: #ff00ff;">SANS Security Awareness resources</a> and core concepts derived from platforms like KnowBe4.</p>
+                </div>
+
+                <div class="section-title">What You Learn</div>
+                <p>Learn social engineering basics—how to pause and verify before handing over credentials. The professional SOC goal is to keep an organization's "phish-prone" rate below 5%. We teach you how to apply that same rigorous standard to your personal inbox.</p>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="card" style="--neon-blue: #ffa500;">
+                <h2>Module 3: The 6-Step Survival Response <span class="time-badge border-[#ffa500]/30 text-[#ffa500] bg-[#ffa500]/10">3 Minutes</span></h2>
+                <div class="section-title">The Street Smart Lesson</div>
+                <p>If you accidentally click a malicious link or download a strange file, panic is your enemy. You need a response protocol.</p>
+                
+                <div class="links-box" style="border-left-color: #ffa500;">
+                    <div class="section-title" style="margin-top:0; color: #ffa500;">The Professional Links</div>
+                    <p>Download the free <a href="#" style="color: #ffa500;">SANS Incident Response (IR) Handbook</a> and the <a href="#" style="color: #ffa500;">SANS IR Process Poster</a>.</p>
+                </div>
+
+                <div class="section-title">What You Learn</div>
+                <p>Master the beginner-friendly version of the SANS 6-phase methodology: <strong>PICERL</strong> (Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned). Learn how to immediately contain the threat (e.g., disconnecting from Wi-Fi) rather than just shutting off the monitor.</p>
+            </div>
+
+        </div>
+
+        <!-- The Close / Upsell / Gateway -->
+        <div class="upsell-section">
+            <h2>Level Up to Professional</h2>
+            <p class="text-xl mb-8 italic opacity-90 tracking-wide text-sky-100">"You now know how to survive the digital streets. Ready to get paid to hunt threats for the world's biggest companies?"</p>
+            <p class="text-[var(--text-muted)] text-lg">Introducing the <strong>21-Day Cognitive SOC Masterclass</strong>. A comprehensive 168-hour program that prepares you to:</p>
+            
+            <ul class="upsell-list text-[var(--text-main)]">
+                <li>Build a complete, hands-on digital forensics lab using premium platforms (like TCM Security and TryHackMe) for only $41 a month.</li>
+                <li>Write professional Detection-as-Code using Sigma and YARA rules.</li>
+                <li>Perform advanced disk and memory forensics using tools like Volatility and Autopsy.</li>
+                <li>Master Governed Autonomy by deploying Agentic AI copilots that investigate alerts, correlate signals, and propose containment actions using the 4-tier "Trust Gradient".</li>
+            </ul>
+
+            <!-- GATEWAY BUTTON TO 21dashboard.html -->
+            <a href="21dashboard.html" class="cta-button group">
+                Start Complimentary <i class="fas fa-chevron-right text-lg group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>
