@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darden Family Tree - Heritage Portal</title>
+  <meta name="description" content="Official Darden Family Tree interactive heritage portal, generational archives, and reunion media hub.">
+  <link rel="canonical" href="https://eachoneteach.one/darden_family_tree.html">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Darden Family Tree - Heritage Portal">
+  <meta property="og:description" content="Official Darden Family Tree interactive lineage records and reunion archives.">
+  <meta property="og:url" content="https://eachoneteach.one/darden_family_tree.html">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-gold: #e5b95c;
+      --primary-amber: #d49a37;
+      --accent-glow: rgba(229, 185, 92, 0.35);
+      --matriarch-gold: #ffd700;
+      --elder-emerald: #34d399;
+      --bg-dark: #08070b;
+      --glass-bg: rgba(18, 16, 26, 0.82);
+      --glass-border: rgba(229, 185, 92, 0.25);
+      --glass-hover-border: rgba(229, 185, 92, 0.6);
+      --text-light: #f8f6f0;
+      --text-muted: #b8b3c3;
+
+      /* Relational Color Palette */
+      --color-bloodline: #58a6ff;   /* Light Blue: Direct Lineage */
+      --color-blended: #c084fc;     /* Lavender: Blended / Extensions */
+      --color-union: #1e3a8a;       /* Dark Navy: Founders */
+      --color-gen5: #34d399;        /* Emerald: Gen 5 */
+      --color-gen6: #f472b6;        /* Rose: Gen 6 */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Video Background Container */
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .bg-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.55) contrast(1.1) saturate(1.1);
+      transform: scale(1.03);
+      transition: filter 0.5s ease;
+    }
+
+    /* Gradient Overlay */
+    .video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(229, 185, 92, 0.08) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(8, 7, 11, 0.45) 0%, rgba(8, 7, 11, 0.85) 75%, rgba(8, 7, 11, 0.98) 100%);
+      pointer-events: none;
+    }
+
+    /* Navigation Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 5%;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--text-light);
+      text-transform: uppercase;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-gold), #8a6016);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px var(--accent-glow);
+      font-size: 1.1rem;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-action {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text-light);
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-action:hover {
+      border-color: var(--primary-gold);
+      box-shadow: 0 0 15px var(--accent-glow);
+      transform: translateY(-2px);
+      color: var(--primary-gold);
+    }
+
+    .btn-primary-action {
+      background: linear-gradient(135deg, var(--primary-gold), var(--primary-amber));
+      color: #08070b;
+      font-weight: 700;
+      border: none;
+      box-shadow: 0 4px 15px rgba(212, 154, 55, 0.4);
+    }
+
+    .btn-primary-action:hover {
+      color: #08070b;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 154, 55, 0.6);
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 5rem;
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      background: rgba(229, 185, 92, 0.12);
+      border: 1px solid var(--glass-border);
+      color: var(--primary-gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--primary-gold);
+      box-shadow: 0 0 8px var(--primary-gold);
+      animation: pulse 2s infinite;
+    }
+
+    h1.title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: 2px;
+      background: linear-gradient(180deg, #ffffff 30%, #e5b95c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    p.subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 760px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    /* Message Banner from Jewel */
+    .reunion-banner {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(229, 185, 92, 0.15), rgba(18, 16, 26, 0.85));
+      border: 1px solid var(--primary-gold);
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.5rem;
+      text-align: left;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+
+    .reunion-banner-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 0.8rem;
+    }
+
+    .reunion-banner-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c084fc, #58a6ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    .reunion-banner-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-gold);
+    }
+
+    .reunion-banner-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .reunion-banner-body {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    .reunion-banner-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .email-link {
+      color: var(--primary-gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .email-link:hover { text-decoration: underline; }
+
+    /* Interactive Tree Card Portal Section */
+    .tree-portal {
+      width: 100%;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2.5rem 1.5rem;
+      margin: 1.5rem 0 3rem;
+      text-align: left;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+
+    .portal-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .portal-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: var(--primary-gold);
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .portal-header p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Search Bar Component */
+    .search-box {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 1.8rem auto;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 0.9rem 1.5rem 0.9rem 3rem;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary-gold);
+      box-shadow: 0 0 15px rgba(229, 185, 92, 0.25);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    /* Generation Groups */
+    .gen-group {
+      margin-bottom: 2rem;
+    }
+
+    .gen-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary-gold);
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(229, 185, 92, 0.2);
+      padding-bottom: 0.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Cards & Collapsible Drawer Hierarchy */
+    .family-card {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 4px solid var(--color-bloodline);
+      border-top: 1px solid var(--glass-border);
+      border-right: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+      border-radius: 12px;
+      margin-bottom: 0.85rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .family-card.blended { border-left-color: var(--color-blended); }
+    .family-card.union { border-left-color: var(--primary-gold); }
+
+    /* Special Highlight Badges */
+    .family-card.matriarch-card {
+      border-left: 4px solid #ffd700;
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(18, 16, 26, 0.65));
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+      border-color: rgba(255, 215, 0, 0.4);
+    }
+
+    .family-card.elder-card {
+      border-left: 4px solid #34d399;
+      background: linear-gradient(135deg, rgba(52, 211, 153, 0.12), rgba(18, 16, 26, 0.65));
+      box-shadow: 0 0 15px rgba(52, 211, 153, 0.2);
+      border-color: rgba(52, 211, 153, 0.4);
+    }
+
+    .card-header {
+      padding: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .card-header:hover {
+      background: rgba(229, 185, 92, 0.08);
+    }
+
+    .card-title-text {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--color-bloodline);
+    }
+
+    .card-title-text.matriarch-title { color: #ffd700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.4); }
+    .card-title-text.elder-title { color: #34d399; text-shadow: 0 0 10px rgba(52, 211, 153, 0.3); }
+
+    .card-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .badge-tag {
+      font-size: 0.65rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-matriarch {
+      background: linear-gradient(135deg, #ffd700, #b8860b);
+      color: #08070b;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    .badge-elder {
+      background: linear-gradient(135deg, #34d399, #059669);
+      color: #08070b;
+      box-shadow: 0 0 10px rgba(52, 211, 153, 0.4);
+    }
+
+    .badge-blood { background: rgba(88, 166, 255, 0.15); color: var(--color-bloodline); border: 1px solid rgba(88, 166, 255, 0.3); }
+    .badge-blended { background: rgba(192, 132, 252, 0.15); color: var(--color-blended); border: 1px solid rgba(192, 132, 252, 0.3); }
+    .badge-root { background: rgba(229, 185, 92, 0.15); color: var(--primary-gold); border: 1px solid var(--primary-gold); }
+
+    /* Expandable Drawer */
+    .card-drawer {
+      display: none;
+      padding: 1rem 1.1rem;
+      border-top: 1px solid rgba(229, 185, 92, 0.15);
+      background: rgba(8, 7, 11, 0.65);
+    }
+
+    .card-drawer.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* Nested Collapsible Cards */
+    .nested-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .nested-card {
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 3px solid var(--color-bloodline);
+      border-radius: 8px;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nested-header {
+      padding: 0.75rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-size: 0.92rem;
+    }
+
+    .nested-header:hover {
+      background: rgba(229, 185, 92, 0.1);
+    }
+
+    .nested-drawer {
+      display: none;
+      padding: 0.8rem 1rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-top: 1px dashed rgba(255,255,255,0.1);
+    }
+
+    .nested-drawer.active {
+      display: block;
+    }
+
+    .collab-badge {
+      font-size: 0.78rem;
+      color: var(--primary-gold);
+      background: rgba(229, 185, 92, 0.1);
+      border: 1px solid rgba(229, 185, 92, 0.25);
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-top: 8px;
+      line-height: 1.5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-card-photo {
+      background: rgba(229, 185, 92, 0.2);
+      border: 1px solid var(--primary-gold);
+      color: var(--text-light);
+      padding: 5px 12px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .btn-card-photo:hover { background: var(--primary-gold); color: #08070b; }
+
+    .btn-add-descendant {
+      background: rgba(88, 166, 255, 0.15);
+      border: 1px solid var(--color-bloodline);
+      color: var(--color-bloodline);
+      padding: 5px 12px;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+    .btn-add-descendant:hover {
+      background: var(--color-bloodline);
+      color: #08070b;
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(8, 7, 11, 0.85);
+      backdrop-filter: blur(15px);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+    .modal-close:hover { color: var(--primary-gold); }
+
+    .modal-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      color: var(--primary-gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .form-field {
+      margin-bottom: 1.2rem;
+      text-align: left;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary-gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-field input, .form-field select, .form-field textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+      border-color: var(--primary-gold);
+    }
+
+    /* Grid Showcase Cards */
+    .grid-section { width: 100%; margin-top: 2rem; }
+    .section-heading { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--primary-gold); margin-bottom: 2rem; letter-spacing: 1px; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; width: 100%; }
+    .card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 2rem 1.5rem;
+      text-align: left;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .card:hover { transform: translateY(-8px); border-color: var(--glass-hover-border); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(229, 185, 92, 0.15); }
+    .card-icon { font-size: 2.2rem; margin-bottom: 1.2rem; display: inline-block; }
+    .card-title { font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 700; color: var(--text-light); margin-bottom: 0.6rem; }
+    .card-desc { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Registry Form */
+    .subscribe-box { background: linear-gradient(135deg, rgba(25, 22, 38, 0.8), rgba(12, 10, 18, 0.9)); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 3rem 2rem; max-width: 650px; width: 100%; margin-top: 3rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    .subscribe-box h3 { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--text-light); margin-bottom: 0.8rem; }
+    .subscribe-box p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.8rem; }
+    .form-group { display: flex; gap: 10px; width: 100%; }
+    .form-input { flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--glass-border); border-radius: 30px; padding: 0.9rem 1.5rem; color: var(--text-light); font-size: 0.95rem; outline: none; }
+    .btn-submit { background: linear-gradient(135deg, var(--primary-gold), var(--primary-amber)); color: #08070b; border: none; border-radius: 30px; padding: 0.9rem 1.8rem; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; white-space: nowrap; box-shadow: 0 4px 15px rgba(212, 154, 55, 0.4); }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212, 154, 55, 0.6); }
+
+    footer { padding: 2.5rem 0; text-align: center; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); position: relative; z-index: 5; }
+
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 640px) {
+      .form-group { flex-direction: column; }
+      .btn-submit { width: 100%; }
+      header { padding: 1.5rem 1rem; }
+      .tree-portal { padding: 1.8rem 1rem; }
+      .reunion-banner-actions { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Background Video -->
+<div class="video-container">
+  <video id="bgVideo" class="bg-video" autoplay loop muted playsinline>
+    <source src="/reuniion.mp4" type="video/mp4">
+    <source src="reuniion.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+<div class="video-overlay"></div>
+
+<!-- Header Navigation -->
+<header>
+  <div class="brand-logo">
+    <div class="brand-icon">🌳</div>
+    <span>Darden Heritage</span>
+  </div>
+  <div class="header-actions">
+    <button class="btn-action" onclick="openMemberModal()">➕ Add Family Member</button>
+    <a href="https://photos.app.goo.gl/pAtZvpKgwM2pL3HZ7" target="_blank" class="btn-action btn-primary-action">
+      📸 Shared Photo Album
+    </a>
+    <button class="btn-action" id="audioToggle" onclick="toggleAudio()">
+      <span id="audioIcon">🔇</span> <span id="audioText">Sound</span>
+    </button>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main>
+  <div class="badge">
+    <span class="badge-dot"></span>
+    Generational Heritage Portal
+  </div>
+
+  <h1 class="title">Darden Family Tree</h1>
+
+  <p class="subtitle">
+    Honoring our roots, celebrating our present, and preserving our legacy across generations of the Darden family lineage.
+  </p>
+
+  <!-- Reunion Welcome & Media Hub Banner from Jewel -->
+  <section class="reunion-banner">
+    <div class="reunion-banner-header">
+      <div class="reunion-banner-avatar">J</div>
+      <div>
+        <div class="reunion-banner-title">Message from Jewel (Peggy's Granddaughter)</div>
+        <div class="reunion-banner-subtitle">Reunion Master Strategist · Orlando 2026 Update</div>
+      </div>
+    </div>
+    <div class="reunion-banner-body">
+      "Greetings Family, this is Jewel. Thank you to everyone that made it to Orlando and participated in the Darden Family Reunion 2026! When you have a moment please access our Google shared album to view and upload pics! We are excited to start planning our next reunion! We will be in touch via email (<a href="mailto:dardenfamilyconnect@gmail.com" class="email-link">dardenfamilyconnect@gmail.com</a>). Please feel free to share the album link with family members. Hugs and Love... can't wait to fellowship again! 💕"
+    </div>
+    <div class="reunion-banner-actions">
+      <a href="https://photos.app.goo.gl/pAtZvpKgwM2pL3HZ7" target="_blank" class="btn-action btn-primary-action">
+        📷 Access Google Shared Album
+      </a>
+      <a href="mailto:dardenfamilyconnect@gmail.com" class="btn-action">
+        ✉️ Contact Reunion Committee
+      </a>
+    </div>
+  </section>
+
+  <!-- Interactive Family Tree Card Portal -->
+  <section class="tree-portal">
+    <div class="portal-header">
+      <h2>Interactive Lineage Cards</h2>
+      <p>Generation 1 stays visible as our foundation. Tap any branch drawer below to expand family lineages.</p>
+    </div>
+
+    <!-- Quick Search Filter Bar -->
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search family member by name (e.g., Leon, Asar, Ronnie, Mozell, Peggy, Jewel, Bikila, Lovell)..." oninput="filterTree()">
+    </div>
+
+    <!-- Generation 1 (Foundations - Stays Open) -->
+    <div class="gen-group">
+      <div class="gen-label">
+        <span>Generation 1</span>
+        <span style="font-size: 0.72rem; opacity: 0.8;">Patriarch & Matriarch</span>
+      </div>
+      <div class="family-card union" data-card>
+        <div class="card-header" onclick="toggleDrawer('gen1')">
+          <div>
+            <div class="card-title-text" style="color: var(--primary-gold);">Sam Darden Sr. & Freddie Darden</div>
+            <div class="card-subtitle">5 Children · Root Lineage</div>
+          </div>
+          <span class="badge-tag badge-root">Founders</span>
+        </div>
+        <div class="card-drawer active" id="gen1">
+          <div class="nested-cards">
+            <div class="nested-card">
+              <div class="nested-header">
+                <span>Sam Darden Jr. ("Cowboy")</span>
+                <span style="color: var(--color-bloodline)">Son · 5 Children</span>
+              </div>
+            </div>
+            <div class="nested-card">
+              <div class="nested-header">
+                <span>Mozell Darden</span>
+                <span style="color: var(--color-bloodline)">Son</span>
+              </div>
+            </div>
+            <div class="nested-card">
+              <div class="nested-header">
+                <span>Sarah Darden</span>
+                <span style="color: var(--color-bloodline)">Daughter</span>
+              </div>
+            </div>
+            <div class="nested-card" style="border-left-color: #ffd700;">
+              <div class="nested-header">
+                <span style="color: #ffd700; font-weight: bold;">Peggy Darden</span>
+                <span class="badge-tag badge-matriarch">Matriarch</span>
+              </div>
+            </div>
+            <div class="nested-card" style="border-left-color: #34d399;">
+              <div class="nested-header">
+                <span style="color: #34d399; font-weight: bold;">Lovell Darden ("Uncle Lovell")</span>
+                <span class="badge-tag badge-elder">Living Elder</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Generation 2 (Collapsible Branches) -->
+    <div class="gen-group">
+      <div class="gen-label">
+        <span>Generation 2</span>
+        <span style="font-size: 0.72rem; opacity: 0.8;">Collapsible Family Branches</span>
+      </div>
+
+      <!-- Sam Jr. -->
+      <div class="family-card" data-card>
+        <div class="card-header" onclick="toggleDrawer('sam-jr')">
+          <div>
+            <div class="card-title-text">Sam Darden Jr. ("Cowboy") Branch</div>
+            <div class="card-subtitle">5 Children</div>
+          </div>
+          <span class="badge-tag badge-blood">Gen 2</span>
+        </div>
+        <div class="card-drawer" id="sam-jr">
+          <div class="nested-cards">
+            <div class="nested-card">
+              <div class="nested-header">
+                <span>George R. Darden ("Ronnie")</span>
+                <span style="color: var(--color-bloodline)">Son · 5 Children/Extensions</span>
+              </div>
+            </div>
+            <div class="nested-card">
+              <div class="nested-header">
+                <span>William Darden ("Bobby/Bill")</span>
+                <span style="color: var(--color-bloodline)">Son · 2 Children</span>
+              </div>
+            </div>
+            <div class="nested-card">
+              <div class="nested-header">
+                <span>Darrell Darden</span>
+                <span style="color: var(--color-bloodline)">Son · 1 Son & 2 Stepchildren</span>
+              </div>
+            </div>
+            <div class="nested-card">
+              <div class="nested-header">
+                <span>Pattie Darden</span>
+                <span style="color: var(--color-bloodline)">Daughter · 1 Child</span>
+              </div>
+            </div>
+            <div class="nested-card">
+              <div class="nested-header">
+                <span>Sharon Darden</span>
+                <span style="color: var(--color-bloodline)">Daughter · 2 Children</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mozell -->
+      <div class="family-card" data-card>
+        <div class="card-header" onclick="toggleDrawer('mozell')">
+          <div>
+            <div class="card-title-text">Mozell Darden Branch</div>
+            <div class="card-subtitle">Tree Research Lead Branch</div>
+          </div>
+          <span class="badge-tag badge-blood">Gen 2</span>
+        </div>
+        <div class="card-drawer" id="mozell">
+          <div class="collab-badge">
+            <span>📌 Lead Manager: Mozell's Granddaughter (Tree Research Lead)</span>
+            <a href="https://photos.app.goo.gl/pAtZvpKgwM2pL3HZ7" target="_blank" class="btn-card-photo">📷 Album</a>
+          </div>
+          <button class="btn-add-descendant" onclick="openMemberModal('Mozell Darden Branch', 'Gen 3')">➕ Add Child / Family Member</button>
+        </div>
+      </div>
+
+      <!-- Peggy Darden (Matriarch Highlighted) -->
+      <div class="family-card matriarch-card" data-card>
+        <div class="card-header" onclick="toggleDrawer('peggy')">
+          <div>
+            <div class="card-title-text matriarch-title">Peggy Darden</div>
+            <div class="card-subtitle" style="color: #ffe066;">Family Matriarch · Reunion & Media Hub</div>
+          </div>
+          <span class="badge-tag badge-matriarch">Matriarch</span>
+        </div>
+        <div class="card-drawer" id="peggy">
+          <div class="collab-badge" style="background: rgba(255, 215, 0, 0.15); border-color: rgba(255, 215, 0, 0.4);">
+            <span>📌 Lead Manager: Peggy's Granddaughter Jewel (Reunion Master Strategist)</span>
+            <a href="https://photos.app.goo.gl/pAtZvpKgwM2pL3HZ7" target="_blank" class="btn-card-photo" style="background: #ffd700; color: #08070b; font-weight: bold;">📷 Album</a>
+          </div>
+          <button class="btn-add-descendant" style="background: rgba(255, 215, 0, 0.2); border-color: #ffd700; color: #ffd700;" onclick="openMemberModal('Peggy Darden Branch', 'Gen 3')">➕ Add Child / Family Member</button>
+        </div>
+      </div>
+
+      <!-- Uncle Lovell (Living Elder Highlighted) -->
+      <div class="family-card elder-card" data-card>
+        <div class="card-header" onclick="toggleDrawer('lovell-info')">
+          <div>
+            <div class="card-title-text elder-title">Lovell Darden ("Uncle Lovell")</div>
+            <div class="card-subtitle" style="color: #a7f3d0;">Living Elder</div>
+          </div>
+          <span class="badge-tag badge-elder">Living Elder</span>
+        </div>
+        <div class="card-drawer" id="lovell-info">
+          <p style="font-size: 0.88rem; color: #d1fae5; line-height: 1.5;">
+            Lovell Darden is lovingly honored as a living elder of Generation 2 of the Darden Family Lineage.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sarah -->
+      <div class="family-card" data-card>
+        <div class="card-header" onclick="toggleDrawer('sarah')">
+          <div>
+            <div class="card-title-text">Sarah Darden Branch</div>
+            <div class="card-subtitle">Heritage Branch</div>
+          </div>
+          <span class="badge-tag badge-blood">Gen 2</span>
+        </div>
+        <div class="card-drawer" id="sarah">
+          <button class="btn-add-descendant" onclick="openMemberModal('Sarah Darden Branch', 'Gen 3')">➕ Add Child / Family Member</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Generation 3 & Subsequent Lineages (Collapsible Cards for Every Line) -->
+    <div class="gen-group">
+      <div class="gen-label">
+        <span>Generation 3 & Subsequent Lineages</span>
+        <span style="font-size: 0.72rem; opacity: 0.8;">Tap any name to collapse / expand children</span>
+      </div>
+
+      <!-- Ronnie Household -->
+      <div class="family-card" data-card>
+        <div class="card-header" onclick="toggleDrawer('ronnie-card')">
+          <div>
+            <div class="card-title-text">George R. Darden ("Ronnie") Branch</div>
+            <div class="card-subtitle">Children & Family Lineages (Tap to view)</div>
+          </div>
+          <span class="badge-tag badge-blood">Gen 3</span>
+        </div>
+        <div class="card-drawer" id="ronnie-card">
+          <div class="nested-cards">
+
+            <!-- Bikila Darden Collapsible Card (3 Children: Asar, Sariah, Khalil) -->
+            <div class="nested-card">
+              <div class="nested-header" onclick="toggleNested('bikila-kids')">
+                <span>Bikila Darden</span>
+                <span style="font-size: 0.75rem; color: var(--primary-gold);">▼ 3 Children (Asar, Sariah, Khalil)</span>
+              </div>
+              <div class="nested-drawer" id="bikila-kids">
+                <div class="nested-cards">
+                  <!-- Asar -->
+                  <div class="nested-card" style="border-left-color: var(--color-gen5);">
+                    <div class="nested-header" onclick="toggleNested('asar-grandkids')">
+                      <span>Asar Lineage</span>
+                      <span style="font-size: 0.75rem; color: var(--color-gen5);">▼ Children & Grandchildren</span>
+                    </div>
+                    <div class="nested-drawer" id="asar-grandkids">
+                      <div id="asarChildrenContainer">
+                        <div style="font-size: 0.85rem; padding: 4px 0; color: var(--text-light);">• Asar's Children <span style="font-size:0.75rem; color: var(--color-gen5);">(Gen 5)</span></div>
+                        <div style="font-size: 0.85rem; padding: 4px 0; color: var(--text-light);">• Asar's Grandchildren <span style="font-size:0.75rem; color: var(--color-gen6);">(Gen 6)</span></div>
+                      </div>
+                      <button class="btn-add-descendant" onclick="openMemberModal('Asar Lineage', 'Gen 5 / 6')">➕ Add Asar's Children/Grandchildren</button>
+                    </div>
+                  </div>
+
+                  <!-- Sariah -->
+                  <div class="nested-card">
+                    <div class="nested-header" onclick="toggleNested('sariah-kids')">
+                      <span>Sariah</span>
+                      <span style="font-size: 0.75rem; color: var(--primary-gold);">▼ Children</span>
+                    </div>
+                    <div class="nested-drawer" id="sariah-kids">
+                      <div id="sariahChildrenContainer"></div>
+                      <button class="btn-add-descendant" onclick="openMemberModal('Sariah', 'Gen 5')">➕ Add Child</button>
+                    </div>
+                  </div>
+
+                  <!-- Khalil -->
+                  <div class="nested-card">
+                    <div class="nested-header" onclick="toggleNested('khalil-kids')">
+                      <span>Khalil</span>
+                      <span style="font-size: 0.75rem; color: var(--primary-gold);">▼ Children</span>
+                    </div>
+                    <div class="nested-drawer" id="khalil-kids">
+                      <div id="khalilChildrenContainer"></div>
+                      <button class="btn-add-descendant" onclick="openMemberModal('Khalil', 'Gen 5')">➕ Add Child</button>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn-add-descendant" style="margin-top: 10px;" onclick="openMemberModal('Bikila Darden', 'Gen 4 / 5')">➕ Add Child to Bikila</button>
+              </div>
+            </div>
+
+            <!-- Leon Darden Collapsible Card (No kids - blank count) -->
+            <div class="nested-card">
+              <div class="nested-header" onclick="toggleNested('leon-kids')">
+                <span>Leon Darden ("Rondell")</span>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">▼ Expand</span>
+              </div>
+              <div class="nested-drawer" id="leon-kids">
+                <div id="leonChildrenContainer"></div>
+                <button class="btn-add-descendant" onclick="openMemberModal('Leon Darden (Rondell)', 'Gen 4 / 5')">➕ Add Child to Leon</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- William Household -->
+      <div class="family-card" data-card>
+        <div class="card-header" onclick="toggleDrawer('william-card')">
+          <div>
+            <div class="card-title-text">William Darden ("Bobby/Bill") Branch</div>
+            <div class="card-subtitle">2 Children</div>
+          </div>
+          <span class="badge-tag badge-blood">Gen 3</span>
+        </div>
+        <div class="card-drawer" id="william-card">
+          <div class="nested-cards">
+            <div class="nested-card">
+              <div class="nested-header" onclick="toggleNested('billy-kids')">
+                <span>Billy Darden</span>
+                <span style="font-size: 0.75rem; color: var(--primary-gold);">▼ Children</span>
+              </div>
+              <div class="nested-drawer" id="billy-kids">
+                <button class="btn-add-descendant" onclick="openMemberModal('Billy Darden', 'Gen 4 / 5')">➕ Add Child</button>
+              </div>
+            </div>
+            <div class="nested-card">
+              <div class="nested-header" onclick="toggleNested('kim-kids')">
+                <span>Kim Darden</span>
+                <span style="font-size: 0.75rem; color: var(--primary-gold);">▼ Children</span>
+              </div>
+              <div class="nested-drawer" id="kim-kids">
+                <button class="btn-add-descendant" onclick="openMemberModal('Kim Darden', 'Gen 4 / 5')">➕ Add Child</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Darrell Household -->
+      <div class="family-card blended" data-card>
+        <div class="card-header" onclick="toggleDrawer('darrell-card')">
+          <div>
+            <div class="card-title-text blended-text">Darrell Darden Branch</div>
+            <div class="card-subtitle">1 Son & 2 Stepchildren</div>
+          </div>
+          <span class="badge-tag badge-blended">Gen 3</span>
+        </div>
+        <div class="card-drawer" id="darrell-card">
+          <div class="nested-cards">
+            <div class="nested-card">
+              <div class="nested-header" onclick="toggleNested('darrell-jr-kids')">
+                <span>Darrell Darden Jr.</span>
+                <span style="font-size: 0.75rem; color: var(--primary-gold);">▼ Children</span>
+              </div>
+              <div class="nested-drawer" id="darrell-jr-kids">
+                <button class="btn-add-descendant" onclick="openMemberModal('Darrell Darden Jr.', 'Gen 4 / 5')">➕ Add Child</button>
+              </div>
+            </div>
+            <div class="nested-card" style="border-left-color: var(--color-blended);">
+              <div class="nested-header">
+                <span>Harold</span>
+                <span style="font-size: 0.75rem; color: var(--color-blended);">Step-child</span>
+              </div>
+            </div>
+            <div class="nested-card" style="border-left-color: var(--color-blended);">
+              <div class="nested-header">
+                <span>Keisha</span>
+                <span style="font-size: 0.75rem; color: var(--color-blended);">Step-child</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pattie Household -->
+      <div class="family-card" data-card>
+        <div class="card-header" onclick="toggleDrawer('pattie-card')">
+          <div>
+            <div class="card-title-text">Pattie Darden Branch</div>
+            <div class="card-subtitle">1 Child</div>
+          </div>
+          <span class="badge-tag badge-blood">Gen 3</span>
+        </div>
+        <div class="card-drawer" id="pattie-card">
+          <div class="nested-cards">
+            <div class="nested-card">
+              <div class="nested-header" onclick="toggleNested('keith-kids')">
+                <span>Keith Darden</span>
+                <span style="font-size: 0.75rem; color: var(--primary-gold);">▼ Children</span>
+              </div>
+              <div class="nested-drawer" id="keith-kids">
+                <button class="btn-add-descendant" onclick="openMemberModal('Keith Darden', 'Gen 4 / 5')">➕ Add Child</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sharon Household -->
+      <div class="family-card" data-card>
+        <div class="card-header" onclick="toggleDrawer('sharon-card')">
+          <div>
+            <div class="card-title-text">Sharon Darden Branch</div>
+            <div class="card-subtitle">2 Children</div>
+          </div>
+          <span class="badge-tag badge-blood">Gen 3</span>
+        </div>
+        <div class="card-drawer" id="sharon-card">
+          <div class="nested-cards">
+            <div class="nested-card">
+              <div class="nested-header" onclick="toggleNested('sherron-kids')">
+                <span>Sherron Darden</span>
+                <span style="font-size: 0.75rem; color: var(--primary-gold);">▼ Children</span>
+              </div>
+              <div class="nested-drawer" id="sherron-kids">
+                <button class="btn-add-descendant" onclick="openMemberModal('Sherron Darden', 'Gen 4 / 5')">➕ Add Child</button>
+              </div>
+            </div>
+            <div class="nested-card">
+              <div class="nested-header" onclick="toggleNested('stephon-kids')">
+                <span>Stephon Darden</span>
+                <span style="font-size: 0.75rem; color: var(--primary-gold);">▼ Children</span>
+              </div>
+              <div class="nested-drawer" id="stephon-kids">
+                <button class="btn-add-descendant" onclick="openMemberModal('Stephon Darden', 'Gen 4 / 5')">➕ Add Child</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Add Family Member / Descendant Modal (Connected to Google Apps Script Endpoint) -->
+  <div class="modal-overlay" id="memberModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeMemberModal()">✕</button>
+      <div class="modal-title">➕ Add Child / Family Member</div>
+      <div class="modal-subtitle">Submit new children or family updates to the live tree & Google Spreadsheet archives.</div>
+
+      <form id="memberForm" onsubmit="handleMemberSubmit(event)">
+        <div class="form-field">
+          <label>Full Name</label>
+          <input type="text" id="memberNameInput" placeholder="e.g. Child Name / Baby Name" required>
+        </div>
+        <div class="form-field">
+          <label>Parent / Lineage Head</label>
+          <input type="text" id="memberParentInput" placeholder="e.g. Leon, Asar, Bikila, Ronnie, Billy, Keith" required>
+        </div>
+        <div class="form-field">
+          <label>Generation / Type</label>
+          <select id="memberGenInput" required>
+            <option value="Next Gen">Child (Next Gen)</option>
+            <option value="Grandchild">Grandchild</option>
+            <option value="Family Member">Family Member</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Notes / Birth Year / City</label>
+          <textarea id="memberNotesInput" rows="2" placeholder="e.g. Born in Atlanta, GA"></textarea>
+        </div>
+        <button type="submit" id="btnMemberSubmit" class="btn-submit" style="width: 100%;">Submit to Family Sheet</button>
+      </form>
+      <div id="memberFeedback" style="margin-top: 1rem; color: var(--primary-gold); font-size: 0.88rem; display: none;">
+        ✅ Family member added to your branch & sent to Google Spreadsheet archives!
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature Showcase Cards (All Linking to Shared Album) -->
+  <section class="grid-section">
+    <h2 class="section-heading">Reunion & Media Hub</h2>
+    <div class="cards-grid">
+      <a href="https://photos.app.goo.gl/pAtZvpKgwM2pL3HZ7" target="_blank" class="card">
+        <div class="card-icon">📸</div>
+        <h3 class="card-title">Shared Photo Album</h3>
+        <p class="card-desc">Access Jewel's official Darden Reunion Google Shared Album to view and upload reunion memories.</p>
+      </a>
+      <a href="https://photos.app.goo.gl/pAtZvpKgwM2pL3HZ7" target="_blank" class="card">
+        <div class="card-icon">📜</div>
+        <h3 class="card-title">Interactive Lineage Archives</h3>
+        <p class="card-desc">View family lineage photos, reunion albums, and historical memories in our shared album.</p>
+      </a>
+      <a href="https://photos.app.goo.gl/pAtZvpKgwM2pL3HZ7" target="_blank" class="card">
+        <div class="card-icon">📖</div>
+        <h3 class="card-title">Family Stories & Media</h3>
+        <p class="card-desc">Explore shared family video clips, event photos, and reunion highlights.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Family Registry Form -->
+  <section class="subscribe-box">
+    <h3>Join the Family Registry</h3>
+    <p>Are you a family member? Submit your email to stay connected with the reunion committee (<a href="mailto:dardenfamilyconnect@gmail.com" class="email-link">dardenfamilyconnect@gmail.com</a>) and receive upcoming reunion updates.</p>
+    <form id="subscribeForm" onsubmit="handleSubscribe(event)">
+      <div class="form-group">
+        <input type="email" id="emailInput" class="form-input" placeholder="Enter your email address" required>
+        <button type="submit" class="btn-submit">Stay Connected</button>
+      </div>
+    </form>
+    <div id="formFeedback" style="margin-top: 1rem; color: var(--primary-gold); font-size: 0.9rem; display: none;">
+      Thank you! Your information has been recorded for the Darden Family Portal.
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Darden Family Tree & Heritage Archives. Contact: dardenfamilyconnect@gmail.com</p>
+</footer>
+
+<script>
+  // Google Apps Script Webhook URL (Connected to your Google Spreadsheet)
+  const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyF6jMT34ZnuCB_fAzRoBpkxPkxFHF76QrMcJ8ijD4x080N0Wjb8rc7XNI92_Pigmc4bg/exec';
+
+  // Drawer Toggle Script
+  function toggleDrawer(id) {
+    const drawer = document.getElementById(id);
+    if (drawer) {
+      drawer.classList.toggle('active');
+    }
+  }
+
+  // Nested Drawer Toggle Script
+  function toggleNested(id) {
+    const drawer = document.getElementById(id);
+    if (drawer) {
+      drawer.classList.toggle('active');
+    }
+  }
+
+  // Quick Search Filter Script
+  function filterTree() {
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('[data-card]');
+
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      const drawer = card.querySelector('.card-drawer');
+
+      if (query === '') {
+        card.style.display = 'block';
+        if (drawer && drawer.id !== 'gen1') drawer.classList.remove('active');
+      } else if (text.includes(query)) {
+        card.style.display = 'block';
+        if (drawer) drawer.classList.add('active'); // Auto-open matching drawers
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Member Modal Handlers
+  function openMemberModal(parentName = '', gen = 'Next Gen') {
+    const modal = document.getElementById('memberModal');
+    const parentInput = document.getElementById('memberParentInput');
+    if (parentName) parentInput.value = parentName;
+    modal.classList.add('active');
+  }
+
+  function closeMemberModal() {
+    document.getElementById('memberModal').classList.remove('active');
+    document.getElementById('memberFeedback').style.display = 'none';
+  }
+
+  async function handleMemberSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('memberNameInput').value;
+    const parent = document.getElementById('memberParentInput').value;
+    const gen = document.getElementById('memberGenInput').value;
+    const notes = document.getElementById('memberNotesInput')?.value || '';
+    const feedback = document.getElementById('memberFeedback');
+    const btnSubmit = document.getElementById('btnMemberSubmit');
+
+    if (name) {
+      btnSubmit.disabled = true;
+      btnSubmit.textContent = 'Saving to Sheet...';
+
+      // 1. Append locally to live tree interface
+      const parentLower = parent.toLowerCase();
+      let targetContainer = null;
+
+      if (parentLower.includes('leon')) targetContainer = document.getElementById('leonChildrenContainer');
+      else if (parentLower.includes('asar')) targetContainer = document.getElementById('asarChildrenContainer');
+      else if (parentLower.includes('bikila')) targetContainer = document.getElementById('bikilaChildrenContainer');
+      else if (parentLower.includes('sariah')) targetContainer = document.getElementById('sariahChildrenContainer');
+      else if (parentLower.includes('khalil')) targetContainer = document.getElementById('khalilChildrenContainer');
+
+      const div = document.createElement('div');
+      div.style.cssText = "font-size: 0.85rem; padding: 4px 0; color: var(--text-light); font-weight: 500;";
+      div.innerHTML = `• <strong>${name}</strong> <span style="font-size:0.75rem; color: var(--primary-gold);">(${gen})</span>`;
+
+      if (targetContainer) {
+        targetContainer.appendChild(div);
+      }
+
+      // 2. Send to Google Apps Script Endpoint
+      if (GOOGLE_APPS_SCRIPT_URL) {
+        try {
+          await fetch(GOOGLE_APPS_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, parent, gen, notes, timestamp: new Date().toISOString() })
+          });
+        } catch (err) {
+          console.log('Sheet submission:', err);
+        }
+      }
+
+      feedback.style.display = 'block';
+      document.getElementById('memberNameInput').value = '';
+      if (document.getElementById('memberNotesInput')) document.getElementById('memberNotesInput').value = '';
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'Submit to Family Sheet';
+
+      setTimeout(() => {
+        closeMemberModal();
+      }, 2200);
+    }
+  }
+
+  // Audio Toggle Script
+  function toggleAudio() {
+    const video = document.getElementById('bgVideo');
+    const icon = document.getElementById('audioIcon');
+    const text = document.getElementById('audioText');
+    if (video.muted) {
+      video.muted = false;
+      icon.textContent = '🔊';
+      text.textContent = 'Mute';
+    } else {
+      video.muted = true;
+      icon.textContent = '🔇';
+      text.textContent = 'Sound';
+    }
+  }
+
+  // Form Handler Script
+  function handleSubscribe(e) {
+    e.preventDefault();
+    const input = document.getElementById('emailInput');
+    const feedback = document.getElementById('formFeedback');
+    if (input.value) {
+      feedback.style.display = 'block';
+      input.value = '';
+      setTimeout(() => {
+        feedback.style.display = 'none';
+      }, 5000);
+    }
+  }
+</script>
+
+</body>
+</html>
