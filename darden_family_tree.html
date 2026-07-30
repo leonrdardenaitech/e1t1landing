@@ -33,7 +33,7 @@
 
       /* Relational Color Palette */
       --color-bloodline: #58a6ff;   /* Light Blue: Direct Lineage */
-      --color-blended: #c084fc;     /* Lavender: Blended / Extensions */
+      --color-blended: #c084fc;     /* Soft Light Purple: Family Extensions */
       --color-union: #1e3a8a;       /* Dark Navy: Founders */
       --color-gen5: #34d399;        /* Emerald: Gen 5 */
       --color-gen6: #f472b6;        /* Rose: Gen 6 */
@@ -493,6 +493,10 @@
       border-top: 1px solid rgba(255,255,255,0.05);
     }
 
+    .nested-card.blended-card {
+      border-left-color: var(--color-blended);
+    }
+
     .nested-header {
       padding: 0.75rem 1rem;
       display: flex;
@@ -849,7 +853,7 @@
             <div class="nested-card">
               <div class="nested-header">
                 <span>George R. Darden ("Ronnie")</span>
-                <span style="color: var(--color-bloodline)">Son · 5 Children/Extensions</span>
+                <span style="color: var(--color-bloodline)">Son · 5 Children & Extensions</span>
               </div>
             </div>
             <div class="nested-card">
@@ -861,7 +865,7 @@
             <div class="nested-card">
               <div class="nested-header">
                 <span>Darrell Darden</span>
-                <span style="color: var(--color-bloodline)">Son · 1 Son & 2 Stepchildren</span>
+                <span style="color: var(--color-bloodline)">Son · 3 Children</span>
               </div>
             </div>
             <div class="nested-card">
@@ -1067,36 +1071,39 @@
         </div>
       </div>
 
-      <!-- Darrell Household -->
+      <!-- Darrell Household (Blended Family - Color Distinction Only) -->
       <div class="family-card blended" data-card>
         <div class="card-header" onclick="toggleDrawer('darrell-card')">
           <div>
             <div class="card-title-text blended-text">Darrell Darden Branch</div>
-            <div class="card-subtitle">1 Son & 2 Stepchildren</div>
+            <div class="card-subtitle">3 Children</div>
           </div>
           <span class="badge-tag badge-blended">Gen 3</span>
         </div>
         <div class="card-drawer" id="darrell-card">
           <div class="nested-cards">
+            <!-- Direct Bloodline Son (Light Blue) -->
             <div class="nested-card">
               <div class="nested-header" onclick="toggleNested('darrell-jr-kids')">
-                <span>Darrell Darden Jr.</span>
-                <span style="font-size: 0.75rem; color: var(--primary-gold);">▼ Children</span>
+                <span style="color: var(--color-bloodline)">Darrell Darden Jr.</span>
+                <span style="font-size: 0.75rem; color: var(--color-bloodline);">Son</span>
               </div>
               <div class="nested-drawer" id="darrell-jr-kids">
                 <button class="btn-add-descendant" onclick="openMemberModal('Darrell Darden Jr.', 'Gen 4 / 5')">➕ Add Child</button>
               </div>
             </div>
-            <div class="nested-card" style="border-left-color: var(--color-blended);">
+            <!-- Family Extension (Soft Light Purple Text) -->
+            <div class="nested-card blended-card">
               <div class="nested-header">
-                <span>Harold</span>
-                <span style="font-size: 0.75rem; color: var(--color-blended);">Step-child</span>
+                <span style="color: var(--color-blended);">Harold</span>
+                <span style="font-size: 0.75rem; color: var(--color-blended);">Son</span>
               </div>
             </div>
-            <div class="nested-card" style="border-left-color: var(--color-blended);">
+            <!-- Family Extension (Soft Light Purple Text) -->
+            <div class="nested-card blended-card">
               <div class="nested-header">
-                <span>Keisha</span>
-                <span style="font-size: 0.75rem; color: var(--color-blended);">Step-child</span>
+                <span style="color: var(--color-blended);">Keisha</span>
+                <span style="font-size: 0.75rem; color: var(--color-blended);">Daughter</span>
               </div>
             </div>
           </div>
