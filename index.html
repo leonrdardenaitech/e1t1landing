@@ -270,16 +270,25 @@
     const introVid = document.getElementById('intro-video');
     const bgVid = document.getElementById('bg-video');
 
-    // Force background video to play immediately
-    function ensureBgPlay() {
+    function playBgVideo() {
       if (bgVid) {
         bgVid.muted = true;
-        bgVid.play().catch(err => console.log("Bg video play catch:", err));
+        const playPromise = bgVid.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.log("Bg video playback waiting for interaction:", error);
+          });
+        }
       }
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      ensureBgPlay();
+    // Trigger video playback on page load, DOMContentLoaded, and window load
+    window.addEventListener('DOMContentLoaded', playBgVideo);
+    window.addEventListener('load', playBgVideo);
+
+    // Guaranteed user-interaction fallback for Chrome/Edge autoplay policies
+    ['click', 'touchstart', 'keydown', 'scroll'].forEach(evtType => {
+      document.addEventListener(evtType, playBgVideo, { passive: true });
     });
 
     if (introVid) {
@@ -287,7 +296,7 @@
     }
 
     function skipIntro() {
-      ensureBgPlay();
+      playBgVideo();
       const overlay = document.getElementById('intro-overlay');
       if (overlay) {
         overlay.classList.add('fade-out');

@@ -73,8 +73,13 @@
 </head>
 <body class="h-screen flex overflow-hidden relative">
 
-    <!-- GLOBAL BRANDED BACKGROUND -->
-    <div class="fixed inset-0 z-[-1] bg-[url('C:\\Users\\Leonr\\Downloads2\\AGY_New_Team_HQ\\Team3_Breakroom\\redblockapp\\cybereachone.png')] bg-cover bg-center bg-no-repeat opacity-5 mix-blend-overlay pointer-events-none"></div>
+    <!-- VIDEO BACKGROUND & SCRIM OVERLAY -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <video id="dash-bg-video" src="eachonebackground.mp4" autoplay loop muted playsinline preload="auto" class="w-full h-full object-cover">
+            <source src="eachonebackground.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/75 via-slate-950/65 to-slate-950/85 backdrop-blur-[1px]"></div>
+    </div>
 
     <!-- Mobile overlay -->
     <div id="mobile-overlay" class="fixed inset-0 bg-black/80 z-20 hidden md:hidden transition-opacity backdrop-blur-sm" onclick="toggleSidebar()"></div>
@@ -491,9 +496,23 @@
             overlay.classList.toggle('hidden');
         }
 
+        function playDashVideo() {
+            const v = document.getElementById('dash-bg-video');
+            if (v) {
+                v.muted = true;
+                const p = v.play();
+                if (p !== undefined) p.catch(e => console.log('Dashboard video waiting:', e));
+            }
+        }
+
+        ['click', 'touchstart', 'keydown', 'scroll'].forEach(evt => {
+            document.addEventListener(evt, playDashVideo, { passive: true });
+        });
+
         window.onload = () => {
             updateOverallProgress();
             selectDay(1);
+            playDashVideo();
         };
     </script>
 </body>
