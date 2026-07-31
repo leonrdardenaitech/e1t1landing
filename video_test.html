@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EACHONETEACH.ONE - Background Video Loop</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .fullscreen-vid {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+  }
+  .overlay-bar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    padding: 12px 24px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+    z-index: 100;
+  }
+  .play-btn {
+    background: #0284c7;
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+  }
+  .play-btn:hover { background: #0369a1; }
+</style>
+</head>
+<body>
+
+  <!-- Fullscreen Looping Video -->
+  <video id="loop-video" src="eachonebackground.mp4" autoplay loop muted playsinline controls class="fullscreen-vid">
+    <source src="eachonebackground.mp4" type="video/mp4">
+  </video>
+
+  <!-- Control Bar -->
+  <div class="overlay-bar">
+    <span style="font-size: 13px; font-weight: 600;">💎 EACHONETEACH.ONE · LOOPING VIDEO BACKGROUND</span>
+    <button class="play-btn" onclick="forcePlay()">FORCE PLAY ▶</button>
+  </div>
+
+  <script>
+    const v = document.getElementById('loop-video');
+    function forcePlay() {
+      if (v) {
+        v.muted = true;
+        v.play().catch(e => console.log('Video error:', e));
+      }
+    }
+    window.addEventListener('DOMContentLoaded', forcePlay);
+    document.addEventListener('click', forcePlay);
+  </script>
+</body>
+</html>
