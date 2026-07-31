@@ -1,156 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PassITOn - Each One Teach One</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;700&display=swap');
-        
-        body { 
-            font-family: 'Rajdhani', sans-serif; 
-            background-color: #050505; 
-            color: #e5e5e5; 
-        }
-        
-        .bg-hero { 
-            background-image: linear-gradient(to bottom, rgba(5,5,5,0.85), rgba(5,5,5,0.98)), url('background2.jpeg'); 
-            background-size: cover; 
-            background-position: center; 
-            background-attachment: fixed; 
-        }
-        
-        .corporate-glass { 
-            background: rgba(15, 15, 15, 0.6); 
-            backdrop-filter: blur(12px); 
-            border: 1px solid rgba(255,255,255,0.1); 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EACHONETEACH.ONE | PassITOn Initiative</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;600;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
-        .font-cyber { font-family: 'Orbitron', sans-serif; }
-    </style>
+<style>
+  :root {
+    --holo-cyan: #38bdf8;
+    --holo-blue: #2563eb;
+    --holo-glow: rgba(56, 189, 248, 0.4);
+    --pop-pink: #ec4899;
+    --pop-yellow: #facc15;
+    --pop-green: #22c55e;
+  }
+
+  body {
+    background-color: #030712;
+    color: #e2e8f0;
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .font-cyber { font-family: 'Orbitron', sans-serif; }
+  .font-mono-code { font-family: 'Share Tech Mono', monospace; }
+
+  /* Hologram Video Background & Scrim Overlay */
+  .video-bg-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .holo-scrim {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(3, 7, 18, 0.65) 0%, rgba(3, 7, 18, 0.92) 100%),
+                linear-gradient(to bottom, rgba(3, 7, 18, 0.7), rgba(3, 7, 18, 0.95));
+    backdrop-filter: blur(4px);
+  }
+
+  /* Hologram Text Effect */
+  .holo-text {
+    color: #ffffff;
+    text-shadow: 
+      0 0 10px rgba(56, 189, 248, 0.8),
+      0 0 20px rgba(56, 189, 248, 0.6),
+      0 0 30px rgba(37, 99, 235, 0.8);
+  }
+
+  .holo-border-box {
+    border: 2px solid var(--holo-cyan);
+    box-shadow: 0 0 25px var(--holo-glow), inset 0 0 15px rgba(56, 189, 248, 0.2);
+    border-radius: 1rem;
+  }
+
+  /* Hologram Glass Cards */
+  .holo-card {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(56, 189, 248, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .holo-card:hover {
+    border-color: var(--holo-cyan);
+    box-shadow: 0 0 35px rgba(56, 189, 248, 0.5), inset 0 0 25px rgba(56, 189, 248, 0.2);
+    transform: translateY(-2px);
+  }
+
+  /* Hologram Play Button Pulse */
+  .holo-play-btn {
+    background: radial-gradient(circle, rgba(56,189,248,0.3) 0%, rgba(37,99,235,0.8) 100%);
+    border: 3px solid var(--holo-cyan);
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.8);
+    transition: all 0.3s ease;
+  }
+  .holo-play-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 45px rgba(56, 189, 248, 1);
+  }
+
+  /* Intro Video Overlay */
+  #intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1.2s ease, visibility 1.2s ease;
+  }
+
+  #intro-overlay.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+</style>
 </head>
-<body class="bg-hero min-h-screen flex flex-col items-center p-4 md:p-8">
-    
-    <!-- Executive Header (No Logo, Added Reach & Teach Link) -->
-    <header class="w-full max-w-6xl flex flex-col md:flex-row justify-between items-center mb-12 border-b border-gray-800 pb-6 z-10 mt-4">
-        <div class="mb-6 md:mb-0">
-            <h1 class="text-3xl md:text-5xl font-cyber tracking-[0.2em] uppercase text-white drop-shadow-md">Each One Teach One</h1>
-            <h2 class="text-sm md:text-lg text-gray-400 tracking-[0.3em] uppercase mt-1">PassITOn Initiative</h2>
+<body class="relative min-h-screen flex flex-col items-center p-4 md:p-8">
+
+  <!-- CINEMATIC INTRO VIDEO OVERLAY -->
+  <div id="intro-overlay">
+    <video id="intro-video" autoplay muted playsinline class="w-full h-full object-cover">
+      <source src="Logo_figures_come_alive_sequence_202607012225.mp4" type="video/mp4">
+    </video>
+    <button onclick="skipIntro()" class="absolute bottom-8 right-8 bg-black/80 border border-cyan-400 text-cyan-300 font-mono-code text-xs px-5 py-2.5 rounded-full hover:bg-cyan-950 transition-all uppercase tracking-widest shadow-[0_0_20px_rgba(56,189,248,0.6)]">
+      SKIP INTRO ➔
+    </button>
+  </div>
+
+  <!-- LOOPING VIDEO BACKGROUND & SCRIM OVERLAY -->
+  <div class="video-bg-container">
+    <video autoplay loop muted playsinline class="video-bg">
+      <source src="eachonebackground.mp4" type="video/mp4">
+    </video>
+    <div class="holo-scrim"></div>
+  </div>
+
+  <!-- CONTENT WRAPPER -->
+  <div class="relative z-10 w-full max-w-6xl flex flex-col items-center">
+
+    <!-- EXECUTIVE HOLOGRAM HEADER -->
+    <header class="w-full flex flex-col md:flex-row justify-between items-center mb-10 border-b border-cyan-500/40 pb-6 mt-4">
+      <div class="text-center md:text-left mb-6 md:mb-0">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-cyan-950/80 border border-cyan-500/50 text-cyan-400 text-xs font-mono-code rounded-full mb-2 uppercase tracking-widest">
+          <span>💎 PASSITON INITIATIVE · BLUE HOLOGRAM ARCHITECTURE</span>
         </div>
-        <div class="flex gap-4">
-            <!-- Replace your current Reach & Teach button with this exact link -->
-<a href="reach_and_teach.html" class="bg-transparent border border-blue-500 text-blue-400 px-6 py-3 font-bold tracking-widest hover:bg-blue-900/50 transition-colors uppercase text-sm shadow-[0_0_15px_rgba(59,130,246,0.2)] flex items-center justify-center">
-    Access Reach & Teach Thread
-</a>
-            <button class="bg-gray-200 text-black px-8 py-3 font-bold tracking-widest hover:bg-white transition-colors uppercase text-sm border border-transparent hover:border-white">
-                Initiate Partnership
-            </button>
-        </div>
+        <h1 class="font-cyber text-4xl md:text-6xl text-white font-black tracking-[0.2em] uppercase holo-text">
+          EACHONETEACH.ONE
+        </h1>
+        <p class="font-mono-code text-xs md:text-sm text-cyan-300/80 tracking-[0.3em] uppercase mt-1">
+          Mentor-Based IT Training &amp; Zero Recidivism Pathway
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="SOCtraining21.html" class="bg-black/80 border border-cyan-400 text-cyan-300 hover:bg-cyan-950 font-cyber text-xs px-5 py-3 rounded-lg font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(56,189,248,0.5)] transition-all">
+          ⚡ 21-DAY SOC TRAINING
+        </a>
+        <a href="reach_and_teach.html" class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-black font-cyber text-xs px-6 py-3 rounded-lg font-black tracking-widest uppercase shadow-[0_0_25px_rgba(56,189,248,0.7)] transition-all">
+          📱 REACH &amp; TEACH APP
+        </a>
+      </div>
     </header>
 
-    <!-- TOP ROW: Corporate Briefing Grid -->
-    <main class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8 z-10 mb-8">
-        
-        <!-- Left Wing: The Mission -->
-        <div class="corporate-glass p-8 rounded-sm">
-            <h3 class="font-cyber text-2xl text-white mb-6 border-b border-gray-700 pb-2 uppercase tracking-widest">Executive Mission</h3>
-            <p class="text-lg text-gray-300 mb-8 leading-relaxed">
-                Overcoming inequality by empowering African American youth and assisting ex-convicts with higher earning career opportunities to stop recidivism.
-            </p>
-            <div class="space-y-6">
-                <div class="border-l-2 border-gray-500 pl-4">
-                    <h4 class="text-xl font-bold text-gray-100 mb-2 uppercase tracking-wider">Mentor-Based IT Training</h4>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                        Providing free, elite IT Training with career placement in AI, Robotics, Machine Learning, Coding, CyberSecurity, and Cloud Technologies.
-                    </p>
-                </div>
-                <div class="border-l-2 border-gray-500 pl-4">
-                    <h4 class="text-xl font-bold text-gray-100 mb-2 uppercase tracking-wider">The 0% Recidivism Goal</h4>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                        Diverting incarcerated individuals from life in prison by offering life skills and rehabilitation through enterprise-grade technology training.
-                    </p>
-                </div>
-            </div>
+    <!-- CENTER HOLOGRAM BANNER -->
+    <div class="w-full holo-border-box p-6 md:p-8 text-center mb-10 bg-slate-950/60 backdrop-blur-md relative overflow-hidden">
+      <div class="absolute -top-10 -left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"></div>
+      <span class="text-xs font-mono-code text-yellow-400 font-bold uppercase tracking-widest bg-black/80 px-3 py-1 rounded border border-yellow-500/40 mb-3 inline-block">
+        ★ EXECUTIVE MISSION STATEMENT ★
+      </span>
+      <h2 class="font-cyber text-2xl md:text-4xl text-white font-black uppercase tracking-wider mb-3">
+        OVERCOMING INEQUALITY THROUGH ELITE IT TRAINING
+      </h2>
+      <p class="font-sans text-gray-300 text-sm md:text-base max-w-4xl mx-auto leading-relaxed">
+        <strong class="text-cyan-400">Each One Teach One</strong> is an ancient truth: what you receive, you are meant to pass on. We empower underserved youth and justice-involved individuals with elite technology training in <strong class="text-pink-400">AI, Robotics, Cybersecurity, and Cloud Engineering</strong> to break the cycle of recidivism.
+      </p>
+    </div>
+
+    <!-- HOLOGRAM CARDS GRID -->
+    <section class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      
+      <!-- CARD 1: 21-DAY SOC TRAINING (YELLOW POP ACCENT) -->
+      <div class="holo-card p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-yellow-400">
+        <div>
+          <div class="flex justify-between items-center border-b border-gray-800 pb-3 mb-4">
+            <span class="font-mono-code text-xs text-yellow-400 font-bold uppercase">MODULE 01 · FLAGSHIP CAMPAIGN</span>
+            <span class="text-[10px] font-mono-code text-green-400 bg-black px-2 py-0.5 rounded border border-green-500/40">STATUS: LIVE NOW</span>
+          </div>
+
+          <h3 class="font-cyber text-xl text-white font-bold uppercase mb-2">DIGITAL STREET SMARTS</h3>
+          <p class="text-xs font-mono-code text-cyan-300 uppercase tracking-widest mb-3">21-Day Security Operations Center On-Ramp</p>
+          <p class="text-xs text-gray-300 leading-relaxed mb-6">
+            A free, 21-day structured curriculum for absolute beginners—taking students from core terminology to real-world SOC threat monitoring. Reinforced daily with video breakdowns.
+          </p>
         </div>
 
-        <!-- Right Wing: Corporate Call to Action -->
-        <div class="corporate-glass p-8 rounded-sm flex flex-col">
-            <h3 class="font-cyber text-2xl text-white mb-6 border-b border-gray-700 pb-2 uppercase tracking-widest">Strategic Coalitions</h3>
-            <p class="text-sm text-gray-300 mb-8 leading-relaxed">
-                We are building strategic partnerships with industry titans to establish tech incubators. Progress has been made, but now is the time to take action.
-            </p>
-            <div class="bg-black/60 border border-gray-800 p-6 rounded-sm mb-auto">
-                <h4 class="text-sm font-bold text-gray-500 mb-4 uppercase tracking-widest border-b border-gray-800 pb-2">Target Network:</h4>
-                <ul class="text-gray-300 text-sm space-y-3 font-cyber tracking-wider">
-                    <li class="flex items-center gap-2"><span class="w-2 h-2 bg-gray-500 rounded-full"></span> AMAZON OPERATIONS</li>
-                    <li class="flex items-center gap-2"><span class="w-2 h-2 bg-gray-500 rounded-full"></span> MICROSOFT IMAGINE SOCIETY</li>
-                    <li class="flex items-center gap-2"><span class="w-2 h-2 bg-gray-500 rounded-full"></span> GOOGLE & TESLA</li>
-                </ul>
-            </div>
+        <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-800">
+          <a href="SOCtraining21.html" class="flex-1 bg-black/80 border border-cyan-400 text-cyan-300 hover:border-yellow-400 hover:text-yellow-400 font-cyber font-bold text-xs py-3 rounded-lg text-center uppercase tracking-widest transition-all">
+            VIEW CURRICULUM
+          </a>
+          <a href="21dashboard.html" class="flex-1 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-black font-cyber font-black text-xs py-3 rounded-lg text-center uppercase tracking-widest shadow-[0_0_20px_rgba(250,204,21,0.5)] transition-all">
+            21-DAY DASHBOARD ➔
+          </a>
         </div>
-    </main>
+      </div>
 
-    <!-- BOTTOM ROW: Darden Trust & Anergi.io Training Wing -->
-    <section class="w-full max-w-6xl corporate-glass p-8 rounded-sm z-10 mb-12 flex flex-col lg:flex-row gap-8 border-t-4 border-t-gray-500">
-        
-        <!-- Left Side: Anergi & Darden Info -->
-        <div class="lg:w-1/2 flex flex-col justify-center">
-            <h3 class="font-cyber text-2xl text-white mb-2 uppercase tracking-widest">Infrastructure & Training</h3>
-            <p class="text-xs text-gray-500 tracking-widest uppercase mb-6 border-b border-gray-700 pb-2">Supported by Darden Trust & Anergi.io</p>
-            
-            <p class="text-sm text-gray-300 mb-6 leading-relaxed">
-                The <span class="text-white font-bold">Darden Trust</span> provides the foundational architecture and community support routing for the EachOneTeachOne initiative. 
-                In parallel, <span class="text-white font-bold">Anergi.io</span> offers elite resources and direct training pathways for students entering the Cybersecurity and IT sectors.
-            </p>
+      <!-- CARD 2: REACH & TEACH APP (PINK POP ACCENT) -->
+      <div class="holo-card p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-pink-500">
+        <div>
+          <div class="flex justify-between items-center border-b border-gray-800 pb-3 mb-4">
+            <span class="font-mono-code text-xs text-pink-400 font-bold uppercase">MODULE 02 · COMMUNITY HUB</span>
+            <span class="text-[10px] font-mono-code text-yellow-400 bg-black px-2 py-0.5 rounded border border-yellow-500/40">COMING SOON PROTOCOL</span>
+          </div>
 
-            <div class="bg-black/40 p-4 rounded border border-gray-800 mb-6">
-                <h4 class="text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Anergi Consulting Operations:</h4>
-                <ul class="text-sm text-gray-300 space-y-2">
-                    <li>&bull; Advanced Cybersecurity Protocols</li>
-                    <li>&bull; IT Infrastructure & Cloud Architecture</li>
-                    <li>&bull; Enterprise Technology Advocacy</li>
-                </ul>
-            </div>
-
-            <!-- Contact Us Button -->
-            <a href="mailto:rstallworth@anergiconsulting" class="w-full text-center bg-transparent border-2 border-gray-400 text-gray-200 font-bold py-4 rounded-sm hover:bg-gray-200 hover:text-black transition-all uppercase tracking-[0.2em] text-sm shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                Contact Us - Seek Training Material
-            </a>
+          <h3 class="font-cyber text-xl text-white font-bold uppercase mb-2">REACH &amp; TEACH APP</h3>
+          <p class="text-xs font-mono-code text-cyan-300 uppercase tracking-widest mb-3">Mentor Message Board &amp; Career Network</p>
+          <p class="text-xs text-gray-300 leading-relaxed mb-6">
+            A dedicated community space where graduates, tech mentors, and students share job leads, answer security questions, and keep the "teach one" mission alive long-term.
+          </p>
         </div>
 
-        <!-- Right Side: Video Embed -->
-        <div class="lg:w-1/2 flex flex-col">
-            <h4 class="text-sm font-bold text-gray-400 mb-4 uppercase tracking-widest flex items-center gap-2">
-                <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                Beginner Cybersecurity Briefing
-            </h4>
-            <!-- YouTube Embed iframe -->
-            <!-- Video Bypass Module -->
-            <div class="w-full bg-black/60 border border-gray-700 p-8 flex flex-col items-center justify-center rounded-sm text-center shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]">
-                
-                <!-- Custom Play Button Graphic -->
-                <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(220,38,38,0.6)] border-2 border-red-400">
-                    <span class="text-white text-xl ml-1">&#9658;</span>
-                </div>
-                
-                <h4 class="text-gray-300 font-cyber tracking-widest uppercase mb-6 text-sm">Anergi.io Cybersecurity Module</h4>
-                
-                <!-- Direct Link Out -->
-                <a href="https://youtu.be/r0vYfBNqi-k" target="_blank" class="bg-transparent border border-red-500 text-red-400 px-8 py-3 font-bold tracking-widest hover:bg-red-900/50 hover:text-white transition-colors uppercase text-xs shadow-[0_0_15px_rgba(220,38,38,0.2)]">
-                    Initialize Video Protocol
-                </a>
-            </div>
+        <div class="pt-4 border-t border-gray-800">
+          <a href="reach_and_teach.html" class="block w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-cyber font-black text-xs py-3.5 rounded-lg text-center uppercase tracking-widest shadow-[0_0_20px_rgba(236,72,153,0.5)] transition-all">
+            📱 EXPLORE APP WIREFRAME &amp; THREAD
+          </a>
+        </div>
+      </div>
 
     </section>
 
-    <!-- Sub-footer -->
-    <footer class="w-full max-w-6xl text-center mt-auto pb-8 z-10 border-t border-gray-800 pt-6">
-        <p class="text-xs text-gray-600 tracking-widest uppercase">
-            Each One Teach One &bull; Each One Reach One &bull; PassITOn Non-Profit
-        </p>
+    <!-- FEATURED YOUTUBE NETWORK EMBED (HOLOGRAM PLAY BUTTON DESIGN) -->
+    <section class="w-full holo-card p-6 md:p-8 rounded-2xl mb-12 border-l-4 border-l-cyan-400">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-800 pb-4 mb-6">
+        <div>
+          <h3 class="font-cyber text-xl text-white uppercase font-bold tracking-wider">FEATURED SYSTEM VIDEO</h3>
+          <p class="text-xs font-mono-code text-cyan-400 tracking-widest uppercase mt-0.5">SOMEBODY'S WATCHING ME · BEGINNER CYBERSECURITY BRIEFING</p>
+        </div>
+        <span class="text-xs font-mono-code text-red-400 bg-red-950/80 px-3 py-1 rounded border border-red-800 uppercase mt-2 md:mt-0">SPONSORED MEDIA</span>
+      </div>
+
+      <div class="relative w-full max-w-3xl mx-auto aspect-video rounded-xl overflow-hidden border-2 border-cyan-500/50 shadow-[0_0_35px_rgba(56,189,248,0.4)]">
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/w2hEmiBfLbo" title="Somebody's Watching Me Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- LIVE AFFILIATE: DARDEN FOUNDATION SECTION (GREEN ACCENT) -->
+    <section class="w-full holo-card p-6 md:p-8 rounded-2xl mb-12 border-2 border-green-500/60 bg-gradient-to-br from-slate-950 via-black to-emerald-950/30 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-950 border border-emerald-500 text-emerald-400 text-xs font-mono-code rounded-full mb-3 uppercase tracking-widest">
+        <span>🌿 OFFICIAL LIVE AFFILIATE NETWORK</span>
+      </div>
+      <h3 class="font-cyber text-2xl md:text-3xl text-green-400 font-extrabold uppercase tracking-wider mb-2">
+        THE DARDEN FOUNDATION
+      </h3>
+      <p class="text-xs md:text-sm text-gray-300 max-w-3xl mx-auto leading-relaxed mb-6">
+        Providing after-school STEM programs, summer tech camps, community outreach, and mentorship for the next generation of youth builders.
+      </p>
+
+      <a href="dardenToundation.html" class="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-500 hover:to-emerald-400 text-black font-cyber font-black text-xs md:text-sm px-8 py-3.5 rounded-xl uppercase tracking-widest shadow-[0_0_25px_rgba(34,197,94,0.7)] transition-all">
+        <i class="fa-solid fa-graduation-cap"></i> VISIT DARDEN FOUNDATION PORTAL
+      </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="w-full text-center py-6 border-t border-gray-800 text-xs text-gray-400 font-mono-code">
+      Each One Teach One • PassITOn Initiative © 2026. All Rights Reserved.
     </footer>
+
+  </div>
+
+  <script>
+    // Fade out Intro Video Overlay when finished or skipped
+    const introVid = document.getElementById('intro-video');
+    if (introVid) {
+      introVid.onended = () => skipIntro();
+    }
+
+    function skipIntro() {
+      const overlay = document.getElementById('intro-overlay');
+      if (overlay) {
+        overlay.classList.add('fade-out');
+        setTimeout(() => overlay.style.display = 'none', 1200);
+      }
+    }
+  </script>
 
 </body>
 </html>
