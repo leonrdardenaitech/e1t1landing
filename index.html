@@ -126,11 +126,11 @@
   </div>
 
   <!-- LOOPING VIDEO BACKGROUND & SCRIM OVERLAY -->
-  <div class="video-bg-container">
-    <video autoplay loop muted playsinline class="video-bg">
+  <div class="video-bg-container pointer-events-none">
+    <video id="bg-video" autoplay loop muted playsinline preload="auto" class="video-bg">
       <source src="eachonebackground.mp4" type="video/mp4">
     </video>
-    <div class="holo-scrim"></div>
+    <div class="holo-scrim pointer-events-none"></div>
   </div>
 
   <!-- CONTENT WRAPPER -->
@@ -266,13 +266,27 @@
   </div>
 
   <script>
-    // Fade out Intro Video Overlay when finished or skipped
     const introVid = document.getElementById('intro-video');
+    const bgVid = document.getElementById('bg-video');
+
+    // Force background video to play immediately
+    function ensureBgPlay() {
+      if (bgVid) {
+        bgVid.muted = true;
+        bgVid.play().catch(err => console.log("Bg video play catch:", err));
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      ensureBgPlay();
+    });
+
     if (introVid) {
       introVid.onended = () => skipIntro();
     }
 
     function skipIntro() {
+      ensureBgPlay();
       const overlay = document.getElementById('intro-overlay');
       if (overlay) {
         overlay.classList.add('fade-out');
