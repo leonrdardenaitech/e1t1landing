@@ -69,17 +69,36 @@
             filter: contrast(1.2) drop-shadow(0 0 15px rgba(74,222,128,0.5));
         }
 
+        /* The Looping Cinematic Video Background (Matches SOCtraining21.html) */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            object-fit: cover;
+            transform: scale(1.05);
+        }
+        
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: linear-gradient(to bottom, rgba(10, 10, 12, 0.4), rgba(10, 10, 12, 0.6));
+            pointer-events: none;
+        }
+
     </style>
 </head>
 <body class="h-screen flex overflow-hidden relative">
 
-    <!-- VIDEO BACKGROUND & SCRIM OVERLAY -->
-    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <video id="dash-bg-video" src="eachonebackground.mp4" autoplay loop muted playsinline preload="auto" class="w-full h-full object-cover">
-            <source src="eachonebackground.mp4" type="video/mp4">
-        </video>
-        <div class="absolute inset-0 bg-black/30"></div>
-    </div>
+    <!-- GLOBAL BACKGROUND LOOPING VIDEO (Matches SOCtraining21.html) -->
+    <video id="dash-bg-video" src="eachonebackground.mp4" autoplay loop muted playsinline class="video-bg"></video>
+    <div class="video-overlay"></div>
 
     <!-- Mobile overlay -->
     <div id="mobile-overlay" class="fixed inset-0 bg-black/80 z-20 hidden md:hidden transition-opacity backdrop-blur-sm" onclick="toggleSidebar()"></div>
