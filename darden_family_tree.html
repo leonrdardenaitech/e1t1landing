@@ -1832,136 +1832,135 @@
 
       </div><!-- end gen3-carousel -->
 
-    <!-- OVERARCHING COLLAPSIBLE WINDOW: GEN 5 & GEN 6 ARCHIVES -->
-    <div class="w-full max-w-7xl mx-auto my-8 px-4">
-      <div class="bg-black/90 border-2 border-emerald-500/60 rounded-2xl overflow-hidden shadow-[0_0_35px_rgba(52,211,153,0.3)]">
+        <!-- DARDEN FAMILY HERITAGE MIND MAP COMPONENT -->
+    <div class="w-full max-w-7xl mx-auto my-10 px-4">
+      <div class="scrim-box p-6 md:p-8 rounded-2xl border-2 border-amber-500/60 shadow-[0_0_40px_rgba(245,158,11,0.3)] relative overflow-hidden bg-black/95">
         
-        <!-- Header Toggle Bar -->
-        <div class="bg-gradient-to-r from-emerald-950 via-gray-950 to-black p-5 flex flex-col md:flex-row justify-between items-start md:items-center cursor-pointer border-b border-emerald-500/40" onclick="toggleDrawer('gen5-6-archive-window')">
+        <!-- Mind Map Header & Controls -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-800 pb-4 mb-6 gap-4">
           <div class="flex items-center gap-3">
-            <span class="text-2xl text-emerald-400">⚡</span>
+            <span class="text-3xl text-amber-400">🧠</span>
             <div>
-              <h3 class="font-cyber text-lg md:text-xl text-white font-extrabold uppercase tracking-wider">
-                OVERARCHING GEN 5 &amp; GEN 6 ARCHIVE WINDOW
+              <h3 class="font-cyber text-2xl text-white font-extrabold uppercase tracking-wider">
+                DARDEN FAMILY HERITAGE <span class="text-amber-400">MIND MAP</span>
               </h3>
-              <p class="font-mono-code text-xs text-emerald-400 tracking-wider">
-                Pre-Expanded Lineage Carousel · Quick Edit Name &amp; Add Descendants
+              <p class="font-mono-code text-xs text-gray-400 tracking-wider mt-0.5">
+                Scalable Generational Network (Gen 1 → Gen 6) · Click Any Node to Inspect or Edit
               </p>
             </div>
           </div>
-          <div class="mt-3 md:mt-0 flex items-center gap-3">
-            <span class="text-xs font-mono-code text-emerald-300 bg-emerald-950 px-3 py-1 rounded border border-emerald-700">
-              TAP TO EXPAND / COLLAPSE ▾
-            </span>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="zoomMindmap(0.15)" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 text-gray-200 px-3.5 py-2 rounded font-mono-code text-xs">
+              🔍 Zoom In
+            </button>
+            <button onclick="zoomMindmap(-0.15)" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 text-gray-200 px-3.5 py-2 rounded font-mono-code text-xs">
+              🔍 Zoom Out
+            </button>
+            <button onclick="resetMindmapZoom()" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 text-gray-200 px-3.5 py-2 rounded font-mono-code text-xs">
+              🔄 Reset View
+            </button>
+            <button onclick="openMindmapModal()" class="bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-black font-cyber font-bold text-xs px-5 py-2 rounded uppercase tracking-wider shadow-lg">
+              ⛶ Fullscreen View
+            </button>
           </div>
         </div>
 
-        <!-- Overarching Drawer Content -->
-        <div id="gen5-6-archive-window" class="card-drawer p-6 space-y-6">
-          <div class="flex justify-between items-center border-b border-gray-800 pb-3">
-            <span class="text-xs font-mono-code text-emerald-400 uppercase font-bold">
-              👈 SWIPE HORIZONTALLY (OR CLICK CHEVRONS ◄ ►) TO EXPLORE GEN 5 &amp; GEN 6 DESCENDANTS 👉
-            </span>
-            <div class="flex gap-2">
-              <button onclick="scrollCarousel('gen5-6-carousel', -360)" class="chevron-btn" title="Swipe Left">◄</button>
-              <button onclick="scrollCarousel('gen5-6-carousel', 360)" class="chevron-btn" title="Swipe Right">►</button>
-            </div>
-          </div>
-
-          <!-- Gen 5 & 6 Horizontal Swipe Track -->
-          <div id="gen5-6-carousel" class="carousel-container space-x-4">
+        <!-- Mind Map Viewport Container -->
+        <div class="w-full h-[540px] bg-black/95 rounded-xl border border-gray-800 overflow-auto relative p-6 cursor-grab active:cursor-grabbing reticle" id="mindmapViewport">
+          <div id="mindmapTreeContainer" class="min-w-[1100px] flex flex-col items-center space-y-8 transition-transform duration-200 transform origin-top">
             
-            <!-- Track 1: Asar Lineage (Gen 5 / Gen 6) -->
-            <div class="family-card carousel-card bg-gray-950 p-4 rounded-xl border border-emerald-500/50">
-              <div class="flex justify-between items-center mb-2">
-                <span class="font-mono-code text-xs text-emerald-400 font-bold">ASAR LINEAGE (GEN 5/6)</span>
-                <span class="text-[9px] font-mono-code text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-700">PRE-EXPANDED</span>
+            <!-- ROOT NODE: Sam Darden Sr. & Freddie Shields -->
+            <div class="flex flex-col items-center">
+              <div class="bg-gradient-to-r from-amber-600 via-yellow-400 to-amber-300 text-black p-4 rounded-2xl shadow-[0_0_30px_rgba(245,158,11,0.6)] border-2 border-yellow-200 text-center font-cyber cursor-pointer" onclick="openMemberModal('Sam Darden Sr. & Freddie Shields', 'Gen 1 Founders')">
+                <span class="text-3xl block mb-1">👑</span>
+                <h4 class="font-black text-xl uppercase tracking-wider">Sam Darden Sr. &amp; Freddie Shields</h4>
+                <span class="text-[10px] font-mono-code bg-black/80 text-yellow-300 px-3 py-0.5 rounded-full inline-block mt-1">GEN 1 ROOT FOUNDERS</span>
               </div>
-              <p class="text-xs text-gray-300 font-sans mb-3">Pre-expanded children &amp; grandchildren branch.</p>
-              <div class="space-y-2 font-mono-code text-xs">
-                <div class="flex justify-between items-center bg-black/80 p-2 rounded border border-gray-800">
-                  <span>• Asar's Children <small class="text-emerald-400">(Gen 5)</small></span>
-                  <button onclick="openMemberModal('Asar Children', 'Fix/Edit Name')" class="text-[10px] bg-amber-950 text-amber-300 border border-amber-700 px-2 py-0.5 rounded">✏️ Fix</button>
-                </div>
-                <div class="flex justify-between items-center bg-black/80 p-2 rounded border border-gray-800">
-                  <span>• Asar's Grandchildren <small class="text-pink-400">(Gen 6)</small></span>
-                  <button onclick="openMemberModal('Asar Grandchildren', 'Fix/Edit Name')" class="text-[10px] bg-amber-950 text-amber-300 border border-amber-700 px-2 py-0.5 rounded">✏️ Fix</button>
-                </div>
-              </div>
-              <button onclick="openMemberModal('Asar Lineage', 'Gen 5 / 6 Add')" class="w-full mt-3 bg-emerald-950 border border-emerald-600 text-emerald-300 hover:bg-emerald-900 font-cyber font-bold text-xs py-1.5 rounded uppercase">
-                ➕ Add Child to Asar Line
-              </button>
+              <div class="w-0.5 h-8 bg-amber-500/60 my-1"></div>
             </div>
 
-            <!-- Track 2: Sariah & Khalil Lineage (Gen 5) -->
-            <div class="family-card carousel-card bg-gray-950 p-4 rounded-xl border border-emerald-500/50">
-              <div class="flex justify-between items-center mb-2">
-                <span class="font-mono-code text-xs text-emerald-400 font-bold">SARIAH &amp; KHALIL (GEN 5)</span>
-                <span class="text-[9px] font-mono-code text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-700">PRE-EXPANDED</span>
+            <!-- GEN 2 BRANCH NODES (6 CHILDREN) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 w-full text-center font-mono-code text-xs">
+              
+              <!-- 1. Sam Jr. -->
+              <div class="bg-blue-950/90 p-3.5 rounded-xl border border-blue-500/60 shadow-md flex flex-col items-center">
+                <span class="text-amber-400 font-bold font-cyber text-sm">🤠 Sam Jr. ("Cowboy")</span>
+                <span class="text-[9px] text-blue-300 block my-1">Son · 5 Household Lines</span>
+                <button onclick="openMemberModal('Sam Darden Jr.', 'Gen 2 Branch')" class="mt-2 text-[10px] bg-blue-900/80 border border-blue-400 text-blue-200 px-2.5 py-1 rounded">✏️ Inspect / Edit</button>
               </div>
-              <p class="text-xs text-gray-300 font-sans mb-3">Bikila Darden's Gen 5 Descendant Lines.</p>
-              <div class="space-y-2 font-mono-code text-xs">
-                <div class="flex justify-between items-center bg-black/80 p-2 rounded border border-gray-800">
-                  <span>• Sariah Line</span>
-                  <button onclick="openMemberModal('Sariah', 'Fix/Edit Name')" class="text-[10px] bg-amber-950 text-amber-300 border border-amber-700 px-2 py-0.5 rounded">✏️ Fix</button>
-                </div>
-                <div class="flex justify-between items-center bg-black/80 p-2 rounded border border-gray-800">
-                  <span>• Khalil Line</span>
-                  <button onclick="openMemberModal('Khalil', 'Fix/Edit Name')" class="text-[10px] bg-amber-950 text-amber-300 border border-amber-700 px-2 py-0.5 rounded">✏️ Fix</button>
-                </div>
+
+              <!-- 2. Mozzell -->
+              <div class="bg-blue-950/90 p-3.5 rounded-xl border border-blue-500/60 shadow-md flex flex-col items-center">
+                <span class="text-amber-400 font-bold font-cyber text-sm">👴 Mozzell Darden</span>
+                <span class="text-[9px] text-blue-300 block my-1">First Son · 7 Lines</span>
+                <button onclick="openMemberModal('Mozzell Darden', 'Gen 2 Branch')" class="mt-2 text-[10px] bg-blue-900/80 border border-blue-400 text-blue-200 px-2.5 py-1 rounded">✏️ Inspect / Edit</button>
               </div>
-              <button onclick="openMemberModal('Sariah & Khalil Lineage', 'Gen 5 Add')" class="w-full mt-3 bg-emerald-950 border border-emerald-600 text-emerald-300 hover:bg-emerald-900 font-cyber font-bold text-xs py-1.5 rounded uppercase">
-                ➕ Add Child
-              </button>
+
+              <!-- 3. Johnnie -->
+              <div class="bg-purple-950/90 p-3.5 rounded-xl border border-purple-500/60 shadow-md flex flex-col items-center">
+                <span class="text-purple-300 font-bold font-cyber text-sm">👵 Johnnie Watson</span>
+                <span class="text-[9px] text-purple-300 block my-1">Daughter · 7 Lines</span>
+                <button onclick="openMemberModal('Johnnie Watson', 'Gen 2 Branch')" class="mt-2 text-[10px] bg-purple-900/80 border border-purple-400 text-purple-200 px-2.5 py-1 rounded">✏️ Inspect / Edit</button>
+              </div>
+
+              <!-- 4. Peggy -->
+              <div class="bg-yellow-950/90 p-3.5 rounded-xl border border-yellow-500/60 shadow-md flex flex-col items-center">
+                <span class="text-yellow-400 font-bold font-cyber text-sm">👵 Peggy Owens</span>
+                <span class="text-[9px] text-yellow-300 block my-1">Matriarch Line</span>
+                <button onclick="openMemberModal('Peggy Owens', 'Gen 2 Matriarch')" class="mt-2 text-[10px] bg-yellow-900/80 border border-yellow-400 text-yellow-200 px-2.5 py-1 rounded">✏️ Inspect / Edit</button>
+              </div>
+
+              <!-- 5. Lovell -->
+              <div class="bg-emerald-950/90 p-3.5 rounded-xl border border-emerald-500/60 shadow-md flex flex-col items-center">
+                <span class="text-emerald-400 font-bold font-cyber text-sm">👨 Lovell Darden</span>
+                <span class="text-[9px] text-emerald-300 block my-1">Living Elder</span>
+                <button onclick="openMemberModal('Lovell Darden', 'Gen 2 Living Elder')" class="mt-2 text-[10px] bg-emerald-900/80 border border-emerald-400 text-emerald-200 px-2.5 py-1 rounded">✏️ Inspect / Edit</button>
+              </div>
+
+              <!-- 6. Sarah -->
+              <div class="bg-blue-950/90 p-3.5 rounded-xl border border-blue-500/60 shadow-md flex flex-col items-center">
+                <span class="text-blue-300 font-bold font-cyber text-sm">👩 Sarah Darden</span>
+                <span class="text-[9px] text-blue-300 block my-1">Daughter</span>
+                <button onclick="openMemberModal('Sarah Darden', 'Gen 2 Branch')" class="mt-2 text-[10px] bg-blue-900/80 border border-blue-400 text-blue-200 px-2.5 py-1 rounded">✏️ Inspect / Edit</button>
+              </div>
+
             </div>
 
-            <!-- Track 3: Jewels & Jamila Lineage (Gen 5/6) -->
-            <div class="family-card carousel-card bg-gray-950 p-4 rounded-xl border border-emerald-500/50">
-              <div class="flex justify-between items-center mb-2">
-                <span class="font-mono-code text-xs text-yellow-400 font-bold">JEWELS &amp; JAMILA (GEN 5/6)</span>
-                <span class="text-[9px] font-mono-code text-yellow-300 bg-yellow-950 px-2 py-0.5 rounded border border-yellow-700">PRE-EXPANDED</span>
+            <!-- GEN 3 TO GEN 6 SUBNODE PREVIEW MAP -->
+            <div class="w-full bg-gray-950 p-5 rounded-xl border border-gray-800 text-left font-mono-code text-xs space-y-3">
+              <div class="flex justify-between items-center border-b border-gray-800 pb-2">
+                <span class="text-amber-400 font-bold">🌿 GEN 3 → GEN 6 DRILL-DOWN NETWORK</span>
+                <span class="text-gray-400 text-[10px]">SCALABLE MAP NODES</span>
               </div>
-              <p class="text-xs text-gray-300 font-sans mb-3">Peggy Darden / Debra Profitt Descendant Lines.</p>
-              <div class="space-y-2 font-mono-code text-xs">
-                <div class="flex justify-between items-center bg-black/80 p-2 rounded border border-gray-800">
-                  <span>• Raevon Profitt <small class="text-emerald-400">(Gen 5)</small></span>
-                  <button onclick="openMemberModal('Raevon Profitt', 'Fix/Edit Name')" class="text-[10px] bg-amber-950 text-amber-300 border border-amber-700 px-2 py-0.5 rounded">✏️ Fix</button>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-[11px]">
+                <div class="bg-black/90 p-3 rounded border border-gray-800">
+                  <span class="text-amber-300 font-bold block mb-1">🤠 SAM JR. SUB-NODES</span>
+                  <p class="text-gray-300 leading-relaxed">• Ronnie (Leon, Bikila → Asar, Sariah, Khalil)<br>• Bobby/Bill (Billy, Kim)<br>• Darrell (Darrell Jr, Harold, Keisha)</p>
                 </div>
-                <div class="flex justify-between items-center bg-black/80 p-2 rounded border border-gray-800">
-                  <span>• Ashley &amp; Alani <small class="text-pink-400">(Gen 6)</small></span>
-                  <button onclick="openMemberModal('Ashley & Alani', 'Fix/Edit Name')" class="text-[10px] bg-amber-950 text-amber-300 border border-amber-700 px-2 py-0.5 rounded">✏️ Fix</button>
-                </div>
-              </div>
-              <button onclick="openMemberModal('Debra Profitt Lineage', 'Gen 5/6 Add')" class="w-full mt-3 bg-yellow-950 border border-yellow-600 text-yellow-300 hover:bg-yellow-900 font-cyber font-bold text-xs py-1.5 rounded uppercase">
-                ➕ Add Child to Jewels Line
-              </button>
-            </div>
 
-            <!-- Track 4: Thomas Earl, Jason, Jeremy Lineage (Gen 5/6) -->
-            <div class="family-card carousel-card bg-gray-950 p-4 rounded-xl border border-emerald-500/50">
-              <div class="flex justify-between items-center mb-2">
-                <span class="font-mono-code text-xs text-emerald-400 font-bold">DONNA WATKINS LINEAGE (GEN 5/6)</span>
-                <span class="text-[9px] font-mono-code text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-700">PRE-EXPANDED</span>
-              </div>
-              <p class="text-xs text-gray-300 font-sans mb-3">Johnnie Darden / Donna Branch Descendants.</p>
-              <div class="space-y-2 font-mono-code text-xs">
-                <div class="flex justify-between items-center bg-black/80 p-2 rounded border border-gray-800">
-                  <span>• Thomas Jr, Skylar, Archer, Ace</span>
-                  <button onclick="openMemberModal('Thomas Earl Watkins Kids', 'Fix/Edit Name')" class="text-[10px] bg-amber-950 text-amber-300 border border-amber-700 px-2 py-0.5 rounded">✏️ Fix</button>
+                <div class="bg-black/90 p-3 rounded border border-gray-800">
+                  <span class="text-amber-300 font-bold block mb-1">👴 MOZZELL SUB-NODES</span>
+                  <p class="text-gray-300 leading-relaxed">• Bernard (Beverly, Latasha, Larry)<br>• Mozzell Jr. (Mozzell 3rd, Kattely, Lisa)<br>• Derrick, Carol, Sheila, Mary, Lolita</p>
                 </div>
-                <div class="flex justify-between items-center bg-black/80 p-2 rounded border border-gray-800">
-                  <span>• Devin, Amya, Alexander, Joy</span>
-                  <button onclick="openMemberModal('Jason Kids', 'Fix/Edit Name')" class="text-[10px] bg-amber-950 text-amber-300 border border-amber-700 px-2 py-0.5 rounded">✏️ Fix</button>
+
+                <div class="bg-black/90 p-3 rounded border border-gray-800">
+                  <span class="text-yellow-400 font-bold block mb-1">👵 PEGGY SUB-NODES</span>
+                  <p class="text-gray-300 leading-relaxed">• Derrick Owens (Aaron, Marques, Stephan, Darnielle)<br>• Debra Profitt (Jamila, Jewels → Ashley, Alani)</p>
+                </div>
+
+                <div class="bg-black/90 p-3 rounded border border-gray-800">
+                  <span class="text-purple-300 font-bold block mb-1">👵 JOHNNIE SUB-NODES</span>
+                  <p class="text-gray-300 leading-relaxed">• Irving (Erika, Joel)<br>• Darlene (Ronyelle, Eric, Melinda)<br>• Donna (Thomas Jr, Devin, Joy, Jayson)</p>
                 </div>
               </div>
-              <button onclick="openMemberModal('Donna Watkins Lineage', 'Gen 5/6 Add')" class="w-full mt-3 bg-emerald-950 border border-emerald-600 text-emerald-300 hover:bg-emerald-900 font-cyber font-bold text-xs py-1.5 rounded uppercase">
-                ➕ Add Child to Donna Line
-              </button>
             </div>
 
           </div>
         </div>
       </div>
+    </div>
     </div>
     </div>
 
