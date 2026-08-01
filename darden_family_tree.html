@@ -823,7 +823,56 @@
       .tree-portal { padding: 1.8rem 1rem; }
       .reunion-banner-actions { flex-direction: column; align-items: stretch; }
     }
-  </style>
+  
+    /* Horizontal Swipe Carousel Engine */
+    .carousel-container {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel-container::-webkit-scrollbar {
+      height: 6px;
+    }
+    .carousel-container::-webkit-scrollbar-track {
+      background: rgba(8, 7, 11, 0.8);
+      border-radius: 10px;
+    }
+    .carousel-container::-webkit-scrollbar-thumb {
+      background: var(--primary-gold);
+      border-radius: 10px;
+    }
+
+    .carousel-card {
+      flex: 0 0 320px;
+      scroll-snap-align: start;
+      min-width: 290px;
+    }
+
+    .chevron-btn {
+      background: rgba(229, 185, 92, 0.15);
+      border: 1px solid var(--primary-gold);
+      color: var(--primary-gold);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+    .chevron-btn:hover {
+      background: var(--primary-gold);
+      color: #08070b;
+    }
+
+</style>
 </head>
 
 <body>
@@ -950,32 +999,48 @@
       <input type="text" id="searchInput" class="search-input" placeholder="Search family member by name (e.g., Leon, Asar, Ronnie, Mozell, Peggy, Jewel, Bikila, Lovell)..." oninput="filterTree()">
     </div>
 
-    <!-- Generation 1 (Foundations - Stays Open) -->
+        <!-- Generation 1 (Foundations - Stays Open) -->
     <div class="gen-group">
       <div class="gen-label">
         <span>Generation 1</span>
-        <span style="font-size: 0.72rem; opacity: 0.8;">Patriarch & Matriarch</span>
+        <span style="font-size: 0.72rem; opacity: 0.8;">Patriarch &amp; Matriarch</span>
       </div>
-      <div class="family-card union" data-card>
-        <div class="card-header" onclick="toggleDrawer('gen1')">
-          <div>
-            <div class="card-title-text" style="color: var(--primary-gold);">Sam Darden Sr. &amp; Freddie Darden</div>
-            <div class="card-subtitle">6 Children · Root Lineage</div>
+      <div class="family-card union text-center p-4" data-card>
+        <div class="card-header flex-col justify-center text-center" onclick="toggleDrawer('gen1')">
+          <!-- Large Crest Icon -->
+          <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-tr from-amber-600 via-yellow-400 to-amber-300 flex items-center justify-center text-black text-2xl font-black shadow-[0_0_25px_rgba(245,158,11,0.6)]">
+            👑
           </div>
-          <span class="badge-tag badge-root">Founders</span>
+          <div>
+            <div class="card-title-text text-xl md:text-2xl font-black" style="color: var(--primary-gold);">Sam Darden Sr. &amp; Freddie Shields</div>
+            <div class="card-subtitle text-xs text-amber-300/80 mt-1">6 Children · Root Lineage Anchor</div>
+          </div>
+          <span class="badge-tag badge-root mt-2 inline-block">Founders</span>
         </div>
-        <div class="card-drawer active" id="gen1">
+        <div class="card-drawer active text-left" id="gen1">
           <div class="nested-cards">
             <div class="nested-card">
               <div class="nested-header">
-                <span>Mozzell Darden</span>
-                <span style="color: var(--color-bloodline)">First Son · 9 Children</span>
+                <span>Sam Darden Jr. ("Cowboy")</span>
+                <span style="color: var(--color-bloodline)">Son · 5 Children Household Lines</span>
               </div>
             </div>
             <div class="nested-card">
               <div class="nested-header">
-                <span>Sam Darden Jr. ("Cowboy")</span>
-                <span style="color: var(--color-bloodline)">Son · 5 Children</span>
+                <span>Mozzell Darden</span>
+                <span style="color: var(--color-bloodline)">Son · 7 Primary Lines</span>
+              </div>
+            </div>
+            <div class="nested-card">
+              <div class="nested-header">
+                <span>Johnnie Darden (Johnnie Watson)</span>
+                <span style="color: var(--color-bloodline)">Daughter · 7 Children Lineage</span>
+              </div>
+            </div>
+            <div class="nested-card" style="border-left-color: #ffd700;">
+              <div class="nested-header">
+                <span style="color: #ffd700; font-weight: bold;">Peggy Darden (Peggy Owens)</span>
+                <span class="badge-tag badge-matriarch">Matriarch</span>
               </div>
             </div>
             <div class="nested-card" style="border-left-color: #34d399;">
@@ -990,31 +1055,19 @@
                 <span style="color: var(--color-bloodline)">Daughter</span>
               </div>
             </div>
-            <div class="nested-card" style="border-left-color: #ffd700;">
-              <div class="nested-header">
-                <span style="color: #ffd700; font-weight: bold;">Peggy Owens (Peggy Darden)</span>
-                <span class="badge-tag badge-matriarch">Matriarch</span>
-              </div>
-            </div>
-            <div class="nested-card">
-              <div class="nested-header">
-                <span>Johnnie Watson (Johnnie Darden)</span>
-                <span style="color: var(--color-bloodline)">Daughter · 7 Children</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Generation 2 (Collapsible Branches) -->
+    <!-- Generation 2 (Collapsible Branches - 6 Children of Sam Sr. & Freddie Shields) -->
     <div class="gen-group">
       <div class="gen-label">
         <span>Generation 2</span>
-        <span style="font-size: 0.72rem; opacity: 0.8;">Collapsible Family Branches</span>
+        <span style="font-size: 0.72rem; opacity: 0.8;">The 6 Children of Sam Darden Sr. &amp; Freddie Shields</span>
       </div>
 
-      <!-- Sam Jr. -->
+      <!-- 1. Sam Jr. ("Cowboy") Branch -->
       <div class="family-card" data-card>
         <div class="card-header" onclick="toggleDrawer('sam-jr')">
           <div>
@@ -1028,7 +1081,7 @@
             <div class="nested-card">
               <div class="nested-header">
                 <span>George R. Darden ("Ronnie")</span>
-                <span style="color: var(--color-bloodline)">Son · 5 Children & Extensions</span>
+                <span style="color: var(--color-bloodline)">Son · 5 Children &amp; Extensions</span>
               </div>
             </div>
             <div class="nested-card">
@@ -1059,12 +1112,12 @@
         </div>
       </div>
 
-      <!-- Mozzell Darden Branch (First Son) -->
+      <!-- 2. Mozzell Darden Branch -->
       <div class="family-card" data-card>
         <div class="card-header" onclick="toggleDrawer('mozell')">
           <div>
-            <div class="card-title-text">Mozzell Darden Branch (First Son)</div>
-            <div class="card-subtitle">First Son of Sam Darden Sr. · 7 Primary Lines &amp; Descendants</div>
+            <div class="card-title-text">Mozzell Darden Branch</div>
+            <div class="card-subtitle">Son of Sam Darden Sr. · 7 Primary Lines &amp; Descendants</div>
           </div>
           <span class="badge-tag badge-blood">Gen 2</span>
         </div>
@@ -1075,7 +1128,6 @@
           </div>
 
           <div class="nested-cards">
-            <!-- Bernard Darden -->
             <div class="nested-card">
               <div class="nested-header" onclick="toggleNested('bernard-kids')">
                 <span>👨 Bernard Darden <small class="text-amber-400 font-normal">(Oldest Son)</small></span>
@@ -1090,7 +1142,6 @@
               </div>
             </div>
 
-            <!-- Mozzell Darden Jr. -->
             <div class="nested-card">
               <div class="nested-header" onclick="toggleNested('mozzell-jr-kids')">
                 <span>👨 Mozzell Darden Jr.</span>
@@ -1105,7 +1156,6 @@
               </div>
             </div>
 
-            <!-- Derrick Darden -->
             <div class="nested-card">
               <div class="nested-header" onclick="toggleNested('derrick-kids')">
                 <span>👨 Derrick Darden</span>
@@ -1120,7 +1170,6 @@
               </div>
             </div>
 
-            <!-- Carol Darden ("Bunny") -->
             <div class="nested-card">
               <div class="nested-header" onclick="toggleNested('carol-kids')">
                 <span>👩 Carol Darden ("Bunny")</span>
@@ -1131,7 +1180,6 @@
               </div>
             </div>
 
-            <!-- Sheila Darden -->
             <div class="nested-card">
               <div class="nested-header" onclick="toggleNested('sheila-kids')">
                 <span>👩 Sheila Darden</span>
@@ -1145,7 +1193,6 @@
               </div>
             </div>
 
-            <!-- Mary Washington -->
             <div class="nested-card">
               <div class="nested-header" onclick="toggleNested('mary-kids')">
                 <span>👩 Mary Washington</span>
@@ -1165,7 +1212,6 @@
               </div>
             </div>
 
-            <!-- Lolita Darden -->
             <div class="nested-card">
               <div class="nested-header" onclick="toggleNested('lolita-kids')">
                 <span>👩 Lolita Darden</span>
@@ -1182,8 +1228,92 @@
                 </div>
               </div>
             </div>
+          </div>
+          <button class="btn-add-descendant mt-3" onclick="openMemberModal('Mozzell Darden Branch', 'Gen 3')">➕ Add Child / Family Member</button>
+        </div>
+      </div>
 
-            <!-- Donald -->
+      <!-- 3. Johnnie Darden Branch (Johnnie Watson) -->
+      <div class="family-card" data-card>
+        <div class="card-header" onclick="toggleDrawer('johnnie-watson')">
+          <div>
+            <div class="card-title-text">Johnnie Darden Branch (Johnnie Watson)</div>
+            <div class="card-subtitle">Daughter of Sam Darden Sr. · 7 Children &amp; Descendants</div>
+          </div>
+          <span class="badge-tag badge-blood">Gen 2</span>
+        </div>
+        <div class="card-drawer" id="johnnie-watson">
+          <div class="collab-badge mb-3">
+            <span>📌 Lead Manager: Johnnie Watson Family Research</span>
+            <a href="https://photos.app.goo.gl/pAtZvpKgwM2pL3HZ7" target="_blank" class="btn-card-photo">📷 Album</a>
+          </div>
+
+          <div class="nested-cards">
+            <div class="nested-card">
+              <div class="nested-header" onclick="toggleNested('irving-kids')">
+                <span>👨 Irving</span>
+                <span style="font-size: 0.75rem; color: var(--color-bloodline);">▼ 2 Children (7 Grandchildren)</span>
+              </div>
+              <div class="nested-drawer" id="irving-kids">
+                <div class="p-2 space-y-1.5 text-xs font-mono-code text-gray-300">
+                  <div>👩 Erika</div>
+                  <div class="ml-4 text-emerald-400">
+                    <div>├─ 👧 Alisyah Watson</div>
+                    <div>├─ 👧 Hailie</div>
+                    <div>├─ 👦 Sebastion</div>
+                    <div>└─ 👧 Naomi</div>
+                  </div>
+                  <div>👨 Joel</div>
+                  <div class="ml-4 text-emerald-400">
+                    <div>├─ 👩 Elaine</div>
+                    <div>├─ 👧 Adriana</div>
+                    <div>└─ 👧 Genisis Watson</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="nested-card">
+              <div class="nested-header" onclick="toggleNested('louis-kids')">
+                <span>👨 Louis</span>
+                <span style="font-size: 0.75rem; color: var(--color-bloodline);">▼ 2 Children</span>
+              </div>
+              <div class="nested-drawer" id="louis-kids">
+                <div class="p-2 space-y-1 text-xs font-mono-code text-gray-300">
+                  <div>👦 Louis Jr.</div>
+                  <div>👧 Nadine</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="nested-card">
+              <div class="nested-header" onclick="toggleNested('charles-w-kids')">
+                <span>👨 Charles</span>
+                <span style="font-size: 0.75rem; color: var(--color-bloodline);">▼ 1 Child</span>
+              </div>
+              <div class="nested-drawer" id="charles-w-kids">
+                <div class="p-2 text-xs font-mono-code text-gray-300">👧 Jenean</div>
+              </div>
+            </div>
+
+            <div class="nested-card">
+              <div class="nested-header" onclick="toggleNested('darlene-kids')">
+                <span>👩 Darlene</span>
+                <span style="font-size: 0.75rem; color: var(--color-bloodline);">▼ 3 Children (2 Grandchildren)</span>
+              </div>
+              <div class="nested-drawer" id="darlene-kids">
+                <div class="p-2 space-y-1 text-xs font-mono-code text-gray-300">
+                  <div>👩 Ronyelle Stallworth</div>
+                  <div class="ml-4 text-emerald-400">
+                    <div>├─ 👧 Nyalla</div>
+                    <div>└─ 👦 Aden</div>
+                  </div>
+                  <div>👨 Eric</div>
+                  <div>👩 Melinda</div>
+                </div>
+              </div>
+            </div>
+
             <div class="nested-card">
               <div class="nested-header">
                 <span>👨 Donald</span>
@@ -1191,7 +1321,6 @@
               </div>
             </div>
 
-            <!-- Donna -->
             <div class="nested-card">
               <div class="nested-header" onclick="toggleNested('donna-kids')">
                 <span>👩 Donna</span>
@@ -1224,7 +1353,6 @@
               </div>
             </div>
 
-            <!-- Beverly -->
             <div class="nested-card">
               <div class="nested-header" onclick="toggleNested('beverly-w-kids')">
                 <span>👩 Beverly</span>
@@ -1234,13 +1362,12 @@
                 <div class="p-2 text-xs font-mono-code text-gray-300">👦 Jonathan</div>
               </div>
             </div>
-
           </div>
           <button class="btn-add-descendant mt-3" onclick="openMemberModal('Johnnie Watson Branch', 'Gen 3')">➕ Add Child / Family Member</button>
         </div>
       </div>
 
-      <!-- Peggy Darden (Peggy Owens) Branch -->
+      <!-- 4. Peggy Darden Branch (Peggy Owens) -->
       <div class="family-card matriarch-card" data-card>
         <div class="card-header" onclick="toggleDrawer('peggy')">
           <div>
@@ -1256,7 +1383,6 @@
           </div>
 
           <div class="nested-cards">
-            <!-- Derrick Owens -->
             <div class="nested-card" style="border-left-color: #ffd700;">
               <div class="nested-header" onclick="toggleNested('derrick-owens-kids')">
                 <span>👨 Derrick Owens</span>
@@ -1273,7 +1399,6 @@
               </div>
             </div>
 
-            <!-- Debra Profitt -->
             <div class="nested-card" style="border-left-color: #ffd700;">
               <div class="nested-header" onclick="toggleNested('debra-profitt-kids')">
                 <span>👩 Debra Profitt</span>
@@ -1292,27 +1417,68 @@
               </div>
             </div>
           </div>
-
-          <button class="btn-add-descendant mt-3" style="background: rgba(255, 215, 0, 0.2); border-color: #ffd700; color: #ffd700;" onclick="openMemberModal('Peggy Owens Branch', 'Gen 3')">➕ Add Child / Family Member</button>
+          <button class="btn-add-descendant mt-3" style="background: rgba(255, 215, 0, 0.2); border-color: #ffd700; color: #ffd700;" onclick="openMemberModal('Peggy Darden Branch', 'Gen 3')">➕ Add Child / Family Member</button>
         </div>
       </div>
 
-    <!-- Generation 3 & Subsequent Lineages (Collapsible Cards for Every Line) -->
-    <div class="gen-group">
-      <div class="gen-label">
-        <span>Generation 3 & Subsequent Lineages</span>
-        <span style="font-size: 0.72rem; opacity: 0.8;">Tap any name to collapse / expand children</span>
-      </div>
-
-      <!-- Ronnie Household -->
-      <div class="family-card" data-card>
-        <div class="card-header" onclick="toggleDrawer('ronnie-card')">
+      <!-- 5. Lovell Darden Branch ("Uncle Lovell") -->
+      <div class="family-card elder-card" data-card>
+        <div class="card-header" onclick="toggleDrawer('lovell-info')">
           <div>
-            <div class="card-title-text">George R. Darden ("Ronnie") Branch</div>
-            <div class="card-subtitle">Children & Family Lineages (Tap to view)</div>
+            <div class="card-title-text elder-title">Lovell Darden Branch ("Uncle Lovell")</div>
+            <div class="card-subtitle" style="color: #a7f3d0;">Son of Sam Darden Sr. · Living Elder &amp; Tree Originator</div>
           </div>
-          <span class="badge-tag badge-blood">Gen 3</span>
+          <span class="badge-tag badge-elder">Living Elder</span>
         </div>
+        <div class="card-drawer" id="lovell-info">
+          <div class="collab-badge mb-3" style="background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.4);">
+            <span>📌 Lead Manager: Lovell's Granddaughter (Tree Research Lead)</span>
+            <a href="https://photos.app.goo.gl/pAtZvpKgwM2pL3HZ7" target="_blank" class="btn-card-photo" style="background: #34d399; color: #08070b; font-weight: bold;">📷 Album</a>
+          </div>
+          <button class="btn-add-descendant mt-3" style="background: rgba(52, 211, 153, 0.2); border-color: #34d399; color: #34d399;" onclick="openMemberModal('Lovell Darden Branch', 'Gen 3')">➕ Add Child / Family Member</button>
+        </div>
+      </div>
+
+      <!-- 6. Sarah Darden Branch -->
+      <div class="family-card" data-card>
+        <div class="card-header" onclick="toggleDrawer('sarah-info')">
+          <div>
+            <div class="card-title-text">Sarah Darden Branch</div>
+            <div class="card-subtitle">Daughter of Sam Darden Sr.</div>
+          </div>
+          <span class="badge-tag badge-blood">Gen 2</span>
+        </div>
+        <div class="card-drawer" id="sarah-info">
+          <button class="btn-add-descendant" onclick="openMemberModal('Sarah Darden Branch', 'Gen 3')">➕ Add Child / Family Member</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Generation 3 & Subsequent Lineages (Horizontal Swipe Carousel Engine) -->
+    <div class="gen-group">
+      <div class="gen-label flex justify-between items-center mb-3">
+        <div>
+          <span>Generation 3 · Household Lines</span>
+          <span style="font-size: 0.72rem; opacity: 0.8;" class="block mt-0.5">👈 SWIPE HORIZONTALLY OR CLICK CHEVRONS ◄ ► TO EXPLORE BRANCHES 👉</span>
+        </div>
+        <!-- Chevron Controls -->
+        <div class="flex gap-2">
+          <button onclick="scrollCarousel('gen3-carousel', -340)" class="chevron-btn" title="Swipe Left">◄</button>
+          <button onclick="scrollCarousel('gen3-carousel', 340)" class="chevron-btn" title="Swipe Right">►</button>
+        </div>
+      </div>
+
+      <div id="gen3-carousel" class="carousel-container">
+        <!-- Ronnie Household -->
+        <div class="family-card carousel-card" data-card>
+          <div class="card-header" onclick="toggleDrawer('ronnie-card')">
+            <div>
+              <div class="card-title-text">George R. Darden ("Ronnie") Branch</div>
+              <div class="card-subtitle">Children &amp; Family Lineages (Tap to view)</div>
+            </div>
+            <span class="badge-tag badge-blood">Gen 3</span>
+          </div>
         <div class="card-drawer" id="ronnie-card">
           <div class="nested-cards">
 
@@ -1384,7 +1550,7 @@
       </div>
 
       <!-- William Household -->
-      <div class="family-card" data-card>
+      <div class="family-card carousel-card" data-card>
         <div class="card-header" onclick="toggleDrawer('william-card')">
           <div>
             <div class="card-title-text">William Darden ("Bobby/Bill") Branch</div>
@@ -1417,7 +1583,7 @@
       </div>
 
       <!-- Darrell Household (Blended Family - Color Distinction Only) -->
-      <div class="family-card blended" data-card>
+      <div class="family-card blended carousel-card" data-card>
         <div class="card-header" onclick="toggleDrawer('darrell-card')">
           <div>
             <div class="card-title-text blended-text">Darrell Darden Branch</div>
@@ -1456,7 +1622,7 @@
       </div>
 
       <!-- Pattie Household -->
-      <div class="family-card" data-card>
+      <div class="family-card carousel-card" data-card>
         <div class="card-header" onclick="toggleDrawer('pattie-card')">
           <div>
             <div class="card-title-text">Pattie Darden Branch</div>
@@ -1480,7 +1646,7 @@
       </div>
 
       <!-- Sharon Household -->
-      <div class="family-card" data-card>
+      <div class="family-card carousel-card" data-card>
         <div class="card-header" onclick="toggleDrawer('sharon-card')">
           <div>
             <div class="card-title-text">Sharon Darden Branch</div>
@@ -1511,6 +1677,7 @@
           </div>
         </div>
       </div>
+    </div><!-- end gen3-carousel -->
 
     </div>
 
