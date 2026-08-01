@@ -2310,6 +2310,36 @@
       }, 5000);
     }
   }
+
+    let mindmapZoomScale = 1.0;
+    function zoomMindmap(delta) {
+      mindmapZoomScale = Math.max(0.6, Math.min(1.8, mindmapZoomScale + delta));
+      const tree = document.getElementById('mindmapTreeContainer');
+      if (tree) tree.style.transform = `scale(${mindmapZoomScale})`;
+    }
+
+    function resetMindmapZoom() {
+      mindmapZoomScale = 1.0;
+      const tree = document.getElementById('mindmapTreeContainer');
+      if (tree) tree.style.transform = `scale(1.0)`;
+    }
+
+    function openMindmapModal() {
+      const modal = document.getElementById('mindmapModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeMindmapModal() {
+      const modal = document.getElementById('mindmapModal');
+      if (modal) {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
+    }
+
 </script>
 
 </body>
