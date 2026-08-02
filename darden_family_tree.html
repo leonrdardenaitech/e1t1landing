@@ -817,11 +817,76 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 640px) {
-      .form-group { flex-direction: column; }
-      .btn-submit { width: 100%; }
-      header { padding: 1.5rem 1rem; }
-      .tree-portal { padding: 1.8rem 1rem; }
-      .reunion-banner-actions { flex-direction: column; align-items: stretch; }
+      header {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 1.2rem 1rem;
+        text-align: center;
+      }
+      .header-actions {
+        width: 100%;
+        justify-content: center;
+      }
+      .btn-action {
+        font-size: 0.78rem;
+        padding: 0.5rem 0.9rem;
+      }
+      main {
+        padding: 1rem 0.75rem 3rem;
+      }
+      h1.title {
+        font-size: clamp(1.8rem, 7.5vw, 2.8rem);
+        margin-bottom: 0.8rem;
+      }
+      p.subtitle {
+        font-size: 0.92rem;
+        margin-bottom: 1.5rem;
+      }
+      .reunion-banner {
+        padding: 1.25rem 1rem;
+        border-radius: 16px;
+      }
+      .reunion-banner-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group {
+        flex-direction: column;
+      }
+      .btn-submit {
+        width: 100%;
+      }
+      .tree-portal {
+        padding: 1.25rem 0.75rem;
+        border-radius: 16px;
+      }
+      .carousel-card {
+        flex: 0 0 86vw;
+        min-width: 260px;
+        max-width: 320px;
+      }
+      .mindmap-container {
+        padding: 16px 8px;
+        min-height: 420px;
+      }
+      .tree div.leaf {
+        font-size: 11px;
+        padding: 7px 11px;
+        border-radius: 0 18px 0 18px;
+      }
+      .tree div.leaf.root-leaf {
+        font-size: 13px;
+        padding: 9px 15px;
+      }
+      .tree ul {
+        padding-top: 12px;
+      }
+      .tree li {
+        padding: 12px 2px 0 2px;
+      }
     }
   
     /* Horizontal Swipe Carousel Engine */
