@@ -872,6 +872,129 @@
       color: #08070b;
     }
 
+
+    /* Organic Leaf Tree Mind Map Engine */
+    .mindmap-container {
+      background: linear-gradient(180deg, #092309 0%, #030a03 100%);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 30px;
+      overflow-x: auto;
+      min-height: 600px;
+    }
+
+    .tree ul {
+      padding-top: 20px; 
+      position: relative;
+      display: flex;
+      justify-content: center;
+      transition: all 0.5s;
+    }
+
+    .tree li {
+      float: left; 
+      text-align: center;
+      list-style-type: none;
+      position: relative;
+      padding: 20px 5px 0 5px;
+      transition: all 0.5s;
+    }
+
+    .tree li::before, .tree li::after {
+      content: '';
+      position: absolute; 
+      top: 0; 
+      right: 50%;
+      border-top: 2px solid #5a8231;
+      width: 50%; 
+      height: 20px;
+    }
+
+    .tree li::after {
+      right: auto; 
+      left: 50%;
+      border-left: 2px solid #5a8231;
+    }
+
+    .tree li:only-child::after, .tree li:only-child::before {
+      display: none;
+    }
+
+    .tree li:only-child { 
+      padding-top: 0;
+    }
+
+    .tree li:first-child::before, .tree li:last-child::after {
+      border: 0 none;
+    }
+
+    .tree li:last-child::before {
+      border-right: 2px solid #5a8231;
+      border-radius: 0 5px 0 0;
+    }
+
+    .tree li:first-child::after {
+      border-radius: 5px 0 0 0;
+    }
+
+    .tree ul ul::before {
+      content: '';
+      position: absolute; 
+      top: 0; 
+      left: 50%;
+      border-left: 2px solid #5a8231;
+      width: 0; 
+      height: 20px;
+    }
+
+    .tree div.leaf {
+      border: 2px solid #3d6e1d;
+      padding: 10px 16px;
+      text-decoration: none;
+      color: #d1ffd1;
+      background: #184018;
+      font-size: 13px;
+      font-weight: bold;
+      display: inline-block;
+      border-radius: 0 25px 0 25px; 
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 3px 3px 8px rgba(0,0,0,0.6);
+      white-space: nowrap;
+    }
+
+    .tree div.leaf:hover {
+      background: #2a6b2a;
+      color: #fff;
+      border-color: #71b835;
+      transform: scale(1.06);
+    }
+
+    .tree div.leaf.root-leaf {
+      background: linear-gradient(135deg, #15803d, #047857);
+      border-color: #f59e0b;
+      color: #fef08a;
+      font-size: 15px;
+      padding: 12px 22px;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+    }
+
+    .tree div.leaf.gen2-leaf {
+      background: #064e3b;
+      border-color: #34d399;
+      color: #a7f3d0;
+    }
+
+    .tree div.leaf.blended-leaf {
+      background: #3b0764;
+      border-color: #c084fc;
+      color: #f3e8ff;
+    }
+
+    .leaf-hidden {
+      display: none !important;
+    }
+
 </style>
   <script src="https://cdn.jsdelivr.net/npm/d3@7">
   <script>
@@ -1447,7 +1570,36 @@
     document.addEventListener("DOMContentLoaded", () => {
       setTimeout(initD3Mindmap, 400);
     });
-  </script>
+  
+    // Interactivity: Click a leaf to toggle its child branches
+    document.addEventListener("DOMContentLoaded", function() {
+      const leaves = document.querySelectorAll('.tree div.leaf');
+      
+      leaves.forEach(leaf => {
+        leaf.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const children = this.nextElementSibling;
+          if (children && children.tagName.toLowerCase() === 'ul') {
+            children.classList.toggle('leaf-hidden');
+          }
+        });
+      });
+    });
+
+    function expandAllLeaves() {
+      document.querySelectorAll('.tree ul').forEach(ul => {
+        ul.classList.remove('leaf-hidden');
+      });
+    }
+
+    function collapseDeepLeaves() {
+      // Collapse everything deeper than level 2
+      document.querySelectorAll('.tree ul ul ul').forEach(ul => {
+        ul.classList.add('leaf-hidden');
+      });
+    }
+
+</script>
 
 </script>
 </head>
