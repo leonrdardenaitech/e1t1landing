@@ -3,102 +3,433 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy-First Protocol | Own Your AI Data Sovereignty</title>
-    <meta name="description" content="Privacy-First Protocol: Strictly local offline AI environment engineered to eliminate cloud data leaks for B2B compliance.">
+    <title>Privacy-First Protocol | Gamified Obliteration Challenge</title>
+    <meta name="description" content="Secure your data safety, complete 8 levels of hyperframe node challenges, defeat the final boss, and obliterate cloud security risks.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Share+Tech+Mono&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030712; }
         .font-mono-code { font-family: 'Share Tech Mono', monospace; }
+        .font-cyber { font-family: 'Orbitron', sans-serif; }
+
+        /* 3D Card Flip CSS */
+        .flip-card {
+            background-color: transparent;
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 240px;
+            text-align: left;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        .flip-card:hover .flip-card-inner, .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* Stage Cleared Glow Animation */
+        .node-cleared {
+            border-color: #38bdf8 !important;
+            background: rgba(14, 165, 233, 0.15) !important;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4) !important;
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950">
+<body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950">
 
     <!-- GLOBAL B2B HEADER -->
-    <header class="w-full border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+    <header class="w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-blue-400 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-cyan-500/20">
-                    <i class="fa-solid fa-lock"></i>
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-sky-400 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-cyan-500/20">
+                    <i class="fa-solid fa-shield-halved"></i>
                 </div>
                 <div>
                     <a href="privacy_first_protocol.html" class="font-bold text-lg text-white hover:text-cyan-400 transition-colors">Privacy-First Protocol</a>
-                    <p class="text-xs text-slate-400 font-mono-code">Local AI Vault &amp; Zero-Cloud Security</p>
+                    <p class="text-xs text-slate-400 font-mono-code">Local AI Vault &amp; Obliteration Challenge</p>
                 </div>
             </div>
             <nav class="flex flex-wrap items-center gap-3 text-xs font-semibold">
-                <a href="portfolio.html" class="px-3.5 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-all">PORTFOLIO</a>
-                <a href="burn-1.html" class="px-3.5 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-all">BURN-1 KIOSK</a>
-                <a href="privacy_first_protocol.html" class="px-3.5 py-2 rounded-lg bg-cyan-600 text-slate-950 font-bold shadow-md shadow-cyan-600/30">LOCAL AI VAULT</a>
-                <a href="SOCtraining21.html" class="px-3.5 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-all">SOC LMS</a>
+                <a href="portfolio.html" class="px-3.5 py-2 rounded-lg bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white transition-all">PORTFOLIO</a>
+                <a href="burn-1.html" class="px-3.5 py-2 rounded-lg bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white transition-all">BURN-1 KIOSK</a>
+                <a href="privacy_first_protocol.html" class="px-3.5 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/30">PRIVACY PROTOCOL</a>
+                <a href="SOCtraining21.html" class="px-3.5 py-2 rounded-lg bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white transition-all">SOC 21-DAY LMS</a>
             </nav>
         </div>
     </header>
 
     <!-- BANNER -->
-    <div class="bg-cyan-950/60 border-b border-cyan-500/30 text-center py-2 text-xs font-mono-code text-cyan-300 uppercase tracking-widest">
-        🔒 STRICTLY LOCAL ENVIRONMENT · ZERO CLOUD DATA TRANSFER GUARANTEE
+    <div class="bg-cyan-950/80 border-b border-cyan-500/40 text-center py-2.5 px-4 text-xs font-mono-code text-cyan-300 uppercase tracking-widest flex items-center justify-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>STRICTLY LOCAL ENVIRONMENT · ZERO CLOUD DATA TRANSFER GUARANTEE</span>
     </div>
 
-    <!-- MAIN BRIEFING -->
+    <!-- MAIN GAMIFIED PROTOCOL CONTENT -->
     <main class="flex-grow">
-        <section class="py-16 md:py-24 max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-16">
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6">
+        
+        <!-- SECTION 1: HERO & BURNING ANTENNAS VIDEO -->
+        <section class="py-12 md:py-16 max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-8">
+                <span class="px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono-code text-xs uppercase tracking-widest mb-4 inline-block">
+                    ⚡ PRIVACY-FIRST PROTOCOL &amp; OBLITERATION CHALLENGE
+                </span>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-cyber tracking-tight uppercase mb-4 leading-tight">
                     Own Your AI Data.
                 </h1>
-                <p class="text-slate-300 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed">
+                <p class="text-slate-300 text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
                     Protect proprietary business data, client records, and strategic communications with a fully air-gapped, local LLM vault that operates 100% offline.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                <!-- VIDEO / DEMO BRIEFING -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl">
-                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-shield-halved text-cyan-400"></i> Phase 1: Local AI Isolation Briefing
-                    </h3>
-                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800 flex items-center justify-center">
-                        <div class="text-center p-6">
-                            <i class="fa-solid fa-play-circle text-5xl text-cyan-400 mb-3 cursor-pointer hover:scale-110 transition-transform"></i>
-                            <p class="text-xs text-slate-400 font-mono-code">Local AI Vault Technical Briefing</p>
+            <!-- BURNING ANTENNAS VIDEO CONTAINER -->
+            <div class="max-w-4xl mx-auto bg-slate-900 border-2 border-cyan-500/40 rounded-2xl p-4 sm:p-6 shadow-2xl mb-10">
+                <div class="flex justify-between items-center mb-3">
+                    <span class="font-mono-code text-xs text-cyan-400 font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-tower-cell text-amber-400 mr-2"></i> BURNING ANTENNAS BRIEFING
+                    </span>
+                    <span class="text-[10px] font-mono-code text-slate-400 bg-slate-800 px-2.5 py-0.5 rounded">PROTOCOL INTRO</span>
+                </div>
+                <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800 shadow-inner">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/w2hEmiBfLbo" title="Burning Antennas Privacy Briefing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- BABY BLUE GAME INSTRUCTIONS CALLOUT -->
+            <div class="max-w-4xl mx-auto bg-slate-900/90 border-2 border-sky-400/60 rounded-2xl p-6 sm:p-8 text-center shadow-[0_0_30px_rgba(56,189,248,0.2)] mb-16 relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-sky-400/10 rounded-full blur-2xl"></div>
+                <div class="inline-block px-3 py-1 bg-sky-950 border border-sky-400 text-sky-300 font-mono-code text-xs rounded-full uppercase tracking-widest mb-3 font-bold">
+                    🎮 BURN-1 GAME INSTRUCTIONS
+                </div>
+                <h2 class="font-cyber text-lg sm:text-2xl text-sky-300 font-extrabold uppercase tracking-wider mb-4">
+                    Complete the levels by Securing your Safety, finally to Obliterate the Final Boss.
+                </h2>
+                <p class="text-slate-300 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+                    Each Hyperframe node below represents a critical security level. Click the <strong class="text-sky-300 font-mono-code">[EXECUTE]</strong> button on each node as you complete its requirements to clear the stage and advance toward Level 8!
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 2: HYPERFRAMES 8-LEVEL NODE CHALLENGE -->
+        <section class="py-12 bg-slate-950/80 border-t border-slate-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-cyber text-2xl sm:text-4xl text-white font-black uppercase tracking-wider mb-2">
+                        Hyperframe Security Nodes (Levels 1 – 8)
+                    </h2>
+                    <p class="font-mono-code text-xs sm:text-sm text-sky-400 uppercase tracking-widest">
+                        Clear all 8 stages to unlock the Final Boss Obliteration Defeat Badge
+                    </p>
+                </div>
+
+                <!-- 8 LEVELS GRID -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    
+                    <!-- NODE 1 -->
+                    <div id="node-1" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 01</span>
+                                <span id="status-1" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-2">Local Environment Audit</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Scan local drives for cloud telemetry and unencrypted LLM endpoints.</p>
+                        </div>
+                        <button onclick="executeNode(1)" id="btn-1" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                            [EXECUTE LEVEL 1]
+                        </button>
+                    </div>
+
+                    <!-- NODE 2 -->
+                    <div id="node-2" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 02</span>
+                                <span id="status-2" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-2">Air-Gap Isolation</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Disconnect outbound network sockets during sensitive inference tasks.</p>
+                        </div>
+                        <button onclick="executeNode(2)" id="btn-2" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                            [EXECUTE LEVEL 2]
+                        </button>
+                    </div>
+
+                    <!-- NODE 3 -->
+                    <div id="node-3" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 03</span>
+                                <span id="status-3" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-2">Local Model Loading</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Initialize GGUF/Ollama weights locally on dedicated GPU RAM.</p>
+                        </div>
+                        <button onclick="executeNode(3)" id="btn-3" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                            [EXECUTE LEVEL 3]
+                        </button>
+                    </div>
+
+                    <!-- NODE 4 -->
+                    <div id="node-4" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 04</span>
+                                <span id="status-4" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-2">Prompt Sanitization</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Scrub PII, secret keys, and credentials before local prompt ingestion.</p>
+                        </div>
+                        <button onclick="executeNode(4)" id="btn-4" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                            [EXECUTE LEVEL 4]
+                        </button>
+                    </div>
+
+                    <!-- NODE 5 -->
+                    <div id="node-5" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 05</span>
+                                <span id="status-5" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-2">Vector Database Vault</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Store sensitive business embeddings in encrypted local Chroma/FAISS storage.</p>
+                        </div>
+                        <button onclick="executeNode(5)" id="btn-5" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                            [EXECUTE LEVEL 5]
+                        </button>
+                    </div>
+
+                    <!-- NODE 6 -->
+                    <div id="node-6" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 06</span>
+                                <span id="status-6" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-2">SOC Compliance Bridge</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Map local AI operations to HIPAA, SOC 2, and MITRE ATT&amp;CK guidelines.</p>
+                        </div>
+                        <button onclick="executeNode(6)" id="btn-6" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                            [EXECUTE LEVEL 6]
+                        </button>
+                    </div>
+
+                    <!-- NODE 7 -->
+                    <div id="node-7" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 07</span>
+                                <span id="status-7" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-2">Kiosk Rapid Deploy</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Package local vault configurations into instant $50 deployment zips.</p>
+                        </div>
+                        <button onclick="executeNode(7)" id="btn-7" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                            [EXECUTE LEVEL 7]
+                        </button>
+                    </div>
+
+                    <!-- NODE 8 (FINAL BOSS OBLITERATION) -->
+                    <div id="node-8" class="bg-gradient-to-b from-red-950/40 to-slate-900 border-2 border-red-500/60 rounded-xl p-5 flex flex-col justify-between transition-all shadow-[0_0_20px_rgba(239,68,68,0.3)]">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-mono-code text-xs text-red-400 font-bold">LEVEL 08 · FINAL BOSS</span>
+                                <span id="status-8" class="text-[10px] font-mono-code text-red-400 bg-red-950/80 px-2 py-0.5 rounded border border-red-700">LOCKED</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-2">The Obliteration Challenge</h3>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">Execute final obliteration of all cloud surveillance risks and defeat the boss.</p>
+                        </div>
+                        <button onclick="executeNode(8)" id="btn-8" class="w-full py-2 bg-red-700 hover:bg-red-600 border border-red-400 text-white font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider shadow-lg">
+                            💥 [OBLITERATE FINAL BOSS]
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: LEVEL 8 OBLITERATION VIDEO & INTERACTIVE FLIP CARDS COURSE -->
+        <section id="obliteration-course-section" class="py-16 max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <span class="px-3 py-1 rounded-full bg-red-950 text-red-400 font-mono-code text-xs uppercase tracking-widest border border-red-800 mb-3 inline-block">
+                    🔥 LEVEL 8 OBLITERATION COURSE MODULES
+                </span>
+                <h2 class="font-cyber text-2xl sm:text-4xl text-white font-extrabold uppercase tracking-wider mb-3">
+                    The Obliteration Course Curriculum
+                </h2>
+                <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto">
+                    Hover or tap any card below to flip and inspect the core technical modules.
+                </p>
+            </div>
+
+            <!-- LEVEL 8 OBLITERATION VIDEO -->
+            <div class="max-w-4xl mx-auto bg-slate-900 border-2 border-red-500/50 rounded-2xl p-4 sm:p-6 shadow-2xl mb-12">
+                <div class="flex justify-between items-center mb-3">
+                    <span class="font-mono-code text-xs text-red-400 font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-fire text-orange-400 mr-2"></i> LEVEL 8 OBLITERATION VIDEO BRIEFING
+                    </span>
+                    <span class="text-[10px] font-mono-code text-white bg-red-800 px-2.5 py-0.5 rounded font-bold">FINAL BOSS BATTLE</span>
+                </div>
+                <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/w2hEmiBfLbo" title="Obliteration Challenge Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- 3D FLIP CARDS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                
+                <!-- CARD 1 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-slate-900 border border-slate-800 border-t-4 border-t-cyan-400">
+                            <div>
+                                <span class="font-mono-code text-xs text-cyan-400 font-bold">MODULE 01</span>
+                                <h3 class="font-bold text-white text-lg mt-2 mb-3">Zero-Cloud Air Gapping</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed">Isolate local LLMs from public API endpoints to prevent telemetry leaks.</p>
+                            </div>
+                            <div class="text-xs font-mono-code text-cyan-300">Tap / Hover to Flip ➔</div>
+                        </div>
+                        <div class="flip-card-back bg-cyan-950 border border-cyan-500">
+                            <div>
+                                <span class="font-mono-code text-xs text-cyan-300 font-bold">TECHNICAL BREAKDOWN</span>
+                                <h4 class="font-bold text-white text-sm mt-2 mb-2">Hardware Socket Locking</h4>
+                                <p class="text-slate-200 text-xs leading-relaxed">Configures local loopback routing, firewall rules, and offline GGUF inference engines.</p>
+                            </div>
+                            <span class="text-[10px] font-mono-code text-cyan-400 uppercase font-bold">Status: Complete</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- SPECIFICATIONS LIST -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-2xl font-extrabold text-white mb-6">Enterprise Data Sovereignty Specs</h3>
-                        <ul class="space-y-4 text-sm text-slate-300 mb-8">
-                            <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-circle-check text-cyan-400 mt-1"></i>
-                                <div><strong>Total Isolation:</strong> Operates completely offline without external API dependencies or cloud logging.</div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-circle-check text-cyan-400 mt-1"></i>
-                                <div><strong>B2B Compliance:</strong> Meets HIPAA, SOC 2, and internal IP protection requirements.</div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-circle-check text-cyan-400 mt-1"></i>
-                                <div><strong>Zero Leak Architecture:</strong> Ensures proprietary prompts and dataset queries remain strictly on-device.</div>
-                            </li>
-                        </ul>
+                <!-- CARD 2 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-slate-900 border border-slate-800 border-t-4 border-t-sky-400">
+                            <div>
+                                <span class="font-mono-code text-xs text-sky-400 font-bold">MODULE 02</span>
+                                <h3 class="font-bold text-white text-lg mt-2 mb-3">Turnkey Local Vault Zip</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed">Pre-configured offline AI environment packaged for instant 60-second kiosk deployment.</p>
+                            </div>
+                            <div class="text-xs font-mono-code text-sky-300">Tap / Hover to Flip ➔</div>
+                        </div>
+                        <div class="flip-card-back bg-sky-950 border border-sky-500">
+                            <div>
+                                <span class="font-mono-code text-xs text-sky-300 font-bold">TECHNICAL BREAKDOWN</span>
+                                <h4 class="font-bold text-white text-sm mt-2 mb-2">One-Click Installation</h4>
+                                <p class="text-slate-200 text-xs leading-relaxed">Includes vectorized Chroma DB, local prompt sanitizers, and Gumroad $50 webhook integration.</p>
+                            </div>
+                            <span class="text-[10px] font-mono-code text-sky-400 uppercase font-bold">Status: Verified</span>
+                        </div>
                     </div>
-
-                    <a href="https://paypal.me/LeonRDarden" target="_blank" class="block text-center py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-sm uppercase tracking-wider transition-all shadow-lg shadow-cyan-500/30">
-                        Unlock The Vault Zip — $50
-                    </a>
                 </div>
+
+                <!-- CARD 3 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-slate-900 border border-slate-800 border-t-4 border-t-red-500">
+                            <div>
+                                <span class="font-mono-code text-xs text-red-400 font-bold">MODULE 03</span>
+                                <h3 class="font-bold text-white text-lg mt-2 mb-3">Final Boss Obliteration</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed">Eliminate corporate security vulnerabilities and establish sovereign AI governance.</p>
+                            </div>
+                            <div class="text-xs font-mono-code text-red-300">Tap / Hover to Flip ➔</div>
+                        </div>
+                        <div class="flip-card-back bg-red-950 border border-red-500">
+                            <div>
+                                <span class="font-mono-code text-xs text-red-300 font-bold">TECHNICAL BREAKDOWN</span>
+                                <h4 class="font-bold text-white text-sm mt-2 mb-2">Sovereign Mastery</h4>
+                                <p class="text-slate-200 text-xs leading-relaxed">Unlocks the Final Boss Defeat Badge and prepares the student for enterprise SOC training.</p>
+                            </div>
+                            <span class="text-[10px] font-mono-code text-red-400 uppercase font-bold">Status: Boss Defeated</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
+
+        <!-- SECTION 4: FINAL BOSS DEFEAT BADGE & NEXT STEP CTA -->
+        <section id="victory-section" class="py-16 bg-slate-900/60 border-t border-slate-800">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+                
+                <!-- VICTORY BANNER (UNLOCKED UPON COMPLETING LEVELS) -->
+                <div id="boss-victory-banner" class="bg-gradient-to-r from-cyan-950 via-slate-900 to-sky-950 border-2 border-sky-400 rounded-3xl p-8 sm:p-12 shadow-[0_0_40px_rgba(56,189,248,0.3)] mb-12 relative overflow-hidden">
+                    <div class="text-5xl mb-4">🏆</div>
+                    <span class="px-3.5 py-1 rounded-full bg-sky-500/20 text-sky-300 font-mono-code text-xs uppercase tracking-widest border border-sky-400 mb-3 inline-block font-bold">
+                        CHALLENGE COMPLETE · VICTORY UNLOCKED
+                    </span>
+                    <h2 class="font-cyber text-2xl sm:text-4xl text-white font-black uppercase tracking-wider mb-4">
+                        You Have Defeated the Final Boss &amp; Completed the Privacy-First Challenge!
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8">
+                        Your local AI environment is fully secured, air-gapped, and compliant with zero-cloud data leak architecture.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="https://paypal.me/LeonRDarden" target="_blank" class="px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-sm uppercase tracking-wider transition-all shadow-lg shadow-cyan-500/30">
+                            Unlock The Vault Zip — $50
+                        </a>
+                        <a href="SOCtraining21.html" class="px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-300 border border-sky-400/50 font-extrabold text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+                            Try The SOC 21-Day Challenge Next ➔
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <!-- FOOTER -->
-    <footer class="w-full border-t border-slate-800 bg-slate-900/60 py-8 text-center text-xs text-slate-500 font-mono-code">
-        <p>&copy; 2026 Privacy-First Protocol · Leon R. Darden Ecosystem. All Rights Reserved.</p>
+    <footer class="w-full border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500 font-mono-code">
+        <p>&copy; 2026 Privacy-First Protocol · Leon R. Darden Ecosystem. All Rights Reserved. Contact: leonrdarden@gmail.com</p>
     </footer>
+
+    <!-- INTERACTIVE GAME LOGIC SCRIPT -->
+    <script>
+        let clearedNodes = 0;
+
+        function executeNode(level) {
+            const nodeEl = document.getElementById(`node-${level}`);
+            const statusEl = document.getElementById(`status-${level}`);
+            const btnEl = document.getElementById(`btn-${level}`);
+
+            if (nodeEl && !nodeEl.classList.contains('node-cleared')) {
+                nodeEl.classList.add('node-cleared');
+                statusEl.textContent = 'STAGE CLEARED';
+                statusEl.className = 'text-[10px] font-mono-code text-sky-300 bg-sky-950 px-2 py-0.5 rounded border border-sky-400 font-bold';
+                btnEl.textContent = '✓ STAGE CLEARED';
+                btnEl.className = 'w-full py-2 bg-sky-600 text-slate-950 font-mono-code text-xs font-black rounded-lg transition-all uppercase tracking-wider shadow-md';
+                clearedNodes++;
+
+                if (level === 8 || clearedNodes >= 8) {
+                    const victoryBanner = document.getElementById('boss-victory-banner');
+                    if (victoryBanner) {
+                        victoryBanner.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
