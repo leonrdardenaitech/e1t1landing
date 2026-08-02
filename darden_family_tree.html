@@ -1716,36 +1716,7 @@
   </section>
 
   <!-- Interactive Family Tree Card Portal -->
-    <!-- CORRECTION ZONE & ADD A DARDEN ANNOUNCEMENT BANNER -->
-  <section class="w-full max-w-7xl mx-auto my-6 px-4">
-    <div class="bg-gradient-to-r from-amber-950/90 via-black to-purple-950/90 border-2 border-amber-500/60 rounded-2xl p-6 shadow-[0_0_30px_rgba(245,158,11,0.3)]">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-amber-500/30 pb-4 mb-4 gap-4">
-        <div class="flex items-center gap-3">
-          <span class="text-3xl">✏️</span>
-          <div>
-            <h3 class="font-cyber text-xl md:text-2xl text-amber-300 font-extrabold uppercase tracking-wider">
-              CORRECTION ZONE &amp; ADD A DARDEN
-            </h3>
-            <p class="font-mono-code text-xs text-amber-400/80 tracking-widest uppercase">
-              Submit Name Fixes &amp; Add New Bloodline Descendants Directly to Family Archives
-            </p>
-          </div>
-        </div>
-        <div class="flex gap-2">
-          <button onclick="openMemberModal('', 'Correction')" class="bg-amber-500 text-black hover:bg-amber-400 font-cyber font-bold text-xs px-4 py-2 rounded-lg uppercase tracking-wider shadow-md transition-all">
-            ✏️ Submit Correction
-          </button>
-          <button onclick="openMemberModal('', 'Add A Darden')" class="bg-purple-900 border border-purple-400 text-purple-200 hover:bg-purple-800 font-cyber font-bold text-xs px-4 py-2 rounded-lg uppercase tracking-wider transition-all">
-            ➕ Add A Darden
-          </button>
-        </div>
-      </div>
-      
-      <p class="text-xs md:text-sm text-gray-200 font-sans leading-relaxed italic">
-        "Correction Zone: I apologize if I spelled your name wrong, missed a middle initial, or omitted a family branch member—let's correct that now! Submit the right info using the form below and it will save directly to our Darden Family Spreadsheet archives. I will visually update the site layout as soon as possible to keep our lineage 100% accurate."
-      </p>
-    </div>
-  </section>
+    
 
   <section class="tree-portal">
     <div class="portal-header">
@@ -2561,137 +2532,297 @@
 
       </div><!-- end gen3-carousel -->
 
-        <!-- DARDEN FAMILY HERITAGE MIND MAP COMPONENT -->
-    <div class="w-full max-w-7xl mx-auto my-10 px-4">
-      <div class="scrim-box p-6 md:p-8 rounded-2xl border-2 border-amber-500/60 shadow-[0_0_40px_rgba(245,158,11,0.3)] relative overflow-hidden bg-black/95">
+    <!-- ============================================================ -->
+    # RECTANGULAR WIDGET WINDOW: INTERACTIVE MIND MAP SNIPPET LINK
+    <!-- ============================================================ -->
+    <div class="w-full max-w-7xl mx-auto my-8 px-4">
+      <div class="bg-gradient-to-b from-[#092309] to-[#030a03] border-2 border-[#3d6e1d] rounded-2xl overflow-hidden shadow-[0_0_35px_rgba(61,110,29,0.5)]">
         
-        <!-- Mind Map Header & Controls -->
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-800 pb-4 mb-6 gap-4">
-          <div class="flex items-center gap-3">
-            <span class="text-3xl text-amber-400">🧠</span>
-            <div>
-              <h3 class="font-cyber text-2xl text-white font-extrabold uppercase tracking-wider">
-                DARDEN FAMILY HERITAGE <span class="text-amber-400">MIND MAP</span>
-              </h3>
-              <p class="font-mono-code text-xs text-gray-400 tracking-wider mt-0.5">
-                Scalable Generational Network (Gen 1 → Gen 6) · Click Any Node to Inspect or Edit
-              </p>
-            </div>
-          </div>
-
-          <div class="flex flex-wrap items-center gap-2">
-            <button onclick="zoomMindmap(0.15)" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 text-gray-200 px-3.5 py-2 rounded font-mono-code text-xs">
-              🔍 Zoom In
-            </button>
-            <button onclick="zoomMindmap(-0.15)" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 text-gray-200 px-3.5 py-2 rounded font-mono-code text-xs">
-              🔍 Zoom Out
-            </button>
-            <button onclick="resetMindmapZoom()" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 text-gray-200 px-3.5 py-2 rounded font-mono-code text-xs">
-              🔄 Reset View
-            </button>
-            <button onclick="openMindmapModal()" class="bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-black font-cyber font-bold text-xs px-5 py-2 rounded uppercase tracking-wider shadow-lg">
-              ⛶ Fullscreen View
-            </button>
-          </div>
+        <!-- Header Bar with Direct Hypertext Link -->
+        <div class="bg-[#061706] p-4 flex justify-end items-center border-b border-[#3d6e1d]">
+          <a href="darden_family_tree_v2.html" target="_blank" class="bg-[#184018] hover:bg-[#2a6b2a] border border-[#5a8231] text-[#d1ffd1] font-cyber font-bold text-xs px-4 py-2.5 rounded-lg uppercase tracking-wider transition-all shadow-md flex items-center gap-2">
+            🔗 Open Full Mind Map Snippet Page (v2) ↗
+          </a>
         </div>
 
-        <!-- Mind Map Viewport Container -->
-        <div class="w-full h-[540px] bg-black/95 rounded-xl border border-gray-800 overflow-auto relative p-6 cursor-grab active:cursor-grabbing reticle" id="mindmapViewport">
-          <div id="mindmapTreeContainer" class="min-w-[1100px] flex flex-col items-center space-y-8 transition-transform duration-200 transform origin-top">
-            
-            <!-- ROOT NODE: Sam Darden Sr. & Freddie Shields -->
-            <div class="flex flex-col items-center">
-              <div class="bg-gradient-to-r from-amber-600 via-yellow-400 to-amber-300 text-black p-4 rounded-2xl shadow-[0_0_30px_rgba(245,158,11,0.6)] border-2 border-yellow-200 text-center font-cyber cursor-pointer" onclick="openMemberModal('Sam Darden Sr. & Freddie Shields', 'Gen 1 Founders')">
-                <span class="text-3xl block mb-1">👑</span>
-                <h4 class="font-black text-xl uppercase tracking-wider">Sam Darden Sr. &amp; Freddie Shields</h4>
-                <span class="text-[10px] font-mono-code bg-black/80 text-yellow-300 px-3 py-0.5 rounded-full inline-block mt-1">GEN 1 ROOT FOUNDERS</span>
-              </div>
-              <div class="w-0.5 h-8 bg-amber-500/60 my-1"></div>
-            </div>
+        <!-- Enclosed Mind Map Interactive Widget Window -->
+        <div class="mindmap-container p-6 overflow-x-auto min-h-[500px]">
+          <div class="tree" id="widget-family-tree">
+            <ul>
+              <li>
+                <div class="leaf root-leaf">👑 Sam Darden Sr. &amp; Freddie Shields</div>
+                <ul>
+                  <!-- Branch 1 -->
+                  <li>
+                    <div class="leaf gen2-leaf">🤠 Sam Darden Jr. ("Cowboy")</div>
+                    <ul>
+                      <li>
+                        <div class="leaf">👨 George R. Darden ("Ronnie")</div>
+                        <ul>
+                          <li><div class="leaf">👨 Leon Darden ("Rondell")</div></li>
+                          <li>
+                            <div class="leaf">👨 Bikila Darden</div>
+                            <ul>
+                              <li>
+                                <div class="leaf">👨 Asar Lineage</div>
+                                <ul>
+                                  <li><div class="leaf">👶 Asar's Children (Gen 5)</div></li>
+                                  <li><div class="leaf">👶 Asar's Grandchildren (Gen 6)</div></li>
+                                </ul>
+                              </li>
+                              <li><div class="leaf">👩 Sariah</div></li>
+                              <li><div class="leaf">👨 Khalil</div></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👨 William Darden ("Bobby/Bill")</div>
+                        <ul>
+                          <li><div class="leaf">👦 Billy Darden</div></li>
+                          <li><div class="leaf">👧 Kim Darden</div></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="leaf blended-leaf">👨 Darrell Darden</div>
+                        <ul>
+                          <li><div class="leaf">👦 Darrell Darden Jr.</div></li>
+                          <li><div class="leaf blended-leaf">🟣 Harold</div></li>
+                          <li><div class="leaf blended-leaf">🟣 Keisha</div></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👩 Pattie Darden</div>
+                        <ul><li><div class="leaf">👦 Keith Darden</div></li></ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👩 Sharon Darden</div>
+                        <ul>
+                          <li><div class="leaf">👦 Sherron Darden</div></li>
+                          <li><div class="leaf">👦 Stephon Darden</div></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
 
-            <!-- GEN 2 BRANCH NODES (6 CHILDREN) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 w-full text-center font-mono-code text-xs">
-              
-              <!-- 1. Sam Jr. -->
-              <div class="bg-blue-950/90 p-3.5 rounded-xl border border-blue-500/60 shadow-md flex flex-col items-center">
-                <span class="text-amber-400 font-bold font-cyber text-sm">🤠 Sam Jr. ("Cowboy")</span>
-                <span class="text-[9px] text-blue-300 block my-1">Son · 5 Household Lines</span>
-                <button onclick="openMemberModal('Sam Darden Jr.', 'Gen 2 Branch')" class="mt-2 text-[10px] bg-blue-900/80 border border-blue-400 text-blue-200 px-2.5 py-1 rounded">✏️ Inspect / Edit</button>
-              </div>
+                  <!-- Branch 2 -->
+                  <li>
+                    <div class="leaf gen2-leaf">👴 Mozzell Darden</div>
+                    <ul>
+                      <li>
+                        <div class="leaf">👨 Bernard Darden</div>
+                        <ul>
+                          <li><div class="leaf">👧 Beverly</div></li>
+                          <li><div class="leaf">👧 Latasha</div></li>
+                          <li><div class="leaf">👦 Larry</div></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👨 Mozzell Darden Jr.</div>
+                        <ul>
+                          <li><div class="leaf">👦 Mozzell 3rd</div></li>
+                          <li><div class="leaf">👧 Kattely</div></li>
+                          <li><div class="leaf">👧 Lisa</div></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👨 Derrick Darden</div>
+                        <ul>
+                          <li><div class="leaf">👦 Derrick Jr.</div></li>
+                          <li><div class="leaf">👧 Brianna</div></li>
+                          <li><div class="leaf">👦 Kamal</div></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👩 Carol Darden ("Bunny")</div>
+                        <ul><li><div class="leaf">👧 Jovonda</div></li></ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👩 Sheila Darden</div>
+                        <ul>
+                          <li>
+                            <div class="leaf">👧 Diamond</div>
+                            <ul><li><div class="leaf">👦 Carter</div></li></ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👩 Mary Washington</div>
+                        <ul>
+                          <li><div class="leaf">👦 Charles Jr.</div></li>
+                          <li><div class="leaf">👦 Deshaun</div></li>
+                          <li>
+                            <div class="leaf">👨 Kevin</div>
+                            <ul>
+                              <li><div class="leaf">👧 Maddison</div></li>
+                              <li><div class="leaf">👦 Dillion</div></li>
+                              <li><div class="leaf">👦 Daniel</div></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👩 Lolita Darden</div>
+                        <ul>
+                          <li>
+                            <div class="leaf">👨 Che</div>
+                            <ul>
+                              <li><div class="leaf">👦 Che Jr.</div></li>
+                              <li><div class="leaf">👧 Aniyah</div></li>
+                            </ul>
+                          </li>
+                          <li><div class="leaf">👧 Brittney</div></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
 
-              <!-- 2. Mozzell -->
-              <div class="bg-blue-950/90 p-3.5 rounded-xl border border-blue-500/60 shadow-md flex flex-col items-center">
-                <span class="text-amber-400 font-bold font-cyber text-sm">👴 Mozzell Darden</span>
-                <span class="text-[9px] text-blue-300 block my-1">First Son · 7 Lines</span>
-                <button onclick="openMemberModal('Mozzell Darden', 'Gen 2 Branch')" class="mt-2 text-[10px] bg-blue-900/80 border border-blue-400 text-blue-200 px-2.5 py-1 rounded">✏️ Inspect / Edit</button>
-              </div>
+                  <!-- Branch 3 -->
+                  <li>
+                    <div class="leaf gen2-leaf">👵 Peggy Darden</div>
+                    <ul>
+                      <li>
+                        <div class="leaf">👨 Derrick Owens</div>
+                        <ul>
+                          <li>
+                            <div class="leaf">👨 Aaron</div>
+                            <ul><li><div class="leaf">👦 Aaron Owens Jr.</div></li></ul>
+                          </li>
+                          <li><div class="leaf">👨 Marques</div></li>
+                          <li><div class="leaf">👨 Stephan</div></li>
+                          <li><div class="leaf">👩 Darnielle</div></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👩 Debra Profitt</div>
+                        <ul>
+                          <li>
+                            <div class="leaf">👩 Jamila</div>
+                            <ul><li><div class="leaf">👦 Raevon Profitt</div></li></ul>
+                          </li>
+                          <li>
+                            <div class="leaf">👩 Jewels (Reunion Lead)</div>
+                            <ul>
+                              <li><div class="leaf">👧 Ashley</div></li>
+                              <li><div class="leaf">👧 Alani</div></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
 
-              <!-- 3. Johnnie -->
-              <div class="bg-purple-950/90 p-3.5 rounded-xl border border-purple-500/60 shadow-md flex flex-col items-center">
-                <span class="text-purple-300 font-bold font-cyber text-sm">👵 Johnnie Watson</span>
-                <span class="text-[9px] text-purple-300 block my-1">Daughter · 7 Lines</span>
-                <button onclick="openMemberModal('Johnnie Watson', 'Gen 2 Branch')" class="mt-2 text-[10px] bg-purple-900/80 border border-purple-400 text-purple-200 px-2.5 py-1 rounded">✏️ Inspect / Edit</button>
-              </div>
+                  <!-- Branch 4 -->
+                  <li>
+                    <div class="leaf gen2-leaf">👵 Johnnie Darden</div>
+                    <ul>
+                      <li>
+                        <div class="leaf">👨 Irving</div>
+                        <ul>
+                          <li>
+                            <div class="leaf">👩 Erika</div>
+                            <ul>
+                              <li><div class="leaf">👧 Alisyah Watson</div></li>
+                              <li><div class="leaf">👧 Hailie</div></li>
+                              <li><div class="leaf">👦 Sebastion</div></li>
+                              <li><div class="leaf">👧 Naomi</div></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="leaf">👨 Joel</div>
+                            <ul>
+                              <li><div class="leaf">👩 Elaine</div></li>
+                              <li><div class="leaf">👧 Adriana</div></li>
+                              <li><div class="leaf">👧 Genisis Watson</div></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👨 Louis</div>
+                        <ul>
+                          <li><div class="leaf">👦 Louis Jr.</div></li>
+                          <li><div class="leaf">👧 Nadine</div></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👨 Charles</div>
+                        <ul><li><div class="leaf">👧 Jenean</div></li></ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👩 Darlene</div>
+                        <ul>
+                          <li>
+                            <div class="leaf">👩 Ronyelle Stallworth</div>
+                            <ul>
+                              <li><div class="leaf">👧 Nyalla</div></li>
+                              <li><div class="leaf">👦 Aden</div></li>
+                            </ul>
+                          </li>
+                          <li><div class="leaf">👨 Eric</div></li>
+                          <li><div class="leaf">👩 Melinda</div></li>
+                        </ul>
+                      </li>
+                      <li><div class="leaf">👨 Donald</div></li>
+                      <li>
+                        <div class="leaf">👩 Donna</div>
+                        <ul>
+                          <li>
+                            <div class="leaf">👨 Thomas Earl Watkins</div>
+                            <ul>
+                              <li><div class="leaf">👦 Thomas Jr.</div></li>
+                              <li><div class="leaf">👧 Skylar</div></li>
+                              <li><div class="leaf">👦 Archer</div></li>
+                              <li><div class="leaf">👦 Ace</div></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="leaf">👨 Jason</div>
+                            <ul>
+                              <li><div class="leaf">👦 Devin</div></li>
+                              <li><div class="leaf">👧 Amya</div></li>
+                              <li><div class="leaf">👦 Alexander</div></li>
+                              <li><div class="leaf">👧 Joy</div></li>
+                            </ul>
+                          </li>
+                          <li><div class="leaf">👩 Joy</div></li>
+                          <li>
+                            <div class="leaf">👨 Jeremy</div>
+                            <ul>
+                              <li><div class="leaf">👦 Jayson</div></li>
+                              <li><div class="leaf">👧 Myrikal</div></li>
+                              <li><div class="leaf">👧 Malayah</div></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="leaf">👩 Beverly</div>
+                        <ul><li><div class="leaf">👦 Jonathan</div></li></ul>
+                      </li>
+                    </ul>
+                  </li>
 
-              <!-- 4. Peggy -->
-              <div class="bg-yellow-950/90 p-3.5 rounded-xl border border-yellow-500/60 shadow-md flex flex-col items-center">
-                <span class="text-yellow-400 font-bold font-cyber text-sm">👵 Peggy Owens</span>
-                <span class="text-[9px] text-yellow-300 block my-1">Matriarch Line</span>
-                <button onclick="openMemberModal('Peggy Owens', 'Gen 2 Matriarch')" class="mt-2 text-[10px] bg-yellow-900/80 border border-yellow-400 text-yellow-200 px-2.5 py-1 rounded">✏️ Inspect / Edit</button>
-              </div>
+                  <!-- Branch 5 -->
+                  <li>
+                    <div class="leaf gen2-leaf">👨 Lovell Darden</div>
+                    <ul><li><div class="leaf">📌 Living Elder Lineage</div></li></ul>
+                  </li>
 
-              <!-- 5. Lovell -->
-              <div class="bg-emerald-950/90 p-3.5 rounded-xl border border-emerald-500/60 shadow-md flex flex-col items-center">
-                <span class="text-emerald-400 font-bold font-cyber text-sm">👨 Lovell Darden</span>
-                <span class="text-[9px] text-emerald-300 block my-1">Living Elder</span>
-                <button onclick="openMemberModal('Lovell Darden', 'Gen 2 Living Elder')" class="mt-2 text-[10px] bg-emerald-900/80 border border-emerald-400 text-emerald-200 px-2.5 py-1 rounded">✏️ Inspect / Edit</button>
-              </div>
-
-              <!-- 6. Sarah -->
-              <div class="bg-blue-950/90 p-3.5 rounded-xl border border-blue-500/60 shadow-md flex flex-col items-center">
-                <span class="text-blue-300 font-bold font-cyber text-sm">👩 Sarah Darden</span>
-                <span class="text-[9px] text-blue-300 block my-1">Daughter</span>
-                <button onclick="openMemberModal('Sarah Darden', 'Gen 2 Branch')" class="mt-2 text-[10px] bg-blue-900/80 border border-blue-400 text-blue-200 px-2.5 py-1 rounded">✏️ Inspect / Edit</button>
-              </div>
-
-            </div>
-
-            <!-- GEN 3 TO GEN 6 SUBNODE PREVIEW MAP -->
-            <div class="w-full bg-gray-950 p-5 rounded-xl border border-gray-800 text-left font-mono-code text-xs space-y-3">
-              <div class="flex justify-between items-center border-b border-gray-800 pb-2">
-                <span class="text-amber-400 font-bold">🌿 GEN 3 → GEN 6 DRILL-DOWN NETWORK</span>
-                <span class="text-gray-400 text-[10px]">SCALABLE MAP NODES</span>
-              </div>
-              
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-[11px]">
-                <div class="bg-black/90 p-3 rounded border border-gray-800">
-                  <span class="text-amber-300 font-bold block mb-1">🤠 SAM JR. SUB-NODES</span>
-                  <p class="text-gray-300 leading-relaxed">• Ronnie (Leon, Bikila → Asar, Sariah, Khalil)<br>• Bobby/Bill (Billy, Kim)<br>• Darrell (Darrell Jr, Harold, Keisha)</p>
-                </div>
-
-                <div class="bg-black/90 p-3 rounded border border-gray-800">
-                  <span class="text-amber-300 font-bold block mb-1">👴 MOZZELL SUB-NODES</span>
-                  <p class="text-gray-300 leading-relaxed">• Bernard (Beverly, Latasha, Larry)<br>• Mozzell Jr. (Mozzell 3rd, Kattely, Lisa)<br>• Derrick, Carol, Sheila, Mary, Lolita</p>
-                </div>
-
-                <div class="bg-black/90 p-3 rounded border border-gray-800">
-                  <span class="text-yellow-400 font-bold block mb-1">👵 PEGGY SUB-NODES</span>
-                  <p class="text-gray-300 leading-relaxed">• Derrick Owens (Aaron, Marques, Stephan, Darnielle)<br>• Debra Profitt (Jamila, Jewels → Ashley, Alani)</p>
-                </div>
-
-                <div class="bg-black/90 p-3 rounded border border-gray-800">
-                  <span class="text-purple-300 font-bold block mb-1">👵 JOHNNIE SUB-NODES</span>
-                  <p class="text-gray-300 leading-relaxed">• Irving (Erika, Joel)<br>• Darlene (Ronyelle, Eric, Melinda)<br>• Donna (Thomas Jr, Devin, Joy, Jayson)</p>
-                </div>
-              </div>
-            </div>
-
+                  <!-- Branch 6 -->
+                  <li>
+                    <div class="leaf gen2-leaf">👩 Sarah Darden</div>
+                    <ul><li><div class="leaf">📌 Daughter of Sam Sr.</div></li></ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-    </div>
-    </div>
+
+
 
   <!-- Add Family Member Modal -->
   <div class="modal-overlay" id="memberModal">
@@ -3038,36 +3169,6 @@
       }, 5000);
     }
   }
-
-    let mindmapZoomScale = 1.0;
-    function zoomMindmap(delta) {
-      mindmapZoomScale = Math.max(0.6, Math.min(1.8, mindmapZoomScale + delta));
-      const tree = document.getElementById('mindmapTreeContainer');
-      if (tree) tree.style.transform = `scale(${mindmapZoomScale})`;
-    }
-
-    function resetMindmapZoom() {
-      mindmapZoomScale = 1.0;
-      const tree = document.getElementById('mindmapTreeContainer');
-      if (tree) tree.style.transform = `scale(1.0)`;
-    }
-
-    function openMindmapModal() {
-      const modal = document.getElementById('mindmapModal');
-      if (modal) {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-      }
-    }
-
-    function closeMindmapModal() {
-      const modal = document.getElementById('mindmapModal');
-      if (modal) {
-        modal.classList.remove('flex');
-        modal.classList.add('hidden');
-      }
-    }
-
 </script>
 
 </body>
