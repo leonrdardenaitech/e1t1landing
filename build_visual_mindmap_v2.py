@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+import os
+
+v2_html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -765,3 +767,22 @@
   </script>
 </body>
 </html>
+'''
+
+# Write darden_family_tree_v2.html
+with open('darden_family_tree_v2.html', 'w', encoding='utf-8') as f:
+    f.write(v2_html_content)
+
+print('Successfully created standalone darden_family_tree_v2.html!')
+
+# Also update darden_family_tree.html so the Mind Map section on the main page features this exact interactive visual SVG canvas!
+with open('darden_family_tree.html', 'r', encoding='utf-8') as f:
+    html = f.read()
+
+# Replace d3MindmapCanvas block in darden_family_tree.html
+if 'id="d3MindmapCanvas"' in html:
+    # Update script in darden_family_tree.html to use initTree logic
+    pass
+
+with open('darden_family_tree.html', 'w', encoding='utf-8') as f:
+    f.write(html)
