@@ -3,15 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy-First Protocol | Gamified Obliteration Challenge</title>
-    <meta name="description" content="Secure your data safety, complete 8 levels of hyperframe node challenges, defeat the final boss, and obliterate cloud security risks.">
+    <title>Privacy-First Protocol | Own Your AI Data Sovereignty</title>
+    <meta name="description" content="Privacy-First Protocol: Strictly local offline AI environment engineered to eliminate cloud data leaks for enterprise compliance & B2B security.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Share+Tech+Mono&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030712; }
+        :root {
+            --primary-amber: #f59e0b;
+            --primary-orange: #ea580c;
+            --amber-glow: rgba(245, 158, 11, 0.4);
+            --fire-red: #ef4444;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #08070b; 
+            color: #f8f6f0;
+        }
         .font-mono-code { font-family: 'Share Tech Mono', monospace; }
         .font-cyber { font-family: 'Orbitron', sans-serif; }
+
+        /* Flame & Cyber Glow Shadows */
+        .amber-glow-box {
+            border: 2px solid var(--primary-amber);
+            box-shadow: 0 0 30px var(--amber-glow), inset 0 0 20px rgba(245, 158, 11, 0.15);
+        }
 
         /* 3D Card Flip CSS */
         .flip-card {
@@ -22,7 +39,7 @@
             position: relative;
             width: 100%;
             height: 100%;
-            min-height: 240px;
+            min-height: 250px;
             text-align: left;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
@@ -37,7 +54,7 @@
             height: 100%;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            border-radius: 1rem;
+            border-radius: 1.25rem;
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
@@ -49,217 +66,217 @@
 
         /* Stage Cleared Glow Animation */
         .node-cleared {
-            border-color: #38bdf8 !important;
-            background: rgba(14, 165, 233, 0.15) !important;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4) !important;
+            border-color: #f59e0b !important;
+            background: rgba(245, 158, 11, 0.18) !important;
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.5) !important;
         }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950">
+<body class="min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-black">
 
-    <!-- GLOBAL B2B HEADER -->
-    <header class="w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+    <!-- GLOBAL B2B HEADER (ORANGE/AMBER THEME) -->
+    <header class="w-full border-b border-amber-500/30 bg-black/90 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-sky-400 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-cyan-500/20">
-                    <i class="fa-solid fa-shield-halved"></i>
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 via-orange-500 to-yellow-400 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/30">
+                    🔥
                 </div>
                 <div>
-                    <a href="privacy_first_protocol.html" class="font-bold text-lg text-white hover:text-cyan-400 transition-colors">Privacy-First Protocol</a>
-                    <p class="text-xs text-slate-400 font-mono-code">Local AI Vault &amp; Obliteration Challenge</p>
+                    <a href="privacy_first_protocol.html" class="font-bold text-lg text-white hover:text-amber-400 transition-colors">Privacy-First Protocol</a>
+                    <p class="text-xs text-amber-400/80 font-mono-code">Local AI Vault &amp; Obliteration Challenge</p>
                 </div>
             </div>
             <nav class="flex flex-wrap items-center gap-3 text-xs font-semibold">
                 <a href="portfolio.html" class="px-3.5 py-2 rounded-lg bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white transition-all">PORTFOLIO</a>
                 <a href="burn-1.html" class="px-3.5 py-2 rounded-lg bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white transition-all">BURN-1 KIOSK</a>
-                <a href="privacy_first_protocol.html" class="px-3.5 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/30">PRIVACY PROTOCOL</a>
+                <a href="privacy_first_protocol.html" class="px-3.5 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-extrabold shadow-md shadow-amber-500/30">PRIVACY PROTOCOL</a>
                 <a href="SOCtraining21.html" class="px-3.5 py-2 rounded-lg bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white transition-all">SOC 21-DAY LMS</a>
             </nav>
         </div>
     </header>
 
-    <!-- BANNER -->
-    <div class="bg-cyan-950/80 border-b border-cyan-500/40 text-center py-2.5 px-4 text-xs font-mono-code text-cyan-300 uppercase tracking-widest flex items-center justify-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+    <!-- ANNOUNCEMENT BANNER -->
+    <div class="bg-gradient-to-r from-amber-950 via-orange-950 to-amber-950 border-b border-amber-500/40 text-center py-2.5 px-4 text-xs font-mono-code text-amber-300 uppercase tracking-widest flex items-center justify-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
         <span>STRICTLY LOCAL ENVIRONMENT · ZERO CLOUD DATA TRANSFER GUARANTEE</span>
     </div>
 
-    <!-- MAIN GAMIFIED PROTOCOL CONTENT -->
+    <!-- MAIN ORIGINAL SMOKING CONTENT + GAME FRAMING -->
     <main class="flex-grow">
         
-        <!-- SECTION 1: HERO & BURNING ANTENNAS VIDEO -->
+        <!-- SECTION 1: HERO & INSTRUCTIONS -->
         <section class="py-12 md:py-16 max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-8">
-                <span class="px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono-code text-xs uppercase tracking-widest mb-4 inline-block">
-                    ⚡ PRIVACY-FIRST PROTOCOL &amp; OBLITERATION CHALLENGE
+                <span class="px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/40 text-amber-400 font-mono-code text-xs uppercase tracking-widest mb-4 inline-block shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+                    🔥 ORIGINAL PRIVACY-FIRST PROTOCOL &amp; DATA SOVEREIGNTY VAULT
                 </span>
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-cyber tracking-tight uppercase mb-4 leading-tight">
-                    Own Your AI Data.
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white font-cyber tracking-tight uppercase mb-4 leading-tight">
+                    Own Your AI.
                 </h1>
-                <p class="text-slate-300 text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+                <p class="text-slate-300 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed mb-6">
                     Protect proprietary business data, client records, and strategic communications with a fully air-gapped, local LLM vault that operates 100% offline.
                 </p>
             </div>
 
-            <!-- BURNING ANTENNAS VIDEO CONTAINER -->
-            <div class="max-w-4xl mx-auto bg-slate-900 border-2 border-cyan-500/40 rounded-2xl p-4 sm:p-6 shadow-2xl mb-10">
+            <!-- BURNING ANTENNAS VIDEO (PLACED RIGHT AT TOP UNDER INSTRUCTIONS) -->
+            <div class="max-w-4xl mx-auto amber-glow-box bg-slate-950/90 rounded-2xl p-4 sm:p-6 mb-10">
                 <div class="flex justify-between items-center mb-3">
-                    <span class="font-mono-code text-xs text-cyan-400 font-bold uppercase tracking-wider">
-                        <i class="fa-solid fa-tower-cell text-amber-400 mr-2"></i> BURNING ANTENNAS BRIEFING
+                    <span class="font-mono-code text-xs text-amber-400 font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-tower-cell text-red-500 mr-2"></i> BURNING ANTENNAS BRIEFING VIDEO
                     </span>
-                    <span class="text-[10px] font-mono-code text-slate-400 bg-slate-800 px-2.5 py-0.5 rounded">PROTOCOL INTRO</span>
+                    <span class="text-[10px] font-mono-code text-amber-300 bg-amber-950 px-2.5 py-0.5 rounded border border-amber-500/50">PROTOCOL INTRO</span>
                 </div>
-                <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800 shadow-inner">
+                <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black border border-amber-500/30 shadow-2xl">
                     <iframe class="w-full h-full" src="https://www.youtube.com/embed/w2hEmiBfLbo" title="Burning Antennas Privacy Briefing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <!-- BABY BLUE GAME INSTRUCTIONS CALLOUT -->
-            <div class="max-w-4xl mx-auto bg-slate-900/90 border-2 border-sky-400/60 rounded-2xl p-6 sm:p-8 text-center shadow-[0_0_30px_rgba(56,189,248,0.2)] mb-16 relative overflow-hidden">
+            <!-- BABY BLUE BURN-1 GAME INSTRUCTIONS CALLOUT -->
+            <div class="max-w-4xl mx-auto bg-slate-950 border-2 border-sky-400 rounded-2xl p-6 sm:p-8 text-center shadow-[0_0_35px_rgba(56,189,248,0.3)] mb-16 relative overflow-hidden">
                 <div class="absolute -top-10 -right-10 w-32 h-32 bg-sky-400/10 rounded-full blur-2xl"></div>
                 <div class="inline-block px-3 py-1 bg-sky-950 border border-sky-400 text-sky-300 font-mono-code text-xs rounded-full uppercase tracking-widest mb-3 font-bold">
                     🎮 BURN-1 GAME INSTRUCTIONS
                 </div>
-                <h2 class="font-cyber text-lg sm:text-2xl text-sky-300 font-extrabold uppercase tracking-wider mb-4">
+                <h2 class="font-cyber text-xl sm:text-3xl text-sky-300 font-extrabold uppercase tracking-wider mb-4">
                     Complete the levels by Securing your Safety, finally to Obliterate the Final Boss.
                 </h2>
-                <p class="text-slate-300 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-                    Each Hyperframe node below represents a critical security level. Click the <strong class="text-sky-300 font-mono-code">[EXECUTE]</strong> button on each node as you complete its requirements to clear the stage and advance toward Level 8!
+                <p class="text-slate-200 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+                    Each Hyperframe node below represents a critical security level. Click the <strong class="text-sky-300 font-mono-code">[EXECUTE]</strong> button once each level is completed to make sure the stage is cleared and advance toward Level 8!
                 </p>
             </div>
         </section>
 
-        <!-- SECTION 2: HYPERFRAMES 8-LEVEL NODE CHALLENGE -->
-        <section class="py-12 bg-slate-950/80 border-t border-slate-800">
+        <!-- SECTION 2: HYPERFRAMES 8-LEVEL GAME FRAMING -->
+        <section class="py-12 bg-slate-950 border-t border-amber-500/20">
             <div class="max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-12">
-                    <h2 class="font-cyber text-2xl sm:text-4xl text-white font-black uppercase tracking-wider mb-2">
+                    <h2 class="font-cyber text-2xl sm:text-4xl text-amber-400 font-black uppercase tracking-wider mb-2">
                         Hyperframe Security Nodes (Levels 1 – 8)
                     </h2>
-                    <p class="font-mono-code text-xs sm:text-sm text-sky-400 uppercase tracking-widest">
-                        Clear all 8 stages to unlock the Final Boss Obliteration Defeat Badge
+                    <p class="font-mono-code text-xs sm:text-sm text-sky-300 uppercase tracking-widest">
+                        Clear each node stage to unlock Level 8 Final Boss Obliteration
                     </p>
                 </div>
 
-                <!-- 8 LEVELS GRID -->
+                <!-- 8 LEVEL NODES GRID -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                     
                     <!-- NODE 1 -->
-                    <div id="node-1" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                    <div id="node-1" class="bg-slate-900 border border-amber-500/30 rounded-xl p-5 flex flex-col justify-between transition-all">
                         <div>
                             <div class="flex justify-between items-center mb-3">
-                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 01</span>
-                                <span id="status-1" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                                <span class="font-mono-code text-xs text-amber-400 font-bold">LEVEL 01</span>
+                                <span id="status-1" class="text-[10px] font-mono-code text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-500/40">PENDING</span>
                             </div>
-                            <h3 class="font-bold text-white text-base mb-2">Local Environment Audit</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Scan local drives for cloud telemetry and unencrypted LLM endpoints.</p>
+                            <h3 class="font-bold text-white text-base mb-2">Local Audit &amp; Telemetry Scan</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Audit local drives and isolate unencrypted cloud LLM data streams.</p>
                         </div>
-                        <button onclick="executeNode(1)" id="btn-1" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                        <button onclick="executeNode(1)" id="btn-1" class="w-full py-2.5 bg-amber-950 hover:bg-amber-900 border border-amber-500/60 text-amber-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
                             [EXECUTE LEVEL 1]
                         </button>
                     </div>
 
                     <!-- NODE 2 -->
-                    <div id="node-2" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                    <div id="node-2" class="bg-slate-900 border border-amber-500/30 rounded-xl p-5 flex flex-col justify-between transition-all">
                         <div>
                             <div class="flex justify-between items-center mb-3">
-                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 02</span>
-                                <span id="status-2" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                                <span class="font-mono-code text-xs text-amber-400 font-bold">LEVEL 02</span>
+                                <span id="status-2" class="text-[10px] font-mono-code text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-500/40">PENDING</span>
                             </div>
-                            <h3 class="font-bold text-white text-base mb-2">Air-Gap Isolation</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Disconnect outbound network sockets during sensitive inference tasks.</p>
+                            <h3 class="font-bold text-white text-base mb-2">Air-Gap Isolation Protocol</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Sever outbound socket connections during confidential B2B inferences.</p>
                         </div>
-                        <button onclick="executeNode(2)" id="btn-2" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                        <button onclick="executeNode(2)" id="btn-2" class="w-full py-2.5 bg-amber-950 hover:bg-amber-900 border border-amber-500/60 text-amber-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
                             [EXECUTE LEVEL 2]
                         </button>
                     </div>
 
                     <!-- NODE 3 -->
-                    <div id="node-3" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                    <div id="node-3" class="bg-slate-900 border border-amber-500/30 rounded-xl p-5 flex flex-col justify-between transition-all">
                         <div>
                             <div class="flex justify-between items-center mb-3">
-                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 03</span>
-                                <span id="status-3" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                                <span class="font-mono-code text-xs text-amber-400 font-bold">LEVEL 03</span>
+                                <span id="status-3" class="text-[10px] font-mono-code text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-500/40">PENDING</span>
                             </div>
-                            <h3 class="font-bold text-white text-base mb-2">Local Model Loading</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Initialize GGUF/Ollama weights locally on dedicated GPU RAM.</p>
+                            <h3 class="font-bold text-white text-base mb-2">Local Model Weight Loading</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Initialize quantized GGUF/Ollama model weights strictly on local GPU VRAM.</p>
                         </div>
-                        <button onclick="executeNode(3)" id="btn-3" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                        <button onclick="executeNode(3)" id="btn-3" class="w-full py-2.5 bg-amber-950 hover:bg-amber-900 border border-amber-500/60 text-amber-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
                             [EXECUTE LEVEL 3]
                         </button>
                     </div>
 
                     <!-- NODE 4 -->
-                    <div id="node-4" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                    <div id="node-4" class="bg-slate-900 border border-amber-500/30 rounded-xl p-5 flex flex-col justify-between transition-all">
                         <div>
                             <div class="flex justify-between items-center mb-3">
-                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 04</span>
-                                <span id="status-4" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                                <span class="font-mono-code text-xs text-amber-400 font-bold">LEVEL 04</span>
+                                <span id="status-4" class="text-[10px] font-mono-code text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-500/40">PENDING</span>
                             </div>
-                            <h3 class="font-bold text-white text-base mb-2">Prompt Sanitization</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Scrub PII, secret keys, and credentials before local prompt ingestion.</p>
+                            <h3 class="font-bold text-white text-base mb-2">Prompt Sanitization Loop</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Scrub secrets, API tokens, and PII prior to vector ingestion.</p>
                         </div>
-                        <button onclick="executeNode(4)" id="btn-4" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                        <button onclick="executeNode(4)" id="btn-4" class="w-full py-2.5 bg-amber-950 hover:bg-amber-900 border border-amber-500/60 text-amber-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
                             [EXECUTE LEVEL 4]
                         </button>
                     </div>
 
                     <!-- NODE 5 -->
-                    <div id="node-5" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                    <div id="node-5" class="bg-slate-900 border border-amber-500/30 rounded-xl p-5 flex flex-col justify-between transition-all">
                         <div>
                             <div class="flex justify-between items-center mb-3">
-                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 05</span>
-                                <span id="status-5" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                                <span class="font-mono-code text-xs text-amber-400 font-bold">LEVEL 05</span>
+                                <span id="status-5" class="text-[10px] font-mono-code text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-500/40">PENDING</span>
                             </div>
-                            <h3 class="font-bold text-white text-base mb-2">Vector Database Vault</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Store sensitive business embeddings in encrypted local Chroma/FAISS storage.</p>
+                            <h3 class="font-bold text-white text-base mb-2">Encrypted Vector Vault</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Store organizational embeddings in encrypted local Chroma/FAISS databases.</p>
                         </div>
-                        <button onclick="executeNode(5)" id="btn-5" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                        <button onclick="executeNode(5)" id="btn-5" class="w-full py-2.5 bg-amber-950 hover:bg-amber-900 border border-amber-500/60 text-amber-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
                             [EXECUTE LEVEL 5]
                         </button>
                     </div>
 
                     <!-- NODE 6 -->
-                    <div id="node-6" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                    <div id="node-6" class="bg-slate-900 border border-amber-500/30 rounded-xl p-5 flex flex-col justify-between transition-all">
                         <div>
                             <div class="flex justify-between items-center mb-3">
-                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 06</span>
-                                <span id="status-6" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                                <span class="font-mono-code text-xs text-amber-400 font-bold">LEVEL 06</span>
+                                <span id="status-6" class="text-[10px] font-mono-code text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-500/40">PENDING</span>
                             </div>
-                            <h3 class="font-bold text-white text-base mb-2">SOC Compliance Bridge</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Map local AI operations to HIPAA, SOC 2, and MITRE ATT&amp;CK guidelines.</p>
+                            <h3 class="font-bold text-white text-base mb-2">SOC 2 &amp; HIPAA Alignment</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Verify local security controls against SANS and MITRE ATT&amp;CK frameworks.</p>
                         </div>
-                        <button onclick="executeNode(6)" id="btn-6" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                        <button onclick="executeNode(6)" id="btn-6" class="w-full py-2.5 bg-amber-950 hover:bg-amber-900 border border-amber-500/60 text-amber-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
                             [EXECUTE LEVEL 6]
                         </button>
                     </div>
 
                     <!-- NODE 7 -->
-                    <div id="node-7" class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between transition-all">
+                    <div id="node-7" class="bg-slate-900 border border-amber-500/30 rounded-xl p-5 flex flex-col justify-between transition-all">
                         <div>
                             <div class="flex justify-between items-center mb-3">
-                                <span class="font-mono-code text-xs text-sky-400 font-bold">LEVEL 07</span>
-                                <span id="status-7" class="text-[10px] font-mono-code text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded">PENDING</span>
+                                <span class="font-mono-code text-xs text-amber-400 font-bold">LEVEL 07</span>
+                                <span id="status-7" class="text-[10px] font-mono-code text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-500/40">PENDING</span>
                             </div>
-                            <h3 class="font-bold text-white text-base mb-2">Kiosk Rapid Deploy</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Package local vault configurations into instant $50 deployment zips.</p>
+                            <h3 class="font-bold text-white text-base mb-2">Turnkey Vault Packaging</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">Package local vault configurations for $50 automated Gumroad distribution.</p>
                         </div>
-                        <button onclick="executeNode(7)" id="btn-7" class="w-full py-2 bg-sky-950 hover:bg-sky-900 border border-sky-500/50 text-sky-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
+                        <button onclick="executeNode(7)" id="btn-7" class="w-full py-2.5 bg-amber-950 hover:bg-amber-900 border border-amber-500/60 text-amber-300 font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider">
                             [EXECUTE LEVEL 7]
                         </button>
                     </div>
 
                     <!-- NODE 8 (FINAL BOSS OBLITERATION) -->
-                    <div id="node-8" class="bg-gradient-to-b from-red-950/40 to-slate-900 border-2 border-red-500/60 rounded-xl p-5 flex flex-col justify-between transition-all shadow-[0_0_20px_rgba(239,68,68,0.3)]">
+                    <div id="node-8" class="bg-gradient-to-b from-red-950 via-slate-900 to-black border-2 border-red-500 rounded-xl p-5 flex flex-col justify-between transition-all shadow-[0_0_25px_rgba(239,68,68,0.5)]">
                         <div>
                             <div class="flex justify-between items-center mb-3">
                                 <span class="font-mono-code text-xs text-red-400 font-bold">LEVEL 08 · FINAL BOSS</span>
-                                <span id="status-8" class="text-[10px] font-mono-code text-red-400 bg-red-950/80 px-2 py-0.5 rounded border border-red-700">LOCKED</span>
+                                <span id="status-8" class="text-[10px] font-mono-code text-red-400 bg-red-950 px-2 py-0.5 rounded border border-red-600 font-bold">LOCKED</span>
                             </div>
                             <h3 class="font-bold text-white text-base mb-2">The Obliteration Challenge</h3>
-                            <p class="text-slate-300 text-xs leading-relaxed mb-4">Execute final obliteration of all cloud surveillance risks and defeat the boss.</p>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">Obliterate all corporate cloud risks and claim final boss victory.</p>
                         </div>
-                        <button onclick="executeNode(8)" id="btn-8" class="w-full py-2 bg-red-700 hover:bg-red-600 border border-red-400 text-white font-mono-code text-xs font-bold rounded-lg transition-all uppercase tracking-wider shadow-lg">
+                        <button onclick="executeNode(8)" id="btn-8" class="w-full py-2.5 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white font-mono-code text-xs font-black rounded-lg transition-all uppercase tracking-wider shadow-lg">
                             💥 [OBLITERATE FINAL BOSS]
                         </button>
                     </div>
@@ -268,113 +285,148 @@
             </div>
         </section>
 
-        <!-- SECTION 3: LEVEL 8 OBLITERATION VIDEO & INTERACTIVE FLIP CARDS COURSE -->
-        <section id="obliteration-course-section" class="py-16 max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12">
-                <span class="px-3 py-1 rounded-full bg-red-950 text-red-400 font-mono-code text-xs uppercase tracking-widest border border-red-800 mb-3 inline-block">
-                    🔥 LEVEL 8 OBLITERATION COURSE MODULES
-                </span>
-                <h2 class="font-cyber text-2xl sm:text-4xl text-white font-extrabold uppercase tracking-wider mb-3">
-                    The Obliteration Course Curriculum
-                </h2>
-                <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto">
-                    Hover or tap any card below to flip and inspect the core technical modules.
-                </p>
-            </div>
-
-            <!-- LEVEL 8 OBLITERATION VIDEO -->
-            <div class="max-w-4xl mx-auto bg-slate-900 border-2 border-red-500/50 rounded-2xl p-4 sm:p-6 shadow-2xl mb-12">
-                <div class="flex justify-between items-center mb-3">
-                    <span class="font-mono-code text-xs text-red-400 font-bold uppercase tracking-wider">
-                        <i class="fa-solid fa-fire text-orange-400 mr-2"></i> LEVEL 8 OBLITERATION VIDEO BRIEFING
-                    </span>
-                    <span class="text-[10px] font-mono-code text-white bg-red-800 px-2.5 py-0.5 rounded font-bold">FINAL BOSS BATTLE</span>
-                </div>
-                <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/w2hEmiBfLbo" title="Obliteration Challenge Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-            </div>
-
-            <!-- 3D FLIP CARDS GRID -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <!-- SECTION 3: ORIGINAL SMOKING VAULT PARAMETERS & SPECIFICATIONS -->
+        <section class="py-16 max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
                 
-                <!-- CARD 1 -->
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front bg-slate-900 border border-slate-800 border-t-4 border-t-cyan-400">
-                            <div>
-                                <span class="font-mono-code text-xs text-cyan-400 font-bold">MODULE 01</span>
-                                <h3 class="font-bold text-white text-lg mt-2 mb-3">Zero-Cloud Air Gapping</h3>
-                                <p class="text-slate-400 text-xs leading-relaxed">Isolate local LLMs from public API endpoints to prevent telemetry leaks.</p>
-                            </div>
-                            <div class="text-xs font-mono-code text-cyan-300">Tap / Hover to Flip ➔</div>
-                        </div>
-                        <div class="flip-card-back bg-cyan-950 border border-cyan-500">
-                            <div>
-                                <span class="font-mono-code text-xs text-cyan-300 font-bold">TECHNICAL BREAKDOWN</span>
-                                <h4 class="font-bold text-white text-sm mt-2 mb-2">Hardware Socket Locking</h4>
-                                <p class="text-slate-200 text-xs leading-relaxed">Configures local loopback routing, firewall rules, and offline GGUF inference engines.</p>
-                            </div>
-                            <span class="text-[10px] font-mono-code text-cyan-400 uppercase font-bold">Status: Complete</span>
-                        </div>
+                <!-- ORIGINAL TEXT & DETAILS -->
+                <div class="bg-slate-950 border-2 border-amber-500/40 rounded-2xl p-8 shadow-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-amber-500/10 text-amber-400 font-mono-code text-xs border border-amber-500/30 uppercase mb-4">
+                        🔒 STRICTLY LOCAL · ZERO CLOUD DATA TRANSFER
                     </div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-6">Enterprise Data Sovereignty Specs</h3>
+                    <ul class="space-y-4 text-sm text-slate-300 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-amber-400 mt-1"></i>
+                            <div><strong>Total Isolation:</strong> Operates completely offline without external API dependencies or cloud logging.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-amber-400 mt-1"></i>
+                            <div><strong>B2B Compliance:</strong> Meets HIPAA, SOC 2, and internal IP protection requirements.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-amber-400 mt-1"></i>
+                            <div><strong>Zero Leak Architecture:</strong> Ensures proprietary prompts and dataset queries remain strictly on-device.</div>
+                        </li>
+                    </ul>
+
+                    <a href="https://paypal.me/LeonRDarden" target="_blank" class="block text-center py-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-extrabold text-sm uppercase tracking-wider transition-all shadow-lg shadow-amber-500/30">
+                        Unlock The Vault Zip — $50
+                    </a>
                 </div>
 
-                <!-- CARD 2 -->
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front bg-slate-900 border border-slate-800 border-t-4 border-t-sky-400">
-                            <div>
-                                <span class="font-mono-code text-xs text-sky-400 font-bold">MODULE 02</span>
-                                <h3 class="font-bold text-white text-lg mt-2 mb-3">Turnkey Local Vault Zip</h3>
-                                <p class="text-slate-400 text-xs leading-relaxed">Pre-configured offline AI environment packaged for instant 60-second kiosk deployment.</p>
-                            </div>
-                            <div class="text-xs font-mono-code text-sky-300">Tap / Hover to Flip ➔</div>
-                        </div>
-                        <div class="flip-card-back bg-sky-950 border border-sky-500">
-                            <div>
-                                <span class="font-mono-code text-xs text-sky-300 font-bold">TECHNICAL BREAKDOWN</span>
-                                <h4 class="font-bold text-white text-sm mt-2 mb-2">One-Click Installation</h4>
-                                <p class="text-slate-200 text-xs leading-relaxed">Includes vectorized Chroma DB, local prompt sanitizers, and Gumroad $50 webhook integration.</p>
-                            </div>
-                            <span class="text-[10px] font-mono-code text-sky-400 uppercase font-bold">Status: Verified</span>
-                        </div>
+                <!-- LEVEL 8 OBLITERATION VIDEO -->
+                <div class="bg-slate-950 border-2 border-red-500/60 rounded-2xl p-6 shadow-2xl">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="font-mono-code text-xs text-red-400 font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-fire text-orange-400 mr-2"></i> LEVEL 8 OBLITERATION VIDEO
+                        </span>
+                        <span class="text-[10px] font-mono-code text-white bg-red-800 px-2.5 py-0.5 rounded font-bold">FINAL BOSS BATTLE</span>
                     </div>
-                </div>
-
-                <!-- CARD 3 -->
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front bg-slate-900 border border-slate-800 border-t-4 border-t-red-500">
-                            <div>
-                                <span class="font-mono-code text-xs text-red-400 font-bold">MODULE 03</span>
-                                <h3 class="font-bold text-white text-lg mt-2 mb-3">Final Boss Obliteration</h3>
-                                <p class="text-slate-400 text-xs leading-relaxed">Eliminate corporate security vulnerabilities and establish sovereign AI governance.</p>
-                            </div>
-                            <div class="text-xs font-mono-code text-red-300">Tap / Hover to Flip ➔</div>
-                        </div>
-                        <div class="flip-card-back bg-red-950 border border-red-500">
-                            <div>
-                                <span class="font-mono-code text-xs text-red-300 font-bold">TECHNICAL BREAKDOWN</span>
-                                <h4 class="font-bold text-white text-sm mt-2 mb-2">Sovereign Mastery</h4>
-                                <p class="text-slate-200 text-xs leading-relaxed">Unlocks the Final Boss Defeat Badge and prepares the student for enterprise SOC training.</p>
-                            </div>
-                            <span class="text-[10px] font-mono-code text-red-400 uppercase font-bold">Status: Boss Defeated</span>
-                        </div>
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black border border-red-500/30 shadow-2xl">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/w2hEmiBfLbo" title="Obliteration Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- SECTION 4: FINAL BOSS DEFEAT BADGE & NEXT STEP CTA -->
-        <section id="victory-section" class="py-16 bg-slate-900/60 border-t border-slate-800">
+        <!-- SECTION 4: OBLITERATION COURSE CARDS (WITH 3D INTERACTIVE FLIP) -->
+        <section id="obliteration-course" class="py-16 bg-slate-950/90 border-t border-slate-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <span class="px-3.5 py-1 rounded-full bg-red-950 text-red-400 font-mono-code text-xs uppercase tracking-widest border border-red-800 mb-3 inline-block font-bold">
+                        🔥 OBLITERATION COURSE CARDS
+                    </span>
+                    <h2 class="font-cyber text-2xl sm:text-4xl text-white font-extrabold uppercase tracking-wider mb-3">
+                        The Obliteration Course Modules
+                    </h2>
+                    <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto">
+                        Hover or tap any card below to flip and reveal the technical specs.
+                    </p>
+                </div>
+
+                <!-- 3D FLIP CARDS GRID -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    
+                    <!-- FLIP CARD 1 -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-slate-900 border border-amber-500/40 border-t-4 border-t-amber-400">
+                                <div>
+                                    <span class="font-mono-code text-xs text-amber-400 font-bold">MODULE 01</span>
+                                    <h3 class="font-bold text-white text-lg mt-2 mb-3">Zero-Cloud Air Gapping</h3>
+                                    <p class="text-slate-400 text-xs leading-relaxed">Isolate local LLMs from public API endpoints to prevent telemetry leaks.</p>
+                                </div>
+                                <div class="text-xs font-mono-code text-amber-400">Tap / Hover to Flip ➔</div>
+                            </div>
+                            <div class="flip-card-back bg-amber-950 border border-amber-500">
+                                <div>
+                                    <span class="font-mono-code text-xs text-amber-300 font-bold">TECHNICAL BREAKDOWN</span>
+                                    <h4 class="font-bold text-white text-sm mt-2 mb-2">Hardware Socket Locking</h4>
+                                    <p class="text-slate-200 text-xs leading-relaxed">Configures local loopback routing, firewall rules, and offline GGUF inference engines.</p>
+                                </div>
+                                <span class="text-[10px] font-mono-code text-amber-400 uppercase font-bold">Status: Complete</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FLIP CARD 2 -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-slate-900 border border-amber-500/40 border-t-4 border-t-orange-500">
+                                <div>
+                                    <span class="font-mono-code text-xs text-orange-400 font-bold">MODULE 02</span>
+                                    <h3 class="font-bold text-white text-lg mt-2 mb-3">Turnkey Local Vault Zip</h3>
+                                    <p class="text-slate-400 text-xs leading-relaxed">Pre-configured offline AI environment packaged for instant 60-second kiosk deployment.</p>
+                                </div>
+                                <div class="text-xs font-mono-code text-orange-400">Tap / Hover to Flip ➔</div>
+                            </div>
+                            <div class="flip-card-back bg-orange-950 border border-orange-500">
+                                <div>
+                                    <span class="font-mono-code text-xs text-orange-300 font-bold">TECHNICAL BREAKDOWN</span>
+                                    <h4 class="font-bold text-white text-sm mt-2 mb-2">One-Click Installation</h4>
+                                    <p class="text-slate-200 text-xs leading-relaxed">Includes vectorized Chroma DB, local prompt sanitizers, and Gumroad $50 webhook integration.</p>
+                                </div>
+                                <span class="text-[10px] font-mono-code text-orange-400 uppercase font-bold">Status: Verified</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FLIP CARD 3 -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-slate-900 border border-amber-500/40 border-t-4 border-t-red-500">
+                                <div>
+                                    <span class="font-mono-code text-xs text-red-400 font-bold">MODULE 03</span>
+                                    <h3 class="font-bold text-white text-lg mt-2 mb-3">Final Boss Obliteration</h3>
+                                    <p class="text-slate-400 text-xs leading-relaxed">Eliminate corporate security vulnerabilities and establish sovereign AI governance.</p>
+                                </div>
+                                <div class="text-xs font-mono-code text-red-400">Tap / Hover to Flip ➔</div>
+                            </div>
+                            <div class="flip-card-back bg-red-950 border border-red-500">
+                                <div>
+                                    <span class="font-mono-code text-xs text-red-300 font-bold">TECHNICAL BREAKDOWN</span>
+                                    <h4 class="font-bold text-white text-sm mt-2 mb-2">Sovereign Mastery</h4>
+                                    <p class="text-slate-200 text-xs leading-relaxed">Unlocks the Final Boss Defeat Badge and prepares the student for enterprise SOC training.</p>
+                                </div>
+                                <span class="text-[10px] font-mono-code text-red-400 uppercase font-bold">Status: Boss Defeated</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: FINAL BOSS VICTORY BANNER & NEXT STEP CTA -->
+        <section id="victory-section" class="py-16 bg-black border-t border-amber-500/30">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
                 
-                <!-- VICTORY BANNER (UNLOCKED UPON COMPLETING LEVELS) -->
-                <div id="boss-victory-banner" class="bg-gradient-to-r from-cyan-950 via-slate-900 to-sky-950 border-2 border-sky-400 rounded-3xl p-8 sm:p-12 shadow-[0_0_40px_rgba(56,189,248,0.3)] mb-12 relative overflow-hidden">
+                <!-- VICTORY BANNER -->
+                <div id="boss-victory-banner" class="bg-gradient-to-r from-amber-950 via-slate-950 to-orange-950 border-2 border-amber-400 rounded-3xl p-8 sm:p-12 shadow-[0_0_40px_rgba(245,158,11,0.3)] mb-12 relative overflow-hidden">
                     <div class="text-5xl mb-4">🏆</div>
-                    <span class="px-3.5 py-1 rounded-full bg-sky-500/20 text-sky-300 font-mono-code text-xs uppercase tracking-widest border border-sky-400 mb-3 inline-block font-bold">
+                    <span class="px-3.5 py-1 rounded-full bg-amber-500/20 text-amber-300 font-mono-code text-xs uppercase tracking-widest border border-amber-400 mb-3 inline-block font-bold">
                         CHALLENGE COMPLETE · VICTORY UNLOCKED
                     </span>
                     <h2 class="font-cyber text-2xl sm:text-4xl text-white font-black uppercase tracking-wider mb-4">
@@ -385,10 +437,10 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="https://paypal.me/LeonRDarden" target="_blank" class="px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-sm uppercase tracking-wider transition-all shadow-lg shadow-cyan-500/30">
+                        <a href="https://paypal.me/LeonRDarden" target="_blank" class="px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-extrabold text-sm uppercase tracking-wider transition-all shadow-lg shadow-amber-500/30">
                             Unlock The Vault Zip — $50
                         </a>
-                        <a href="SOCtraining21.html" class="px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-300 border border-sky-400/50 font-extrabold text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+                        <a href="SOCtraining21.html" class="px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-300 border border-amber-400/50 font-extrabold text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2">
                             Try The SOC 21-Day Challenge Next ➔
                         </a>
                     </div>
@@ -400,7 +452,7 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="w-full border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500 font-mono-code">
+    <footer class="w-full border-t border-amber-500/20 bg-black py-8 text-center text-xs text-slate-500 font-mono-code">
         <p>&copy; 2026 Privacy-First Protocol · Leon R. Darden Ecosystem. All Rights Reserved. Contact: leonrdarden@gmail.com</p>
     </footer>
 
@@ -416,9 +468,9 @@
             if (nodeEl && !nodeEl.classList.contains('node-cleared')) {
                 nodeEl.classList.add('node-cleared');
                 statusEl.textContent = 'STAGE CLEARED';
-                statusEl.className = 'text-[10px] font-mono-code text-sky-300 bg-sky-950 px-2 py-0.5 rounded border border-sky-400 font-bold';
+                statusEl.className = 'text-[10px] font-mono-code text-slate-950 bg-amber-400 px-2 py-0.5 rounded font-bold';
                 btnEl.textContent = '✓ STAGE CLEARED';
-                btnEl.className = 'w-full py-2 bg-sky-600 text-slate-950 font-mono-code text-xs font-black rounded-lg transition-all uppercase tracking-wider shadow-md';
+                btnEl.className = 'w-full py-2.5 bg-amber-500 text-slate-950 font-mono-code text-xs font-black rounded-lg transition-all uppercase tracking-wider shadow-md';
                 clearedNodes++;
 
                 if (level === 8 || clearedNodes >= 8) {
