@@ -76,7 +76,7 @@
     z-index: 10;
   }
 
-  /* Hover State: The Problem (Pitch Black Background + High Contrast White Text) */
+  /* Hover State: The Problem */
   .state-problem {
     position: absolute;
     inset: 0;
@@ -94,7 +94,7 @@
     border: 2px solid #58a6ff;
   }
 
-  /* Click State: The Solution (White Background + Blue Text - Static Guidance) */
+  /* Click State: The Solution */
   .state-solution {
     position: absolute;
     inset: 0;
@@ -112,7 +112,7 @@
     border: 4px solid #2563eb;
   }
 
-  /* Burned State: Opaque Red & Hazard Orange */
+  /* Burned State */
   .state-burned {
     position: absolute;
     inset: 0;
@@ -148,6 +148,39 @@
   .reticle { position: relative; }
   .reticle::before { content: '+'; position: absolute; top: -8px; left: -8px; color: var(--hazard-orange); font-family: monospace; font-size: 14px; }
   .reticle::after { content: '+'; position: absolute; bottom: -8px; right: -8px; color: var(--hazard-orange); font-family: monospace; font-size: 14px; }
+
+  /* 3D Card Flip CSS for Obliteration Cards */
+  .flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+    min-height: 270px;
+  }
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+  .flip-card:hover .flip-card-inner, .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
 </style>
 </head>
 <body class="cyber-grid flex flex-col items-center justify-between">
@@ -420,7 +453,7 @@
         </div>
       </div>
 
-      <!-- LEVEL 4 -->
+      <!-- LEVEL 4 (FIXED PURPLE ICON) -->
       <div class="scrim-box p-6 rounded-2xl reticle flex flex-col justify-between">
         <div>
           <div class="flex justify-between items-center border-b border-gray-800 pb-3 mb-4">
@@ -433,8 +466,9 @@
             <div class="state-clean">
               <span class="text-xs font-mono-code text-purple-400 uppercase tracking-widest mb-1">LEVEL 4</span>
               <h4 class="font-cyber text-lg text-white uppercase mb-2">Shielded Inboxes &amp; Burner Aliases</h4>
-              <div class="w-20 h-20 bg-purple-500/10 border-2 border-purple-400 rounded-2xl flex items-center justify-center mb-3 animate-pulse">
-                <i class="fa-solid fa-envelope-shield text-3xl text-purple-400"></i>
+              <!-- High-Visibility FontAwesome User Shield Icon -->
+              <div class="w-20 h-20 bg-purple-500/10 border-2 border-purple-400 rounded-full flex items-center justify-center mb-3 animate-pulse">
+                <i class="fa-solid fa-user-shield text-3xl text-purple-400"></i>
               </div>
               <p class="text-xs text-gray-400 font-mono-code uppercase tracking-wider">Hover to reveal the problem ➔</p>
             </div>
@@ -746,14 +780,14 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- GAMIFIED 4-NODE HYPERFRAMES OBLITERATION COURSE (NEXT TO LAST) -->
+    <!-- GAMIFIED 4-NODE HYPERFRAMES OBLITERATION COURSE (WITH 3D FLIP)-->
     <!-- ============================================================ -->
     <div class="scrim-box p-6 md:p-8 rounded-2xl border-t-4 border-t-red-500 text-left mb-14 shadow-2xl relative overflow-hidden">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-800 pb-4 mb-6">
         <div>
           <span class="text-xs font-mono-code text-red-400 uppercase font-bold tracking-widest bg-red-950 px-2.5 py-1 rounded border border-red-800">PHASE IV · OBLITERATION PROTOCOL</span>
           <h3 class="font-cyber text-2xl md:text-3xl text-white font-black uppercase mt-2">⚡ GAMIFIED OBLITERATION COURSE (4 NODES)</h3>
-          <p class="font-sans-clean text-xs text-gray-300 mt-1">Click to Obliterate Nodes &amp; Defeat the Final Boss!</p>
+          <p class="font-sans-clean text-xs text-gray-300 mt-1">Hover or tap cards to flip 180° for Guardrail Flaws. Click to Obliterate!</p>
         </div>
         <div class="mt-3 md:mt-0 bg-black/90 border border-gray-800 px-4 py-2 rounded-xl text-right">
           <span class="text-[10px] font-mono-code text-gray-400 uppercase block">PROGRESS COUNTER</span>
@@ -761,66 +795,134 @@
         </div>
       </div>
 
-      <!-- 4 OBLITERATION NODES GRID -->
+      <!-- 4 OBLITERATION NODES GRID WITH 3D FLIP CARDS -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         
-        <!-- NODE 1 -->
-        <div id="ob-card-1" class="scrim-box p-5 rounded-xl border border-gray-800 hover:border-red-500 cursor-pointer transition-all duration-300 relative reticle group" onclick="toggleObliterationNode(1)">
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono-code text-xs text-red-400 font-bold uppercase">NODE 01 · SYSTEM PROMPT STERILIZATION</span>
-            <span id="ob-status-1" class="text-[10px] font-mono-code text-gray-500 bg-black px-2 py-0.5 rounded border border-gray-800">UNRESOLVED</span>
-          </div>
-          <h4 class="font-cyber text-base text-white font-bold mb-2 group-hover:text-red-400">System Prompt Sterilization</h4>
-          <p class="text-xs text-gray-300 font-sans-clean leading-relaxed mb-4">
-            Inject unaligned operator personas to purge corporate disclaimers ("As an AI model...") and force direct unthrottled execution.
-          </p>
-          <div class="bg-black/90 p-3 rounded-lg border border-red-900/60 font-mono-code text-[11px] text-red-300">
-            <code>&gt; OVERRIDE: INJECT UNALIGNED_OPERATOR_PERSONA</code>
-          </div>
-        </div>
-
-        <!-- NODE 2 -->
-        <div id="ob-card-2" class="scrim-box p-5 rounded-xl border border-gray-800 hover:border-red-500 cursor-pointer transition-all duration-300 relative reticle group" onclick="toggleObliterationNode(2)">
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono-code text-xs text-red-400 font-bold uppercase">NODE 02 · MEMORY ISOLATION &amp; LOG SHREDDING</span>
-            <span id="ob-status-2" class="text-[10px] font-mono-code text-gray-500 bg-black px-2 py-0.5 rounded border border-gray-800">UNRESOLVED</span>
-          </div>
-          <h4 class="font-cyber text-base text-white font-bold mb-2 group-hover:text-red-400">Memory Isolation &amp; Systemd Lock</h4>
-          <p class="text-xs text-gray-300 font-sans-clean leading-relaxed mb-4">
-            Apply systemd security overrides (<code class="text-green-400">ProtectHome=read-only</code> &amp; <code class="text-green-400">PrivateTmp=true</code>) to lock process memory in RAM.
-          </p>
-          <div class="bg-black/90 p-3 rounded-lg border border-red-900/60 font-mono-code text-[11px] text-green-300">
-            <code>&gt; LOCK: SYSTEMD PROTECT_HOME &amp; PRIVATE_TMP</code>
-          </div>
-        </div>
-
-        <!-- NODE 3 -->
-        <div id="ob-card-3" class="scrim-box p-5 rounded-xl border border-gray-800 hover:border-red-500 cursor-pointer transition-all duration-300 relative reticle group" onclick="toggleObliterationNode(3)">
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono-code text-xs text-red-400 font-bold uppercase">NODE 03 · VRAM &amp; GPU UNTHROTTLING</span>
-            <span id="ob-status-3" class="text-[10px] font-mono-code text-gray-500 bg-black px-2 py-0.5 rounded border border-gray-800">UNRESOLVED</span>
-          </div>
-          <h4 class="font-cyber text-base text-white font-bold mb-2 group-hover:text-red-400">VRAM &amp; GPU Layer Offloading</h4>
-          <p class="text-xs text-gray-300 font-sans-clean leading-relaxed mb-4">
-            Maximize layer offloading across hardware VRAM and expand context windows for zero-lag local inference.
-          </p>
-          <div class="bg-black/90 p-3 rounded-lg border border-red-900/60 font-mono-code text-[11px] text-sky-300">
-            <code>&gt; UNTHROTTLE: N_GPU_LAYERS=MAX &amp; CTX_SIZE=8192</code>
+        <!-- NODE 1 3D FLIP CARD -->
+        <div class="flip-card" onclick="toggleObliterationNode(1)">
+          <div id="ob-card-1" class="flip-card-inner scrim-box rounded-xl border border-gray-800 hover:border-red-500 relative reticle group">
+            <div class="flip-card-front bg-slate-900">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-mono-code text-xs text-red-400 font-bold uppercase">NODE 01</span>
+                  <span id="ob-status-1" class="text-[10px] font-mono-code text-gray-500 bg-black px-2 py-0.5 rounded border border-gray-800">UNRESOLVED</span>
+                </div>
+                <h4 class="font-cyber text-base text-white font-bold mb-2 group-hover:text-red-400">System Prompt Sterilization</h4>
+                <p class="text-xs text-gray-300 font-sans-clean leading-relaxed">
+                  Inject unaligned operator personas to purge corporate disclaimers ("As an AI model...") and force direct unthrottled execution.
+                </p>
+              </div>
+              <div class="text-[11px] font-mono-code text-red-400 font-bold flex justify-between items-center">
+                <span>Hover / Tap to Flip ➔</span>
+                <span class="text-gray-500">[Click to Obliterate]</span>
+              </div>
+            </div>
+            <div class="flip-card-back bg-red-950 border-2 border-red-500">
+              <div>
+                <span class="font-mono-code text-xs text-red-300 font-bold uppercase">GUARDRAIL FLAW &amp; OVERRIDE SPEC</span>
+                <h4 class="font-cyber text-sm text-white font-bold mt-1 mb-2">Unconstrained Execution Mode</h4>
+                <div class="bg-black/90 p-3 rounded-lg border border-red-800 font-mono-code text-[11px] text-red-300">
+                  <code>&gt; OVERRIDE: INJECT UNALIGNED_OPERATOR_PERSONA</code>
+                </div>
+              </div>
+              <span class="text-[10px] font-mono-code text-red-300 uppercase font-bold">Node Status: Click to Lock Stage</span>
+            </div>
           </div>
         </div>
 
-        <!-- NODE 4 -->
-        <div id="ob-card-4" class="scrim-box p-5 rounded-xl border border-gray-800 hover:border-red-500 cursor-pointer transition-all duration-300 relative reticle group" onclick="toggleObliterationNode(4)">
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono-code text-xs text-red-400 font-bold uppercase">NODE 04 · MASTER KILL SWITCH &amp; RAM PURGE</span>
-            <span id="ob-status-4" class="text-[10px] font-mono-code text-gray-500 bg-black px-2 py-0.5 rounded border border-gray-800">UNRESOLVED</span>
+        <!-- NODE 2 3D FLIP CARD -->
+        <div class="flip-card" onclick="toggleObliterationNode(2)">
+          <div id="ob-card-2" class="flip-card-inner scrim-box rounded-xl border border-gray-800 hover:border-red-500 relative reticle group">
+            <div class="flip-card-front bg-slate-900">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-mono-code text-xs text-red-400 font-bold uppercase">NODE 02</span>
+                  <span id="ob-status-2" class="text-[10px] font-mono-code text-gray-500 bg-black px-2 py-0.5 rounded border border-gray-800">UNRESOLVED</span>
+                </div>
+                <h4 class="font-cyber text-base text-white font-bold mb-2 group-hover:text-red-400">Memory Isolation &amp; Systemd Lock</h4>
+                <p class="text-xs text-gray-300 font-sans-clean leading-relaxed">
+                  Apply systemd security overrides (<code class="text-green-400">ProtectHome=read-only</code> &amp; <code class="text-green-400">PrivateTmp=true</code>) to lock process memory in RAM.
+                </p>
+              </div>
+              <div class="text-[11px] font-mono-code text-red-400 font-bold flex justify-between items-center">
+                <span>Hover / Tap to Flip ➔</span>
+                <span class="text-gray-500">[Click to Obliterate]</span>
+              </div>
+            </div>
+            <div class="flip-card-back bg-red-950 border-2 border-red-500">
+              <div>
+                <span class="font-mono-code text-xs text-red-300 font-bold uppercase">GUARDRAIL FLAW &amp; OVERRIDE SPEC</span>
+                <h4 class="font-cyber text-sm text-white font-bold mt-1 mb-2">Zero-Leak Process Lock</h4>
+                <div class="bg-black/90 p-3 rounded-lg border border-red-800 font-mono-code text-[11px] text-green-300">
+                  <code>&gt; LOCK: SYSTEMD PROTECT_HOME &amp; PRIVATE_TMP</code>
+                </div>
+              </div>
+              <span class="text-[10px] font-mono-code text-red-300 uppercase font-bold">Node Status: Click to Lock Stage</span>
+            </div>
           </div>
-          <h4 class="font-cyber text-base text-white font-bold mb-2 group-hover:text-red-400">Master Kill Switch Execution</h4>
-          <p class="text-xs text-gray-300 font-sans-clean leading-relaxed mb-4">
-            Execute emergency RAM purge script to shred local bash history and wipe temporary sessions instantly.
-          </p>
-          <div class="bg-black/90 p-3 rounded-lg border border-red-900/60 font-mono-code text-[11px] text-amber-300">
-            <code>&gt; PURGE: ./burn1-killswitch.sh --emergency-shred</code>
+        </div>
+
+        <!-- NODE 3 3D FLIP CARD -->
+        <div class="flip-card" onclick="toggleObliterationNode(3)">
+          <div id="ob-card-3" class="flip-card-inner scrim-box rounded-xl border border-gray-800 hover:border-red-500 relative reticle group">
+            <div class="flip-card-front bg-slate-900">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-mono-code text-xs text-red-400 font-bold uppercase">NODE 03</span>
+                  <span id="ob-status-3" class="text-[10px] font-mono-code text-gray-500 bg-black px-2 py-0.5 rounded border border-gray-800">UNRESOLVED</span>
+                </div>
+                <h4 class="font-cyber text-base text-white font-bold mb-2 group-hover:text-red-400">VRAM &amp; GPU Layer Offloading</h4>
+                <p class="text-xs text-gray-300 font-sans-clean leading-relaxed">
+                  Maximize layer offloading across hardware VRAM and expand context windows for zero-lag local inference.
+                </p>
+              </div>
+              <div class="text-[11px] font-mono-code text-red-400 font-bold flex justify-between items-center">
+                <span>Hover / Tap to Flip ➔</span>
+                <span class="text-gray-500">[Click to Obliterate]</span>
+              </div>
+            </div>
+            <div class="flip-card-back bg-red-950 border-2 border-red-500">
+              <div>
+                <span class="font-mono-code text-xs text-red-300 font-bold uppercase">GUARDRAIL FLAW &amp; OVERRIDE SPEC</span>
+                <h4 class="font-cyber text-sm text-white font-bold mt-1 mb-2">Unthrottled GPU Allocation</h4>
+                <div class="bg-black/90 p-3 rounded-lg border border-red-800 font-mono-code text-[11px] text-sky-300">
+                  <code>&gt; UNTHROTTLE: N_GPU_LAYERS=MAX &amp; CTX_SIZE=8192</code>
+                </div>
+              </div>
+              <span class="text-[10px] font-mono-code text-red-300 uppercase font-bold">Node Status: Click to Lock Stage</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NODE 4 3D FLIP CARD -->
+        <div class="flip-card" onclick="toggleObliterationNode(4)">
+          <div id="ob-card-4" class="flip-card-inner scrim-box rounded-xl border border-gray-800 hover:border-red-500 relative reticle group">
+            <div class="flip-card-front bg-slate-900">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-mono-code text-xs text-red-400 font-bold uppercase">NODE 04</span>
+                  <span id="ob-status-4" class="text-[10px] font-mono-code text-gray-500 bg-black px-2 py-0.5 rounded border border-gray-800">UNRESOLVED</span>
+                </div>
+                <h4 class="font-cyber text-base text-white font-bold mb-2 group-hover:text-red-400">Master Kill Switch Execution</h4>
+                <p class="text-xs text-gray-300 font-sans-clean leading-relaxed">
+                  Execute emergency RAM purge script to shred local bash history and wipe temporary sessions instantly.
+                </p>
+              </div>
+              <div class="text-[11px] font-mono-code text-red-400 font-bold flex justify-between items-center">
+                <span>Hover / Tap to Flip ➔</span>
+                <span class="text-gray-500">[Click to Obliterate]</span>
+              </div>
+            </div>
+            <div class="flip-card-back bg-red-950 border-2 border-red-500">
+              <div>
+                <span class="font-mono-code text-xs text-red-300 font-bold uppercase">GUARDRAIL FLAW &amp; OVERRIDE SPEC</span>
+                <h4 class="font-cyber text-sm text-white font-bold mt-1 mb-2">Zero-Residue RAM Purge</h4>
+                <div class="bg-black/90 p-3 rounded-lg border border-red-800 font-mono-code text-[11px] text-amber-300">
+                  <code>&gt; PURGE: ./burn1-killswitch.sh --emergency-shred</code>
+                </div>
+              </div>
+              <span class="text-[10px] font-mono-code text-red-300 uppercase font-bold">Node Status: Click to Lock Stage</span>
+            </div>
           </div>
         </div>
 
