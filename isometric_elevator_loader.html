@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hyperframe Isometric Elevator Loader | Burn-1 Suite</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #030305;
+      color: #00f3ff;
+      font-family: 'Share Tech Mono', monospace;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .font-cyber { font-family: 'Orbitron', sans-serif; }
+
+    /* HYPERFRAME OUTER CONTAINER */
+    .hyperframe-box {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      height: 640px;
+      background: rgba(4, 6, 12, 0.95);
+      border: 2px solid rgba(0, 243, 255, 0.6);
+      box-shadow: 0 0 40px rgba(0, 243, 255, 0.25), inset 0 0 20px rgba(0, 243, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+    }
+
+    /* Reticle Corner Marks */
+    .reticle-mark {
+      position: absolute;
+      color: #39ff14;
+      font-size: 14px;
+      font-family: 'Orbitron', sans-serif;
+      pointer-events: none;
+    }
+    .reticle-tl { top: 12px; left: 12px; }
+    .reticle-tr { top: 12px; right: 12px; }
+    .reticle-bl { bottom: 12px; left: 12px; }
+    .reticle-br { bottom: 12px; right: 12px; }
+
+    /* 3D SCENE CONTAINER FOR ISOMETRIC CUBE & ELEVATOR */
+    .scene-3d {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      perspective: 1000px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* ISOMETRIC ANGLED CUBE / ELEVATOR SHAFT */
+    .iso-cube-wrapper {
+      position: relative;
+      width: 180px;
+      height: 220px;
+      transform-style: preserve-3d;
+      transform: rotateX(25deg) rotateY(-35deg) rotateZ(0deg);
+      transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* CUBE FACES */
+    .cube-face {
+      position: absolute;
+      width: 180px;
+      height: 220px;
+      border: 2px solid rgba(0, 243, 255, 0.8);
+      background: rgba(0, 243, 255, 0.05);
+      box-shadow: inset 0 0 25px rgba(0, 243, 255, 0.2);
+      backdrop-filter: blur(4px);
+    }
+
+    .cube-face-front {
+      transform: translateZ(90px);
+      display: flex;
+      overflow: hidden;
+    }
+    .cube-face-back {
+      transform: rotateY(180deg) translateZ(90px);
+    }
+    .cube-face-left {
+      transform: rotateY(-90deg) translateZ(90px);
+      background: rgba(0, 243, 255, 0.08);
+    }
+    .cube-face-right {
+      transform: rotateY(90deg) translateZ(90px);
+      background: rgba(57, 255, 20, 0.05);
+      border-color: rgba(57, 255, 20, 0.6);
+    }
+    .cube-face-top {
+      height: 180px;
+      transform: rotateX(90deg) translateZ(90px);
+      background: rgba(0, 243, 255, 0.12);
+    }
+    .cube-face-bottom {
+      height: 180px;
+      transform: rotateX(-90deg) translateZ(130px);
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* DOUBLE DOORS (SLIDING ELEVATOR DOORS) */
+    .door-left, .door-right {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(10, 15, 30, 0.95), rgba(0, 243, 255, 0.25));
+      border: 1px solid rgba(0, 243, 255, 0.8);
+      box-shadow: inset 0 0 15px rgba(0, 243, 255, 0.4);
+      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+      z-index: 20;
+    }
+    .door-left { left: 0; border-right: 1px solid #39ff14; }
+    .door-right { right: 0; border-left: 1px solid #39ff14; }
+
+    /* DOOR STATES */
+    .doors-open .door-left { transform: translateX(-92%); }
+    .doors-open .door-right { transform: translateX(92%); }
+
+    /* ELEVATOR ASCENT MOTION */
+    .elevator-ascending {
+      animation: elevator-ascent 1.5s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+    }
+
+    @keyframes elevator-ascent {
+      0% { transform: rotateX(25deg) rotateY(-35deg) translateY(0px); }
+      50% { transform: rotateX(15deg) rotateY(-20deg) translateY(-80px); filter: drop-shadow(0 0 30px #39ff14); }
+      100% { transform: rotateX(0deg) rotateY(0deg) translateY(-140px) scale(1.1); }
+    }
+
+    /* INNER ELEVATOR CHAMBER (REVEALED BEHIND DOORS) */
+    .elevator-chamber {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle, rgba(57, 255, 20, 0.3) 0%, rgba(0, 0, 0, 0.9) 80%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    /* WIREFRAME GRID DECORATION */
+    .wireframe-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+      background-size: 16px 16px;
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HYPERFRAME FRAMEWORK BOX -->
+  <div class="hyperframe-box">
+    
+    <!-- RETICLE CORNER MARKS -->
+    <div class="reticle-mark reticle-tl">+ HYPERFRAME</div>
+    <div class="reticle-mark reticle-tr">SYS: #3D-ELEVATOR +</div>
+    <div class="reticle-mark reticle-bl">+ DIAGRAM #01</div>
+    <div class="reticle-mark reticle-br">MODE: ISOMETRIC +</div>
+
+    <!-- HEADER STATUS -->
+    <div class="z-10 flex justify-between items-center border-b border-cyan-500/30 pb-3">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+        <span class="font-cyber font-bold text-xs text-white">ELEVATOR SHAFT LOADING ENGINE</span>
+      </div>
+      <span id="stage-badge" class="text-[10px] font-mono bg-cyan-950/80 text-cyan-300 px-2.5 py-1 rounded border border-cyan-700">
+        STAGE 1: ISOMETRIC CUBE
+      </span>
+    </div>
+
+    <!-- 3D ISOMETRIC SCENE AREA -->
+    <div class="scene-3d">
+      
+      <!-- ISOMETRIC ANGLED CUBE / ELEVATOR -->
+      <div id="iso-cube" class="iso-cube-wrapper">
+        
+        <!-- TOP FACE -->
+        <div class="cube-face cube-face-top">
+          <div class="wireframe-grid"></div>
+        </div>
+        
+        <!-- LEFT FACE -->
+        <div class="cube-face cube-face-left">
+          <div class="wireframe-grid"></div>
+        </div>
+
+        <!-- RIGHT FACE -->
+        <div class="cube-face cube-face-right">
+          <div class="wireframe-grid"></div>
+        </div>
+
+        <!-- FRONT FACE (ELEVATOR DOUBLE DOORS) -->
+        <div id="front-face" class="cube-face cube-face-front">
+          
+          <!-- REVEALED CHAMBER INSIDE -->
+          <div class="elevator-chamber">
+            <span class="text-2xl mb-1">⚡</span>
+            <span class="font-cyber text-[10px] text-emerald-400 font-bold tracking-widest">SYSTEM READY</span>
+          </div>
+
+          <!-- DOUBLE DOORS -->
+          <div id="door-l" class="door-left"></div>
+          <div id="door-r" class="door-right"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PROGRESS & SEQUENCE CONTROL PANEL -->
+    <div class="z-10 space-y-4">
+      
+      <!-- PROGRESS BAR -->
+      <div>
+        <div class="flex justify-between text-xs font-mono mb-1.5">
+          <span class="text-gray-400">LOADING DIAGRAM TELEMETRY...</span>
+          <span id="progress-percent" class="text-emerald-400 font-bold">0%</span>
+        </div>
+        <div class="w-full h-2.5 bg-slate-900 rounded-full overflow-hidden border border-cyan-500/40 p-0.5">
+          <div id="progress-fill" class="h-full bg-gradient-to-r from-cyan-500 via-emerald-400 to-green-400 rounded-full transition-all duration-300 w-0"></div>
+        </div>
+      </div>
+
+      <!-- SEQUENCE TRIGGER BUTTONS -->
+      <div class="grid grid-cols-2 gap-3 pt-2">
+        <button onclick="runAutoSequence()" class="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-black font-cyber font-bold py-2.5 px-4 rounded text-xs transition-all shadow-lg shadow-cyan-500/30">
+          ▶ RUN FULL SEQUENCE
+        </button>
+        <button onclick="resetSequence()" class="bg-slate-900 hover:bg-slate-800 border border-cyan-500/50 text-cyan-300 font-bold py-2.5 px-4 rounded text-xs transition-all">
+          🔄 RESTART LOADER
+        </button>
+      </div>
+
+      <p class="text-[10px] text-gray-500 text-center font-mono">
+        3D Isometric Cube ➔ Double Doors Cycle ➔ Elevator Ascent ➔ Final Chamber Reveal
+      </p>
+
+    </div>
+
+  </div>
+
+  <script>
+    let currentStage = 1;
+
+    function updateBadge(text) {
+      document.getElementById('stage-badge').innerText = text;
+    }
+
+    function setProgress(percent) {
+      document.getElementById('progress-percent').innerText = `${percent}%`;
+      document.getElementById('progress-fill').style.width = `${percent}%`;
+    }
+
+    function resetSequence() {
+      const cube = document.getElementById('iso-cube');
+      const frontFace = document.getElementById('front-face');
+
+      cube.className = "iso-cube-wrapper";
+      frontFace.className = "cube-face cube-face-front";
+      setProgress(0);
+      updateBadge('STAGE 1: ISOMETRIC CUBE');
+      currentStage = 1;
+    }
+
+    function runAutoSequence() {
+      resetSequence();
+
+      // STAGE 1: 0% -> 25% (Isometric Angled Cube)
+      setProgress(25);
+      updateBadge('STAGE 1: ISOMETRIC ANGLE');
+
+      // STAGE 2: 25% -> 50% (Double Doors Open & Close)
+      setTimeout(() => {
+        setProgress(50);
+        updateBadge('STAGE 2: DOORS OPEN & CLOSE');
+        const frontFace = document.getElementById('front-face');
+        frontFace.classList.add('doors-open');
+
+        // Close doors back after brief pause
+        setTimeout(() => {
+          frontFace.classList.remove('doors-open');
+        }, 1200);
+
+      }, 1200);
+
+      // STAGE 3: 50% -> 75% (Elevator Goes UP)
+      setTimeout(() => {
+        setProgress(75);
+        updateBadge('STAGE 3: ELEVATOR ASCENT ⬆');
+        const cube = document.getElementById('iso-cube');
+        cube.classList.add('elevator-ascending');
+      }, 3000);
+
+      // STAGE 4: 75% -> 100% (Elevator Doors Final Open to Reveal Chamber)
+      setTimeout(() => {
+        setProgress(100);
+        updateBadge('STAGE 4: ARRIVAL & REVEAL ✨');
+        const frontFace = document.getElementById('front-face');
+        frontFace.classList.add('doors-open');
+      }, 4600);
+    }
+
+    // Run on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      runAutoSequence();
+    });
+  </script>
+</body>
+</html>
