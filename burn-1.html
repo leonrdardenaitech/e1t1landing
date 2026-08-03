@@ -1051,6 +1051,14 @@
       qrContainer.innerHTML = `<img id="receipt-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(fullURL)}" alt="Dynamic Vector QR Code" class="w-28 h-28 object-contain">`;
     }
 
+    // Auto-detect mode from URL parameter or hash (e.g. burn-1.html?mode=day or #day)
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('mode') === 'day' || window.location.hash === '#day') {
+        toggleMode('day');
+      }
+    });
+
     function downloadReceiptPNG() {
       const card = document.getElementById('receipt-card');
       html2canvas(card, { scale: 2, backgroundColor: '#000000' }).then(canvas => {
