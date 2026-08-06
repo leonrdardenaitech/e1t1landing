@@ -21,24 +21,25 @@
         ::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #4ade80; box-shadow: 0 0 10px #4ade80; } 
 
-        /* Ultra Semi-Translucent Glassmorphism Panels */
+        /* Clean Semi-Translucent Glassmorphism */
         .glass-panel {
-            background: rgba(10, 15, 30, 0.45); 
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(56, 189, 248, 0.3); 
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            background: rgba(10, 15, 30, 0.35); 
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(56, 189, 248, 0.2); 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .glass-card {
-            background: rgba(10, 15, 30, 0.3); 
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(56, 189, 248, 0.25);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(10, 15, 30, 0.25); 
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
         
         .glass-card:hover {
-            box-shadow: 0 10px 40px rgba(56, 189, 248, 0.3);
-            border: 1px solid rgba(56, 189, 248, 0.5);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            transform: translateY(-1px);
         }
 
         /* Sidebar Module Button Styling */
@@ -78,7 +79,7 @@
             height: 100vh;
             z-index: -2;
             object-fit: cover;
-            transform: scale(1.05);
+            transform: scale(1.2);
         }
         
         .video-overlay {
@@ -97,7 +98,7 @@
 <body class="h-screen flex overflow-hidden relative">
 
     <!-- GLOBAL BACKGROUND LOOPING VIDEO (Matches SOCtraining21.html) -->
-    <video id="dash-bg-video" src="eachonebackground.mp4" autoplay loop muted playsinline class="video-bg"></video>
+    <video id="dash-bg-video" src="sharkTime.mp4" autoplay loop muted playsinline class="video-bg"></video>
     <div class="video-overlay"></div>
 
     <!-- Mobile overlay -->
