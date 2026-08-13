@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anergi Cyber Spa | Mini S.P.A. (Security Posture Assessment)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #050507;
+            --spa-cyan: #00f2ff;
+            --spa-purple: #7000ff;
+            --candle-green: #22c55e;
+            --warm-amber: #f59e0b;
+            --text-main: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; }
+        .font-cyber { font-family: 'Orbitron', sans-serif; }
+        .font-mono { font-family: 'Share Tech Mono', monospace; }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 90vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 60px 20px;
+            background: radial-gradient(circle at 50% 40%, #0d131f 0%, #050507 100%);
+        }
+
+        .spa-badge {
+            padding: 8px 20px; border-radius: 50px;
+            background: rgba(34, 197, 94, 0.1); border: 1px solid var(--candle-green);
+            color: var(--candle-green); font-size: 0.85rem; font-family: 'Share Tech Mono', monospace;
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif; font-size: 3.5rem; font-weight: 900;
+            letter-spacing: 2px; margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--spa-cyan), var(--candle-green));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.15rem; color: #94a3b8; max-width: 700px;
+            line-height: 1.7; margin-bottom: 2rem;
+        }
+
+        /* MINI S.P.A. AUDIT CARD */
+        .spa-card-section { padding: 60px 20px; background: #080a10; text-align: center; }
+        .spa-card {
+            max-width: 650px; margin: 0 auto;
+            background: #0f172a; padding: 36px; border-radius: 20px;
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .pulse-input { display: flex; gap: 10px; margin-bottom: 20px; }
+        .pulse-input input {
+            flex: 1; padding: 16px; background: #020617;
+            border: 1px solid #1e293b; border-radius: 10px;
+            color: #fff; font-family: 'Share Tech Mono', monospace; font-size: 0.95rem;
+        }
+
+        .pulse-btn {
+            padding: 16px 28px;
+            background: linear-gradient(135deg, var(--candle-green), #16a34a);
+            color: #020617; border: none; border-radius: 10px; font-weight: 900;
+            cursor: pointer; font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;
+            transition: all 0.2s ease;
+        }
+        .pulse-btn:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(34, 197, 94, 0.4); }
+
+        .pulse-result { display: none; text-align: left; margin-top: 20px; border-top: 1px solid #1e293b; padding-top: 20px; }
+        .health-score { font-size: 2.8rem; font-weight: 900; }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="spa-badge">
+            <i class="fa-solid fa-leaf"></i> CORPORATE WELLNESS FOR YOUR NETWORK
+        </div>
+        <h1>THE MINI S.P.A.</h1>
+        <p>
+            <strong>Security Posture Assessment.</strong> <br>
+            Think of it like a mobile mini spa day for your company—soothing candle ambiance, green foliage, and ambient soundscapes, but for your IT perimeter. Zero panic, zero friction. Just a clean posture refresh.
+        </p>
+    </section>
+
+    <!-- MINI S.P.A. DIAGNOSTIC CARD -->
+    <section class="spa-card-section">
+        <div class="spa-card">
+            <h3 class="font-cyber" style="color: var(--spa-cyan); font-size: 1.5rem; margin-bottom: 8px;">
+                <i class="fa-solid fa-spa"></i> RUN YOUR MINI S.P.A. CHECK
+            </h3>
+            <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 24px;">
+                Enter your domain for a instant surface diagnostic scan.
+            </p>
+
+            <div class="pulse-input">
+                <input type="text" id="domainInput" placeholder="Enter company domain (e.g. anergi.io)">
+                <button class="pulse-btn" onclick="runMiniSpa()">Start Assessment</button>
+            </div>
+
+            <div class="pulse-result" id="pulseResult">
+                <h4 class="font-cyber" style="color: var(--candle-green); margin-bottom: 10px;">
+                    <i class="fa-solid fa-check-circle"></i> Assessment Complete
+                </h4>
+                <p class="font-mono" style="font-size: 0.9rem; color: #94a3b8;">Target Domain: <span id="resDomain" style="color: #fff;">--</span></p>
+                <div style="margin: 15px 0;">
+                    <span style="font-size: 0.85rem; color: #64748b;">Postural Health Score:</span><br>
+                    <span class="health-score" id="healthScore">--/100</span>
+                </div>
+                <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6; background: #020617; padding: 16px; border-radius: 10px; border: 1px solid #1e293b;">
+                    <p>🕯️ <strong>Outer Tension:</strong> Missing HSTS headers (Needs light adjustment)</p>
+                    <p>🌿 <strong>Spinal Alignment:</strong> TLS 1.0/1.1 ciphers require routine patch</p>
+                    <p>💧 <strong>Fluid Flow:</strong> 3 stale DNS entries detected</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function runMiniSpa() {
+            const domain = document.getElementById('domainInput').value || "anergi.io";
+            const resultBox = document.getElementById('pulseResult');
+            const scoreElement = document.getElementById('healthScore');
+            const domainSpan = document.getElementById('resDomain');
+
+            resultBox.style.display = 'block';
+            scoreElement.innerHTML = 'Scanning...';
+            domainSpan.innerText = domain;
+
+            setTimeout(() => {
+                const score = Math.floor(Math.random() * (85 - 60 + 1)) + 60;
+                domainSpan.innerText = domain;
+                scoreElement.innerText = score + "/100";
+                scoreElement.style.color = (score > 70) ? "var(--candle-green)" : "#f59e0b";
+            }, 1200);
+        }
+    </script>
+</body>
+</html>

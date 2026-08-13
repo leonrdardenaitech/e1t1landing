@@ -1,0 +1,29 @@
+========================================================================
+           DARDEN FAMILY TREE & HERITAGE PORTAL - QUICK START
+========================================================================
+
+Thank you for downloading the official Darden Family Tree & Event Portal!
+
+WHAT'S INCLUDED IN THIS PACKAGE:
+--------------------------------
+1. darden_family_tree.html - The complete interactive family tree & event calendar website.
+2. reuniion.mp4           - The full-screen HD video background.
+3. reunion image.png      - Official reunion graphic asset.
+
+HOW TO USE LOCALLY:
+-------------------
+• Double-click 'darden_family_tree.html' to open it in Google Chrome, Microsoft Edge, Safari, or Firefox.
+• Ensure 'reuniion.mp4' remains in the same folder so the video background plays automatically.
+
+HOW TO HOST ONLINE (STANDALONE PAGE):
+--------------------------------------
+• Upload 'darden_family_tree.html' and 'reuniion.mp4' to your web server or hosting platform (Vercel, Netlify, CPanel, GitHub Pages, etc.).
+• The site runs 100% standalone and is pre-configured with Google Sheet & Google Calendar integrations.
+
+GOOGLE SPREADSHEET SETUP (OPTIONAL):
+------------------------------------
+• Submissions for family members & events automatically save to your connected Google Sheet.
+• Shared Photo Album links directly to Jewel's Google Shared Album.
+
+For support or questions, contact: dardenfamilyconnect@gmail.com
+========================================================================

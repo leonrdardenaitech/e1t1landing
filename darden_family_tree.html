@@ -59,13 +59,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.85) contrast(1.05) saturate(1.1);
+            filter: brightness(0.4) contrast(1.1) saturate(1.1);
             transform: scale(1.03);
             transition: filter 0.5s ease;
         }
 
         /* Gradient Overlay */
-                        .video-overlay {
+        .video-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -73,8 +73,8 @@
             height: 100vh;
             z-index: -1;
             background: 
-                radial-gradient(circle at 50% 30%, rgba(229, 185, 92, 0.04) 0%, transparent 60%),
-                linear-gradient(to bottom, rgba(8, 7, 11, 0.55) 0%, rgba(8, 7, 11, 0.78) 75%, rgba(8, 7, 11, 0.92) 100%);
+                radial-gradient(circle at 50% 30%, rgba(229, 185, 92, 0.08) 0%, transparent 60%),
+                linear-gradient(to bottom, rgba(8, 7, 11, 0.45) 0%, rgba(8, 7, 11, 0.85) 75%, rgba(8, 7, 11, 0.98) 100%);
             pointer-events: none;
         }
 
@@ -670,7 +670,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(8, 7, 11, 0.25);
+            background: rgba(8, 7, 11, 0.85);
             backdrop-filter: blur(15px);
             z-index: 100;
             justify-content: center;
@@ -970,10 +970,10 @@
 <body>
 
     <!-- Background Video -->
-        <!-- Video Background Container -->
     <div class="video-container">
-        <video class="bg-video" autoplay loop muted playsinline>
+        <video id="bgVideo" class="bg-video" autoplay loop muted playsinline>
             <source src="reuniion.mp4" type="video/mp4">
+            Your browser does not support the video tag.
         </video>
     </div>
     <div class="video-overlay"></div>
@@ -1002,7 +1002,7 @@
             Heritage & Ancestry Portal
         </div>
         <h1 class="title">Darden Family Tree</h1>
-        <p class="subtitle" style="text-align: center; margin: 0 auto 2rem auto; max-width: 680px; display: block;">
+        <p class="subtitle">
             Honoring our roots, celebrating our present, and preserving our legacy for generations to come. Explore our interactive lineage records and family reunion archives.
         </p>
 
@@ -1139,7 +1139,336 @@
                                     <span class="toggle-icon">▶</span>
                                 </div>
                                 <ul class="sub-member-list" id="william-sub" style="display: none;">
+                                    <li><div class="member-name-row"><span>👦 Billy Darden</span><span>Grandson</span></div></li>
+                                    <li><div class="member-name-row"><span>👧 Kim Darden</span><span>Granddaughter</span></div></li>
+                                </ul>
+                            </li>
+
+                            <!-- George R. ("Ronnie") -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('ronnie-sub')">
+                                    <span>👨 George R. Darden ("Ronnie") <span style="color: var(--primary-gold); font-size: 0.8rem; font-weight: normal;">(Your Father)</span></span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="ronnie-sub" style="display: none;">
+                                    <li><div class="member-name-row"><span>👨 Leon Darden ("Rondell")</span><span>Son (You)</span></div></li>
                                     
+                                    <!-- Bikila -->
+                                    <li class="nested-household">
+                                        <div class="household-header" onclick="toggleSubDrawer('bikila-sub')">
+                                            <span>👩 Bikila Darden</span>
+                                            <span class="toggle-icon">▶</span>
+                                        </div>
+                                        <ul class="sub-member-list" id="bikila-sub" style="display: none;">
+                                            <li><div class="member-name-row"><span>👦 Khalil</span><span>Gen IV</span></div></li>
+                                            <li><div class="member-name-row"><span>👩 Sariah</span><span>Gen IV</span></div></li>
+                                            
+                                            <!-- Asar Lineage -->
+                                            <li class="nested-household">
+                                                <div class="household-header" onclick="toggleSubDrawer('asar-sub')">
+                                                    <span>👨 Asar Lineage</span>
+                                                    <span class="toggle-icon">▶</span>
+                                                </div>
+                                                <ul class="sub-member-list" id="asar-sub" style="display: none;">
+                                                    <li><div class="member-name-row"><span>👶 Children</span><span>Gen V</span></div></li>
+                                                    <li><div class="member-name-row"><span>👶 Grandchildren</span><span>Gen VI</span></div></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Darrell -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('darrell-sub')">
+                                    <span style="color: var(--color-blended);">👨 Darrell Darden (Blended)</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="darrell-sub" style="display: none;">
+                                    <li><div class="member-name-row"><span>👦 Darrell Darden Jr.</span><span>Son</span></div></li>
+                                    <li><div class="member-name-row"><span style="color: var(--color-blended);">👦 Harold</span><span>Step-son</span></div></li>
+                                    <li><div class="member-name-row"><span style="color: var(--color-blended);">👧 Keisha</span><span>Step-daughter</span></div></li>
+                                </ul>
+                            </li>
+
+                            <!-- Pattie -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('pattie-sub')">
+                                    <span>👩 Pattie Darden</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="pattie-sub" style="display: none;">
+                                    
+                                    <!-- Keith -->
+                                    <li class="nested-household">
+                                        <div class="household-header" onclick="toggleSubDrawer('keith-sub')">
+                                            <span>👨 Keith Darden</span>
+                                            <span class="toggle-icon">▶</span>
+                                        </div>
+                                        <ul class="sub-member-list" id="keith-sub" style="display: none;">
+                                            <li><div class="member-name-row"><span>👧 Lauren</span><span>Gen V</span></div></li>
+                                            <li><div class="member-name-row"><span>👧 Grace</span><span>Gen V</span></div></li>
+                                            <li><div class="member-name-row"><span>👦 Sam</span><span>Gen V</span></div></li>
+                                            <li><div class="member-name-row"><span>👦 Keith Jr.</span><span>Gen V</span></div></li>
+                                            <li><div class="member-name-row"><span style="font-style: italic; color: var(--text-muted);">[Unknown Brother - Open Slot]</span><span>Gen V</span></div></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Sharon -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('sharon-sub')">
+                                    <span>👩 Sharon Darden</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="sharon-sub" style="display: none;">
+                                    <li><div class="member-name-row"><span>👧 Sherron Darden</span><span>Granddaughter</span></div></li>
+                                    
+                                    <!-- Stephon -->
+                                    <li class="nested-household">
+                                        <div class="household-header" onclick="toggleSubDrawer('stephon-sub')">
+                                            <span>👨 Stephon Darden</span>
+                                            <span class="toggle-icon">▶</span>
+                                        </div>
+                                        <ul class="sub-member-list" id="stephon-sub" style="display: none;">
+                                            <li><div class="member-name-row"><span>👦 Cody</span><span>Gen V</span></div></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2. Mozzell Darden Branch -->
+                <div class="family-card" data-card>
+                    <div class="card-header" onclick="toggleDrawer('mozzell')">
+                        <div>
+                            <div class="card-title-text">Mozzell Darden Branch</div>
+                            <div class="card-subtitle">9 Generational Households · First Son's Line</div>
+                        </div>
+                        <span class="badge-tag badge-blood">Branch</span>
+                    </div>
+                    <div class="card-drawer" id="mozzell">
+                        <ul class="member-list">
+                            
+                            <!-- Bernard -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('bernard-sub')">
+                                    <span>👨 Bernard Darden (Oldest Son)</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="bernard-sub" style="display: none;">
+                                    <li><div class="member-name-row"><span>👧 Beverly</span><span>Granddaughter</span></div></li>
+                                    <li><div class="member-name-row"><span>👧 Latasha</span><span>Granddaughter</span></div></li>
+                                    <li><div class="member-name-row"><span>👦 Larry</span><span>Grandson</span></div></li>
+                                </ul>
+                            </li>
+
+                            <!-- Mozzell Jr -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('mozzell-jr-sub')">
+                                    <span>👨 Mozzell Darden Jr.</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="mozzell-jr-sub" style="display: none;">
+                                    <li><div class="member-name-row"><span>👦 Mozzell Darden 3rd</span><span>Grandson</span></div></li>
+                                </ul>
+                            </li>
+
+                            <!-- Derrick -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('derrick-sub')">
+                                    <span>👨 Derrick Darden</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="derrick-sub" style="display: none;">
+                                    <li><div class="member-name-row"><span>👦 Derrick Darden Jr.</span><span>Grandson</span></div></li>
+                                    <li><div class="member-name-row"><span>👧 Brianna</span><span>Granddaughter</span></div></li>
+                                    <li><div class="member-name-row"><span>👦 Kamal</span><span>Grandson</span></div></li>
+                                </ul>
+                            </li>
+
+                            <!-- Carol -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('carol-sub')">
+                                    <span>👩 Carol Darden ("Bunny")</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="carol-sub" style="display: none;">
+                                    <li><div class="member-name-row"><span>👧 Jovonda</span><span>Granddaughter</span></div></li>
+                                </ul>
+                            </li>
+
+                            <!-- Sheila -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('sheila-sub')">
+                                    <span>👩 Sheila Darden</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="sheila-sub" style="display: none;">
+                                    <li>
+                                        <div class="member-name-row"><span>👧 Diamond</span><span>Granddaughter</span></div>
+                                        <ul class="sub-member-list" style="margin-left: 10px; margin-top: 5px;">
+                                            <li><div class="member-name-row"><span>👦 Carter</span><span>Gen IV</span></div></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Mary Washington -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('mary-sub')">
+                                    <span>👩 Mary Washington</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="mary-sub" style="display: none;">
+                                    <li><div class="member-name-row"><span>👦 Charles Jr.</span><span>Grandson</span></div></li>
+                                    <li><div class="member-name-row"><span>👦 Deshaun</span><span>Grandson</span></div></li>
+                                    
+                                    <!-- Kevin -->
+                                    <li class="nested-household">
+                                        <div class="household-header" onclick="toggleSubDrawer('kevin-sub')">
+                                            <span>👨 Kevin</span>
+                                            <span class="toggle-icon">▶</span>
+                                        </div>
+                                        <ul class="sub-member-list" id="kevin-sub" style="display: none;">
+                                            <li><div class="member-name-row"><span>👧 Maddison</span><span>Gen IV</span></div></li>
+                                            <li><div class="member-name-row"><span>👦 Dillion</span><span>Gen IV</span></div></li>
+                                            <li><div class="member-name-row"><span>👦 Daniel</span><span>Gen IV</span></div></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Lolita -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('lolita-sub')">
+                                    <span>👩 Lolita Darden</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="lolita-sub" style="display: none;">
+                                    <li><div class="member-name-row"><span>👧 Brittney</span><span>Granddaughter</span></div></li>
+                                    
+                                    <!-- Che -->
+                                    <li class="nested-household">
+                                        <div class="household-header" onclick="toggleSubDrawer('che-sub')">
+                                            <span>👨 Che</span>
+                                            <span class="toggle-icon">▶</span>
+                                        </div>
+                                        <ul class="sub-member-list" id="che-sub" style="display: none;">
+                                            <li><div class="member-name-row"><span>👦 Che Jr.</span><span>Gen IV</span></div></li>
+                                            <li><div class="member-name-row"><span>👧 Aniyah</span><span>Gen IV</span></div></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Unnested immediate Sibling Children -->
+                            <li><div class="member-name-row"><span>👧 Kattely Darden</span><span>Daughter</span></div></li>
+                            <li><div class="member-name-row"><span>👧 Lisa Darden</span><span>Daughter</span></div></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3. Johnnie Watson Branch -->
+                <div class="family-card" data-card>
+                    <div class="card-header" onclick="toggleDrawer('johnnie-watson')">
+                        <div>
+                            <div class="card-title-text">Johnnie Watson Branch</div>
+                            <div class="card-subtitle">7 Generational Households · Daughter's Line</div>
+                        </div>
+                        <span class="badge-tag badge-blood">Branch</span>
+                    </div>
+                    <div class="card-drawer" id="johnnie-watson">
+                        <ul class="member-list">
+                            
+                            <!-- Irving -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('irving-sub')">
+                                    <span>👨 Irving Watson</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="irving-sub" style="display: none;">
+                                    
+                                    <!-- Erika -->
+                                    <li class="nested-household">
+                                        <div class="household-header" onclick="toggleSubDrawer('erika-sub')">
+                                            <span>👩 Erika</span>
+                                            <span class="toggle-icon">▶</span>
+                                        </div>
+                                        <ul class="sub-member-list" id="erika-sub" style="display: none;">
+                                            <li><div class="member-name-row"><span>👧 Alisyah Watson</span><span>Gen IV</span></div></li>
+                                            <li><div class="member-name-row"><span>👧 Hailie</span><span>Gen IV</span></div></li>
+                                            <li><div class="member-name-row"><span>👦 Sebastion</span><span>Gen IV</span></div></li>
+                                            <li><div class="member-name-row"><span>👧 Naomi</span><span>Gen IV</span></div></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Joel -->
+                                    <li class="nested-household">
+                                        <div class="household-header" onclick="toggleSubDrawer('joel-sub')">
+                                            <span>👨 Joel</span>
+                                            <span class="toggle-icon">▶</span>
+                                        </div>
+                                        <ul class="sub-member-list" id="joel-sub" style="display: none;">
+                                            <li><div class="member-name-row"><span>👩 Elaine</span><span>Gen IV</span></div></li>
+                                            <li><div class="member-name-row"><span>👧 Adriana</span><span>Gen IV</span></div></li>
+                                            <li><div class="member-name-row"><span>👧 Genisis Watson</span><span>Gen IV</span></div></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Louis -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('louis-sub')">
+                                    <span>👨 Louis Watson</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="louis-sub" style="display: none;">
+                                    <li><div class="member-name-row"><span>👦 Louis Jr.</span><span>Grandson</span></div></li>
+                                    <li><div class="member-name-row"><span>👧 Nadine</span><span>Granddaughter</span></div></li>
+                                </ul>
+                            </li>
+
+                            <!-- Charles -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('charles-sub')">
+                                    <span>👨 Charles Watson</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="charles-sub" style="display: none;">
+                                    <li><div class="member-name-row"><span>👧 Jenean</span><span>Granddaughter</span></div></li>
+                                </ul>
+                            </li>
+
+                            <!-- Darlene -->
+                            <li class="nested-household">
+                                <div class="household-header" onclick="toggleSubDrawer('darlene-sub')">
+                                    <span>👩 Darlene Watson</span>
+                                    <span class="toggle-icon">▶</span>
+                                </div>
+                                <ul class="sub-member-list" id="darlene-sub" style="display: none;">
+                                    
+                                    <!-- Ronyelle -->
+                                    <li class="nested-household">
+                                        <div class="household-header" onclick="toggleSubDrawer('ronyelle-sub')">
+                                            <span>👩 Ronyelle Stallworth</span>
+                                            <span class="toggle-icon">▶</span>
+                                        </div>
+                                        <ul class="sub-member-list" id="ronyelle-sub" style="display: none;">
+                                            <li><div class="member-name-row"><span>👧 Nyalla</span><span>Gen IV</span></div></li>
+                                            <li><div class="member-name-row"><span>👦 Aden</span><span>Gen IV</span></div></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><div class="member-name-row"><span>👨 Eric</span><span>Grandson</span></div></li>
+                                    <li><div class="member-name-row"><span>👨 Chippy</span><span>Grandson</span></div></li>
 
                                     <!-- Pumpkin -->
                                     <li class="nested-household">
@@ -1472,17 +1801,18 @@
         </div>
 
         <!-- Subscribe / Contact Form -->
-                <!-- Subscribe / Contact Form -->
-        <section class="subscribe-box" style="margin: 4rem auto 2rem auto; text-align: center; max-width: 650px; display: block; float: none;">
-            <h3 style="text-align: center; margin-bottom: 0.75rem; width: 100%;">Join the Family Registry</h3>
-            <p style="text-align: center; margin: 0 auto 1.5rem auto; max-width: 550px; display: block;">Are you a family member? Submit your email to stay connected with the reunion committee (dardenfamilyconnect@gmail.com) and receive upcoming reunion updates.</p>
-            <form id="subscribeForm" onsubmit="handleSubscribe(event)" style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                <div class="form-group" style="display: flex; gap: 0.75rem; justify-content: center; align-items: center; width: 100%; max-width: 500px; margin: 0 auto;">
-                    <input type="email" id="emailInput" class="form-input" placeholder="Enter your email address" required style="flex: 1;">
+        <section class="subscribe-box" style="margin-top: 4rem;">
+            <h3>Join the Family Registry</h3>
+            <p>Are you a family member? Submit your email to stay connected with the reunion committee (dardenfamilyconnect@gmail.com) and receive upcoming reunion updates.</p>
+            <form id="subscribeForm" onsubmit="handleSubscribe(event)">
+                <div class="form-group">
+                    <input type="email" id="emailInput" class="form-input" placeholder="Enter your email address" required>
                     <button type="submit" class="btn-submit">Stay Connected</button>
                 </div>
             </form>
-            <div id="formFeedback" class="form-feedback" style="text-align: center; margin-top: 1rem;"></div>
+            <div id="formFeedback" style="margin-top: 1rem; color: var(--primary-gold); font-size: 0.9rem; display: none;">
+                Thank you! Your information has been recorded for the Darden Family Portal.
+            </div>
         </section>
 
     
@@ -2316,7 +2646,7 @@ const seedFamilyData = {
                             "photo": ""
                         },
                         {
-                            "name": "",
+                            "name": "Chippy",
                             "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
@@ -2808,43 +3138,5 @@ function openAddMemberModal() {
             <span id="floatingToggleIcon">🗺️</span> <span id="floatingToggleText">Switch to Mind Map</span>
         </button>
     </div>
-
-    
-    <!-- BACKGROUND REUNION JAZZ MUSIC TOGGLE WIDGET & 50% VIDEO SLOWDOWN SCRIPT -->
-    <div id="audio-toggle-widget" style="position: fixed; bottom: 25px; right: 25px; z-index: 99999; font-family: var(--font-sans);">
-      <button type="button" onclick="toggleBackgroundAudio()" style="background: rgba(8, 7, 11, 0.88); color: #e5b95c; border: 1.5px solid #e5b95c; padding: 0.65rem 1.35rem; border-radius: 50px; font-weight: bold; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; gap: 0.6rem; backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(229, 185, 92, 0.3);">
-        <i class="fa-solid fa-music" id="audioToggleIcon"></i> <span id="audioToggleText">Play Jazz Audio</span>
-      </button>
-      <audio id="bgReunionAudio" loop src="The_Desk_at_Three_AM.mp3"></audio>
-    </div>
-
-    <script>
-      // Drastically slow video down by 50% (playbackRate = 0.5)
-      document.addEventListener("DOMContentLoaded", function() {
-        const bgVideo = document.querySelector(".bg-video");
-        if (bgVideo) {
-          bgVideo.playbackRate = 0.5;
-        }
-      });
-
-      function toggleBackgroundAudio() {
-        const audio = document.getElementById('bgReunionAudio');
-        const icon = document.getElementById('audioToggleIcon');
-        const text = document.getElementById('audioToggleText');
-        if (audio) {
-          if (audio.paused) {
-            audio.play();
-            if (icon) icon.className = 'fa-solid fa-pause';
-            if (text) text.innerText = 'Pause Jazz Audio';
-          } else {
-            audio.pause();
-            if (icon) icon.className = 'fa-solid fa-music';
-            if (text) text.innerText = 'Play Jazz Audio';
-          }
-        }
-      }
-    </script>
-
-
 </body>
 </html>
