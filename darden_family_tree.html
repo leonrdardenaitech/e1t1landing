@@ -989,7 +989,7 @@
             <button class="btn-action btn-toggle-view" id="viewToggleBtn" onclick="toggleActiveView()">🗺️ Switch to Mind Map</button>
             <button class="btn-action" onclick="openModal('uploadModal')">📷 Add Photo</button>
             <button class="btn-action shadow-lg border border-amber-500/50 bg-amber-950/60 hover:bg-amber-900/80 text-amber-300 font-bold px-4 py-2 rounded-xl transition-all" id="audioToggle" onclick="toggleSong()">
-                <i id="songIcon" class="fa-solid fa-music text-amber-400 mr-2"></i><span id="songText" class="font-mono text-xs font-bold uppercase tracking-wider">PLAY MUSIC</span>
+                <i id="songIcon" class="fa-solid fa-music text-amber-400 mr-2"></i>
             </button>
         </div>
     </header>
@@ -1249,7 +1249,7 @@
                     <div class="card-header" onclick="toggleDrawer('mozzell')">
                         <div>
                             <div class="card-title-text">Mozzell Darden Branch</div>
-                            <div class="card-subtitle">9 Generational Households · First Son's Line</div>
+                            
                         </div>
                         <span class="badge-tag badge-blood">Branch</span>
                     </div>
@@ -1381,7 +1381,7 @@
                     <div class="card-header" onclick="toggleDrawer('johnnie-watson')">
                         <div>
                             <div class="card-title-text">Johnnie Watson Branch</div>
-                            <div class="card-subtitle">7 Generational Households · Daughter's Line</div>
+                            
                         </div>
                         <span class="badge-tag badge-blood">Branch</span>
                     </div>
@@ -1592,13 +1592,12 @@
                     <div class="card-header" onclick="toggleDrawer('peggy')">
                         <div>
                             <div class="card-title-text">Peggy Darden Branch (Owens)</div>
-                            <div class="card-subtitle">Reunion & Media Hub · Matriarch's Line</div>
+                            
                         </div>
                         <span class="badge-tag badge-blood">Branch</span>
                     </div>
                     <div class="card-drawer" id="peggy">
-                        <div class="collab-badge" style="margin-bottom: 1.2rem;">
-                            <span>📌 Lead Manager: Peggy's Granddaughter Jewel (Reunion Master Strategist)</span>
+                        
                             <button class="btn-card-photo" onclick="openModal('uploadModal')">📷 Shared Album</button>
                         </div>
                         <ul class="member-list">
@@ -1669,8 +1668,7 @@
                         <span class="badge-tag badge-blood">Branch</span>
                     </div>
                     <div class="card-drawer" id="lovell">
-                        <div class="collab-badge" style="margin-bottom: 1rem;">
-                            <span>📌 Lead Manager: Lovell's Granddaughter (Tree Research Lead)</span>
+                        
                             <button class="btn-card-photo" onclick="openModal('uploadModal')">📷 Shared Album</button>
                         </div>
                         <div style="padding: 10px; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px dashed rgba(229,185,92,0.15); margin-bottom: 10px;">
@@ -1713,11 +1711,7 @@
             <div class="modal-card">
                 <button class="modal-close" onclick="closeModal('uploadModal')">✕</button>
                 <div class="modal-title">📷 Family Reunion Media Hub</div>
-                <div class="modal-subtitle">
-                    Greetings Family! Jewel (Debra's Daughter / Peggy's Granddaughter) has set up an official Google Shared Album to collect and preserve our wonderful reunion memories. 
-                    <br><br>
-                    Use the buttons below to upload your reunion photos directly to our shared album or get in touch with the reunion planning team!
-                </div>
+                
                 
                 <div class="modal-btn-group" style="display: flex; flex-direction: column; gap: 10px;">
                     <a href="https://photos.app.goo.gl/pAtZvpKgwM2pL3HZ7" target="_blank" class="btn-submit" style="text-align: center; text-decoration: none; display: block; width: 100%;">
@@ -2084,49 +2078,49 @@ const defaultMapAvatar = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/
 
 const seedFamilyData = {
     "name": "Sam Darden Sr. & Freddie Shields",
-    "role": "Patriarch & Matriarch (Gen I)",
+    "role": "",
     "type": "bloodline",
     "photo": "",
     "children": [
         {
             "name": "Sam Darden Jr. ('Cowboy')",
-            "role": "Anchor Son \u00b7 Gen II",
+            "role": "",
             "type": "bloodline",
             "photo": "",
             "children": [
                 {
                     "name": "George R. Darden ('Ronnie')",
-                    "role": "Son \u00b7 Your Father",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Leon Darden ('Rondell')",
-                            "role": "Son \u00b7 Gen IV",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Bikila Darden",
-                            "role": "Daughter \u00b7 Gen IV",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Asar Lineage",
-                                    "role": "Extensions",
+                                    "role": "",
                                     "type": "blended",
                                     "photo": "",
                                     "children": [
                                         {
                                             "name": "Asar's Children (Gen V)",
-                                            "role": "Great-Grandchildren",
+                                            "role": "",
                                             "type": "blended",
                                             "photo": ""
                                         },
                                         {
                                             "name": "Asar's Grandchildren (Gen VI)",
-                                            "role": "Great-Great-Grandchildren",
+                                            "role": "",
                                             "type": "blended",
                                             "photo": ""
                                         }
@@ -2134,13 +2128,13 @@ const seedFamilyData = {
                                 },
                                 {
                                     "name": "Sariah",
-                                    "role": "Sister's Child",
+                                    "role": "",
                                     "type": "blended",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Khalil",
-                                    "role": "Grandson",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2150,19 +2144,19 @@ const seedFamilyData = {
                 },
                 {
                     "name": "William Darden ('Bobby/Bill')",
-                    "role": "Son \u00b7 Household Lead",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Billy Darden",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Kim Darden",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2170,25 +2164,25 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Darrell Darden",
-                    "role": "Son \u00b7 Blended Lead",
+                    "role": "",
                     "type": "blended",
                     "photo": "",
                     "children": [
                         {
                             "name": "Darrell Darden Jr.",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Harold",
-                            "role": "Step-son",
+                            "role": "",
                             "type": "blended",
                             "photo": ""
                         },
                         {
                             "name": "Keisha",
-                            "role": "Step-daughter",
+                            "role": "",
                             "type": "blended",
                             "photo": ""
                         }
@@ -2196,37 +2190,37 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Pattie Darden",
-                    "role": "Daughter \u00b7 Household Lead",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Keith Darden",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Lauren",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Grace",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Sam",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Keith Jr.",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2236,25 +2230,25 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Sharon Darden",
-                    "role": "Daughter \u00b7 Household Lead",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Sherron Darden",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Stephon Darden",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Cody",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2266,31 +2260,31 @@ const seedFamilyData = {
         },
         {
             "name": "Mozzell Darden",
-            "role": "First Son \u00b7 Gen II",
+            "role": "",
             "type": "bloodline",
             "photo": "",
             "children": [
                 {
                     "name": "Bernard Darden",
-                    "role": "Oldest Son",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Beverly",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Latasha",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Larry",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2298,13 +2292,13 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Mozzell Darden Jr.",
-                    "role": "Son",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Mozzell Darden 3rd",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2312,25 +2306,25 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Derrick Darden",
-                    "role": "Son",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Derrick Darden Jr.",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Brianna",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Kamal",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2338,13 +2332,13 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Carol Darden ('Bunny')",
-                    "role": "Daughter",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Jovonda",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2352,19 +2346,19 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Sheila Darden",
-                    "role": "Daughter",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Diamond",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Carter",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2374,43 +2368,43 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Mary Washington",
-                    "role": "Daughter",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Charles Jr.",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Deshaun",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Kevin",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Maddison",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Dillion",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Daniel",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2420,25 +2414,25 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Lolita Darden",
-                    "role": "Daughter",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Che",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Che Jr.",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Aniyah",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2446,7 +2440,7 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Brittney",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2454,13 +2448,13 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Kattely Darden",
-                    "role": "Daughter",
+                    "role": "",
                     "type": "bloodline",
                     "photo": ""
                 },
                 {
                     "name": "Lisa Darden",
-                    "role": "Daughter",
+                    "role": "",
                     "type": "bloodline",
                     "photo": ""
                 }
@@ -2468,25 +2462,25 @@ const seedFamilyData = {
         },
         {
             "name": "Peggy Darden (Owens)",
-            "role": "Family Matriarch \u00b7 Gen II",
+            "role": "",
             "type": "bloodline",
             "photo": "",
             "children": [
                 {
                     "name": "Derrick Owens",
-                    "role": "Son",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Aaron",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Aaron Owens Jr.",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2494,19 +2488,19 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Marques",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Stephan",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Darnielle",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2514,19 +2508,19 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Debra Profitt",
-                    "role": "Daughter",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Jamila",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Raevon Profitt",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2534,19 +2528,19 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Jewel",
-                            "role": "Granddaughter \u00b7 Reunion Manager",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Ashley",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Alani",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2558,43 +2552,43 @@ const seedFamilyData = {
         },
         {
             "name": "Johnnie Darden (Watson)",
-            "role": "Daughter \u00b7 Gen II",
+            "role": "",
             "type": "bloodline",
             "photo": "",
             "children": [
                 {
                     "name": "Irving Watson",
-                    "role": "Son",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Erika",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Alisyah Watson",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Hailie",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Sebastion",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Naomi",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2602,25 +2596,25 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Joel",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Elaine",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Adriana",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Genisis Watson",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2630,19 +2624,19 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Louis Watson",
-                    "role": "Son",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Louis Jr.",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Nadine",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2650,13 +2644,13 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Charles Watson",
-                    "role": "Son",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Jenean",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2664,25 +2658,25 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Darlene Watson",
-                    "role": "Daughter",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Ronyelle Stallworth",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Nyalla",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Aden",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2690,37 +2684,37 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Eric",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Chippy",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Lillian Williams",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Michaela",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Tatiana",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Xavier",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2728,31 +2722,31 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Jacqueline Denise Williams AKA 'Candy'",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "and gel",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Shay",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Karina",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Brian",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2760,49 +2754,49 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Melinda Gail Williams AKA 'Pumpkin'",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Torray",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Clifton",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Cynthasia",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Cianna",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Ciara",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Casara",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Cavante",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2812,43 +2806,43 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Donald Watson",
-                    "role": "Son",
+                    "role": "",
                     "type": "bloodline",
                     "photo": ""
                 },
                 {
                     "name": "Donna Watson",
-                    "role": "Daughter",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Thomas Earl Watkins",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Thomas Jr.",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Skylar",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Archer",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Ace",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2856,31 +2850,31 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Jason",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Devin",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Amya",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Alexander",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Joy",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2888,31 +2882,31 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Joy",
-                            "role": "Granddaughter",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Jeremy",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Jayson",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Myrikal",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Malayah",
-                                    "role": "Gen V",
+                                    "role": "",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2922,13 +2916,13 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Beverly Watson",
-                    "role": "Daughter",
+                    "role": "",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Jonathan",
-                            "role": "Grandson",
+                            "role": "",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2938,13 +2932,13 @@ const seedFamilyData = {
         },
         {
             "name": "Lovell Darden ('Uncle Lovell')",
-            "role": "Living Elder \u00b7 Gen II",
+            "role": "",
             "type": "bloodline",
             "photo": "",
             "children": [
                 {
                     "name": "Lovell's Granddaughter",
-                    "role": "Tree Research Lead \u00b7 Gen IV",
+                    "role": "",
                     "type": "bloodline",
                     "photo": ""
                 }
@@ -2952,7 +2946,7 @@ const seedFamilyData = {
         },
         {
             "name": "Sarah Darden",
-            "role": "Daughter \u00b7 Gen II",
+            "role": "",
             "type": "bloodline",
             "photo": "",
             "children": []
