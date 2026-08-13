@@ -968,6 +968,7 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
+    <audio id="bgAudio" loop preload="auto" src="The_Desk_at_Three_AM.mp3"></audio>
 
     <!-- Background Video -->
     <div class="video-container">
@@ -987,8 +988,8 @@
         <div class="header-actions">
             <button class="btn-action btn-toggle-view" id="viewToggleBtn" onclick="toggleActiveView()">🗺️ Switch to Mind Map</button>
             <button class="btn-action" onclick="openModal('uploadModal')">📷 Add Photo</button>
-            <button class="btn-action" id="audioToggle" onclick="toggleAudio()">
-                <span id="audioIcon">🔇</span> <span id="audioText">Sound</span>
+            <button class="btn-action shadow-lg border border-amber-500/50 bg-amber-950/60 hover:bg-amber-900/80 text-amber-300 font-bold px-4 py-2 rounded-xl transition-all" id="audioToggle" onclick="toggleSong()">
+                <i id="songIcon" class="fa-solid fa-music text-amber-400 mr-2"></i><span id="songText" class="font-mono text-xs font-bold uppercase tracking-wider">PLAY MUSIC</span>
             </button>
         </div>
     </header>
@@ -1850,6 +1851,30 @@
     </footer>
 
     <script>
+
+// SONG PLAYER TOGGLE ("The_Desk_at_Three_AM.mp3")
+function toggleSong() {
+    const audio = document.getElementById('bgAudio');
+    const icon = document.getElementById('songIcon');
+    const text = document.getElementById('songText');
+
+    if (!audio) return;
+
+    if (audio.paused) {
+        audio.play().then(() => {
+            if (icon) icon.className = "fa-solid fa-pause text-green-400 animate-pulse mr-2";
+            if (text) text.innerText = "PAUSE MUSIC";
+        }).catch(err => {
+            console.log("Audio play error:", err);
+            alert("Click anywhere on the page first, then press Play Music!");
+        });
+    } else {
+        audio.pause();
+        if (icon) icon.className = "fa-solid fa-music text-amber-400 mr-2";
+        if (text) text.innerText = "PLAY MUSIC";
+    }
+}
+
         // Collapsible Drawer Toggles (Top Level Branches)
         function toggleDrawer(id) {
             const drawer = document.getElementById(id);
@@ -2026,6 +2051,30 @@
         }
     </script>
 <script>
+
+// SONG PLAYER TOGGLE ("The_Desk_at_Three_AM.mp3")
+function toggleSong() {
+    const audio = document.getElementById('bgAudio');
+    const icon = document.getElementById('songIcon');
+    const text = document.getElementById('songText');
+
+    if (!audio) return;
+
+    if (audio.paused) {
+        audio.play().then(() => {
+            if (icon) icon.className = "fa-solid fa-pause text-green-400 animate-pulse mr-2";
+            if (text) text.innerText = "PAUSE MUSIC";
+        }).catch(err => {
+            console.log("Audio play error:", err);
+            alert("Click anywhere on the page first, then press Play Music!");
+        });
+    } else {
+        audio.pause();
+        if (icon) icon.className = "fa-solid fa-music text-amber-400 mr-2";
+        if (text) text.innerText = "PLAY MUSIC";
+    }
+}
+
 
 // ==========================================
 // UNIFIED D3.JS MIND MAP & DYNAMIC CODE
