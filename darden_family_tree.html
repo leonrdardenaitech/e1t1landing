@@ -59,13 +59,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.4) contrast(1.1) saturate(1.1);
+            filter: brightness(0.85) contrast(1.05) saturate(1.1);
             transform: scale(1.03);
             transition: filter 0.5s ease;
         }
 
         /* Gradient Overlay */
-        .video-overlay {
+                        .video-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -73,8 +73,8 @@
             height: 100vh;
             z-index: -1;
             background: 
-                radial-gradient(circle at 50% 30%, rgba(229, 185, 92, 0.08) 0%, transparent 60%),
-                linear-gradient(to bottom, rgba(8, 7, 11, 0.45) 0%, rgba(8, 7, 11, 0.85) 75%, rgba(8, 7, 11, 0.98) 100%);
+                radial-gradient(circle at 50% 30%, rgba(229, 185, 92, 0.04) 0%, transparent 60%),
+                linear-gradient(to bottom, rgba(8, 7, 11, 0.55) 0%, rgba(8, 7, 11, 0.78) 75%, rgba(8, 7, 11, 0.92) 100%);
             pointer-events: none;
         }
 
@@ -670,7 +670,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(8, 7, 11, 0.85);
+            background: rgba(8, 7, 11, 0.25);
             backdrop-filter: blur(15px);
             z-index: 100;
             justify-content: center;
@@ -971,10 +971,10 @@
     <audio id="bgAudio" loop preload="auto" src="The_Desk_at_Three_AM.mp3"></audio>
 
     <!-- Background Video -->
+        <!-- Video Background Container -->
     <div class="video-container">
-        <video id="bgVideo" class="bg-video" autoplay loop muted playsinline>
+        <video class="bg-video" autoplay loop muted playsinline>
             <source src="reuniion.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
     </div>
     <div class="video-overlay"></div>
@@ -989,7 +989,7 @@
             <button class="btn-action btn-toggle-view" id="viewToggleBtn" onclick="toggleActiveView()">🗺️ Switch to Mind Map</button>
             <button class="btn-action" onclick="openModal('uploadModal')">📷 Add Photo</button>
             <button class="btn-action shadow-lg border border-amber-500/50 bg-amber-950/60 hover:bg-amber-900/80 text-amber-300 font-bold px-4 py-2 rounded-xl transition-all" id="audioToggle" onclick="toggleSong()">
-                <i id="songIcon" class="fa-solid fa-music text-amber-400 mr-2"></i>
+                <i id="songIcon" class="fa-solid fa-music text-amber-400 mr-2"></i><span id="songText" class="font-mono text-xs font-bold uppercase tracking-wider">PLAY MUSIC</span>
             </button>
         </div>
     </header>
@@ -1003,7 +1003,7 @@
             Heritage & Ancestry Portal
         </div>
         <h1 class="title">Darden Family Tree</h1>
-        <p class="subtitle">
+        <p class="subtitle" style="text-align: center; margin: 0 auto 2rem auto; max-width: 680px; display: block;">
             Honoring our roots, celebrating our present, and preserving our legacy for generations to come. Explore our interactive lineage records and family reunion archives.
         </p>
 
@@ -1140,336 +1140,7 @@
                                     <span class="toggle-icon">▶</span>
                                 </div>
                                 <ul class="sub-member-list" id="william-sub" style="display: none;">
-                                    <li><div class="member-name-row"><span>👦 Billy Darden</span><span>Grandson</span></div></li>
-                                    <li><div class="member-name-row"><span>👧 Kim Darden</span><span>Granddaughter</span></div></li>
-                                </ul>
-                            </li>
-
-                            <!-- George R. ("Ronnie") -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('ronnie-sub')">
-                                    <span>👨 George R. Darden ("Ronnie") <span style="color: var(--primary-gold); font-size: 0.8rem; font-weight: normal;">(Your Father)</span></span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="ronnie-sub" style="display: none;">
-                                    <li><div class="member-name-row"><span>👨 Leon Darden ("Rondell")</span><span>Son (You)</span></div></li>
                                     
-                                    <!-- Bikila -->
-                                    <li class="nested-household">
-                                        <div class="household-header" onclick="toggleSubDrawer('bikila-sub')">
-                                            <span>👩 Bikila Darden</span>
-                                            <span class="toggle-icon">▶</span>
-                                        </div>
-                                        <ul class="sub-member-list" id="bikila-sub" style="display: none;">
-                                            <li><div class="member-name-row"><span>👦 Khalil</span><span>Gen IV</span></div></li>
-                                            <li><div class="member-name-row"><span>👩 Sariah</span><span>Gen IV</span></div></li>
-                                            
-                                            <!-- Asar Lineage -->
-                                            <li class="nested-household">
-                                                <div class="household-header" onclick="toggleSubDrawer('asar-sub')">
-                                                    <span>👨 Asar Lineage</span>
-                                                    <span class="toggle-icon">▶</span>
-                                                </div>
-                                                <ul class="sub-member-list" id="asar-sub" style="display: none;">
-                                                    <li><div class="member-name-row"><span>👶 Children</span><span>Gen V</span></div></li>
-                                                    <li><div class="member-name-row"><span>👶 Grandchildren</span><span>Gen VI</span></div></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <!-- Darrell -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('darrell-sub')">
-                                    <span style="color: var(--color-blended);">👨 Darrell Darden (Blended)</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="darrell-sub" style="display: none;">
-                                    <li><div class="member-name-row"><span>👦 Darrell Darden Jr.</span><span>Son</span></div></li>
-                                    <li><div class="member-name-row"><span style="color: var(--color-blended);">👦 Harold</span><span>Step-son</span></div></li>
-                                    <li><div class="member-name-row"><span style="color: var(--color-blended);">👧 Keisha</span><span>Step-daughter</span></div></li>
-                                </ul>
-                            </li>
-
-                            <!-- Pattie -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('pattie-sub')">
-                                    <span>👩 Pattie Darden</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="pattie-sub" style="display: none;">
-                                    
-                                    <!-- Keith -->
-                                    <li class="nested-household">
-                                        <div class="household-header" onclick="toggleSubDrawer('keith-sub')">
-                                            <span>👨 Keith Darden</span>
-                                            <span class="toggle-icon">▶</span>
-                                        </div>
-                                        <ul class="sub-member-list" id="keith-sub" style="display: none;">
-                                            <li><div class="member-name-row"><span>👧 Lauren</span><span>Gen V</span></div></li>
-                                            <li><div class="member-name-row"><span>👧 Grace</span><span>Gen V</span></div></li>
-                                            <li><div class="member-name-row"><span>👦 Sam</span><span>Gen V</span></div></li>
-                                            <li><div class="member-name-row"><span>👦 Keith Jr.</span><span>Gen V</span></div></li>
-                                            <li><div class="member-name-row"><span style="font-style: italic; color: var(--text-muted);">[Unknown Brother - Open Slot]</span><span>Gen V</span></div></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <!-- Sharon -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('sharon-sub')">
-                                    <span>👩 Sharon Darden</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="sharon-sub" style="display: none;">
-                                    <li><div class="member-name-row"><span>👧 Sherron Darden</span><span>Granddaughter</span></div></li>
-                                    
-                                    <!-- Stephon -->
-                                    <li class="nested-household">
-                                        <div class="household-header" onclick="toggleSubDrawer('stephon-sub')">
-                                            <span>👨 Stephon Darden</span>
-                                            <span class="toggle-icon">▶</span>
-                                        </div>
-                                        <ul class="sub-member-list" id="stephon-sub" style="display: none;">
-                                            <li><div class="member-name-row"><span>👦 Cody</span><span>Gen V</span></div></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 2. Mozzell Darden Branch -->
-                <div class="family-card" data-card>
-                    <div class="card-header" onclick="toggleDrawer('mozzell')">
-                        <div>
-                            <div class="card-title-text">Mozzell Darden Branch</div>
-                            
-                        </div>
-                        <span class="badge-tag badge-blood">Branch</span>
-                    </div>
-                    <div class="card-drawer" id="mozzell">
-                        <ul class="member-list">
-                            
-                            <!-- Bernard -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('bernard-sub')">
-                                    <span>👨 Bernard Darden (Oldest Son)</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="bernard-sub" style="display: none;">
-                                    <li><div class="member-name-row"><span>👧 Beverly</span><span>Granddaughter</span></div></li>
-                                    <li><div class="member-name-row"><span>👧 Latasha</span><span>Granddaughter</span></div></li>
-                                    <li><div class="member-name-row"><span>👦 Larry</span><span>Grandson</span></div></li>
-                                </ul>
-                            </li>
-
-                            <!-- Mozzell Jr -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('mozzell-jr-sub')">
-                                    <span>👨 Mozzell Darden Jr.</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="mozzell-jr-sub" style="display: none;">
-                                    <li><div class="member-name-row"><span>👦 Mozzell Darden 3rd</span><span>Grandson</span></div></li>
-                                </ul>
-                            </li>
-
-                            <!-- Derrick -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('derrick-sub')">
-                                    <span>👨 Derrick Darden</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="derrick-sub" style="display: none;">
-                                    <li><div class="member-name-row"><span>👦 Derrick Darden Jr.</span><span>Grandson</span></div></li>
-                                    <li><div class="member-name-row"><span>👧 Brianna</span><span>Granddaughter</span></div></li>
-                                    <li><div class="member-name-row"><span>👦 Kamal</span><span>Grandson</span></div></li>
-                                </ul>
-                            </li>
-
-                            <!-- Carol -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('carol-sub')">
-                                    <span>👩 Carol Darden ("Bunny")</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="carol-sub" style="display: none;">
-                                    <li><div class="member-name-row"><span>👧 Jovonda</span><span>Granddaughter</span></div></li>
-                                </ul>
-                            </li>
-
-                            <!-- Sheila -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('sheila-sub')">
-                                    <span>👩 Sheila Darden</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="sheila-sub" style="display: none;">
-                                    <li>
-                                        <div class="member-name-row"><span>👧 Diamond</span><span>Granddaughter</span></div>
-                                        <ul class="sub-member-list" style="margin-left: 10px; margin-top: 5px;">
-                                            <li><div class="member-name-row"><span>👦 Carter</span><span>Gen IV</span></div></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <!-- Mary Washington -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('mary-sub')">
-                                    <span>👩 Mary Washington</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="mary-sub" style="display: none;">
-                                    <li><div class="member-name-row"><span>👦 Charles Jr.</span><span>Grandson</span></div></li>
-                                    <li><div class="member-name-row"><span>👦 Deshaun</span><span>Grandson</span></div></li>
-                                    
-                                    <!-- Kevin -->
-                                    <li class="nested-household">
-                                        <div class="household-header" onclick="toggleSubDrawer('kevin-sub')">
-                                            <span>👨 Kevin</span>
-                                            <span class="toggle-icon">▶</span>
-                                        </div>
-                                        <ul class="sub-member-list" id="kevin-sub" style="display: none;">
-                                            <li><div class="member-name-row"><span>👧 Maddison</span><span>Gen IV</span></div></li>
-                                            <li><div class="member-name-row"><span>👦 Dillion</span><span>Gen IV</span></div></li>
-                                            <li><div class="member-name-row"><span>👦 Daniel</span><span>Gen IV</span></div></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <!-- Lolita -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('lolita-sub')">
-                                    <span>👩 Lolita Darden</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="lolita-sub" style="display: none;">
-                                    <li><div class="member-name-row"><span>👧 Brittney</span><span>Granddaughter</span></div></li>
-                                    
-                                    <!-- Che -->
-                                    <li class="nested-household">
-                                        <div class="household-header" onclick="toggleSubDrawer('che-sub')">
-                                            <span>👨 Che</span>
-                                            <span class="toggle-icon">▶</span>
-                                        </div>
-                                        <ul class="sub-member-list" id="che-sub" style="display: none;">
-                                            <li><div class="member-name-row"><span>👦 Che Jr.</span><span>Gen IV</span></div></li>
-                                            <li><div class="member-name-row"><span>👧 Aniyah</span><span>Gen IV</span></div></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <!-- Unnested immediate Sibling Children -->
-                            <li><div class="member-name-row"><span>👧 Kattely Darden</span><span>Daughter</span></div></li>
-                            <li><div class="member-name-row"><span>👧 Lisa Darden</span><span>Daughter</span></div></li>
-
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 3. Johnnie Watson Branch -->
-                <div class="family-card" data-card>
-                    <div class="card-header" onclick="toggleDrawer('johnnie-watson')">
-                        <div>
-                            <div class="card-title-text">Johnnie Watson Branch</div>
-                            
-                        </div>
-                        <span class="badge-tag badge-blood">Branch</span>
-                    </div>
-                    <div class="card-drawer" id="johnnie-watson">
-                        <ul class="member-list">
-                            
-                            <!-- Irving -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('irving-sub')">
-                                    <span>👨 Irving Watson</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="irving-sub" style="display: none;">
-                                    
-                                    <!-- Erika -->
-                                    <li class="nested-household">
-                                        <div class="household-header" onclick="toggleSubDrawer('erika-sub')">
-                                            <span>👩 Erika</span>
-                                            <span class="toggle-icon">▶</span>
-                                        </div>
-                                        <ul class="sub-member-list" id="erika-sub" style="display: none;">
-                                            <li><div class="member-name-row"><span>👧 Alisyah Watson</span><span>Gen IV</span></div></li>
-                                            <li><div class="member-name-row"><span>👧 Hailie</span><span>Gen IV</span></div></li>
-                                            <li><div class="member-name-row"><span>👦 Sebastion</span><span>Gen IV</span></div></li>
-                                            <li><div class="member-name-row"><span>👧 Naomi</span><span>Gen IV</span></div></li>
-                                        </ul>
-                                    </li>
-
-                                    <!-- Joel -->
-                                    <li class="nested-household">
-                                        <div class="household-header" onclick="toggleSubDrawer('joel-sub')">
-                                            <span>👨 Joel</span>
-                                            <span class="toggle-icon">▶</span>
-                                        </div>
-                                        <ul class="sub-member-list" id="joel-sub" style="display: none;">
-                                            <li><div class="member-name-row"><span>👩 Elaine</span><span>Gen IV</span></div></li>
-                                            <li><div class="member-name-row"><span>👧 Adriana</span><span>Gen IV</span></div></li>
-                                            <li><div class="member-name-row"><span>👧 Genisis Watson</span><span>Gen IV</span></div></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <!-- Louis -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('louis-sub')">
-                                    <span>👨 Louis Watson</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="louis-sub" style="display: none;">
-                                    <li><div class="member-name-row"><span>👦 Louis Jr.</span><span>Grandson</span></div></li>
-                                    <li><div class="member-name-row"><span>👧 Nadine</span><span>Granddaughter</span></div></li>
-                                </ul>
-                            </li>
-
-                            <!-- Charles -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('charles-sub')">
-                                    <span>👨 Charles Watson</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="charles-sub" style="display: none;">
-                                    <li><div class="member-name-row"><span>👧 Jenean</span><span>Granddaughter</span></div></li>
-                                </ul>
-                            </li>
-
-                            <!-- Darlene -->
-                            <li class="nested-household">
-                                <div class="household-header" onclick="toggleSubDrawer('darlene-sub')">
-                                    <span>👩 Darlene Watson</span>
-                                    <span class="toggle-icon">▶</span>
-                                </div>
-                                <ul class="sub-member-list" id="darlene-sub" style="display: none;">
-                                    
-                                    <!-- Ronyelle -->
-                                    <li class="nested-household">
-                                        <div class="household-header" onclick="toggleSubDrawer('ronyelle-sub')">
-                                            <span>👩 Ronyelle Stallworth</span>
-                                            <span class="toggle-icon">▶</span>
-                                        </div>
-                                        <ul class="sub-member-list" id="ronyelle-sub" style="display: none;">
-                                            <li><div class="member-name-row"><span>👧 Nyalla</span><span>Gen IV</span></div></li>
-                                            <li><div class="member-name-row"><span>👦 Aden</span><span>Gen IV</span></div></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><div class="member-name-row"><span>👨 Eric</span><span>Grandson</span></div></li>
-                                    <li><div class="member-name-row"><span>👨 Chippy</span><span>Grandson</span></div></li>
 
                                     <!-- Pumpkin -->
                                     <li class="nested-household">
@@ -1592,12 +1263,13 @@
                     <div class="card-header" onclick="toggleDrawer('peggy')">
                         <div>
                             <div class="card-title-text">Peggy Darden Branch (Owens)</div>
-                            
+                            <div class="card-subtitle">Reunion & Media Hub · Matriarch's Line</div>
                         </div>
                         <span class="badge-tag badge-blood">Branch</span>
                     </div>
                     <div class="card-drawer" id="peggy">
-                        
+                        <div class="collab-badge" style="margin-bottom: 1.2rem;">
+                            <span>📌 Lead Manager: Peggy's Granddaughter Jewel (Reunion Master Strategist)</span>
                             <button class="btn-card-photo" onclick="openModal('uploadModal')">📷 Shared Album</button>
                         </div>
                         <ul class="member-list">
@@ -1668,7 +1340,8 @@
                         <span class="badge-tag badge-blood">Branch</span>
                     </div>
                     <div class="card-drawer" id="lovell">
-                        
+                        <div class="collab-badge" style="margin-bottom: 1rem;">
+                            <span>📌 Lead Manager: Lovell's Granddaughter (Tree Research Lead)</span>
                             <button class="btn-card-photo" onclick="openModal('uploadModal')">📷 Shared Album</button>
                         </div>
                         <div style="padding: 10px; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px dashed rgba(229,185,92,0.15); margin-bottom: 10px;">
@@ -1711,7 +1384,11 @@
             <div class="modal-card">
                 <button class="modal-close" onclick="closeModal('uploadModal')">✕</button>
                 <div class="modal-title">📷 Family Reunion Media Hub</div>
-                
+                <div class="modal-subtitle">
+                    Greetings Family! Jewel (Debra's Daughter / Peggy's Granddaughter) has set up an official Google Shared Album to collect and preserve our wonderful reunion memories. 
+                    <br><br>
+                    Use the buttons below to upload your reunion photos directly to our shared album or get in touch with the reunion planning team!
+                </div>
                 
                 <div class="modal-btn-group" style="display: flex; flex-direction: column; gap: 10px;">
                     <a href="https://photos.app.goo.gl/pAtZvpKgwM2pL3HZ7" target="_blank" class="btn-submit" style="text-align: center; text-decoration: none; display: block; width: 100%;">
@@ -1796,18 +1473,17 @@
         </div>
 
         <!-- Subscribe / Contact Form -->
-        <section class="subscribe-box" style="margin-top: 4rem;">
-            <h3>Join the Family Registry</h3>
-            <p>Are you a family member? Submit your email to stay connected with the reunion committee (dardenfamilyconnect@gmail.com) and receive upcoming reunion updates.</p>
-            <form id="subscribeForm" onsubmit="handleSubscribe(event)">
-                <div class="form-group">
-                    <input type="email" id="emailInput" class="form-input" placeholder="Enter your email address" required>
+                <!-- Subscribe / Contact Form -->
+        <section class="subscribe-box" style="margin: 4rem auto 2rem auto; text-align: center; max-width: 650px; display: block; float: none;">
+            <h3 style="text-align: center; margin-bottom: 0.75rem; width: 100%;">Join the Family Registry</h3>
+            <p style="text-align: center; margin: 0 auto 1.5rem auto; max-width: 550px; display: block;">Are you a family member? Submit your email to stay connected with the reunion committee (dardenfamilyconnect@gmail.com) and receive upcoming reunion updates.</p>
+            <form id="subscribeForm" onsubmit="handleSubscribe(event)" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                <div class="form-group" style="display: flex; gap: 0.75rem; justify-content: center; align-items: center; width: 100%; max-width: 500px; margin: 0 auto;">
+                    <input type="email" id="emailInput" class="form-input" placeholder="Enter your email address" required style="flex: 1;">
                     <button type="submit" class="btn-submit">Stay Connected</button>
                 </div>
             </form>
-            <div id="formFeedback" style="margin-top: 1rem; color: var(--primary-gold); font-size: 0.9rem; display: none;">
-                Thank you! Your information has been recorded for the Darden Family Portal.
-            </div>
+            <div id="formFeedback" class="form-feedback" style="text-align: center; margin-top: 1rem;"></div>
         </section>
 
     
@@ -1851,9 +1527,7 @@ function toggleSong() {
     const audio = document.getElementById('bgAudio');
     const icon = document.getElementById('songIcon');
     const text = document.getElementById('songText');
-
     if (!audio) return;
-
     if (audio.paused) {
         audio.play().then(() => {
             if (icon) icon.className = "fa-solid fa-pause text-green-400 animate-pulse mr-2";
@@ -2051,9 +1725,7 @@ function toggleSong() {
     const audio = document.getElementById('bgAudio');
     const icon = document.getElementById('songIcon');
     const text = document.getElementById('songText');
-
     if (!audio) return;
-
     if (audio.paused) {
         audio.play().then(() => {
             if (icon) icon.className = "fa-solid fa-pause text-green-400 animate-pulse mr-2";
@@ -2078,49 +1750,49 @@ const defaultMapAvatar = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/
 
 const seedFamilyData = {
     "name": "Sam Darden Sr. & Freddie Shields",
-    "role": "",
+    "role": "Patriarch & Matriarch (Gen I)",
     "type": "bloodline",
     "photo": "",
     "children": [
         {
             "name": "Sam Darden Jr. ('Cowboy')",
-            "role": "",
+            "role": "Anchor Son \u00b7 Gen II",
             "type": "bloodline",
             "photo": "",
             "children": [
                 {
                     "name": "George R. Darden ('Ronnie')",
-                    "role": "",
+                    "role": "Son \u00b7 Father",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Leon Darden ('Rondell')",
-                            "role": "",
+                            "role": "Son \u00b7 Gen IV",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Bikila Darden",
-                            "role": "",
+                            "role": "Daughter \u00b7 Gen IV",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Asar Lineage",
-                                    "role": "",
+                                    "role": "Extensions",
                                     "type": "blended",
                                     "photo": "",
                                     "children": [
                                         {
                                             "name": "Asar's Children (Gen V)",
-                                            "role": "",
+                                            "role": "Great-Grandchildren",
                                             "type": "blended",
                                             "photo": ""
                                         },
                                         {
                                             "name": "Asar's Grandchildren (Gen VI)",
-                                            "role": "",
+                                            "role": "Great-Great-Grandchildren",
                                             "type": "blended",
                                             "photo": ""
                                         }
@@ -2128,13 +1800,13 @@ const seedFamilyData = {
                                 },
                                 {
                                     "name": "Sariah",
-                                    "role": "",
+                                    "role": "Sister's Child",
                                     "type": "blended",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Khalil",
-                                    "role": "",
+                                    "role": "Grandson",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2144,19 +1816,19 @@ const seedFamilyData = {
                 },
                 {
                     "name": "William Darden ('Bobby/Bill')",
-                    "role": "",
+                    "role": "Son \u00b7 Household Lead",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Billy Darden",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Kim Darden",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2164,25 +1836,25 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Darrell Darden",
-                    "role": "",
+                    "role": "Son \u00b7 Blended Lead",
                     "type": "blended",
                     "photo": "",
                     "children": [
                         {
                             "name": "Darrell Darden Jr.",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Harold",
-                            "role": "",
+                            "role": "Step-son",
                             "type": "blended",
                             "photo": ""
                         },
                         {
                             "name": "Keisha",
-                            "role": "",
+                            "role": "Step-daughter",
                             "type": "blended",
                             "photo": ""
                         }
@@ -2190,37 +1862,37 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Pattie Darden",
-                    "role": "",
+                    "role": "Daughter \u00b7 Household Lead",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Keith Darden",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Lauren",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Grace",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Sam",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Keith Jr.",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2230,25 +1902,25 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Sharon Darden",
-                    "role": "",
+                    "role": "Daughter \u00b7 Household Lead",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Sherron Darden",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Stephon Darden",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Cody",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2260,31 +1932,31 @@ const seedFamilyData = {
         },
         {
             "name": "Mozzell Darden",
-            "role": "",
+            "role": "First Son \u00b7 Gen II",
             "type": "bloodline",
             "photo": "",
             "children": [
                 {
                     "name": "Bernard Darden",
-                    "role": "",
+                    "role": "Oldest Son",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Beverly",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Latasha",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Larry",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2292,13 +1964,13 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Mozzell Darden Jr.",
-                    "role": "",
+                    "role": "Son",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Mozzell Darden 3rd",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2306,25 +1978,25 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Derrick Darden",
-                    "role": "",
+                    "role": "Son",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Derrick Darden Jr.",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Brianna",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Kamal",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2332,13 +2004,13 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Carol Darden ('Bunny')",
-                    "role": "",
+                    "role": "Daughter",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Jovonda",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2346,19 +2018,19 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Sheila Darden",
-                    "role": "",
+                    "role": "Daughter",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Diamond",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Carter",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2368,43 +2040,43 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Mary Washington",
-                    "role": "",
+                    "role": "Daughter",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Charles Jr.",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Deshaun",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Kevin",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Maddison",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Dillion",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Daniel",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2414,25 +2086,25 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Lolita Darden",
-                    "role": "",
+                    "role": "Daughter",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Che",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Che Jr.",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Aniyah",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2440,7 +2112,7 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Brittney",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2448,13 +2120,13 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Kattely Darden",
-                    "role": "",
+                    "role": "Daughter",
                     "type": "bloodline",
                     "photo": ""
                 },
                 {
                     "name": "Lisa Darden",
-                    "role": "",
+                    "role": "Daughter",
                     "type": "bloodline",
                     "photo": ""
                 }
@@ -2462,25 +2134,25 @@ const seedFamilyData = {
         },
         {
             "name": "Peggy Darden (Owens)",
-            "role": "",
+            "role": "Family Matriarch \u00b7 Gen II",
             "type": "bloodline",
             "photo": "",
             "children": [
                 {
                     "name": "Derrick Owens",
-                    "role": "",
+                    "role": "Son",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Aaron",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Aaron Owens Jr.",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2488,19 +2160,19 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Marques",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Stephan",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Darnielle",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2508,19 +2180,19 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Debra Profitt",
-                    "role": "",
+                    "role": "Daughter",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Jamila",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Raevon Profitt",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2528,19 +2200,19 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Jewel",
-                            "role": "",
+                            "role": "Granddaughter \u00b7 Reunion Manager",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Ashley",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Alani",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2552,43 +2224,43 @@ const seedFamilyData = {
         },
         {
             "name": "Johnnie Darden (Watson)",
-            "role": "",
+            "role": "Daughter \u00b7 Gen II",
             "type": "bloodline",
             "photo": "",
             "children": [
                 {
                     "name": "Irving Watson",
-                    "role": "",
+                    "role": "Son",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Erika",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Alisyah Watson",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Hailie",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Sebastion",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Naomi",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2596,25 +2268,25 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Joel",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Elaine",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Adriana",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Genisis Watson",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2624,19 +2296,19 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Louis Watson",
-                    "role": "",
+                    "role": "Son",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Louis Jr.",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Nadine",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2644,13 +2316,13 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Charles Watson",
-                    "role": "",
+                    "role": "Son",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Jenean",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2658,25 +2330,25 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Darlene Watson",
-                    "role": "",
+                    "role": "Daughter",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Ronyelle Stallworth",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Nyalla",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Aden",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2684,37 +2356,37 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Eric",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
-                            "name": "Chippy",
-                            "role": "",
+                            "name": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Lillian Williams",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Michaela",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Tatiana",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Xavier",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2722,31 +2394,31 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Jacqueline Denise Williams AKA 'Candy'",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "and gel",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Shay",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Karina",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Brian",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2754,49 +2426,49 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Melinda Gail Williams AKA 'Pumpkin'",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Torray",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Clifton",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Cynthasia",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Cianna",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Ciara",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Casara",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Cavante",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2806,43 +2478,43 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Donald Watson",
-                    "role": "",
+                    "role": "Son",
                     "type": "bloodline",
                     "photo": ""
                 },
                 {
                     "name": "Donna Watson",
-                    "role": "",
+                    "role": "Daughter",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Thomas Earl Watkins",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Thomas Jr.",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Skylar",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Archer",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Ace",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2850,31 +2522,31 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Jason",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Devin",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Amya",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Alexander",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Joy",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2882,31 +2554,31 @@ const seedFamilyData = {
                         },
                         {
                             "name": "Joy",
-                            "role": "",
+                            "role": "Granddaughter",
                             "type": "bloodline",
                             "photo": ""
                         },
                         {
                             "name": "Jeremy",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": "",
                             "children": [
                                 {
                                     "name": "Jayson",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Myrikal",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 },
                                 {
                                     "name": "Malayah",
-                                    "role": "",
+                                    "role": "Gen V",
                                     "type": "bloodline",
                                     "photo": ""
                                 }
@@ -2916,13 +2588,13 @@ const seedFamilyData = {
                 },
                 {
                     "name": "Beverly Watson",
-                    "role": "",
+                    "role": "Daughter",
                     "type": "bloodline",
                     "photo": "",
                     "children": [
                         {
                             "name": "Jonathan",
-                            "role": "",
+                            "role": "Grandson",
                             "type": "bloodline",
                             "photo": ""
                         }
@@ -2932,13 +2604,13 @@ const seedFamilyData = {
         },
         {
             "name": "Lovell Darden ('Uncle Lovell')",
-            "role": "",
+            "role": "Living Elder \u00b7 Gen II",
             "type": "bloodline",
             "photo": "",
             "children": [
                 {
                     "name": "Lovell's Granddaughter",
-                    "role": "",
+                    "role": "Tree Research Lead \u00b7 Gen IV",
                     "type": "bloodline",
                     "photo": ""
                 }
@@ -2946,7 +2618,7 @@ const seedFamilyData = {
         },
         {
             "name": "Sarah Darden",
-            "role": "",
+            "role": "Daughter \u00b7 Gen II",
             "type": "bloodline",
             "photo": "",
             "children": []
@@ -3181,5 +2853,65 @@ function openAddMemberModal() {
             <span id="floatingToggleIcon">🗺️</span> <span id="floatingToggleText">Switch to Mind Map</span>
         </button>
     </div>
+
+    
+    <!-- BACKGROUND REUNION JAZZ MUSIC TOGGLE WIDGET & 50% VIDEO SLOWDOWN SCRIPT -->
+    <div id="audio-toggle-widget" style="position: fixed; bottom: 25px; right: 25px; z-index: 99999; font-family: var(--font-sans);">
+      <button type="button" onclick="toggleBackgroundAudio()" style="background: rgba(8, 7, 11, 0.88); color: #e5b95c; border: 1.5px solid #e5b95c; padding: 0.65rem 1.35rem; border-radius: 50px; font-weight: bold; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; gap: 0.6rem; backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(229, 185, 92, 0.3);">
+        <i class="fa-solid fa-music" id="audioToggleIcon"></i> <span id="audioToggleText">Play Jazz Audio</span>
+      </button>
+      <audio id="bgReunionAudio" loop src="The_Desk_at_Three_AM.mp3"></audio>
+    </div>
+
+    <script>
+
+// SONG PLAYER TOGGLE ("The_Desk_at_Three_AM.mp3")
+function toggleSong() {
+    const audio = document.getElementById('bgAudio');
+    const icon = document.getElementById('songIcon');
+    const text = document.getElementById('songText');
+    if (!audio) return;
+    if (audio.paused) {
+        audio.play().then(() => {
+            if (icon) icon.className = "fa-solid fa-pause text-green-400 animate-pulse mr-2";
+            if (text) text.innerText = "PAUSE MUSIC";
+        }).catch(err => {
+            console.log("Audio play error:", err);
+            alert("Click anywhere on the page first, then press Play Music!");
+        });
+    } else {
+        audio.pause();
+        if (icon) icon.className = "fa-solid fa-music text-amber-400 mr-2";
+        if (text) text.innerText = "PLAY MUSIC";
+    }
+}
+
+      // Drastically slow video down by 50% (playbackRate = 0.5)
+      document.addEventListener("DOMContentLoaded", function() {
+        const bgVideo = document.querySelector(".bg-video");
+        if (bgVideo) {
+          bgVideo.playbackRate = 0.5;
+        }
+      });
+
+      function toggleBackgroundAudio() {
+        const audio = document.getElementById('bgReunionAudio');
+        const icon = document.getElementById('audioToggleIcon');
+        const text = document.getElementById('audioToggleText');
+        if (audio) {
+          if (audio.paused) {
+            audio.play();
+            if (icon) icon.className = 'fa-solid fa-pause';
+            if (text) text.innerText = 'Pause Jazz Audio';
+          } else {
+            audio.pause();
+            if (icon) icon.className = 'fa-solid fa-music';
+            if (text) text.innerText = 'Play Jazz Audio';
+          }
+        }
+      }
+    </script>
+
+
 </body>
 </html>
