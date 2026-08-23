@@ -1,0 +1,589 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>In Loving Memory of Donna George | Celebrating Her Life & Spirit</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cormorant Garamond, Playfair Display, Montserrat & Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        cormorant: ['"Cormorant Garamond"', 'serif'],
+                        playfair: ['"Playfair Display"', 'serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        memorialGold: '#D4AF37',
+                        softIvory: '#FCFBF7',
+                        warmCream: '#FDF7EB',
+                        skySoft: '#e0f2fe',
+                        skyLight: '#f0f9ff',
+                        skyMist: '#dbeafe',
+                        charcoal: '#1E242B',
+                        burgundyDark: '#4A0E17',
+                        rubyRed: '#9E1B32'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #e0f2fe;
+            color: #2d3748;
+            overflow-x: hidden;
+        }
+
+        /* Subtle ambient floating animation for poem */
+        @keyframes gentleFloat {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+            }
+            50% {
+                transform: translateY(-8px) scale(1.015);
+            }
+        }
+
+        @keyframes softShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.2);
+            }
+            50% {
+                box-shadow: 0 20px 45px -5px rgba(212, 175, 55, 0.5), 0 0 25px rgba(212, 175, 55, 0.35);
+            }
+        }
+
+        @keyframes cloudDrift {
+            0% { transform: translateX(-20px); }
+            50% { transform: translateX(20px); }
+            100% { transform: translateX(-20px); }
+        }
+
+        .animated-poem-card {
+            animation: gentleFloat 7s ease-in-out infinite;
+            transition: all 0.5s ease;
+        }
+
+        .animated-poem-card:hover {
+            animation-play-state: paused;
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .golden-gradient-border {
+            background: linear-gradient(135deg, #f59e0b, #d4af37, #fef08a, #d4af37, #b45309);
+            background-size: 300% 300%;
+            animation: softShimmer 8s ease infinite;
+        }
+
+        .glow-effect {
+            animation: pulseGlow 5s ease-in-out infinite;
+        }
+
+        /* Custom scrollbar for the ceremony flyer box */
+        .flyer-scroll-box::-webkit-scrollbar {
+            width: 8px;
+        }
+        .flyer-scroll-box::-webkit-scrollbar-track {
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+        }
+        .flyer-scroll-box::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #d4af37, #38bdf8);
+            border-radius: 8px;
+        }
+        .flyer-scroll-box::-webkit-scrollbar-thumb:hover {
+            background: #0284c7;
+        }
+
+        /* Soft transitions connecting each section */
+        .bg-sky-top {
+            background: linear-gradient(180deg, #bae6fd 0%, #dbeafe 35%, #e0f2fe 70%, #eff6ff 100%);
+        }
+
+        .bg-sky-to-gold {
+            background: linear-gradient(180deg, #eff6ff 0%, #f1f7fe 25%, #fefcf3 60%, #faeed2 100%);
+        }
+
+        .bg-gold-to-heavenly {
+            background: linear-gradient(180deg, #faeed2 0%, #f7ebc8 25%, #f2f7fd 65%, #e0f2fe 100%);
+        }
+
+        .bg-heavenly-sky {
+            background: linear-gradient(180deg, #e0f2fe 0%, #dbeafe 30%, #bae6fd 70%, #e0f2fe 100%);
+        }
+
+        .text-shadow-gold {
+            text-shadow: 0 2px 8px rgba(212, 175, 55, 0.35);
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-800">
+
+    <!-- Top Memorial Header Banner -->
+    <header class="w-full bg-slate-900 text-slate-100 py-3.5 px-4 shadow-md sticky top-0 z-40 backdrop-blur-md bg-slate-900/90 border-b border-sky-400/30">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2.5">
+                <span class="text-sky-300 text-lg"><i class="fa-solid fa-dove"></i></span>
+                <span class="font-cinzel text-sm sm:text-base tracking-wider uppercase font-semibold text-sky-100">Donna George Memorial</span>
+            </div>
+            <nav class="flex items-center space-x-4 text-xs sm:text-sm font-medium">
+                <a href="#balloon-release" class="hover:text-sky-300 transition-colors">Balloon Tribute</a>
+                <a href="#welcome-tribute" class="hover:text-sky-300 transition-colors">Details</a>
+                <a href="#tribute-poem" class="hover:text-amber-300 transition-colors">Poem</a>
+                <a href="#ceremony-flyer" class="hover:text-sky-300 transition-colors">Ceremony</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="w-full min-h-screen">
+
+        <!-- =========================================================================
+             SECTION 1: Granddaughter's Flyer (Top of Page)
+             Background: Serene Light Sky Blue
+             ========================================================================= -->
+        <section id="balloon-release" class="w-full pt-8 pb-16 px-4 sm:px-6 bg-sky-top relative overflow-hidden">
+            
+            <!-- Soft Celestial Clouds effect -->
+            <div class="absolute -top-12 -left-20 w-72 h-72 bg-white/40 rounded-full filter blur-2xl pointer-events-none"></div>
+            <div class="absolute top-1/4 -right-16 w-80 h-80 bg-sky-200/50 rounded-full filter blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-3xl mx-auto relative z-10 text-center">
+                <!-- Gentle Intro Tag -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm text-sky-900 text-xs font-semibold tracking-wider uppercase mb-5 border border-sky-200 shadow-sm">
+                    <i class="fa-solid fa-heart text-red-600"></i>
+                    <span>Tribute by Her Granddaughter</span>
+                </div>
+
+                <h1 class="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-2">
+                    Donna George
+                </h1>
+                <p class="font-cormorant text-xl sm:text-2xl text-slate-700 italic mb-6">
+                    Forever Loved &bull; Forever Remembered
+                </p>
+
+                <!-- Granddaughter's Flyer Frame (Red & Black Flyer with soft sky-glow frame) -->
+                <div class="relative mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white/90 bg-slate-950 transition-transform duration-300 hover:shadow-sky-900/30 max-w-xl group">
+                    <img 
+                        src="balloon_release_fixed.jpeg" 
+                        alt="Donna George Balloon Release Flyer" 
+                        class="w-full h-auto object-cover block mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
+                        loading="eager"
+                    />
+                    <div class="absolute bottom-3 right-3 bg-black/75 backdrop-blur-md px-3 py-1.5 rounded-full text-white text-xs flex items-center gap-1.5 opacity-85 hover:opacity-100 transition-opacity">
+                        <i class="fa-solid fa-feather text-amber-300"></i>
+                        <span>Balloon Release Flyer</span>
+                    </div>
+                </div>
+
+                <!-- Quick Jump Cue -->
+                <div class="mt-8">
+                    <a href="#welcome-tribute" class="inline-flex items-center gap-2 text-sky-900/80 hover:text-sky-950 text-sm font-semibold transition-colors bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-sky-200/70 shadow-xs">
+                        <span>Event & Gathering Details Below</span>
+                        <i class="fa-solid fa-arrow-down animate-bounce text-sky-700"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================================================
+             SECTION 2: Welcome Text & Hidden Address Button
+             Background: Soft Sky Blue transitioning smoothly into warm Ivory & Gold
+             ========================================================================= -->
+        <section id="welcome-tribute" class="w-full py-16 px-4 sm:px-6 bg-sky-to-gold relative border-t border-sky-200/60">
+            <div class="max-w-3xl mx-auto relative z-10">
+
+                <!-- Welcome Card -->
+                <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-10 shadow-xl border border-amber-200/80 text-center">
+                    
+                    <!-- Decorative Icon -->
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 text-xl shadow-inner">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+
+                    <h2 class="font-playfair text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                        Celebrating the Life &amp; Spirit of Donna George
+                    </h2>
+
+                    <div class="w-24 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto mb-6"></div>
+
+                    <p class="font-montserrat text-slate-700 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+                        Welcome to the dedicated memorial space for our beloved <strong>Donna</strong>. She was an absolute light in our lives, a faithful soul, and the absolute nicest person you could ever meet. Thank you for joining us as we honor her beautiful journey, her laughter, and her enduring glow.
+                    </p>
+
+                    <!-- Event Summary Box -->
+                    <div class="bg-amber-50/80 rounded-2xl p-6 border border-amber-200/90 max-w-xl mx-auto mb-8 shadow-sm">
+                        <div class="flex items-center justify-center gap-2 text-amber-900 font-cinzel text-lg sm:text-xl font-bold mb-3">
+                            <i class="fa-solid fa-cloud-arrow-up text-amber-600"></i>
+                            <span>Balloon Release Tribute</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center my-3">
+                            <div class="bg-white/90 rounded-xl p-3 border border-amber-100 shadow-xs">
+                                <span class="block text-xs uppercase tracking-wider text-slate-500 font-semibold">Date</span>
+                                <span class="font-playfair text-lg font-bold text-slate-900"><i class="fa-regular fa-calendar-days text-amber-600 mr-1.5"></i>Sunday, Aug 30th</span>
+                            </div>
+                            <div class="bg-white/90 rounded-xl p-3 border border-amber-100 shadow-xs">
+                                <span class="block text-xs uppercase tracking-wider text-slate-500 font-semibold">Time</span>
+                                <span class="font-playfair text-lg font-bold text-slate-900"><i class="fa-regular fa-clock text-amber-600 mr-1.5"></i>4:00 PM</span>
+                            </div>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-600 italic mt-3">
+                            To respect the privacy of the family home, please click the button below to view the address and directions for the balloon release.
+                        </p>
+                    </div>
+
+                    <!-- Hidden Address Reveal Button & Accordion -->
+                    <div class="max-w-md mx-auto">
+                        <button 
+                            id="reveal-btn" 
+                            onclick="toggleAddress()"
+                            class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 hover:from-amber-700 hover:via-amber-600 hover:to-amber-700 text-white font-semibold text-base sm:text-lg shadow-lg hover:shadow-amber-600/30 transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-3 border border-amber-300/40"
+                        >
+                            <i class="fa-solid fa-location-dot text-amber-200 text-xl" id="btn-icon"></i>
+                            <span id="btn-text">Click to Reveal Location Details</span>
+                            <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300" id="btn-arrow"></i>
+                        </button>
+
+                        <!-- Revealed Address Content Container -->
+                        <div id="address-container" class="hidden transition-all duration-500 mt-4 overflow-hidden">
+                            <div class="bg-white rounded-2xl p-6 border-2 border-amber-400 shadow-xl text-left relative">
+                                <div class="flex items-start justify-between mb-3">
+                                    <div>
+                                        <span class="inline-block px-2.5 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-md uppercase tracking-wider mb-1">
+                                            Event Location
+                                        </span>
+                                        <h4 class="font-playfair text-xl font-bold text-slate-900">Private Residence</h4>
+                                    </div>
+                                    <div class="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-600 text-lg">
+                                        <i class="fa-solid fa-house-chimney-heart"></i>
+                                    </div>
+                                </div>
+
+                                <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200 mb-4">
+                                    <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-0.5">Address</p>
+                                    <p class="font-montserrat font-bold text-slate-800 text-base sm:text-lg">
+                                        1184 Huntington Pl Cir<br>Lithonia, GA 30058
+                                    </p>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="flex flex-col sm:flex-row gap-2.5">
+                                    <a 
+                                        href="https://maps.google.com/?q=1184+Huntington+Pl+Cir,+Lithonia,+GA+30058" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        class="flex-1 py-2.5 px-4 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs sm:text-sm font-semibold text-center flex items-center justify-center gap-2 shadow-sm transition-colors"
+                                    >
+                                        <i class="fa-solid fa-diamond-turn-right text-emerald-400"></i>
+                                        <span>Open in Google Maps</span>
+                                    </a>
+                                    <button 
+                                        onclick="copyAddress()" 
+                                        id="copy-btn"
+                                        class="py-2.5 px-4 bg-amber-100 hover:bg-amber-200 text-amber-900 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 border border-amber-300 transition-colors"
+                                    >
+                                        <i class="fa-regular fa-copy"></i>
+                                        <span id="copy-text">Copy Address</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================================================
+             SECTION 3: Tribute Poem ("Lifted by Love")
+             Background: Radiant Gold blending into Celestial Blue
+             ========================================================================= -->
+        <section id="tribute-poem" class="w-full py-16 px-4 sm:px-6 bg-gold-to-heavenly relative overflow-hidden">
+            
+            <!-- Soft angelic background glowing aura -->
+            <div class="absolute inset-0 opacity-25 pointer-events-none flex justify-center items-center">
+                <div class="w-96 h-96 rounded-full bg-amber-300 filter blur-3xl"></div>
+            </div>
+
+            <div class="max-w-2xl mx-auto relative z-10 text-center">
+                
+                <!-- Animated Poem Card Wrapper -->
+                <div class="golden-gradient-border p-1 rounded-3xl glow-effect animated-poem-card shadow-2xl">
+                    <div class="bg-gradient-to-b from-amber-50 via-white to-amber-50 rounded-[22px] p-8 sm:p-12 text-center relative overflow-hidden">
+                        
+                        <!-- Top Angelic Accent -->
+                        <div class="flex items-center justify-center space-x-3 mb-4 text-amber-500">
+                            <span class="w-12 h-px bg-amber-300"></span>
+                            <i class="fa-solid fa-feather-pointed text-2xl text-amber-600 animate-pulse"></i>
+                            <span class="w-12 h-px bg-amber-300"></span>
+                        </div>
+
+                        <!-- Poem Title -->
+                        <h3 class="font-cinzel text-3xl sm:text-4xl font-extrabold text-amber-900 tracking-wider mb-1 text-shadow-gold">
+                            Lifted by Love
+                        </h3>
+                        <p class="font-cormorant text-base sm:text-lg text-amber-700 italic mb-8">
+                            In Loving Memory of Donna
+                        </p>
+
+                        <!-- Poem Stanzas -->
+                        <div class="font-cormorant text-xl sm:text-2xl text-slate-800 leading-relaxed space-y-6 font-medium">
+                            <p class="border-b border-amber-200/60 pb-6">
+                                A faithful heart, a beautiful soul,<br>
+                                Now resting in God's grace.<br>
+                                Our Donna left a legacy<br>
+                                That time cannot erase.
+                            </p>
+
+                            <p class="border-b border-amber-200/60 pb-6 text-amber-950">
+                                <strong>Thomas</strong>, <strong>Jason</strong>, <strong>Jeremy</strong>, and <strong>Joy</strong>,<br>
+                                Stood by her, strong and true.<br>
+                                They carry on her kindness,<br>
+                                And the brightest parts she knew.
+                            </p>
+
+                            <p class="text-amber-900 font-semibold italic text-2xl sm:text-3xl pt-2">
+                                So fly high, Donna, into glory,<br>
+                                Your heavy burdens cease.<br>
+                                We lift our hearts and watch you rise<br>
+                                In everlasting peace.
+                            </p>
+                        </div>
+
+                        <!-- Bottom Dove Accent -->
+                        <div class="mt-8 flex justify-center items-center gap-2 text-amber-600 text-sm font-cinzel">
+                            <i class="fa-solid fa-dove"></i>
+                            <span>Rest in Heavenly Peace</span>
+                            <i class="fa-solid fa-dove"></i>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================================================
+             SECTION 4: Daughter's Going Away Ceremony Flyer (Bottom)
+             Visual: Angelic, cloud-background flyer with light gold glow
+             Design: Scrollable container box with full-view expand option
+             ========================================================================= -->
+        <section id="ceremony-flyer" class="w-full py-16 px-4 sm:px-6 bg-heavenly-sky relative">
+            
+            <!-- Cloud decor elements -->
+            <div class="absolute top-10 left-10 w-60 h-60 bg-white/40 rounded-full filter blur-2xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-72 h-72 bg-sky-200/40 rounded-full filter blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-3xl mx-auto relative z-10 text-center">
+
+                <!-- Section Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-900 text-xs font-semibold tracking-wider uppercase mb-4 border border-amber-200 shadow-sm">
+                    <i class="fa-solid fa-hands-praying text-amber-600"></i>
+                    <span>Tribute by Her Daughter</span>
+                </div>
+
+                <h2 class="font-playfair text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+                    Going Home Ceremony Details
+                </h2>
+                <p class="font-cormorant text-lg sm:text-xl text-slate-700 italic mb-6 max-w-xl mx-auto">
+                    Scroll through the angelic program below for the full service order, speakers, and tributes.
+                </p>
+
+                <!-- Scrollable Container Box for Ceremony Flyer -->
+                <div class="relative bg-white/95 rounded-3xl p-3 sm:p-5 shadow-2xl border-2 border-amber-300/80 max-w-2xl mx-auto backdrop-blur-sm">
+                    
+                    <!-- Top control bar inside box -->
+                    <div class="flex items-center justify-between px-3 py-2 bg-gradient-to-r from-amber-50 via-sky-50 to-sky-100 rounded-xl mb-3 border border-amber-100 text-xs text-slate-600">
+                        <span class="flex items-center gap-1.5 font-medium text-slate-700">
+                            <i class="fa-solid fa-arrows-up-down text-amber-600"></i>
+                            <span>Scroll box to read full program</span>
+                        </span>
+                        <button 
+                            onclick="openFullscreenModal()"
+                            class="px-3 py-1 bg-amber-500 hover:bg-amber-600 text-white rounded-lg font-semibold transition-colors flex items-center gap-1 shadow-xs"
+                        >
+                            <i class="fa-solid fa-expand"></i>
+                            <span>View Fullscreen</span>
+                        </button>
+                    </div>
+
+                    <!-- Scrollable Viewport -->
+                    <div class="flyer-scroll-box w-full max-h-[580px] overflow-y-auto rounded-2xl border border-slate-200 shadow-inner bg-slate-50 relative">
+                        <img 
+                            id="ceremony-img"
+                            src="ceremony.png" 
+                            alt="Donna George Going Away Ceremony Program" 
+                            class="w-full h-auto object-cover block mx-auto cursor-pointer"
+                            onclick="openFullscreenModal()"
+                            title="Click to expand"
+                            loading="lazy"
+                        />
+                    </div>
+
+                    <!-- Bottom Indicator -->
+                    <div class="mt-3 text-center">
+                        <p class="text-xs text-slate-500 font-medium">
+                            <i class="fa-solid fa-circle-info text-amber-500 mr-1"></i>
+                            Click the image or "View Fullscreen" for high-resolution zoom
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Closing Note & Blessing -->
+                <div class="mt-12 text-center max-w-md mx-auto">
+                    <p class="font-cinzel text-sm text-slate-800 tracking-wider uppercase font-semibold">
+                        "Those we love don't go away, they walk beside us every day."
+                    </p>
+                    <p class="text-xs text-slate-600 mt-1">
+                        In eternal memory of Donna George &bull; Our Angel
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-slate-900 text-slate-300 py-8 px-4 text-center border-t border-sky-400/20">
+        <div class="max-w-4xl mx-auto space-y-3">
+            <div class="flex items-center justify-center space-x-3 text-amber-300">
+                <i class="fa-solid fa-dove"></i>
+                <span class="font-cinzel font-bold tracking-widest uppercase text-slate-100">Donna George</span>
+                <i class="fa-solid fa-dove"></i>
+            </div>
+            <p class="text-xs text-slate-400">
+                Dedicated Memorial Space &bull; Created with love by family and friends
+            </p>
+            <div class="pt-2">
+                <a href="#balloon-release" class="inline-flex items-center gap-1.5 text-xs text-sky-300 hover:text-sky-200 underline font-medium">
+                    <i class="fa-solid fa-chevron-up"></i>
+                    <span>Back to Top</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Fullscreen Modal for High-Res Viewing of Ceremony Program -->
+    <div id="image-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-2 sm:p-4" onclick="closeFullscreenModal(event)">
+        <div class="relative max-w-4xl w-full max-h-[95vh] flex flex-col items-center">
+            
+            <!-- Close Button -->
+            <button 
+                onclick="closeFullscreenModal(event, true)"
+                class="absolute -top-10 right-2 text-white hover:text-amber-400 text-2xl font-bold bg-black/50 hover:bg-black/80 w-9 h-9 rounded-full flex items-center justify-center border border-white/20 transition-colors z-20"
+                aria-label="Close fullscreen modal"
+            >
+                &times;
+            </button>
+
+            <!-- Modal Scrollable Content -->
+            <div class="w-full max-h-[88vh] overflow-y-auto rounded-2xl bg-neutral-900 p-1 sm:p-2 border border-amber-500/30 flyer-scroll-box" onclick="event.stopPropagation()">
+                <img 
+                    src="ceremony.png" 
+                    alt="Donna George Ceremony Full View" 
+                    class="w-full h-auto rounded-xl mx-auto shadow-2xl"
+                />
+            </div>
+            <p class="text-slate-300 text-xs mt-2 text-center">Tap outside or press &times; to close</p>
+        </div>
+    </div>
+
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Toggle Hidden Address
+        function toggleAddress() {
+            const container = document.getElementById('address-container');
+            const btn = document.getElementById('reveal-btn');
+            const btnText = document.getElementById('btn-text');
+            const btnArrow = document.getElementById('btn-arrow');
+            const btnIcon = document.getElementById('btn-icon');
+
+            if (container.classList.contains('hidden')) {
+                container.classList.remove('hidden');
+                btnText.textContent = "Hide Location Details";
+                btnArrow.classList.add('rotate-180');
+                btnIcon.classList.replace('fa-location-dot', 'fa-eye-slash');
+            } else {
+                container.classList.add('hidden');
+                btnText.textContent = "Click to Reveal Location Details";
+                btnArrow.classList.remove('rotate-180');
+                btnIcon.classList.replace('fa-eye-slash', 'fa-location-dot');
+            }
+        }
+
+        // Copy Address to Clipboard
+        function copyAddress() {
+            const address = "1184 Huntington Pl Cir, Lithonia, GA 30058";
+            navigator.clipboard.writeText(address).then(() => {
+                const copyText = document.getElementById('copy-text');
+                const originalText = copyText.textContent;
+                copyText.textContent = "Address Copied!";
+                setTimeout(() => {
+                    copyText.textContent = originalText;
+                }, 2500);
+            }).catch(err => {
+                alert("Address: 1184 Huntington Pl Cir, Lithonia, GA 30058");
+            });
+        }
+
+        // Fullscreen Modal Controls
+        function openFullscreenModal() {
+            const modal = document.getElementById('image-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFullscreenModal(event, force = false) {
+            if (force || event.target.id === 'image-modal') {
+                const modal = document.getElementById('image-modal');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Keyboard ESC support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeFullscreenModal(null, true);
+            }
+        });
+    </script>
+
+</body>
+</html>
