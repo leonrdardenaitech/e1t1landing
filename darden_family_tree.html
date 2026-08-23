@@ -979,6 +979,11 @@
 </head>
 <body>
 
+    <!-- Local Audio Track (The Desk at Three AM) -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="The_Desk_at_Three_AM.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- Background Video -->
     <div class="video-container">
         <video id="bgVideo" class="bg-video" autoplay loop muted playsinline>
@@ -2019,21 +2024,51 @@
             }
         }
 
-        // Audio Toggle Script
-        function toggleAudio() {
-            const video = document.getElementById('bgVideo');
-            const icon = document.getElementById('audioIcon');
-            const text = document.getElementById('audioText');
-            if (video.muted) {
-                video.muted = false;
-                icon.textContent = '🔊';
-                text.textContent = 'Mute';
+        // Theme Music Toggle Control (The Desk at Three AM)
+        let customAudio = null;
+        function toggleMusic() {
+            let music = document.getElementById('bgMusic');
+            const icon = document.getElementById('musicIcon');
+            const text = document.getElementById('musicText');
+
+            if (!music) {
+                if (!customAudio) {
+                    customAudio = new Audio('The_Desk_at_Three_AM.mp3');
+                    customAudio.loop = true;
+                }
+                music = customAudio;
+            }
+
+            if (music.paused) {
+                // Ensure background video is muted so music plays clearly
+                const video = document.getElementById('bgVideo');
+                if (video) video.muted = true;
+
+                const playPromise = music.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        if (icon) icon.textContent = '⏸️';
+                        if (text) text.textContent = 'Pause Music';
+                    }).catch(err => {
+                        console.warn("Audio playback retry: ", err);
+                        if (!customAudio) {
+                            customAudio = new Audio('The_Desk_at_Three_AM.mp3');
+                            customAudio.loop = true;
+                        }
+                        customAudio.play().then(() => {
+                            if (icon) icon.textContent = '⏸️';
+                            if (text) text.textContent = 'Pause Music';
+                        });
+                    });
+                }
             } else {
-                video.muted = true;
-                icon.textContent = '🔇';
-                text.textContent = 'Sound';
+                music.pause();
+                if (customAudio) customAudio.pause();
+                if (icon) icon.textContent = '🎵';
+                if (text) text.textContent = 'Play Music';
             }
         }
+        function toggleAudio() { toggleMusic(); }
     </script>
 <script>
 
@@ -3144,42 +3179,5 @@ function openAddMemberModal() {
             <span id="floatingToggleIcon">🗺️</span> <span id="floatingToggleText">Switch to Mind Map</span>
         </button>
     </div>
-
-    <!-- Local Audio Track (The Desk at Three AM) -->
-    <audio id="bgMusic" loop src="The_Desk_at_Three_AM.mp3"></audio>
-
-    <script>
-        // Theme Music Toggle Control
-        function toggleMusic() {
-            const music = document.getElementById('bgMusic');
-            const icon = document.getElementById('musicIcon');
-            const text = document.getElementById('musicText');
-            
-            if (music.paused) {
-                // Mute background video if it is currently playing sound
-                const video = document.getElementById('bgVideo');
-                if (video && !video.muted) {
-                    video.muted = true;
-                    const videoIcon = document.getElementById('audioIcon');
-                    const videoText = document.getElementById('audioText');
-                    if (videoIcon) videoIcon.textContent = '🔇';
-                    if (videoText) videoText.textContent = 'Sound';
-                }
-                
-                music.play().then(() => {
-                    icon.textContent = '⏸️';
-                    text.textContent = 'Pause Music';
-                }).catch(err => {
-                    console.log("Local audio autoplay pending interaction: ", err);
-                    icon.textContent = '⏸️';
-                    text.textContent = 'Pause Music';
-                });
-            } else {
-                music.pause();
-                icon.textContent = '🎵';
-                text.textContent = 'Play Music';
-            }
-        }
-    </script>
 </body>
 </html>
