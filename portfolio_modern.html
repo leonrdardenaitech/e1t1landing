@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anergi | Driving Security. Powering Performance.</title>
-  <meta name="description" content="Anergi is the technology company that protects systems powering industry, infrastructure, and transportation through intelligent cybersecurity architecture.">
+  <meta name="description" content="Anergi is the technology company that protects systems that power industry, infrastructure, and transportation system through intelligent, integrated cybersecurity.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,12 +16,12 @@
 
   <style>
     :root {
-      /* Medium / Light Grey Theme Palette */
-      --bg-site: #eef2f6;
-      --bg-site-alt: #e5e9f0;
+      /* Anergi Medium Grey Theme Palette */
+      --bg-site: #f1f5f9;
       --bg-white: #ffffff;
-      --bg-navbar: #5c5c5c;
-      --bg-navbar-dark: #4d4d4d;
+      --bg-navbar: #585858;
+      --bg-navbar-dark: #4a4a4a;
+      --bg-what-we-do: #545454;
       --bg-footer: #374151;
       
       --card-white: #ffffff;
@@ -209,23 +209,24 @@
     }
 
     /* ==========================================================================
-       HERO SECTION (5% Scrim Opaque, Vivid Image, Floating Pill Badges)
+       HERO SECTION (5% Scrim Opaque, Vivid Image, Centered Hero Copy & Button)
        ========================================================================== */
     .hero-section {
       position: relative;
-      min-height: 86vh;
+      min-height: 82vh;
       display: flex;
       align-items: center;
-      /* 5% scrim overlay as requested so the image is 95% visible & vivid */
+      justify-content: center;
+      /* 5% scrim overlay so the SOC collaboration image is 95% vivid & bright */
       background: 
         linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.08) 100%),
         url('hero_collaborating.jpeg') center/cover no-repeat;
-      padding: 5rem 1.5rem 6rem;
+      padding: 6rem 1.5rem 7rem;
       border-bottom: 2px solid var(--border-subtle);
     }
 
     .hero-container {
-      max-width: 1240px;
+      max-width: 1100px;
       margin: 0 auto;
       width: 100%;
       text-align: center;
@@ -233,96 +234,39 @@
       z-index: 2;
     }
 
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 0.5rem 1.25rem;
-      border-radius: 9999px;
-      background: rgba(15, 23, 42, 0.88);
-      border: 1.5px solid var(--accent-orange);
-      color: #ff9d5c;
-      font-size: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 1.75rem;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-eyebrow i {
-      color: var(--accent-orange);
-      font-size: 0.9rem;
-    }
-
     .hero-title {
       font-family: var(--font-heading);
-      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-size: clamp(2.5rem, 5.8vw, 4.4rem);
       font-weight: 900;
       color: #ffffff;
       line-height: 1.15;
       letter-spacing: -0.02em;
-      max-width: 1050px;
       margin: 0 auto 1.75rem;
-      /* Deep cinematic text shadow to guarantee 100% readability over the 5% scrim photo */
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 18px rgba(0, 0, 0, 0.9), 0 8px 36px rgba(0, 0, 0, 0.95);
+      /* Deep cinematic text shadow guaranteeing 100% readability over the bright photo */
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.9), 0 8px 40px rgba(0, 0, 0, 0.95);
     }
 
     .hero-title .text-orange {
       color: #ff771a;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 18px rgba(0, 0, 0, 0.9), 0 8px 36px rgba(0, 0, 0, 0.95);
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.9), 0 8px 40px rgba(0, 0, 0, 0.95);
     }
 
-    /* Requested Capabilities Pill Badges (Container Pills make letters stand out crisp) */
-    .hero-tags-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.75rem;
-      max-width: 1000px;
+    /* Requested Text Above the Centered Contact Buttons */
+    .hero-lead-text {
+      max-width: 880px;
       margin: 0 auto 2.5rem;
-    }
-
-    .hero-tag-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 0.65rem 1.3rem;
-      border-radius: 9999px;
-      background: rgba(15, 23, 42, 0.88);
-      border: 1.5px solid rgba(255, 255, 255, 0.28);
-      color: #ffffff;
-      font-size: 0.92rem;
+      font-size: clamp(1.08rem, 2.2vw, 1.35rem);
       font-weight: 700;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.6);
-      transition: all 0.25s ease;
-    }
-
-    .hero-tag-item i {
-      color: #38bdf8;
-      font-size: 0.9rem;
-    }
-
-    .hero-tag-item.highlight-soc {
-      background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-hover) 100%);
-      border-color: #ff9d5c;
       color: #ffffff;
-      box-shadow: 0 6px 24px var(--accent-orange-glow);
-    }
-
-    .hero-tag-item.highlight-soc i {
-      color: #ffffff;
-    }
-
-    .hero-tag-item:hover {
-      background: rgba(15, 23, 42, 0.98);
-      border-color: var(--accent-orange);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
+      line-height: 1.65;
+      padding: 1.25rem 2rem;
+      background: rgba(15, 23, 42, 0.78);
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+      border-radius: 18px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
     }
 
     .hero-cta-wrap {
@@ -330,7 +274,7 @@
       justify-content: center;
       align-items: center;
       gap: 1.25rem;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
     .btn-pill-orange {
@@ -342,7 +286,7 @@
       color: #ffffff !important;
       font-size: 1.05rem;
       font-weight: 800;
-      padding: 1.05rem 2.75rem;
+      padding: 1.1rem 2.85rem;
       border-radius: 9999px;
       box-shadow: 0 8px 25px var(--accent-orange-glow);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -363,34 +307,90 @@
       transform: translateX(4px);
     }
 
-    .btn-pill-ghost {
-      display: inline-flex;
+    /* ==========================================================================
+       SECTION: CYBER SECURITY CONSULTING SERVICES (Right Below Hero Image)
+       (White Background matching the cybersecop.com style)
+       ========================================================================== */
+    .consulting-section-white {
+      background-color: var(--bg-white);
+      border-bottom: 2px solid var(--border-light);
+      padding: 5.5rem 1.5rem;
+    }
+
+    .consulting-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .consulting-card {
+      background: #f8fafc;
+      border: 1.5px solid var(--border-light);
+      border-radius: 16px;
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .consulting-card:hover {
+      background: #ffffff;
+      border-color: var(--accent-orange);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(255, 102, 0, 0.12);
+    }
+
+    .consulting-card-soc {
+      background: linear-gradient(135deg, rgba(255, 102, 0, 0.06) 0%, #ffffff 100%);
+      border-color: rgba(255, 102, 0, 0.35);
+    }
+
+    .consulting-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(15, 23, 42, 0.85);
-      color: #ffffff;
-      font-size: 1rem;
-      font-weight: 700;
-      padding: 1rem 2.2rem;
-      border-radius: 9999px;
-      border: 1.5px solid rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
       transition: all 0.25s ease;
     }
 
-    .btn-pill-ghost:hover {
-      background: rgba(15, 23, 42, 0.98);
-      border-color: var(--accent-orange);
-      color: #ff9d5c;
-      transform: translateY(-2px);
+    .consulting-card:hover .consulting-icon {
+      transform: scale(1.08);
+    }
+
+    .consulting-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-black);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .consulting-desc {
+      font-size: 0.88rem;
+      color: var(--text-body);
+      line-height: 1.55;
     }
 
     /* ==========================================================================
-       SECTION: WHAT WE DO (Medium-Light Grey Theme with Bigger Glowing Icons)
+       SECTION: WHAT WE DO (Medium Grey Background matching Navbar)
        ========================================================================== */
-    .section-wrap {
+    .what-we-do-section-grey {
+      background: linear-gradient(180deg, #585858 0%, #4f4f4f 100%);
       padding: 6rem 1.5rem;
+      border-top: 2px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .section-wrap {
       position: relative;
     }
 
@@ -404,37 +404,42 @@
       margin-bottom: 4rem;
     }
 
-    .section-label {
+    .section-label-orange {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 800;
-      color: var(--accent-orange);
+      color: #ff9d5c;
       text-transform: uppercase;
       letter-spacing: 2px;
       margin-bottom: 0.75rem;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 102, 0, 0.4);
     }
 
-    .section-title {
+    .section-title-white {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 3.5vw, 2.9rem);
-      font-weight: 800;
-      color: var(--text-black);
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 900;
+      color: #ffffff;
       letter-spacing: -0.01em;
       margin-bottom: 1rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .section-desc {
+    .section-desc-light {
       font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 720px;
+      color: #e2e8f0;
+      max-width: 760px;
       margin: 0 auto;
       line-height: 1.7;
     }
 
-    /* What We Do 6-Card Grid (White Cards on Medium-Light Grey Background) */
+    /* What We Do 6-Card Grid (White Cards on Medium Grey Background) */
     .capabilities-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -443,12 +448,12 @@
 
     .capability-card {
       background: var(--card-white);
-      border: 1.5px solid var(--border-subtle);
+      border: 1.5px solid #d1d5db;
       border-radius: 20px;
       padding: 2.5rem 2rem;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
       overflow: hidden;
@@ -467,8 +472,8 @@
 
     .capability-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
-      border-color: rgba(255, 102, 0, 0.4);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.3);
+      border-color: var(--accent-orange);
     }
 
     .capability-card:hover::before {
@@ -573,12 +578,12 @@
 
     /* ==========================================================================
        SECTION: STRATEGIC DEFENSE PRINCIPLES
-       (White Background with Light Blue Cards and Black Text as requested)
+       (White Background with Light Blue Cards and Black Text - confirmed perfect)
        ========================================================================== */
     .principles-section-white {
       background-color: var(--bg-white) !important;
-      border-top: 2px solid var(--border-subtle);
-      border-bottom: 2px solid var(--border-subtle);
+      border-top: 2px solid var(--border-light);
+      border-bottom: 2px solid var(--border-light);
       padding: 6rem 1.5rem;
     }
 
@@ -634,51 +639,42 @@
 
     /* ==========================================================================
        SECTION: FREE CYBER RISK ASSESSMENT CTA
+       (Grey background matching footer, White inside the border card as requested)
        ========================================================================== */
-    .cta-banner-section {
+    .cta-banner-section-grey {
       padding: 6rem 1.5rem;
-      background-color: var(--bg-site);
+      background-color: var(--bg-footer) !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .cta-banner-card {
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      border: 2px solid var(--accent-orange);
+    /* Inside the border is Pure White */
+    .cta-banner-card-white {
+      background: #ffffff !important;
+      border: 2.5px solid var(--accent-orange);
       border-radius: 24px;
       padding: 4.5rem 3rem;
       text-align: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
     }
 
-    .cta-banner-card::after {
-      content: '';
-      position: absolute;
-      bottom: -150px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 400px;
-      height: 200px;
-      background: var(--accent-orange-glow);
-      filter: blur(90px);
-      pointer-events: none;
-    }
-
-    .cta-title {
+    .cta-title-black {
       font-family: var(--font-heading);
       font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      color: #ffffff;
+      font-weight: 900;
+      color: #0f172a !important;
       margin-bottom: 1.25rem;
       line-height: 1.2;
     }
 
-    .cta-subtitle {
+    .cta-subtitle-dark {
       font-size: 1.15rem;
-      color: #cbd5e1;
+      color: #334155 !important;
       max-width: 680px;
       margin: 0 auto 2.5rem;
       line-height: 1.7;
+      font-weight: 500;
     }
 
     /* ==========================================================================
@@ -754,6 +750,9 @@
       .capabilities-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      .consulting-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
       .principles-grid {
         grid-template-columns: 1fr;
       }
@@ -769,11 +768,18 @@
       .capabilities-grid {
         grid-template-columns: 1fr;
       }
-      .hero-section {
-        padding: 4rem 1rem;
-        min-height: 75vh;
+      .consulting-grid {
+        grid-template-columns: 1fr;
       }
-      .cta-banner-card {
+      .hero-section {
+        padding: 4.5rem 1rem;
+        min-height: 70vh;
+      }
+      .hero-lead-text {
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+      }
+      .cta-banner-card-white {
         padding: 3rem 1.5rem;
       }
       .footer-top {
@@ -831,75 +837,141 @@
   </nav>
 
   <!-- ==========================================================================
-       HERO SECTION (5% Scrim on Collaboration Image, Floating Badges)
+       HERO SECTION (5% Scrim Opaque, Vivid Collaboration Image, Centered Copy & CTA)
        ========================================================================== -->
   <header class="hero-section" id="home">
     <div class="hero-container">
-      <div class="hero-eyebrow">
-        <i class="fa-solid fa-shield-halved"></i>
-        <span>Intelligent Cybersecurity Architecture</span>
-      </div>
-
       <h1 class="hero-title">
         Driving Security.<br>
         <span class="text-orange">Powering Performance.</span>
       </h1>
 
-      <!-- The exact requested text content formatted as high-impact modern container pills -->
-      <div class="hero-tags-grid">
-        <div class="hero-tag-item">
-          <i class="fa-solid fa-clipboard-check"></i>
-          <span>Cybersecurity Assessment</span>
-        </div>
-        <div class="hero-tag-item">
-          <i class="fa-solid fa-scale-balanced"></i>
-          <span>Governance Risk and Compliance (GRC)</span>
-        </div>
-        <div class="hero-tag-item">
-          <i class="fa-solid fa-triangle-exclamation"></i>
-          <span>Cybersecurity Incident Management (CIM)</span>
-        </div>
-        <div class="hero-tag-item">
-          <i class="fa-solid fa-crosshairs"></i>
-          <span>Threat Hunting</span>
-        </div>
-        <div class="hero-tag-item">
-          <i class="fa-solid fa-radar"></i>
-          <span>Cyber Threat Intelligence</span>
-        </div>
-        <div class="hero-tag-item">
-          <i class="fa-solid fa-network-wired"></i>
-          <span>MDR</span>
-        </div>
-        <div class="hero-tag-item highlight-soc">
-          <i class="fa-solid fa-brain"></i>
-          <span>AI Hybrid SOC</span>
-        </div>
-      </div>
+      <!-- Requested Text Placed Directly Above the Centered Contact Button -->
+      <p class="hero-lead-text">
+        Anergi is the technology company that protects systems that power industry, infrastructure, and transportation system through intelligent, integrated cybersecurity.
+      </p>
 
-      <!-- Pill Button in Orange Linked to Contact -->
+      <!-- Centered Contact Anergi Orange Pill Button -->
       <div class="hero-cta-wrap">
         <a href="https://anergi.io/contact-us/" target="_blank" rel="noopener" class="btn-pill-orange">
           <span>Contact Anergi</span>
           <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <a href="#services-jump" class="btn-pill-ghost">
-          <span>Explore Capabilities</span>
-          <i class="fa-solid fa-arrow-down"></i>
         </a>
       </div>
     </div>
   </header>
 
   <!-- ==========================================================================
-       SECTION: WHAT WE DO (Medium-Light Grey Theme, Bigger Glowing Icons)
+       SECTION: CYBER SECURITY CONSULTING SERVICES (Placed Right Below the Image)
+       (Pure White background inspired by cybersecop.com)
        ========================================================================== -->
-  <section class="section-wrap" id="services-jump">
+  <section class="consulting-section-white" id="consulting-services">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 2.5rem;">
+        <span class="section-label-orange" style="background: rgba(255, 102, 0, 0.1); border-color: rgba(255, 102, 0, 0.3); color: var(--accent-orange);">
+          Domain Specializations
+        </span>
+        <h2 class="section-title-white" style="color: var(--text-black); text-shadow: none;">
+          Cyber Security Consulting Services
+        </h2>
+        <p class="section-desc-light" style="color: var(--text-muted);">
+          Comprehensive enterprise security capabilities engineered to defend critical operations, accelerate compliance, and mitigate exposure across your threat landscape.
+        </p>
+      </div>
+
+      <!-- The 7 Services Previously on the Image, Now Cleanly Structured Below the Image -->
+      <div class="consulting-grid">
+        
+        <!-- Service 1: Cybersecurity Assessment -->
+        <div class="consulting-card">
+          <div class="consulting-icon" style="background: #e0f2fe; color: #0284c7;">
+            <i class="fa-solid fa-clipboard-check"></i>
+          </div>
+          <h3 class="consulting-title">Cybersecurity Assessment</h3>
+          <p class="consulting-desc">
+            End-to-end posture discovery and vulnerability assessments measuring organizational exposure against sophisticated modern threat vectors.
+          </p>
+        </div>
+
+        <!-- Service 2: Governance Risk and Compliance (GRC) -->
+        <div class="consulting-card">
+          <div class="consulting-icon" style="background: #f3e8ff; color: #7c3aed;">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <h3 class="consulting-title">Governance Risk &amp; Compliance (GRC)</h3>
+          <p class="consulting-desc">
+            Harmonizing operational controls with regulatory mandates across SOC 2, NIST CSF, ISO 27001, HIPAA, and CMMC frameworks.
+          </p>
+        </div>
+
+        <!-- Service 3: Cybersecurity Incident Management (CIM) -->
+        <div class="consulting-card">
+          <div class="consulting-icon" style="background: #fff7ed; color: #ea580c;">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <h3 class="consulting-title">Cybersecurity Incident Management (CIM)</h3>
+          <p class="consulting-desc">
+            High-speed incident containment, crisis playbooks, ransomware mitigation, and post-breach operational forensics when seconds count.
+          </p>
+        </div>
+
+        <!-- Service 4: Threat Hunting -->
+        <div class="consulting-card">
+          <div class="consulting-icon" style="background: #fef3c7; color: #d97706;">
+            <i class="fa-solid fa-crosshairs"></i>
+          </div>
+          <h3 class="consulting-title">Threat Hunting</h3>
+          <p class="consulting-desc">
+            Proactive adversarial reconnaissance and telemetry analysis identifying latent threat actor presence before damage or exfiltration occurs.
+          </p>
+        </div>
+
+        <!-- Service 5: Cyber Threat Intelligence -->
+        <div class="consulting-card">
+          <div class="consulting-icon" style="background: #e0e7ff; color: #2563eb;">
+            <i class="fa-solid fa-radar"></i>
+          </div>
+          <h3 class="consulting-title">Cyber Threat Intelligence</h3>
+          <p class="consulting-desc">
+            Real-time adversary profiling, predictive indicators of compromise (IOCs), and targeted sector threat feeds to preempt attacks.
+          </p>
+        </div>
+
+        <!-- Service 6: MDR -->
+        <div class="consulting-card">
+          <div class="consulting-icon" style="background: #dcfce7; color: #059669;">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+          <h3 class="consulting-title">MDR</h3>
+          <p class="consulting-desc">
+            Managed Detection and Response with 24/7 endpoint coverage, automated SOAR orchestration, and continuous attacker dwell-time suppression.
+          </p>
+        </div>
+
+        <!-- Service 7: AI Hybrid SOC (Featured Highlight) -->
+        <div class="consulting-card consulting-card-soc" style="grid-column: span 2;">
+          <div class="consulting-icon" style="background: rgba(255, 102, 0, 0.15); color: var(--accent-orange);">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <h3 class="consulting-title" style="color: var(--accent-orange);">AI Hybrid SOC</h3>
+          <p class="consulting-desc">
+            Next-generation Security Operations Center blending autonomous machine-speed anomaly detection with seasoned elite human analysts to protect high-stakes enterprise systems 24/7/365.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: WHAT WE DO (Medium Grey Background Matching Navbar)
+       ========================================================================== -->
+  <section class="what-we-do-section-grey" id="services-jump">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">Enterprise Capabilities</span>
-        <h2 class="section-title">What We Do</h2>
-        <p class="section-desc">
+        <span class="section-label-orange">Enterprise Capabilities</span>
+        <h2 class="section-title-white">What We Do</h2>
+        <p class="section-desc-light">
           Empowering organizations to protect what matters most through full attack-surface visibility, active containment, and continuous regulatory compliance.
         </p>
       </div>
@@ -1024,14 +1096,18 @@
 
   <!-- ==========================================================================
        SECTION: STRATEGIC DEFENSE PRINCIPLES
-       (White Background with Light Blue Cards and Black Text as requested)
+       (White Background with Light Blue Cards and Black Text - confirmed perfect)
        ========================================================================== -->
   <section class="principles-section-white">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">Core Mission</span>
-        <h2 class="section-title">Strategic Defense Principles</h2>
-        <p class="section-desc">
+        <span class="section-label-orange" style="background: rgba(255, 102, 0, 0.1); border-color: rgba(255, 102, 0, 0.3); color: var(--accent-orange);">
+          Core Mission
+        </span>
+        <h2 class="section-title-white" style="color: var(--text-black); text-shadow: none;">
+          Strategic Defense Principles
+        </h2>
+        <p class="section-desc-light" style="color: var(--text-muted);">
           Building resilient operational architectures designed to resist attacks and thrive under enterprise scrutiny.
         </p>
       </div>
@@ -1068,12 +1144,13 @@
 
   <!-- ==========================================================================
        SECTION: FREE RISK ASSESSMENT CTA
+       (Grey Background matching Footer, White Inside the Border Card as requested)
        ========================================================================== -->
-  <section class="cta-banner-section">
+  <section class="cta-banner-section-grey">
     <div class="container">
-      <div class="cta-banner-card">
-        <h2 class="cta-title">Connect With Us for a Free Cyber Risk Assessment</h2>
-        <p class="cta-subtitle">
+      <div class="cta-banner-card-white">
+        <h2 class="cta-title-black">Connect With Us for a Free Cyber Risk Assessment</h2>
+        <p class="cta-subtitle-dark">
           Empower your organization to make cybersecurity more accessible. Partner with us as we build a safer, more secure future together. Let's build together.
         </p>
         <a href="https://anergi.io/contact-us/" target="_blank" rel="noopener" class="btn-pill-orange">
@@ -1130,7 +1207,7 @@
           isInitialOpen: false,
           isDraggable: false,
           background: "linear-gradient(180deg, #ff6600 0%, #e05300 100%)",
-          buttonBackgroundColor: "#5c5c5c",
+          buttonBackgroundColor: "#545454",
           buttonIconColor: "#ffffff",
           variant: false,
           customizations: {
