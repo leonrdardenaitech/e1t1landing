@@ -37,12 +37,6 @@
       --accent-orange: #ff6600;
       --accent-orange-hover: #e05300;
       --accent-orange-glow: rgba(255, 102, 0, 0.35);
-      
-      --accent-cyan: #0284c7;
-      --accent-blue: #2563eb;
-      --accent-emerald: #059669;
-      --accent-purple: #7c3aed;
-      --accent-amber: #d97706;
 
       /* High-Contrast Typography */
       --text-black: #0f172a;
@@ -218,7 +212,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      /* 5% scrim overlay so the SOC collaboration image is 95% vivid & bright */
       background: 
         linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.08) 100%),
         url('hero_collaborating.jpeg') center/cover no-repeat;
@@ -235,7 +228,6 @@
       z-index: 2;
     }
 
-    /* Half as big as requested */
     .hero-title {
       font-family: var(--font-heading);
       font-size: clamp(1.4rem, 2.9vw, 2.25rem);
@@ -244,7 +236,6 @@
       line-height: 1.25;
       letter-spacing: -0.01em;
       margin: 0 auto 1.35rem;
-      /* Deep cinematic text shadow guaranteeing 100% readability over the bright photo */
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.9), 0 8px 30px rgba(0, 0, 0, 0.95);
     }
 
@@ -253,7 +244,6 @@
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.9);
     }
 
-    /* More see-through / translucent border block behind the text */
     .hero-lead-text {
       max-width: 860px;
       margin: 0 auto 2.25rem;
@@ -262,7 +252,7 @@
       color: #ffffff;
       line-height: 1.6;
       padding: 1.1rem 1.85rem;
-      background: rgba(0, 0, 0, 0.28); /* Ultra-translucent so the image shines through */
+      background: rgba(0, 0, 0, 0.28);
       border: 1px solid rgba(255, 255, 255, 0.22);
       border-radius: 16px;
       backdrop-filter: blur(8px);
@@ -311,7 +301,7 @@
 
     /* ==========================================================================
        SECTION: CYBER SECURITY CONSULTING SERVICES (Right Below Hero Image)
-       (White Background matching the cybersecop.com style)
+       (White Background with Large Monochrome Vector Tech Icons - No Color)
        ========================================================================== */
     .consulting-section-white {
       background-color: var(--bg-white);
@@ -327,10 +317,10 @@
     }
 
     .consulting-card {
-      background: #f8fafc;
+      background: #ffffff;
       border: 1.5px solid var(--border-light);
       border-radius: 16px;
-      padding: 1.75rem 1.5rem;
+      padding: 1.85rem 1.6rem;
       display: flex;
       flex-direction: column;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
@@ -342,28 +332,30 @@
       background: #ffffff;
       border-color: var(--accent-orange);
       transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(255, 102, 0, 0.12);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
     }
 
-    .consulting-card-soc {
-      background: linear-gradient(135deg, rgba(255, 102, 0, 0.06) 0%, #ffffff 100%);
-      border-color: rgba(255, 102, 0, 0.35);
-    }
-
-    .consulting-icon {
-      width: 52px;
-      height: 52px;
+    /* Large Monochrome Vector Tech Icon (No Color) */
+    .consulting-icon-mono {
+      width: 56px;
+      height: 56px;
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 1.2rem;
+      font-size: 1.75rem;
+      margin-bottom: 1.35rem;
+      background: #f1f5f9;
+      color: #1e293b; /* Pure monochrome dark charcoal */
+      border: 1px solid #cbd5e1;
       transition: all 0.25s ease;
     }
 
-    .consulting-card:hover .consulting-icon {
-      transform: scale(1.08);
+    .consulting-card:hover .consulting-icon-mono {
+      background: #1e293b;
+      color: #ffffff;
+      border-color: #1e293b;
+      transform: scale(1.06);
     }
 
     .consulting-title {
@@ -371,7 +363,7 @@
       font-size: 1.15rem;
       font-weight: 800;
       color: var(--text-black);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.65rem;
       line-height: 1.3;
     }
 
@@ -383,6 +375,7 @@
 
     /* ==========================================================================
        SECTION: WHAT WE DO (Medium Grey Background Matching Navbar)
+       (White Cards with Large Monochrome Vector Tech Icons - No Color)
        ========================================================================== */
     .what-we-do-section-grey {
       background: linear-gradient(180deg, #585858 0%, #4f4f4f 100%);
@@ -479,68 +472,33 @@
     }
 
     .capability-card:hover::before {
-      background: linear-gradient(90deg, var(--accent-orange), var(--accent-cyan));
+      background: var(--accent-orange);
     }
 
-    /* Distinctive, BIGGER Icons (72px) */
-    .cap-icon-box {
-      width: 72px;
-      height: 72px;
-      border-radius: 18px;
+    /* Big Tech Vector Icons with NO Color (Monochrome Charcoal Style) */
+    .cap-icon-box-mono {
+      width: 68px;
+      height: 68px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
+      font-size: 2.4rem; /* Big tech vector size */
       margin-bottom: 1.75rem;
       position: relative;
+      background: #f1f5f9;
+      color: #1e293b; /* No color, clean monochrome */
+      border: 1.5px solid #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
     }
 
-    .capability-card:hover .cap-icon-box {
-      transform: scale(1.08) rotate(2deg);
-    }
-
-    /* Icon Color Themes */
-    .icon-cyan {
-      background: #e0f2fe;
-      color: #0284c7;
-      border: 1.5px solid #bae6fd;
-      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.18);
-    }
-
-    .icon-emerald {
-      background: #dcfce7;
-      color: #059669;
-      border: 1.5px solid #bbf7d0;
-      box-shadow: 0 8px 20px rgba(5, 150, 105, 0.18);
-    }
-
-    .icon-orange {
-      background: #fff7ed;
-      color: #ea580c;
-      border: 1.5px solid #fed7aa;
-      box-shadow: 0 8px 20px rgba(234, 88, 12, 0.18);
-    }
-
-    .icon-amber {
-      background: #fef3c7;
-      color: #d97706;
-      border: 1.5px solid #fde68a;
-      box-shadow: 0 8px 20px rgba(217, 119, 6, 0.18);
-    }
-
-    .icon-purple {
-      background: #f3e8ff;
-      color: #7c3aed;
-      border: 1.5px solid #e9d5ff;
-      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.18);
-    }
-
-    .icon-blue {
-      background: #e0e7ff;
-      color: #2563eb;
-      border: 1.5px solid #c7d2fe;
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.18);
+    .capability-card:hover .cap-icon-box-mono {
+      background: #1e293b;
+      color: #ffffff;
+      border-color: #1e293b;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
     .cap-title {
@@ -622,7 +580,6 @@
       letter-spacing: 1px;
     }
 
-    /* Black Text on Light Blue Cards */
     .pillar-title-black {
       font-family: var(--font-heading);
       font-size: 1.35rem;
@@ -649,7 +606,6 @@
       border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    /* Inside the border is Pure White */
     .cta-banner-card-white {
       background: #ffffff !important;
       border: 2.5px solid var(--accent-orange);
@@ -843,18 +799,15 @@
        ========================================================================== -->
   <header class="hero-section" id="home">
     <div class="hero-container">
-      <!-- Title scaled to half size as requested -->
       <h1 class="hero-title">
         Driving Security.<br>
         <span class="text-orange">Powering Performance.</span>
       </h1>
 
-      <!-- Requested Lead Text in a subtle, translucent frosted block -->
       <p class="hero-lead-text">
         Anergi is the technology company that protects systems that power industry, infrastructure, and transportation system through intelligent, integrated cybersecurity.
       </p>
 
-      <!-- Centered Contact Anergi Orange Pill Button -->
       <div class="hero-cta-wrap">
         <a href="https://anergi.io/contact-us/" target="_blank" rel="noopener" class="btn-pill-orange">
           <span>Contact Anergi</span>
@@ -866,7 +819,7 @@
 
   <!-- ==========================================================================
        SECTION: CYBER SECURITY CONSULTING SERVICES (Placed Right Below the Image)
-       (Pure White background inspired by cybersecop.com)
+       (Pure White background, Big Tech Vector Icons with NO color)
        ========================================================================== -->
   <section class="consulting-section-white" id="consulting-services">
     <div class="container">
@@ -882,12 +835,12 @@
         </p>
       </div>
 
-      <!-- The 7 Services Previously on the Image, Now Cleanly Structured Below the Image -->
+      <!-- The 7 Services: Clean, Big Monochrome Vector Icons with NO Color -->
       <div class="consulting-grid">
         
         <!-- Service 1: Cybersecurity Assessment -->
         <div class="consulting-card">
-          <div class="consulting-icon" style="background: #e0f2fe; color: #0284c7;">
+          <div class="consulting-icon-mono">
             <i class="fa-solid fa-clipboard-check"></i>
           </div>
           <h3 class="consulting-title">Cybersecurity Assessment</h3>
@@ -898,7 +851,7 @@
 
         <!-- Service 2: Governance Risk and Compliance (GRC) -->
         <div class="consulting-card">
-          <div class="consulting-icon" style="background: #f3e8ff; color: #7c3aed;">
+          <div class="consulting-icon-mono">
             <i class="fa-solid fa-scale-balanced"></i>
           </div>
           <h3 class="consulting-title">Governance Risk &amp; Compliance (GRC)</h3>
@@ -909,7 +862,7 @@
 
         <!-- Service 3: Cybersecurity Incident Management (CIM) -->
         <div class="consulting-card">
-          <div class="consulting-icon" style="background: #fff7ed; color: #ea580c;">
+          <div class="consulting-icon-mono">
             <i class="fa-solid fa-triangle-exclamation"></i>
           </div>
           <h3 class="consulting-title">Cybersecurity Incident Management (CIM)</h3>
@@ -920,7 +873,7 @@
 
         <!-- Service 4: Threat Hunting -->
         <div class="consulting-card">
-          <div class="consulting-icon" style="background: #fef3c7; color: #d97706;">
+          <div class="consulting-icon-mono">
             <i class="fa-solid fa-crosshairs"></i>
           </div>
           <h3 class="consulting-title">Threat Hunting</h3>
@@ -931,7 +884,7 @@
 
         <!-- Service 5: Cyber Threat Intelligence -->
         <div class="consulting-card">
-          <div class="consulting-icon" style="background: #e0e7ff; color: #2563eb;">
+          <div class="consulting-icon-mono">
             <i class="fa-solid fa-radar"></i>
           </div>
           <h3 class="consulting-title">Cyber Threat Intelligence</h3>
@@ -942,7 +895,7 @@
 
         <!-- Service 6: MDR -->
         <div class="consulting-card">
-          <div class="consulting-icon" style="background: #dcfce7; color: #059669;">
+          <div class="consulting-icon-mono">
             <i class="fa-solid fa-network-wired"></i>
           </div>
           <h3 class="consulting-title">MDR</h3>
@@ -951,12 +904,12 @@
           </p>
         </div>
 
-        <!-- Service 7: AI Hybrid SOC (Featured Highlight) -->
-        <div class="consulting-card consulting-card-soc" style="grid-column: span 2;">
-          <div class="consulting-icon" style="background: rgba(255, 102, 0, 0.15); color: var(--accent-orange);">
+        <!-- Service 7: AI Hybrid SOC -->
+        <div class="consulting-card" style="grid-column: span 2;">
+          <div class="consulting-icon-mono">
             <i class="fa-solid fa-brain"></i>
           </div>
-          <h3 class="consulting-title" style="color: var(--accent-orange);">AI Hybrid SOC</h3>
+          <h3 class="consulting-title">AI Hybrid SOC</h3>
           <p class="consulting-desc">
             Next-generation Security Operations Center blending autonomous machine-speed anomaly detection with seasoned elite human analysts to protect high-stakes enterprise systems 24/7/365.
           </p>
@@ -968,6 +921,7 @@
 
   <!-- ==========================================================================
        SECTION: WHAT WE DO (Medium Grey Background Matching Navbar)
+       (White Cards, Big Tech Vector Icons with NO Color)
        ========================================================================== -->
   <section class="what-we-do-section-grey" id="services-jump">
     <div class="container">
@@ -983,7 +937,7 @@
         
         <!-- CARD 1: Penetration Testing -->
         <div class="capability-card">
-          <div class="cap-icon-box icon-cyan">
+          <div class="cap-icon-box-mono">
             <i class="fa-solid fa-shield-virus"></i>
           </div>
           <h3 class="cap-title">Penetration Testing</h3>
@@ -1002,7 +956,7 @@
 
         <!-- CARD 2: Detection and Response -->
         <div class="capability-card">
-          <div class="cap-icon-box icon-emerald">
+          <div class="cap-icon-box-mono">
             <i class="fa-solid fa-tower-broadcast"></i>
           </div>
           <h3 class="cap-title">Detection and Response</h3>
@@ -1021,7 +975,7 @@
 
         <!-- CARD 3: Incident Response & Continuity Planning -->
         <div class="capability-card">
-          <div class="cap-icon-box icon-orange">
+          <div class="cap-icon-box-mono">
             <i class="fa-solid fa-fire-extinguisher"></i>
           </div>
           <h3 class="cap-title">Incident Response &amp; Continuity Planning</h3>
@@ -1039,7 +993,7 @@
 
         <!-- CARD 4: Risk Assessment & Vulnerability Analysis -->
         <div class="capability-card">
-          <div class="cap-icon-box icon-amber">
+          <div class="cap-icon-box-mono">
             <i class="fa-solid fa-magnifying-glass-chart"></i>
           </div>
           <h3 class="cap-title">Risk Assessment &amp; Vulnerability Analysis</h3>
@@ -1057,7 +1011,7 @@
 
         <!-- CARD 5: Audit and Compliance -->
         <div class="capability-card">
-          <div class="cap-icon-box icon-purple">
+          <div class="cap-icon-box-mono">
             <i class="fa-solid fa-certificate"></i>
           </div>
           <h3 class="cap-title">Audit and Compliance</h3>
@@ -1076,7 +1030,7 @@
 
         <!-- CARD 6: Cybersecurity Consulting -->
         <div class="capability-card">
-          <div class="cap-icon-box icon-blue">
+          <div class="cap-icon-box-mono">
             <i class="fa-solid fa-chess-knight"></i>
           </div>
           <h3 class="cap-title">Cybersecurity Consulting</h3>
