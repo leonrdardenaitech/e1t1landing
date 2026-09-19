@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anergi | Driving Security. Powering Performance.</title>
+  <meta name="description" content="Anergi is the technology company that protects systems powering industry, infrastructure, and transportation through intelligent cybersecurity architecture.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-primary: #0a0f1d;
+      --bg-secondary: #0f172a;
+      --bg-card: rgba(18, 27, 46, 0.7);
+      --bg-card-hover: rgba(24, 37, 64, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(56, 189, 248, 0.25);
+      
+      --accent-orange: #ff6600;
+      --accent-orange-hover: #ff771a;
+      --accent-orange-glow: rgba(255, 102, 0, 0.35);
+      
+      --accent-cyan: #38bdf8;
+      --accent-blue: #2563eb;
+      --accent-emerald: #10b981;
+      --accent-purple: #a855f7;
+      --accent-amber: #f59e0b;
+
+      --text-white: #ffffff;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dark: #64748b;
+      
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Outfit', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s ease;
+    }
+
+    /* ==========================================================================
+       NAVBAR (Exact replication of anergi.io layout & brand links)
+       ========================================================================== */
+    .anergi-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 15, 29, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-brand img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent-orange);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent-orange);
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+    }
+
+    .social-btn:hover {
+      background: var(--accent-orange);
+      color: #fff;
+      border-color: var(--accent-orange);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px var(--accent-orange-glow);
+    }
+
+    .nav-contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--accent-orange) 0%, #e05300 100%);
+      color: #fff !important;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.55rem 1.35rem;
+      border-radius: 9999px;
+      box-shadow: 0 4px 14px var(--accent-orange-glow);
+      transition: all 0.25s ease;
+    }
+
+    .nav-contact-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 102, 0, 0.5);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       HERO SECTION (High-Impact SOC Collaborative Image with Requested Content)
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      min-height: 86vh;
+      display: flex;
+      align-items: center;
+      background-image: 
+        linear-gradient(180deg, rgba(10, 15, 29, 0.82) 0%, rgba(10, 15, 29, 0.88) 50%, rgba(10, 15, 29, 0.98) 100%),
+        url('hero_collaborating.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 5rem 1.5rem 6rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .hero-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.4rem 1.1rem;
+      border-radius: 9999px;
+      background: rgba(255, 102, 0, 0.12);
+      border: 1px solid rgba(255, 102, 0, 0.35);
+      color: #ff944d;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-eyebrow i {
+      color: var(--accent-orange);
+      font-size: 0.85rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 1050px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .hero-title .text-gradient-orange {
+      background: linear-gradient(135deg, #ffffff 30%, #ff8533 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Requested Capabilities Tag Cloud */
+    .hero-tags-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem;
+      max-width: 980px;
+      margin: 0 auto 2.25rem;
+    }
+
+    .hero-tag-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.55rem 1.1rem;
+      border-radius: 9999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+      font-size: 0.88rem;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.25s ease;
+    }
+
+    .hero-tag-item i {
+      color: var(--accent-cyan);
+      font-size: 0.85rem;
+    }
+
+    .hero-tag-item.highlight-soc {
+      background: rgba(255, 102, 0, 0.15);
+      border-color: rgba(255, 102, 0, 0.5);
+      color: #fff;
+    }
+
+    .hero-tag-item.highlight-soc i {
+      color: var(--accent-orange);
+    }
+
+    .hero-tag-item:hover {
+      border-color: var(--accent-orange);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(255, 102, 0, 0.25);
+    }
+
+    .hero-cta-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .btn-pill-orange {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--accent-orange) 0%, #e05300 100%);
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 1rem 2.6rem;
+      border-radius: 9999px;
+      box-shadow: 0 8px 25px var(--accent-orange-glow);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-pill-orange:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(255, 102, 0, 0.5);
+      color: #fff;
+    }
+
+    .btn-pill-orange i {
+      transition: transform 0.25s ease;
+    }
+
+    .btn-pill-orange:hover i {
+      transform: translateX(4px);
+    }
+
+    .btn-pill-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.95rem 2rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.25s ease;
+    }
+
+    .btn-pill-ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       SECTION: WHAT WE DO (Straight after Hero, with Bigger Distinctive Icons)
+       ========================================================================== */
+    .section-wrap {
+      padding: 6rem 1.5rem;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-orange);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--text-white);
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* What We Do 6-Card Grid */
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .capability-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(12px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .capability-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: transparent;
+      transition: background 0.3s ease;
+    }
+
+    .capability-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .capability-card:hover::before {
+      background: linear-gradient(90deg, var(--accent-orange), var(--accent-cyan));
+    }
+
+    /* Distinctive, BIGGER Icons */
+    .cap-icon-box {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1.75rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .capability-card:hover .cap-icon-box {
+      transform: scale(1.08) rotate(2deg);
+    }
+
+    /* Icon Color Themes */
+    .icon-cyan {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(14, 165, 233, 0.05) 100%);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
+    }
+
+    .icon-emerald {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+    }
+
+    .icon-orange {
+      background: linear-gradient(135deg, rgba(255, 102, 0, 0.15) 0%, rgba(255, 102, 0, 0.05) 100%);
+      color: #ff771a;
+      border: 1px solid rgba(255, 102, 0, 0.3);
+      box-shadow: 0 8px 20px rgba(255, 102, 0, 0.2);
+    }
+
+    .icon-amber {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.2);
+    }
+
+    .icon-purple {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(168, 85, 247, 0.05) 100%);
+      color: #c084fc;
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      box-shadow: 0 8px 20px rgba(168, 85, 247, 0.2);
+    }
+
+    .icon-blue {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
+      color: #60a5fa;
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+    }
+
+    .cap-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 0.9rem;
+    }
+
+    .cap-body {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .cap-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .cap-chip {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    /* ==========================================================================
+       SECTION: THREE PILLARS (Anergi Core Philosophy)
+       ========================================================================== */
+    .pillars-section {
+      background: #080d1a;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .pillar-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+
+    .pillar-number {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-orange);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .pillar-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .pillar-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       SECTION: FREE CYBER RISK ASSESSMENT CTA
+       ========================================================================== */
+    .cta-banner-section {
+      padding: 6rem 1.5rem;
+    }
+
+    .cta-banner-card {
+      background: radial-gradient(circle at 80% 20%, rgba(255, 102, 0, 0.15) 0%, rgba(15, 23, 42, 0.95) 70%);
+      border: 1px solid rgba(255, 102, 0, 0.3);
+      border-radius: 24px;
+      padding: 4.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .cta-banner-card::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 200px;
+      background: var(--accent-orange-glow);
+      filter: blur(100px);
+      pointer-events: none;
+    }
+
+    .cta-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .cta-subtitle {
+      font-size: 1.15rem;
+      color: #cbd5e1;
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       FOOTER (Anergi Official Copyright & Links)
+       ========================================================================== */
+    .anergi-footer {
+      background: #060913;
+      border-top: 1px solid var(--border-subtle);
+      padding: 3.5rem 1.5rem 2.5rem;
+    }
+
+    .footer-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-top {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-logo img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-nav a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .footer-nav a:hover {
+      color: var(--accent-orange);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .footer-bottom {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--text-dark);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .capabilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: block;
+      }
+      .capabilities-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-section {
+        padding: 4rem 1rem;
+        min-height: 75vh;
+      }
+      .cta-banner-card {
+        padding: 3rem 1.5rem;
+      }
+      .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .footer-nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       NAVBAR (Direct matching to anergi.io layout)
+       ========================================================================== -->
+  <nav class="anergi-navbar">
+    <div class="nav-container">
+      <a href="https://anergi.io/" class="nav-brand" aria-label="Anergi Home">
+        <img src="anergi_logo_trans.png" alt="Anergi Logo" onerror="this.onerror=null; this.src='anergiLogogreyback.png';">
+      </a>
+
+      <!-- Navigation links matching anergi.io -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="https://anergi.io/" class="nav-link">Home</a></li>
+        <li><a href="#services-jump" class="nav-link active">Services</a></li>
+        <li><a href="https://anergi.io/news/" class="nav-link" target="_blank" rel="noopener">News</a></li>
+        <li><a href="https://anergi.io/contact-us/" class="nav-link" target="_blank" rel="noopener">Contact</a></li>
+      </ul>
+
+      <!-- Social Icons & Contact Action -->
+      <div class="nav-actions">
+        <a href="https://www.linkedin.com/company/anergi" target="_blank" rel="noopener" class="social-btn" aria-label="Anergi on LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.facebook.com/anergiadmin" target="_blank" rel="noopener" class="social-btn" aria-label="Anergi on Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://anergi.io/contact-us/" target="_blank" rel="noopener" class="nav-contact-pill">
+          <span>Get in Touch</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       HERO SECTION (High-Tech SOC Collaborative Backdrop with Exact Text)
+       ========================================================================== -->
+  <header class="hero-section" id="home">
+    <div class="hero-container">
+      <div class="hero-eyebrow">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Intelligent Cybersecurity Architecture</span>
+      </div>
+
+      <h1 class="hero-title">
+        Driving Security.<br>
+        <span class="text-gradient-orange">Powering Performance.</span>
+      </h1>
+
+      <!-- The exact requested text content formatted as high-impact modern badges -->
+      <div class="hero-tags-grid">
+        <div class="hero-tag-item">
+          <i class="fa-solid fa-clipboard-check"></i>
+          <span>Cybersecurity Assessment</span>
+        </div>
+        <div class="hero-tag-item">
+          <i class="fa-solid fa-scale-balanced"></i>
+          <span>Governance Risk and Compliance (GRC)</span>
+        </div>
+        <div class="hero-tag-item">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Cybersecurity Incident Management (CIM)</span>
+        </div>
+        <div class="hero-tag-item">
+          <i class="fa-solid fa-crosshairs"></i>
+          <span>Threat Hunting</span>
+        </div>
+        <div class="hero-tag-item">
+          <i class="fa-solid fa-radar"></i>
+          <span>Cyber Threat Intelligence</span>
+        </div>
+        <div class="hero-tag-item">
+          <i class="fa-solid fa-network-wired"></i>
+          <span>MDR</span>
+        </div>
+        <div class="hero-tag-item highlight-soc">
+          <i class="fa-solid fa-brain"></i>
+          <span>AI Hybrid SOC</span>
+        </div>
+      </div>
+
+      <!-- Pill Button in Orange Linked to Contact -->
+      <div class="hero-cta-wrap">
+        <a href="https://anergi.io/contact-us/" target="_blank" rel="noopener" class="btn-pill-orange">
+          <span>Contact Anergi</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#services-jump" class="btn-pill-ghost">
+          <span>Explore Capabilities</span>
+          <i class="fa-solid fa-arrow-down"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SECTION: WHAT WE DO (Straight to Capabilities with Bigger Distinctive Icons)
+       ========================================================================== -->
+  <section class="section-wrap" id="services-jump">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Enterprise Capabilities</span>
+        <h2 class="section-title">What We Do</h2>
+        <p class="section-desc">
+          Empowering organizations to protect what matters most through full attack-surface visibility, active containment, and continuous regulatory compliance.
+        </p>
+      </div>
+
+      <div class="capabilities-grid">
+        
+        <!-- CARD 1: Penetration Testing -->
+        <div class="capability-card">
+          <div class="cap-icon-box icon-cyan">
+            <i class="fa-solid fa-shield-virus"></i>
+          </div>
+          <h3 class="cap-title">Penetration Testing</h3>
+          <p class="cap-body">
+            Using end to end penetration testing across your entire attack surface, harnessing human expertise, AI driven insights, and automation. Our adaptable approach empowers you to select the best-fit solution for your needs.
+          </p>
+          <div class="cap-tags">
+            <span class="cap-chip">Red Team Exercises</span>
+            <span class="cap-chip">Network &amp; Application Pentesting</span>
+            <span class="cap-chip">Social Engineering</span>
+            <span class="cap-chip">Internal &amp; External Testing</span>
+            <span class="cap-chip">Cloud Infrastructure</span>
+            <span class="cap-chip">Executive Reporting</span>
+          </div>
+        </div>
+
+        <!-- CARD 2: Detection and Response -->
+        <div class="capability-card">
+          <div class="cap-icon-box icon-emerald">
+            <i class="fa-solid fa-tower-broadcast"></i>
+          </div>
+          <h3 class="cap-title">Detection and Response</h3>
+          <p class="cap-body">
+            Providing continuous monitoring and threat detection services that empower organizations to identify and respond to security incidents in real time. By integrating endpoint detection, SIEM, and threat intelligence, we help you minimize dwell time, reduce impact, and stay ahead of advanced threats.
+          </p>
+          <div class="cap-tags">
+            <span class="cap-chip">Endpoint Detection &amp; Response (EDR)</span>
+            <span class="cap-chip">SIEM Integration</span>
+            <span class="cap-chip">24/7 Monitoring</span>
+            <span class="cap-chip">Threat Hunting</span>
+            <span class="cap-chip">Alert Triage &amp; Escalation</span>
+            <span class="cap-chip">Incident Containment</span>
+          </div>
+        </div>
+
+        <!-- CARD 3: Incident Response & Continuity Planning -->
+        <div class="capability-card">
+          <div class="cap-icon-box icon-orange">
+            <i class="fa-solid fa-fire-extinguisher"></i>
+          </div>
+          <h3 class="cap-title">Incident Response &amp; Continuity Planning</h3>
+          <p class="cap-body">
+            Prepare for the inevitable. From live incident containment to annual tabletop exercises, we develop and test response plans that ensure your team knows what to do when seconds count. Our approach reinforces readiness, builds confidence, and meets cyber insurance or compliance training mandates. We also assist with both pre- and post-incident response services—ensuring your organization is ready before a breach and supported after one occurs.
+          </p>
+          <div class="cap-tags">
+            <span class="cap-chip">IR Plan Development</span>
+            <span class="cap-chip">Tabletop Facilitation</span>
+            <span class="cap-chip">Ransomware &amp; Phishing Scenarios</span>
+            <span class="cap-chip">Roles &amp; Playbooks</span>
+            <span class="cap-chip">Post-Incident Review</span>
+          </div>
+        </div>
+
+        <!-- CARD 4: Risk Assessment & Vulnerability Analysis -->
+        <div class="capability-card">
+          <div class="cap-icon-box icon-amber">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+          </div>
+          <h3 class="cap-title">Risk Assessment &amp; Vulnerability Analysis</h3>
+          <p class="cap-body">
+            By combining technical scanning with strategic risk assessments, we evaluate your organization’s exposure to threats. We help you prioritize vulnerabilities based on impact and likelihood, ensuring you can allocate resources efficiently while improving your security posture.
+          </p>
+          <div class="cap-tags">
+            <span class="cap-chip">Vulnerability Prioritization</span>
+            <span class="cap-chip">Exposure Scoring</span>
+            <span class="cap-chip">Impact Analysis</span>
+            <span class="cap-chip">Posture Modernization</span>
+            <span class="cap-chip">Resource Optimization</span>
+          </div>
+        </div>
+
+        <!-- CARD 5: Audit and Compliance -->
+        <div class="capability-card">
+          <div class="cap-icon-box icon-purple">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+          <h3 class="cap-title">Audit and Compliance</h3>
+          <p class="cap-body">
+            Navigating complex regulatory requirements is critical to maintaining trust and avoiding costly penalties. Specializing in compliance frameworks such as CMMC, HIPAA, ISO, NIST, PCIDSS, SOC, SOX we guide your organization through controls implementation, audit readiness, and policy development, Gap analysis of vulnerabilities ensuring your environment stays secure and compliant.
+          </p>
+          <div class="cap-tags">
+            <span class="cap-chip">HIPAA</span>
+            <span class="cap-chip">NIST CSF &amp; 800-53</span>
+            <span class="cap-chip">SOC 2</span>
+            <span class="cap-chip">PCI-DSS</span>
+            <span class="cap-chip">Control Mapping</span>
+            <span class="cap-chip">Gap Remediation</span>
+          </div>
+        </div>
+
+        <!-- CARD 6: Cybersecurity Consulting -->
+        <div class="capability-card">
+          <div class="cap-icon-box icon-blue">
+            <i class="fa-solid fa-chess-knight"></i>
+          </div>
+          <h3 class="cap-title">Cybersecurity Consulting</h3>
+          <p class="cap-body">
+            Elevate your security with our strategic guidance and leadership. From CISO support and security roadmaps to executive advisory and cyber insurance assessments, we help you strengthen your cybersecurity from the top down. Our services ensure compliance, resilience, and risk mitigation, preparing you for potential cyber incidents and securing the best Cyber Insurance coverage for your needs.
+          </p>
+          <div class="cap-tags">
+            <span class="cap-chip">CISO Services</span>
+            <span class="cap-chip">Security Strategy</span>
+            <span class="cap-chip">Cyber Maturity</span>
+            <span class="cap-chip">Architecture Review</span>
+            <span class="cap-chip">Executive Advisory</span>
+            <span class="cap-chip">Insurance Assessments</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: THREE PILLARS (Authentic Anergi Core Philosophy)
+       ========================================================================== -->
+  <section class="section-wrap pillars-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Core Mission</span>
+        <h2 class="section-title">Strategic Defense Principles</h2>
+        <p class="section-desc">
+          Building resilient operational architectures designed to resist attacks and thrive under enterprise scrutiny.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        
+        <div class="pillar-card">
+          <span class="pillar-number">01 // PHILOSOPHY</span>
+          <h3 class="pillar-title">What Cybersecurity Means to Us</h3>
+          <p class="pillar-text">
+            Providing continuous monitoring and threat detection services that empower organizations to identify and respond to security incidents in real time. By integrating endpoint detection, SIEM, and threat intelligence, we help you minimize dwell time, reduce impact, and stay ahead of advanced threats.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-number">02 // EXECUTION</span>
+          <h3 class="pillar-title">Using Ingenuity to Transform Risk into Resilience</h3>
+          <p class="pillar-text">
+            Be ready when seconds count. We develop and test response plans through live incident containment and tabletop exercises, building confidence, ensuring compliance, and meeting cyber insurance mandates. Our services support you before and after a breach.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-number">03 // VISION</span>
+          <h3 class="pillar-title">The Future is Now</h3>
+          <p class="pillar-text">
+            By combining technical scanning with strategic risk assessments, we evaluate your organization’s exposure to threats. We help you prioritize vulnerabilities based on impact and likelihood, ensuring you can allocate resources efficiently while improving your security posture.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: FREE RISK ASSESSMENT CTA
+       ========================================================================== -->
+  <section class="cta-banner-section">
+    <div class="container">
+      <div class="cta-banner-card">
+        <h2 class="cta-title">Connect With Us for a Free Cyber Risk Assessment</h2>
+        <p class="cta-subtitle">
+          Empower your organization to make cybersecurity more accessible. Partner with us as we build a safer, more secure future together. Let's build together.
+        </p>
+        <a href="https://anergi.io/contact-us/" target="_blank" rel="noopener" class="btn-pill-orange">
+          <span>Schedule Free Assessment</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER (Anergi Official Copyright & Links)
+       ========================================================================== -->
+  <footer class="anergi-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="anergi_logo_trans.png" alt="Anergi Logo" onerror="this.onerror=null; this.src='anergiLogogreyback.png';">
+        </div>
+        <ul class="footer-nav">
+          <li><a href="https://anergi.io/">Home</a></li>
+          <li><a href="#services-jump">Services</a></li>
+          <li><a href="https://anergi.io/news/" target="_blank" rel="noopener">News</a></li>
+          <li><a href="https://anergi.io/contact-us/" target="_blank" rel="noopener">Contact</a></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/anergi" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.facebook.com/anergiadmin" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2026 Anergi | Powered by Anergi</p>
+        <p>Driving Security. Powering Performance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       OFFICIAL JOTFORM AI AGENT (Client's Paid Live Chatbot from anergi.io)
+       ========================================================================== -->
+  <script src="https://cdn.jotfor.ms/s/umd/latest/for-embedded-agent.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+      if (window.AgentInitializer) {
+        window.AgentInitializer.init({
+          rootId: "JotformAgent-0196e0df269f7599ab8825b8eeca8157823b",
+          formID: "0196e0df269f7599ab8825b8eeca8157823b",
+          queryParams: ["skipWelcome=1", "maximizable=1"],
+          domain: "https://www.jotform.com",
+          isInitialOpen: false,
+          isDraggable: false,
+          background: "linear-gradient(180deg, #ff6600 0%, #e05300 100%)",
+          buttonBackgroundColor: "#0f172a",
+          buttonIconColor: "#ffffff",
+          variant: false,
+          customizations: {
+            greeting: "Yes",
+            greetingMessage: "Hi! Welcome to Anergi. How can we secure your systems today?",
+            openByDefault: "No"
+          },
+          isVoice: false
+        });
+      }
+
+      // Mobile Menu Toggle
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const navMenu = document.getElementById('navMenu');
+      if (mobileBtn && navMenu) {
+        mobileBtn.addEventListener('click', function() {
+          if (navMenu.style.display === 'flex') {
+            navMenu.style.display = 'none';
+          } else {
+            navMenu.style.display = 'flex';
+            navMenu.style.flexDirection = 'column';
+            navMenu.style.position = 'absolute';
+            navMenu.style.top = '100%';
+            navMenu.style.left = '0';
+            navMenu.style.width = '100%';
+            navMenu.style.background = 'rgba(10, 15, 29, 0.98)';
+            navMenu.style.padding = '1.5rem';
+            navMenu.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
