@@ -9,34 +9,47 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   
   <!-- FontAwesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     :root {
-      --bg-primary: #0a0f1d;
-      --bg-secondary: #0f172a;
-      --bg-card: rgba(18, 27, 46, 0.7);
-      --bg-card-hover: rgba(24, 37, 64, 0.85);
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-glow: rgba(56, 189, 248, 0.25);
+      /* Medium / Light Grey Theme Palette */
+      --bg-site: #eef2f6;
+      --bg-site-alt: #e5e9f0;
+      --bg-white: #ffffff;
+      --bg-navbar: #5c5c5c;
+      --bg-navbar-dark: #4d4d4d;
+      --bg-footer: #374151;
       
+      --card-white: #ffffff;
+      --card-light-blue: #eef6fc;
+      --card-light-blue-border: #bcdbf3;
+      --card-light-blue-hover: #e0f0fc;
+
+      --border-subtle: #d1d5db;
+      --border-light: #e2e8f0;
+      
+      /* Anergi Signature Brand Orange */
       --accent-orange: #ff6600;
-      --accent-orange-hover: #ff771a;
+      --accent-orange-hover: #e05300;
       --accent-orange-glow: rgba(255, 102, 0, 0.35);
       
-      --accent-cyan: #38bdf8;
+      --accent-cyan: #0284c7;
       --accent-blue: #2563eb;
-      --accent-emerald: #10b981;
-      --accent-purple: #a855f7;
-      --accent-amber: #f59e0b;
+      --accent-emerald: #059669;
+      --accent-purple: #7c3aed;
+      --accent-amber: #d97706;
 
+      /* High-Contrast Typography */
+      --text-black: #0f172a;
+      --text-heading: #111827;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-light: #f8fafc;
       --text-white: #ffffff;
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
-      --text-dark: #64748b;
       
       --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-heading: 'Outfit', sans-serif;
@@ -55,8 +68,8 @@
     }
 
     body {
-      background-color: var(--bg-primary);
-      color: var(--text-main);
+      background-color: var(--bg-site);
+      color: var(--text-body);
       font-family: var(--font-body);
       line-height: 1.6;
       overflow-x: hidden;
@@ -70,17 +83,16 @@
     }
 
     /* ==========================================================================
-       NAVBAR (Exact replication of anergi.io layout & brand links)
+       NAVBAR (Medium Grey Anergi Brand Theme)
        ========================================================================== */
     .anergi-navbar {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(10, 15, 29, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-subtle);
-      transition: background 0.3s ease;
+      background: linear-gradient(180deg, #646464 0%, #545454 100%);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.3s ease;
     }
 
     .nav-container {
@@ -109,19 +121,20 @@
       display: flex;
       align-items: center;
       list-style: none;
-      gap: 2rem;
+      gap: 2.25rem;
     }
 
     .nav-link {
       font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text-main);
+      font-weight: 700;
+      color: #ffffff;
       position: relative;
       padding: 0.5rem 0;
+      letter-spacing: 0.3px;
     }
 
     .nav-link:hover, .nav-link.active {
-      color: var(--accent-orange);
+      color: #ff9d5c;
     }
 
     .nav-link::after {
@@ -130,7 +143,7 @@
       bottom: 0;
       left: 0;
       width: 0%;
-      height: 2px;
+      height: 2.5px;
       background: var(--accent-orange);
       transition: width 0.25s ease;
     }
@@ -152,16 +165,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
       font-size: 0.95rem;
       transition: all 0.25s ease;
     }
 
     .social-btn:hover {
       background: var(--accent-orange);
-      color: #fff;
+      color: #ffffff;
       border-color: var(--accent-orange);
       transform: translateY(-2px);
       box-shadow: 0 4px 12px var(--accent-orange-glow);
@@ -171,9 +184,9 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: linear-gradient(135deg, var(--accent-orange) 0%, #e05300 100%);
-      color: #fff !important;
-      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-hover) 100%);
+      color: #ffffff !important;
+      font-weight: 800;
       font-size: 0.88rem;
       padding: 0.55rem 1.35rem;
       border-radius: 9999px;
@@ -183,34 +196,32 @@
 
     .nav-contact-pill:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 102, 0, 0.5);
+      box-shadow: 0 6px 20px rgba(255, 102, 0, 0.55);
     }
 
     .mobile-menu-toggle {
       display: none;
       background: transparent;
       border: none;
-      color: var(--text-main);
+      color: #ffffff;
       font-size: 1.4rem;
       cursor: pointer;
     }
 
     /* ==========================================================================
-       HERO SECTION (High-Impact SOC Collaborative Image with Requested Content)
+       HERO SECTION (5% Scrim Opaque, Vivid Image, Floating Pill Badges)
        ========================================================================== */
     .hero-section {
       position: relative;
       min-height: 86vh;
       display: flex;
       align-items: center;
-      background-image: 
-        linear-gradient(180deg, rgba(10, 15, 29, 0.82) 0%, rgba(10, 15, 29, 0.88) 50%, rgba(10, 15, 29, 0.98) 100%),
-        url('hero_collaborating.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      /* 5% scrim overlay as requested so the image is 95% visible & vivid */
+      background: 
+        linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.08) 100%),
+        url('hero_collaborating.jpeg') center/cover no-repeat;
       padding: 5rem 1.5rem 6rem;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 2px solid var(--border-subtle);
     }
 
     .hero-container {
@@ -226,85 +237,92 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 0.4rem 1.1rem;
+      padding: 0.5rem 1.25rem;
       border-radius: 9999px;
-      background: rgba(255, 102, 0, 0.12);
-      border: 1px solid rgba(255, 102, 0, 0.35);
-      color: #ff944d;
-      font-size: 0.82rem;
-      font-weight: 700;
+      background: rgba(15, 23, 42, 0.88);
+      border: 1.5px solid var(--accent-orange);
+      color: #ff9d5c;
+      font-size: 0.85rem;
+      font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       margin-bottom: 1.75rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
     }
 
     .hero-eyebrow i {
       color: var(--accent-orange);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
     }
 
     .hero-title {
       font-family: var(--font-heading);
       font-size: clamp(2.4rem, 5.5vw, 4.2rem);
-      font-weight: 800;
-      color: var(--text-white);
+      font-weight: 900;
+      color: #ffffff;
       line-height: 1.15;
       letter-spacing: -0.02em;
       max-width: 1050px;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 1.75rem;
+      /* Deep cinematic text shadow to guarantee 100% readability over the 5% scrim photo */
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 18px rgba(0, 0, 0, 0.9), 0 8px 36px rgba(0, 0, 0, 0.95);
     }
 
-    .hero-title .text-gradient-orange {
-      background: linear-gradient(135deg, #ffffff 30%, #ff8533 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .hero-title .text-orange {
+      color: #ff771a;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 18px rgba(0, 0, 0, 0.9), 0 8px 36px rgba(0, 0, 0, 0.95);
     }
 
-    /* Requested Capabilities Tag Cloud */
+    /* Requested Capabilities Pill Badges (Container Pills make letters stand out crisp) */
     .hero-tags-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.65rem;
-      max-width: 980px;
-      margin: 0 auto 2.25rem;
+      gap: 0.75rem;
+      max-width: 1000px;
+      margin: 0 auto 2.5rem;
     }
 
     .hero-tag-item {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 0.55rem 1.1rem;
+      gap: 9px;
+      padding: 0.65rem 1.3rem;
       border-radius: 9999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #e2e8f0;
-      font-size: 0.88rem;
-      font-weight: 600;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      background: rgba(15, 23, 42, 0.88);
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+      color: #ffffff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.6);
       transition: all 0.25s ease;
     }
 
     .hero-tag-item i {
-      color: var(--accent-cyan);
-      font-size: 0.85rem;
+      color: #38bdf8;
+      font-size: 0.9rem;
     }
 
     .hero-tag-item.highlight-soc {
-      background: rgba(255, 102, 0, 0.15);
-      border-color: rgba(255, 102, 0, 0.5);
-      color: #fff;
+      background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-hover) 100%);
+      border-color: #ff9d5c;
+      color: #ffffff;
+      box-shadow: 0 6px 24px var(--accent-orange-glow);
     }
 
     .hero-tag-item.highlight-soc i {
-      color: var(--accent-orange);
+      color: #ffffff;
     }
 
     .hero-tag-item:hover {
+      background: rgba(15, 23, 42, 0.98);
       border-color: var(--accent-orange);
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(255, 102, 0, 0.25);
+      box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
     }
 
     .hero-cta-wrap {
@@ -320,11 +338,11 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      background: linear-gradient(135deg, var(--accent-orange) 0%, #e05300 100%);
-      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-hover) 100%);
+      color: #ffffff !important;
       font-size: 1.05rem;
-      font-weight: 700;
-      padding: 1rem 2.6rem;
+      font-weight: 800;
+      padding: 1.05rem 2.75rem;
       border-radius: 9999px;
       box-shadow: 0 8px 25px var(--accent-orange-glow);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -334,8 +352,7 @@
 
     .btn-pill-orange:hover {
       transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 12px 30px rgba(255, 102, 0, 0.5);
-      color: #fff;
+      box-shadow: 0 12px 32px rgba(255, 102, 0, 0.55);
     }
 
     .btn-pill-orange i {
@@ -350,25 +367,27 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.85);
+      color: #ffffff;
       font-size: 1rem;
-      font-weight: 600;
-      padding: 0.95rem 2rem;
+      font-weight: 700;
+      padding: 1rem 2.2rem;
       border-radius: 9999px;
-      border: 1px solid var(--border-subtle);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
       transition: all 0.25s ease;
     }
 
     .btn-pill-ghost:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(15, 23, 42, 0.98);
+      border-color: var(--accent-orange);
+      color: #ff9d5c;
       transform: translateY(-2px);
     }
 
     /* ==========================================================================
-       SECTION: WHAT WE DO (Straight after Hero, with Bigger Distinctive Icons)
+       SECTION: WHAT WE DO (Medium-Light Grey Theme with Bigger Glowing Icons)
        ========================================================================== */
     .section-wrap {
       padding: 6rem 1.5rem;
@@ -390,8 +409,8 @@
       align-items: center;
       gap: 8px;
       font-family: var(--font-mono);
-      font-size: 0.8rem;
-      font-weight: 700;
+      font-size: 0.82rem;
+      font-weight: 800;
       color: var(--accent-orange);
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -400,9 +419,9 @@
 
     .section-title {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-size: clamp(2rem, 3.5vw, 2.9rem);
       font-weight: 800;
-      color: var(--text-white);
+      color: var(--text-black);
       letter-spacing: -0.01em;
       margin-bottom: 1rem;
     }
@@ -415,7 +434,7 @@
       line-height: 1.7;
     }
 
-    /* What We Do 6-Card Grid */
+    /* What We Do 6-Card Grid (White Cards on Medium-Light Grey Background) */
     .capabilities-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -423,13 +442,13 @@
     }
 
     .capability-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: var(--card-white);
+      border: 1.5px solid var(--border-subtle);
       border-radius: 20px;
       padding: 2.5rem 2rem;
       display: flex;
       flex-direction: column;
-      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
       overflow: hidden;
@@ -441,23 +460,22 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 3px;
+      height: 4px;
       background: transparent;
       transition: background 0.3s ease;
     }
 
     .capability-card:hover {
-      background: var(--bg-card-hover);
-      border-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+      border-color: rgba(255, 102, 0, 0.4);
     }
 
     .capability-card:hover::before {
       background: linear-gradient(90deg, var(--accent-orange), var(--accent-cyan));
     }
 
-    /* Distinctive, BIGGER Icons */
+    /* Distinctive, BIGGER Icons (72px) */
     .cap-icon-box {
       width: 72px;
       height: 72px;
@@ -477,58 +495,58 @@
 
     /* Icon Color Themes */
     .icon-cyan {
-      background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(14, 165, 233, 0.05) 100%);
-      color: #38bdf8;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
+      background: #e0f2fe;
+      color: #0284c7;
+      border: 1.5px solid #bae6fd;
+      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.18);
     }
 
     .icon-emerald {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%);
-      color: #34d399;
-      border: 1px solid rgba(52, 211, 153, 0.3);
-      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+      background: #dcfce7;
+      color: #059669;
+      border: 1.5px solid #bbf7d0;
+      box-shadow: 0 8px 20px rgba(5, 150, 105, 0.18);
     }
 
     .icon-orange {
-      background: linear-gradient(135deg, rgba(255, 102, 0, 0.15) 0%, rgba(255, 102, 0, 0.05) 100%);
-      color: #ff771a;
-      border: 1px solid rgba(255, 102, 0, 0.3);
-      box-shadow: 0 8px 20px rgba(255, 102, 0, 0.2);
+      background: #fff7ed;
+      color: #ea580c;
+      border: 1.5px solid #fed7aa;
+      box-shadow: 0 8px 20px rgba(234, 88, 12, 0.18);
     }
 
     .icon-amber {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
-      color: #fbbf24;
-      border: 1px solid rgba(251, 191, 36, 0.3);
-      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.2);
+      background: #fef3c7;
+      color: #d97706;
+      border: 1.5px solid #fde68a;
+      box-shadow: 0 8px 20px rgba(217, 119, 6, 0.18);
     }
 
     .icon-purple {
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(168, 85, 247, 0.05) 100%);
-      color: #c084fc;
-      border: 1px solid rgba(192, 132, 252, 0.3);
-      box-shadow: 0 8px 20px rgba(168, 85, 247, 0.2);
+      background: #f3e8ff;
+      color: #7c3aed;
+      border: 1.5px solid #e9d5ff;
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.18);
     }
 
     .icon-blue {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
-      color: #60a5fa;
-      border: 1px solid rgba(96, 165, 250, 0.3);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+      background: #e0e7ff;
+      color: #2563eb;
+      border: 1.5px solid #c7d2fe;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.18);
     }
 
     .cap-title {
       font-family: var(--font-heading);
       font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text-white);
+      font-weight: 800;
+      color: var(--text-black);
       margin-bottom: 0.9rem;
     }
 
     .cap-body {
-      font-size: 0.92rem;
-      color: var(--text-muted);
+      font-size: 0.93rem;
+      color: var(--text-body);
       line-height: 1.65;
       margin-bottom: 1.5rem;
       flex-grow: 1;
@@ -539,65 +557,79 @@
       flex-wrap: wrap;
       gap: 6px;
       padding-top: 1.25rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-top: 1px solid var(--border-light);
     }
 
     .cap-chip {
       font-family: var(--font-mono);
       font-size: 0.72rem;
-      font-weight: 500;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #cbd5e1;
-      padding: 0.3rem 0.65rem;
+      font-weight: 600;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #1e293b;
+      padding: 0.35rem 0.7rem;
       border-radius: 6px;
     }
 
     /* ==========================================================================
-       SECTION: THREE PILLARS (Anergi Core Philosophy)
+       SECTION: STRATEGIC DEFENSE PRINCIPLES
+       (White Background with Light Blue Cards and Black Text as requested)
        ========================================================================== */
-    .pillars-section {
-      background: #080d1a;
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
+    .principles-section-white {
+      background-color: var(--bg-white) !important;
+      border-top: 2px solid var(--border-subtle);
+      border-bottom: 2px solid var(--border-subtle);
+      padding: 6rem 1.5rem;
     }
 
-    .pillars-grid {
+    .principles-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
 
-    .pillar-card {
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid var(--border-subtle);
+    .principle-card-lightblue {
+      background: var(--card-light-blue);
+      border: 1.5px solid var(--card-light-blue-border);
       border-radius: 20px;
       padding: 2.5rem 2rem;
       position: relative;
+      box-shadow: 0 8px 25px rgba(188, 219, 243, 0.35);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .principle-card-lightblue:hover {
+      background: var(--card-light-blue-hover);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 35px rgba(188, 219, 243, 0.55);
+      border-color: #0284c7;
     }
 
     .pillar-number {
       font-family: var(--font-mono);
       font-size: 0.85rem;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--accent-orange);
       margin-bottom: 1rem;
       display: block;
+      letter-spacing: 1px;
     }
 
-    .pillar-title {
+    /* Black Text on Light Blue Cards */
+    .pillar-title-black {
       font-family: var(--font-heading);
       font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text-white);
+      font-weight: 800;
+      color: #000000 !important;
       margin-bottom: 1rem;
       line-height: 1.3;
     }
 
-    .pillar-text {
-      font-size: 0.92rem;
-      color: var(--text-muted);
+    .pillar-text-black {
+      font-size: 0.94rem;
+      color: #0f172a !important;
       line-height: 1.7;
+      font-weight: 500;
     }
 
     /* ==========================================================================
@@ -605,17 +637,18 @@
        ========================================================================== */
     .cta-banner-section {
       padding: 6rem 1.5rem;
+      background-color: var(--bg-site);
     }
 
     .cta-banner-card {
-      background: radial-gradient(circle at 80% 20%, rgba(255, 102, 0, 0.15) 0%, rgba(15, 23, 42, 0.95) 70%);
-      border: 1px solid rgba(255, 102, 0, 0.3);
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border: 2px solid var(--accent-orange);
       border-radius: 24px;
       padding: 4.5rem 3rem;
       text-align: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
     }
 
     .cta-banner-card::after {
@@ -627,7 +660,7 @@
       width: 400px;
       height: 200px;
       background: var(--accent-orange-glow);
-      filter: blur(100px);
+      filter: blur(90px);
       pointer-events: none;
     }
 
@@ -635,7 +668,7 @@
       font-family: var(--font-heading);
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 800;
-      color: var(--text-white);
+      color: #ffffff;
       margin-bottom: 1.25rem;
       line-height: 1.2;
     }
@@ -649,12 +682,13 @@
     }
 
     /* ==========================================================================
-       FOOTER (Anergi Official Copyright & Links)
+       FOOTER (Medium Grey Header Match & Anergi Official Copyright)
        ========================================================================== */
     .anergi-footer {
-      background: #060913;
-      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-footer);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding: 3.5rem 1.5rem 2.5rem;
+      color: #f8fafc;
     }
 
     .footer-container {
@@ -674,11 +708,11 @@
       flex-wrap: wrap;
       gap: 1.5rem;
       padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .footer-logo img {
-      height: 38px;
+      height: 40px;
       width: auto;
       object-fit: contain;
     }
@@ -690,13 +724,13 @@
     }
 
     .footer-nav a {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      font-weight: 500;
+      color: #e2e8f0;
+      font-size: 0.92rem;
+      font-weight: 600;
     }
 
     .footer-nav a:hover {
-      color: var(--accent-orange);
+      color: #ff9d5c;
     }
 
     .footer-socials {
@@ -711,8 +745,8 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
-      color: var(--text-dark);
-      font-size: 0.85rem;
+      color: #94a3b8;
+      font-size: 0.88rem;
     }
 
     /* Responsive */
@@ -720,7 +754,7 @@
       .capabilities-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .pillars-grid {
+      .principles-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -761,7 +795,7 @@
 <body>
 
   <!-- ==========================================================================
-       NAVBAR (Direct matching to anergi.io layout)
+       NAVBAR (Medium Grey Anergi Theme matching static logo background)
        ========================================================================== -->
   <nav class="anergi-navbar">
     <div class="nav-container">
@@ -797,7 +831,7 @@
   </nav>
 
   <!-- ==========================================================================
-       HERO SECTION (High-Tech SOC Collaborative Backdrop with Exact Text)
+       HERO SECTION (5% Scrim on Collaboration Image, Floating Badges)
        ========================================================================== -->
   <header class="hero-section" id="home">
     <div class="hero-container">
@@ -808,10 +842,10 @@
 
       <h1 class="hero-title">
         Driving Security.<br>
-        <span class="text-gradient-orange">Powering Performance.</span>
+        <span class="text-orange">Powering Performance.</span>
       </h1>
 
-      <!-- The exact requested text content formatted as high-impact modern badges -->
+      <!-- The exact requested text content formatted as high-impact modern container pills -->
       <div class="hero-tags-grid">
         <div class="hero-tag-item">
           <i class="fa-solid fa-clipboard-check"></i>
@@ -858,7 +892,7 @@
   </header>
 
   <!-- ==========================================================================
-       SECTION: WHAT WE DO (Straight to Capabilities with Bigger Distinctive Icons)
+       SECTION: WHAT WE DO (Medium-Light Grey Theme, Bigger Glowing Icons)
        ========================================================================== -->
   <section class="section-wrap" id="services-jump">
     <div class="container">
@@ -989,9 +1023,10 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION: THREE PILLARS (Authentic Anergi Core Philosophy)
+       SECTION: STRATEGIC DEFENSE PRINCIPLES
+       (White Background with Light Blue Cards and Black Text as requested)
        ========================================================================== -->
-  <section class="section-wrap pillars-section">
+  <section class="principles-section-white">
     <div class="container">
       <div class="section-header">
         <span class="section-label">Core Mission</span>
@@ -1001,28 +1036,28 @@
         </p>
       </div>
 
-      <div class="pillars-grid">
+      <div class="principles-grid">
         
-        <div class="pillar-card">
+        <div class="principle-card-lightblue">
           <span class="pillar-number">01 // PHILOSOPHY</span>
-          <h3 class="pillar-title">What Cybersecurity Means to Us</h3>
-          <p class="pillar-text">
+          <h3 class="pillar-title-black">What Cybersecurity Means to Us</h3>
+          <p class="pillar-text-black">
             Providing continuous monitoring and threat detection services that empower organizations to identify and respond to security incidents in real time. By integrating endpoint detection, SIEM, and threat intelligence, we help you minimize dwell time, reduce impact, and stay ahead of advanced threats.
           </p>
         </div>
 
-        <div class="pillar-card">
+        <div class="principle-card-lightblue">
           <span class="pillar-number">02 // EXECUTION</span>
-          <h3 class="pillar-title">Using Ingenuity to Transform Risk into Resilience</h3>
-          <p class="pillar-text">
+          <h3 class="pillar-title-black">Using Ingenuity to Transform Risk into Resilience</h3>
+          <p class="pillar-text-black">
             Be ready when seconds count. We develop and test response plans through live incident containment and tabletop exercises, building confidence, ensuring compliance, and meeting cyber insurance mandates. Our services support you before and after a breach.
           </p>
         </div>
 
-        <div class="pillar-card">
+        <div class="principle-card-lightblue">
           <span class="pillar-number">03 // VISION</span>
-          <h3 class="pillar-title">The Future is Now</h3>
-          <p class="pillar-text">
+          <h3 class="pillar-title-black">The Future is Now</h3>
+          <p class="pillar-text-black">
             By combining technical scanning with strategic risk assessments, we evaluate your organization’s exposure to threats. We help you prioritize vulnerabilities based on impact and likelihood, ensuring you can allocate resources efficiently while improving your security posture.
           </p>
         </div>
@@ -1050,7 +1085,7 @@
   </section>
 
   <!-- ==========================================================================
-       FOOTER (Anergi Official Copyright & Links)
+       FOOTER (Medium Grey Header Match & Anergi Official Copyright)
        ========================================================================== -->
   <footer class="anergi-footer">
     <div class="footer-container">
@@ -1095,7 +1130,7 @@
           isInitialOpen: false,
           isDraggable: false,
           background: "linear-gradient(180deg, #ff6600 0%, #e05300 100%)",
-          buttonBackgroundColor: "#0f172a",
+          buttonBackgroundColor: "#5c5c5c",
           buttonIconColor: "#ffffff",
           variant: false,
           customizations: {
@@ -1121,9 +1156,9 @@
             navMenu.style.top = '100%';
             navMenu.style.left = '0';
             navMenu.style.width = '100%';
-            navMenu.style.background = 'rgba(10, 15, 29, 0.98)';
+            navMenu.style.background = '#545454';
             navMenu.style.padding = '1.5rem';
-            navMenu.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+            navMenu.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
           }
         });
       }
