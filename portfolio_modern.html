@@ -22,7 +22,8 @@
       --bg-navbar: #585858;
       --bg-navbar-dark: #4a4a4a;
       --bg-what-we-do: #545454;
-      --bg-footer: #374151;
+      --bg-cta-section: #545454;
+      --bg-footer: #4a4a4a;
       
       --card-white: #ffffff;
       --card-light-blue: #eef6fc;
@@ -209,11 +210,11 @@
     }
 
     /* ==========================================================================
-       HERO SECTION (5% Scrim Opaque, Vivid Image, Centered Hero Copy & Button)
+       HERO SECTION (5% Scrim Opaque, Half-Size Title, Translucent Lead Block)
        ========================================================================== */
     .hero-section {
       position: relative;
-      min-height: 82vh;
+      min-height: 75vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -221,12 +222,12 @@
       background: 
         linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.08) 100%),
         url('hero_collaborating.jpeg') center/cover no-repeat;
-      padding: 6rem 1.5rem 7rem;
+      padding: 5.5rem 1.5rem 6.5rem;
       border-bottom: 2px solid var(--border-subtle);
     }
 
     .hero-container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
       width: 100%;
       text-align: center;
@@ -234,39 +235,40 @@
       z-index: 2;
     }
 
+    /* Half as big as requested */
     .hero-title {
       font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 5.8vw, 4.4rem);
-      font-weight: 900;
+      font-size: clamp(1.4rem, 2.9vw, 2.25rem);
+      font-weight: 800;
       color: #ffffff;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin: 0 auto 1.75rem;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin: 0 auto 1.35rem;
       /* Deep cinematic text shadow guaranteeing 100% readability over the bright photo */
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.9), 0 8px 40px rgba(0, 0, 0, 0.95);
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.9), 0 8px 30px rgba(0, 0, 0, 0.95);
     }
 
     .hero-title .text-orange {
       color: #ff771a;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.9), 0 8px 40px rgba(0, 0, 0, 0.95);
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.9);
     }
 
-    /* Requested Text Above the Centered Contact Buttons */
+    /* More see-through / translucent border block behind the text */
     .hero-lead-text {
-      max-width: 880px;
-      margin: 0 auto 2.5rem;
-      font-size: clamp(1.08rem, 2.2vw, 1.35rem);
-      font-weight: 700;
+      max-width: 860px;
+      margin: 0 auto 2.25rem;
+      font-size: clamp(0.98rem, 2vw, 1.18rem);
+      font-weight: 600;
       color: #ffffff;
-      line-height: 1.65;
-      padding: 1.25rem 2rem;
-      background: rgba(15, 23, 42, 0.78);
-      border: 1.5px solid rgba(255, 255, 255, 0.28);
-      border-radius: 18px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+      line-height: 1.6;
+      padding: 1.1rem 1.85rem;
+      background: rgba(0, 0, 0, 0.28); /* Ultra-translucent so the image shines through */
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
     }
 
     .hero-cta-wrap {
@@ -286,7 +288,7 @@
       color: #ffffff !important;
       font-size: 1.05rem;
       font-weight: 800;
-      padding: 1.1rem 2.85rem;
+      padding: 1.05rem 2.85rem;
       border-radius: 9999px;
       box-shadow: 0 8px 25px var(--accent-orange-glow);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -380,7 +382,7 @@
     }
 
     /* ==========================================================================
-       SECTION: WHAT WE DO (Medium Grey Background matching Navbar)
+       SECTION: WHAT WE DO (Medium Grey Background Matching Navbar)
        ========================================================================== */
     .what-we-do-section-grey {
       background: linear-gradient(180deg, #585858 0%, #4f4f4f 100%);
@@ -639,12 +641,12 @@
 
     /* ==========================================================================
        SECTION: FREE CYBER RISK ASSESSMENT CTA
-       (Grey background matching footer, White inside the border card as requested)
+       (Medium Grey Background matching Navbar and Footer, White inside the card)
        ========================================================================== */
     .cta-banner-section-grey {
       padding: 6rem 1.5rem;
-      background-color: var(--bg-footer) !important;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(180deg, #585858 0%, #4e4e4e 100%) !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     /* Inside the border is Pure White */
@@ -656,12 +658,12 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.25);
     }
 
     .cta-title-black {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
       font-weight: 900;
       color: #0f172a !important;
       margin-bottom: 1.25rem;
@@ -669,7 +671,7 @@
     }
 
     .cta-subtitle-dark {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: #334155 !important;
       max-width: 680px;
       margin: 0 auto 2.5rem;
@@ -681,8 +683,8 @@
        FOOTER (Medium Grey Header Match & Anergi Official Copyright)
        ========================================================================== */
     .anergi-footer {
-      background: var(--bg-footer);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: #4a4a4a !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
       padding: 3.5rem 1.5rem 2.5rem;
       color: #f8fafc;
     }
@@ -704,7 +706,7 @@
       flex-wrap: wrap;
       gap: 1.5rem;
       padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .footer-logo img {
@@ -741,7 +743,7 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
-      color: #94a3b8;
+      color: #cbd5e1;
       font-size: 0.88rem;
     }
 
@@ -777,7 +779,7 @@
       }
       .hero-lead-text {
         padding: 1rem 1.25rem;
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
       .cta-banner-card-white {
         padding: 3rem 1.5rem;
@@ -837,16 +839,17 @@
   </nav>
 
   <!-- ==========================================================================
-       HERO SECTION (5% Scrim Opaque, Vivid Collaboration Image, Centered Copy & CTA)
+       HERO SECTION (5% Scrim Opaque, Half-Size Title, Translucent Lead Block)
        ========================================================================== -->
   <header class="hero-section" id="home">
     <div class="hero-container">
+      <!-- Title scaled to half size as requested -->
       <h1 class="hero-title">
         Driving Security.<br>
         <span class="text-orange">Powering Performance.</span>
       </h1>
 
-      <!-- Requested Text Placed Directly Above the Centered Contact Button -->
+      <!-- Requested Lead Text in a subtle, translucent frosted block -->
       <p class="hero-lead-text">
         Anergi is the technology company that protects systems that power industry, infrastructure, and transportation system through intelligent, integrated cybersecurity.
       </p>
@@ -1143,8 +1146,8 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION: FREE RISK ASSESSMENT CTA
-       (Grey Background matching Footer, White Inside the Border Card as requested)
+       SECTION: FREE CYBER RISK ASSESSMENT CTA
+       (Medium Grey Background matching Navbar and Footer, White inside the card)
        ========================================================================== -->
   <section class="cta-banner-section-grey">
     <div class="container">
