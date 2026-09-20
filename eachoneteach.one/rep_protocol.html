@@ -100,19 +100,54 @@
       box-shadow: 0 0 8px var(--accent-orange);
     }
 
-    /* Executive Hero Header */
+    /* Executive Hero Header with Video Background */
     .hero-header {
       text-align: center;
-      padding: 4rem 1.5rem 3rem;
-      background: linear-gradient(180deg, rgba(19, 25, 46, 0.95) 0%, rgba(10, 14, 28, 0.8) 100%);
-      border: 1px solid var(--border-dim);
-      border-top: 3px solid var(--neon-purple);
-      border-radius: 20px;
-      margin: 2rem 0;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.7), 0 0 25px rgba(185, 131, 255, 0.15);
+      padding: 5rem 1.75rem 4rem;
+      background: #05070e;
+      border: 1.5px solid var(--border-dim);
+      border-top: 3.5px solid var(--neon-pink);
+      border-radius: 24px;
+      margin: 2rem 0 2.5rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.85), 0 0 30px rgba(255, 0, 127, 0.15);
       position: relative;
       overflow: hidden;
+    }
+
+    .hero-video-bg-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-video-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.42;
+      filter: saturate(1.35) contrast(1.15);
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 45%, rgba(5, 7, 14, 0.5) 0%, rgba(5, 7, 14, 0.94) 100%),
+                  linear-gradient(180deg, rgba(14, 18, 36, 0.6) 0%, rgba(5, 7, 14, 0.95) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 940px;
+      margin: 0 auto;
     }
 
     .hero-pretitle {
@@ -122,27 +157,31 @@
       color: var(--neon-pink);
       text-transform: uppercase;
       letter-spacing: 2.5px;
-      margin-bottom: 0.75rem;
-      display: inline-block;
-      background: rgba(255, 0, 127, 0.1);
-      padding: 0.35rem 1.2rem;
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 0, 127, 0.12);
+      padding: 0.4rem 1.3rem;
       border-radius: 9999px;
-      border: 1px solid rgba(255, 0, 127, 0.3);
+      border: 1px solid rgba(255, 0, 127, 0.4);
+      box-shadow: 0 0 15px rgba(255, 0, 127, 0.2);
     }
 
     .hero-title {
       font-family: var(--font-heading);
-      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-size: clamp(2.4rem, 4.8vw, 4.2rem);
       font-weight: 900;
       letter-spacing: -0.01em;
       color: #ffffff;
       line-height: 1.15;
-      margin-bottom: 0.85rem;
+      margin-bottom: 1rem;
     }
 
-    .title-neon {
-      color: var(--neon-purple);
-      text-shadow: 0 0 16px var(--neon-purple-glow), 0 0 32px var(--neon-purple-glow);
+    .title-pink {
+      color: var(--neon-pink);
+      text-shadow: 0 0 20px var(--neon-pink-glow), 0 0 40px var(--neon-pink-glow);
+      font-weight: 900;
     }
 
     .hero-subtitle {
@@ -150,22 +189,80 @@
       color: #e2e8f0;
       font-weight: 600;
       letter-spacing: 0.5px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
     }
 
     .hero-quote-card {
       max-width: 820px;
-      margin: 0 auto;
+      margin: 0 auto 2.2rem;
       background: rgba(255, 0, 127, 0.08);
-      border: 1px solid rgba(255, 0, 127, 0.3);
+      border: 1px solid rgba(255, 0, 127, 0.35);
       border-left: 5px solid var(--neon-pink);
-      padding: 1.25rem 2rem;
-      border-radius: 10px;
+      padding: 1.35rem 2.2rem;
+      border-radius: 12px;
       font-style: italic;
+      font-size: 1.2rem;
+      color: #ffffff;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(255, 0, 127, 0.06);
+    }
+
+    /* Launch Button & Micro-Copy Block */
+    .hero-cta-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .btn-launch-rep {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, #ff007f 0%, #d946ef 50%, #b983ff 100%);
+      color: #ffffff !important;
+      font-family: var(--font-heading);
       font-size: 1.15rem;
-      color: #f1f5f9;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 1.15rem 2.75rem;
+      border-radius: 9999px;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 12px 35px rgba(255, 0, 127, 0.45), 0 0 25px rgba(185, 131, 255, 0.35);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-launch-rep:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 18px 50px rgba(255, 0, 127, 0.65), 0 0 35px rgba(185, 131, 255, 0.5);
+      background: linear-gradient(135deg, #ff1493 0%, #e040fb 50%, #c084fc 100%);
+    }
+
+    .btn-icon-pulse {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      font-size: 0.85rem;
+    }
+
+    .hero-micro-copy {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      max-width: 720px;
+      line-height: 1.5;
     }
 
     /* Quick Asset Download Deck */
@@ -770,14 +867,39 @@
 
   <div class="container">
 
-    <!-- Executive Hero Header -->
+    <!-- Executive Hero Header with Video Background & Overlay -->
     <header class="hero-header">
-      <span class="hero-pretitle">Autonomous Cyber Defense Framework</span>
-      <h1 class="hero-title">Protect Your Network's <span class="title-neon">R.E.P.</span></h1>
-      <div class="hero-subtitle">Ricochet Ephemeral Protocol™ &bull; 0% Friction. 100% Illusion.</div>
-      
-      <div class="hero-quote-card">
-        &ldquo;They think they stole the keys. They just walked into a hologram.&rdquo;
+      <div class="hero-video-bg-wrap">
+        <video autoplay muted loop playsinline class="hero-video-bg">
+          <source src="assets/rep/rep_hero_background.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <span class="hero-pretitle">
+          <i class="fa-solid fa-shield-halved"></i> Autonomous Cyber Defense Framework
+        </span>
+        <h1 class="hero-title">Protect Your Network's <span class="title-pink">R.E.P.</span></h1>
+        <div class="hero-subtitle">
+          Ricochet Ephemeral Protocol™ &bull; <span style="color: #38bdf8;">0% Friction.</span> <span style="color: #ff007f;">100% Illusion.</span>
+        </div>
+        
+        <div class="hero-quote-card">
+          &ldquo;They think they stole the keys. They just walked into a hologram.&rdquo;
+        </div>
+
+        <div class="hero-cta-block">
+          <a href="#simulator" class="btn-launch-rep">
+            <span class="btn-icon-pulse"><i class="fa-solid fa-play"></i></span>
+            <span>Launch Live Simulator</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <p class="hero-micro-copy">
+            <i class="fa-solid fa-bolt" style="color: var(--neon-pink);"></i>
+            <span><strong>Instant Sandbox:</strong> Simulate a breach, watch the kinetic ricochet, and view the executive scorecard in real time.</span>
+          </p>
+        </div>
       </div>
     </header>
 
@@ -817,7 +939,7 @@
     <!-- ======================================================================
          SECTION 1: INTERACTIVE PROTOCOL SIMULATOR
          ====================================================================== -->
-    <section class="sim-panel">
+    <section class="sim-panel" id="simulator">
       <div class="section-headline">
         <h2><i class="fa-solid fa-microchip" style="color: var(--neon-purple);"></i> Interactive Protocol Simulator</h2>
         <span class="section-tag" style="background: rgba(185, 131, 255, 0.15); color: var(--neon-purple); border: 1px solid rgba(185, 131, 255, 0.3);">
