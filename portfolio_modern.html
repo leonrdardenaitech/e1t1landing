@@ -16,16 +16,16 @@
 
   <style>
     :root {
-      /* Anergi Medium Grey Theme Palette */
+      /* Anergi Neutral Medium Grey Theme Palette */
       --bg-site: #f1f5f9;
       --bg-white: #ffffff;
       --bg-navbar: #585858;
       --bg-navbar-dark: #4a4a4a;
-      --bg-what-we-do: #545454;
-      --bg-cta-section: #545454;
-      --bg-footer: #4a4a4a;
+      --bg-medium-grey: #545454;
+      --bg-footer: #444444;
       
       --card-white: #ffffff;
+      --card-dark: #1e293b;
       --card-light-blue: #eef6fc;
       --card-light-blue-border: #bcdbf3;
       --card-light-blue-hover: #e0f0fc;
@@ -79,7 +79,7 @@
     }
 
     /* ==========================================================================
-       NAVBAR (Medium Grey Anergi Brand Theme)
+       NAVBAR (Medium Grey Anergi Brand Theme - Approved)
        ========================================================================== */
     .anergi-navbar {
       position: sticky;
@@ -207,18 +207,18 @@
     }
 
     /* ==========================================================================
-       HERO SECTION (5% Scrim Opaque, Half-Size Title, Translucent Lead Block)
+       HERO SECTION (Unobstructed Faces - Title & CTA in Lower Third)
        ========================================================================== */
     .hero-section {
       position: relative;
-      min-height: 72vh;
+      min-height: 82vh;
       display: flex;
-      align-items: center;
+      align-items: flex-end; /* Slides content down into lower third */
       justify-content: center;
       background: 
-        linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.08) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.05) 50%, rgba(0, 0, 0, 0.35) 100%),
         url('hero_collaborating.jpeg') center/cover no-repeat;
-      padding: 5.5rem 1.5rem 6.5rem;
+      padding: 4rem 1.5rem 4.5rem;
       border-bottom: 2px solid var(--border-subtle);
     }
 
@@ -233,36 +233,19 @@
 
     .hero-title {
       font-family: var(--font-heading);
-      font-size: clamp(1.4rem, 2.9vw, 2.25rem);
+      font-size: clamp(1.65rem, 3.4vw, 2.75rem);
       font-weight: 800;
       color: #ffffff;
       line-height: 1.25;
       letter-spacing: -0.01em;
-      margin: 0 auto 1.35rem;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.9), 0 8px 30px rgba(0, 0, 0, 0.95);
+      margin: 0 auto 1.5rem;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95), 0 4px 22px rgba(0, 0, 0, 0.95);
       word-wrap: break-word;
     }
 
     .hero-title .text-orange {
       color: #ff771a;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.9);
-    }
-
-    .hero-lead-text {
-      max-width: 860px;
-      margin: 0 auto 2.25rem;
-      font-size: clamp(0.98rem, 2vw, 1.18rem);
-      font-weight: 600;
-      color: #ffffff;
-      line-height: 1.6;
-      padding: 1.1rem 1.85rem;
-      background: rgba(0, 0, 0, 0.28);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      border-radius: 16px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95), 0 4px 22px rgba(0, 0, 0, 0.95);
     }
 
     .hero-cta-wrap {
@@ -270,7 +253,6 @@
       justify-content: center;
       align-items: center;
       gap: 1.25rem;
-      margin-top: 1rem;
     }
 
     .btn-pill-orange {
@@ -304,93 +286,36 @@
     }
 
     /* ==========================================================================
-       SECTION: CYBER SECURITY CONSULTING SERVICES (Right Below Hero Image)
-       (White Background with Large Monochrome Vector Tech Icons - No Color)
+       LEAD STATEMENT STRIP (Directly Below Hero Image)
        ========================================================================== */
-    .consulting-section-white {
-      background-color: var(--bg-white);
+    .lead-statement-strip {
+      background: var(--bg-white);
       border-bottom: 2px solid var(--border-light);
-      padding: 5.5rem 1.5rem;
+      padding: 3.5rem 1.5rem;
+      text-align: center;
     }
 
-    .consulting-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .consulting-card {
-      background: #ffffff;
-      border: 1.5px solid var(--border-light);
-      border-radius: 16px;
-      padding: 1.85rem 1.6rem;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-      transition: all 0.25s ease;
-      position: relative;
-    }
-
-    .consulting-card:hover {
-      background: #ffffff;
-      border-color: var(--accent-orange);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Large Monochrome Vector Tech Icon (No Color) */
-    .consulting-icon-mono {
-      width: 56px;
-      height: 56px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.75rem;
-      margin-bottom: 1.35rem;
-      background: #f1f5f9;
+    .lead-statement-text {
+      max-width: 980px;
+      margin: 0 auto;
+      font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+      font-weight: 700;
       color: #1e293b;
-      border: 1px solid #cbd5e1;
-      transition: all 0.25s ease;
+      line-height: 1.7;
+      letter-spacing: -0.01em;
     }
 
-    .consulting-card:hover .consulting-icon-mono {
-      background: #1e293b;
-      color: #ffffff;
-      border-color: #1e293b;
-      transform: scale(1.06);
-    }
-
-    .consulting-title {
-      font-family: var(--font-heading);
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--text-black);
-      margin-bottom: 0.65rem;
-      line-height: 1.3;
-    }
-
-    .consulting-desc {
-      font-size: 0.88rem;
-      color: var(--text-body);
-      line-height: 1.55;
+    .lead-statement-text span.brand-highlight {
+      color: var(--accent-orange);
     }
 
     /* ==========================================================================
-       SECTION: WHAT WE DO (Medium Grey Background Matching Navbar)
-       (White Cards with Large Monochrome Vector Tech Icons - No Color)
+       SECTION: WHAT WE DO (Core 4 3D Flip Cards with Extracted Icons)
        ========================================================================== */
-    .what-we-do-section-grey {
-      background: linear-gradient(180deg, #585858 0%, #4f4f4f 100%);
-      padding: 6rem 1.5rem;
-      border-top: 2px solid rgba(255, 255, 255, 0.1);
-      border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-      position: relative;
-    }
-
-    .section-wrap {
-      position: relative;
+    .what-we-do-section {
+      background-color: var(--bg-white);
+      border-bottom: 2px solid var(--border-light);
+      padding: 5.5rem 1.5rem;
     }
 
     .container {
@@ -400,10 +325,210 @@
 
     .section-header {
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 3.5rem;
     }
 
     .section-label-orange {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--accent-orange);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+      background: rgba(255, 102, 0, 0.1);
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 102, 0, 0.3);
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 900;
+      color: var(--text-black);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* 4 Flip Cards Grid */
+    .flip-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* Flip Card 3D Structure */
+    .flip-card-wrapper {
+      background-color: transparent;
+      perspective: 1000px;
+      height: 420px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+    }
+
+    .flip-card-wrapper:hover .flip-card-inner,
+    .flip-card-wrapper.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 18px;
+      padding: 2.2rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* FRONT FACE: Clean White */
+    .flip-card-front {
+      background: #ffffff;
+      border: 1.5px solid var(--border-light);
+      color: var(--text-black);
+    }
+
+    .flip-icon-box {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+
+    .flip-icon-box img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .flip-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-black);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .flip-card-desc {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .flip-prompt-hint {
+      margin-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent-orange);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* BACK FACE: Deep Charcoal Slate */
+    .flip-card-back {
+      background: var(--card-dark);
+      border: 2px solid var(--accent-orange);
+      color: #ffffff;
+      transform: rotateY(180deg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .back-header {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--accent-orange);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.75rem;
+    }
+
+    .back-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 1.25rem;
+    }
+
+    .back-deliverables-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      flex-grow: 1;
+    }
+
+    .back-deliverables-list li {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.45;
+    }
+
+    .back-deliverables-list li i {
+      color: var(--accent-orange);
+      font-size: 0.75rem;
+      margin-top: 4px;
+    }
+
+    .back-return-hint {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #94a3b8;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       SECTION: PENETRATION TESTING & HARDENING (Navbar Medium Grey Theme)
+       ========================================================================== */
+    .pentest-section-grey {
+      background: linear-gradient(180deg, #585858 0%, #4a4a4a 100%);
+      padding: 6rem 1.5rem;
+      border-top: 2px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .pentest-header-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -414,135 +539,168 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       margin-bottom: 0.75rem;
-      background: rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.3);
       padding: 0.35rem 1rem;
       border-radius: 9999px;
       border: 1px solid rgba(255, 102, 0, 0.4);
     }
 
-    .section-title-white {
+    .pentest-title-white {
       font-family: var(--font-heading);
       font-size: clamp(2rem, 3.8vw, 3rem);
       font-weight: 900;
       color: #ffffff;
-      letter-spacing: -0.01em;
       margin-bottom: 1rem;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .section-desc-light {
+    .pentest-desc-light {
       font-size: 1.05rem;
       color: #e2e8f0;
-      max-width: 760px;
+      max-width: 800px;
       margin: 0 auto;
       line-height: 1.7;
     }
 
-    /* What We Do 6-Card Grid (White Cards on Medium Grey Background) */
-    .capabilities-grid {
+    /* Two-Column Why & Pain Points Split */
+    .pentest-split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 3.5rem 0 4rem;
+    }
+
+    .pentest-intro-card {
+      background: #ffffff;
+      border: 1.5px solid #d1d5db;
+      border-radius: 20px;
+      padding: 2.5rem 2.2rem;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    .pentest-intro-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-black);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pentest-intro-title i {
+      color: var(--accent-orange);
+    }
+
+    .pentest-intro-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .pentest-intro-list li {
+      font-size: 0.92rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    .pentest-intro-list strong {
+      color: #0f172a;
+    }
+
+    /* 3-Tier Enterprise Progression (Mini S.P.A. -> S.P.A. -> ONCET in corporate jargon) */
+    .stages-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
 
-    .capability-card {
-      background: var(--card-white);
+    .stage-card {
+      background: #ffffff;
       border: 1.5px solid #d1d5db;
       border-radius: 20px;
       padding: 2.5rem 2rem;
       display: flex;
       flex-direction: column;
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
-      overflow: hidden;
-    }
-
-    .capability-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: transparent;
-      transition: background 0.3s ease;
-    }
-
-    .capability-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.3);
-      border-color: var(--accent-orange);
-    }
-
-    .capability-card:hover::before {
-      background: var(--accent-orange);
-    }
-
-    /* Big Tech Vector Icons with NO Color (Monochrome Charcoal Style) */
-    .cap-icon-box-mono {
-      width: 68px;
-      height: 68px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.4rem;
-      margin-bottom: 1.75rem;
-      position: relative;
-      background: #f1f5f9;
-      color: #1e293b;
-      border: 1.5px solid #cbd5e1;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
     }
 
-    .capability-card:hover .cap-icon-box-mono {
-      background: #1e293b;
-      color: #ffffff;
-      border-color: #1e293b;
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    .stage-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+      border-color: var(--accent-orange);
     }
 
-    .cap-title {
+    .stage-number {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-orange);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.75rem;
+    }
+
+    .stage-title {
       font-family: var(--font-heading);
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 800;
       color: var(--text-black);
-      margin-bottom: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
     }
 
-    .cap-body {
-      font-size: 0.93rem;
+    .stage-body {
+      font-size: 0.9rem;
       color: var(--text-body);
       line-height: 1.65;
       margin-bottom: 1.5rem;
       flex-grow: 1;
     }
 
-    .cap-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border-light);
+    .stage-deliverables-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1rem;
     }
 
-    .cap-chip {
+    .stage-deliverables-title {
       font-family: var(--font-mono);
       font-size: 0.72rem;
-      font-weight: 600;
-      background: #f1f5f9;
-      border: 1px solid #cbd5e1;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .stage-deliverables-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .stage-deliverables-box li {
+      font-size: 0.8rem;
       color: #1e293b;
-      padding: 0.35rem 0.7rem;
-      border-radius: 6px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stage-deliverables-box li i {
+      color: var(--accent-orange);
+      font-size: 0.7rem;
     }
 
     /* ==========================================================================
-       SECTION: STRATEGIC DEFENSE PRINCIPLES
-       (White Background with Light Blue Cards and Black Text - confirmed perfect)
+       SECTION: STRATEGIC DEFENSE PRINCIPLES (Approved As-Is)
        ========================================================================== */
     .principles-section-white {
       background-color: var(--bg-white) !important;
@@ -562,7 +720,6 @@
       border: 1.5px solid var(--card-light-blue-border);
       border-radius: 20px;
       padding: 2.5rem 2rem;
-      position: relative;
       box-shadow: 0 8px 25px rgba(188, 219, 243, 0.35);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -601,16 +758,15 @@
     }
 
     /* ==========================================================================
-       SECTION: FREE CYBER RISK ASSESSMENT CTA
-       (Medium Grey Background matching Navbar and Footer, White inside the card)
+       SECTION: S.P.A. TREATMENT BRIDGE (Links to Interactive Diagnostic Suite)
        ========================================================================== */
-    .cta-banner-section-grey {
+    .spa-bridge-section {
       padding: 6rem 1.5rem;
-      background: linear-gradient(180deg, #585858 0%, #4e4e4e 100%) !important;
+      background: linear-gradient(180deg, #585858 0%, #4a4a4a 100%) !important;
       border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    .cta-banner-card-white {
+    .spa-bridge-card-white {
       background: #ffffff !important;
       border: 2.5px solid var(--accent-orange);
       border-radius: 24px;
@@ -621,30 +777,127 @@
       box-shadow: 0 16px 45px rgba(0, 0, 0, 0.25);
     }
 
-    .cta-title-black {
+    .spa-bridge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-orange);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.25rem;
+      background: rgba(255, 102, 0, 0.1);
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+    }
+
+    .spa-bridge-title {
       font-family: var(--font-heading);
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-size: clamp(2rem, 4.2vw, 3.2rem);
       font-weight: 900;
       color: #0f172a !important;
       margin-bottom: 1.25rem;
       line-height: 1.2;
     }
 
-    .cta-subtitle-dark {
-      font-size: 1.1rem;
+    .spa-bridge-subtitle {
+      font-size: 1.15rem;
       color: #334155 !important;
-      max-width: 680px;
+      max-width: 760px;
       margin: 0 auto 2.5rem;
       line-height: 1.7;
       font-weight: 500;
     }
 
     /* ==========================================================================
+       INFINITE HORIZONTAL LOGO MARQUEE (Ecosystem & Partners)
+       ========================================================================== */
+    .marquee-section {
+      background: #3d3d3d;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2.75rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee-header-label {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 2rem;
+    }
+
+    .marquee-wrapper {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+      user-select: none;
+      mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      animation: scrollMarquee 28s linear infinite;
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding-right: 4rem;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scrollMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .partner-brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 0.65rem 1.4rem;
+      color: #f1f5f9;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: all 0.25s ease;
+    }
+
+    .partner-brand-badge img {
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .partner-brand-badge:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--accent-orange);
+      color: #ff9d5c;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
        FOOTER (Medium Grey Header Match & Anergi Official Copyright)
        ========================================================================== */
     .anergi-footer {
-      background: #4a4a4a !important;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--bg-footer) !important;
       padding: 3.5rem 1.5rem 2.5rem;
       color: #f8fafc;
     }
@@ -708,14 +961,17 @@
     }
 
     /* ==========================================================================
-       RESPONSIVE & MOBILE SCALING (Fine-tuned for Phones & Tablets)
+       RESPONSIVE & MOBILE SCALING
        ========================================================================== */
     @media (max-width: 1024px) {
-      .capabilities-grid {
+      .flip-cards-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .consulting-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .stages-grid {
+        grid-template-columns: 1fr;
+      }
+      .pentest-split-grid {
+        grid-template-columns: 1fr;
       }
       .principles-grid {
         grid-template-columns: 1fr;
@@ -723,69 +979,35 @@
     }
 
     @media (max-width: 768px) {
-      /* Mobile Navigation Bar */
-      .nav-container {
-        padding: 0.75rem 1rem !important;
-      }
-      .nav-brand img {
-        height: 36px !important;
-      }
-      .nav-menu {
-        display: none;
-      }
-      .social-btn {
-        display: none !important;
-      }
-      .nav-contact-pill {
-        font-size: 0.8rem !important;
-        padding: 0.45rem 0.95rem !important;
-      }
-      .mobile-menu-toggle {
-        display: block !important;
-        font-size: 1.35rem;
-        padding: 0.35rem;
-      }
+      /* Navigation */
+      .nav-container { padding: 0.75rem 1rem !important; }
+      .nav-brand img { height: 36px !important; }
+      .nav-menu { display: none; }
+      .social-btn { display: none !important; }
+      .nav-contact-pill { font-size: 0.8rem !important; padding: 0.45rem 0.95rem !important; }
+      .mobile-menu-toggle { display: block !important; }
 
-      /* Mobile Section Spacing */
-      .section-wrap,
-      .consulting-section-white,
-      .what-we-do-section-grey,
+      /* Section Spacings */
+      .what-we-do-section,
+      .pentest-section-grey,
       .principles-section-white,
-      .cta-banner-section-grey {
+      .spa-bridge-section {
         padding: 3.5rem 1rem !important;
       }
 
-      .section-header {
-        margin-bottom: 2.25rem !important;
-      }
-      .section-title-white,
-      .section-title {
-        font-size: 1.75rem !important;
-        line-height: 1.25 !important;
-        margin-bottom: 0.65rem !important;
-      }
-      .section-desc-light,
-      .section-desc {
-        font-size: 0.92rem !important;
-        line-height: 1.6 !important;
+      .lead-statement-strip {
+        padding: 2.5rem 1rem !important;
       }
 
-      /* Mobile Hero Section */
+      /* Hero Section */
       .hero-section {
-        padding: 4rem 1rem 4.5rem !important;
-        min-height: auto !important;
+        padding: 4rem 1rem 3.5rem !important;
+        min-height: 70vh !important;
       }
       .hero-title {
         font-size: 1.65rem !important;
         line-height: 1.25 !important;
-        margin-bottom: 1.15rem !important;
-      }
-      .hero-lead-text {
-        padding: 1rem 1.15rem !important;
-        font-size: 0.92rem !important;
-        line-height: 1.55 !important;
-        margin-bottom: 1.75rem !important;
-        border-radius: 14px !important;
+        margin-bottom: 1.25rem !important;
       }
       .btn-pill-orange {
         padding: 0.95rem 2rem !important;
@@ -794,93 +1016,31 @@
         max-width: 320px !important;
       }
 
-      /* Single Column Mobile Grids */
-      .capabilities-grid,
-      .consulting-grid,
-      .principles-grid {
+      /* Single-Column Grids */
+      .flip-cards-grid {
         grid-template-columns: 1fr !important;
-        gap: 1.25rem !important;
+      }
+      .flip-card-wrapper {
+        height: 380px;
       }
 
-      .consulting-grid .consulting-card {
-        grid-column: span 1 !important;
-      }
-
-      /* Mobile Card Scaling */
-      .capability-card,
-      .consulting-card,
+      /* Card Content */
+      .pentest-intro-card,
+      .stage-card,
       .principle-card-lightblue {
         padding: 1.75rem 1.25rem !important;
         border-radius: 16px !important;
       }
 
-      .cap-icon-box-mono {
-        width: 58px !important;
-        height: 58px !important;
-        font-size: 2rem !important;
-        margin-bottom: 1.25rem !important;
-        border-radius: 12px !important;
-      }
-
-      .consulting-icon-mono {
-        width: 48px !important;
-        height: 48px !important;
-        font-size: 1.45rem !important;
-        margin-bottom: 1rem !important;
-      }
-
-      .cap-title,
-      .pillar-title-black {
-        font-size: 1.2rem !important;
-        margin-bottom: 0.55rem !important;
-      }
-
-      .consulting-title {
-        font-size: 1.05rem !important;
-        margin-bottom: 0.5rem !important;
-      }
-
-      .cap-body,
-      .consulting-desc,
-      .pillar-text-black {
-        font-size: 0.88rem !important;
-        line-height: 1.6 !important;
-      }
-
-      .cap-tags {
-        gap: 5px !important;
-        padding-top: 1rem !important;
-      }
-
-      .cap-chip {
-        font-size: 0.68rem !important;
-        padding: 0.25rem 0.5rem !important;
-      }
-
-      /* Mobile CTA Banner Card */
-      .cta-banner-card-white {
+      .spa-bridge-card-white {
         padding: 2.75rem 1.25rem !important;
         border-radius: 18px !important;
       }
-      .cta-title-black {
-        font-size: 1.55rem !important;
-        line-height: 1.25 !important;
-      }
-      .cta-subtitle-dark {
-        font-size: 0.92rem !important;
-        margin-bottom: 1.75rem !important;
-      }
 
-      /* Mobile Footer */
-      .anergi-footer {
-        padding: 2.5rem 1rem 2rem !important;
-      }
       .footer-top {
         flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
-        gap: 1.25rem !important;
-        padding-bottom: 1.5rem !important;
       }
       .footer-nav {
         flex-direction: column !important;
@@ -889,17 +1049,12 @@
       .footer-bottom {
         flex-direction: column !important;
         text-align: center !important;
-        gap: 0.75rem !important;
       }
     }
 
     @media (max-width: 440px) {
-      .nav-contact-pill {
-        display: none !important;
-      }
-      .hero-title {
-        font-size: 1.45rem !important;
-      }
+      .nav-contact-pill { display: none !important; }
+      .hero-title { font-size: 1.45rem !important; }
     }
   </style>
 </head>
@@ -917,7 +1072,8 @@
       <!-- Navigation links matching anergi.io -->
       <ul class="nav-menu" id="navMenu">
         <li><a href="https://anergi.io/" class="nav-link">Home</a></li>
-        <li><a href="#services-jump" class="nav-link active">Services</a></li>
+        <li><a href="#what-we-do" class="nav-link active">What We Do</a></li>
+        <li><a href="#penetration-testing" class="nav-link">Pen Testing</a></li>
         <li><a href="https://anergi.io/news/" class="nav-link" target="_blank" rel="noopener">News</a></li>
         <li><a href="https://anergi.io/contact-us/" class="nav-link" target="_blank" rel="noopener">Contact</a></li>
       </ul>
@@ -942,7 +1098,7 @@
   </nav>
 
   <!-- ==========================================================================
-       HERO SECTION (5% Scrim Opaque, Half-Size Title, Translucent Lead Block)
+       HERO SECTION (Unblocked Faces - Title & Centered Pill in Lower Third)
        ========================================================================== -->
   <header class="hero-section" id="home">
     <div class="hero-container">
@@ -950,10 +1106,6 @@
         Driving Security.<br>
         <span class="text-orange">Powering Performance.</span>
       </h1>
-
-      <p class="hero-lead-text">
-        Anergi is the technology company that protects systems that power industry, infrastructure, and transportation system through intelligent, integrated cybersecurity.
-      </p>
 
       <div class="hero-cta-wrap">
         <a href="https://anergi.io/contact-us/" target="_blank" rel="noopener" class="btn-pill-orange">
@@ -965,232 +1117,152 @@
   </header>
 
   <!-- ==========================================================================
-       SECTION: CYBER SECURITY CONSULTING SERVICES (Placed Right Below the Image)
-       (Pure White background, Big Tech Vector Icons with NO color)
+       LEAD STATEMENT STRIP (Directly Below Hero Image on Clean White)
        ========================================================================== -->
-  <section class="consulting-section-white" id="consulting-services">
+  <section class="lead-statement-strip">
     <div class="container">
-      <div class="section-header">
-        <span class="section-label-orange" style="background: rgba(255, 102, 0, 0.1); border-color: rgba(255, 102, 0, 0.3); color: var(--accent-orange);">
-          Domain Specializations
-        </span>
-        <h2 class="section-title-white" style="color: var(--text-black); text-shadow: none;">
-          Cyber Security Consulting Services
-        </h2>
-        <p class="section-desc-light" style="color: var(--text-muted);">
-          Comprehensive enterprise security capabilities engineered to defend critical operations, accelerate compliance, and mitigate exposure across your threat landscape.
-        </p>
-      </div>
-
-      <!-- The 7 Services: Clean, Big Monochrome Vector Icons with NO Color -->
-      <div class="consulting-grid">
-        
-        <!-- Service 1: Cybersecurity Assessment -->
-        <div class="consulting-card">
-          <div class="consulting-icon-mono">
-            <i class="fa-solid fa-clipboard-check"></i>
-          </div>
-          <h3 class="consulting-title">Cybersecurity Assessment</h3>
-          <p class="consulting-desc">
-            End-to-end posture discovery and vulnerability assessments measuring organizational exposure against sophisticated modern threat vectors.
-          </p>
-        </div>
-
-        <!-- Service 2: Governance Risk and Compliance (GRC) -->
-        <div class="consulting-card">
-          <div class="consulting-icon-mono">
-            <i class="fa-solid fa-scale-balanced"></i>
-          </div>
-          <h3 class="consulting-title">Governance Risk &amp; Compliance (GRC)</h3>
-          <p class="consulting-desc">
-            Harmonizing operational controls with regulatory mandates across SOC 2, NIST CSF, ISO 27001, HIPAA, and CMMC frameworks.
-          </p>
-        </div>
-
-        <!-- Service 3: Cybersecurity Incident Management (CIM) -->
-        <div class="consulting-card">
-          <div class="consulting-icon-mono">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-          </div>
-          <h3 class="consulting-title">Cybersecurity Incident Management (CIM)</h3>
-          <p class="consulting-desc">
-            High-speed incident containment, crisis playbooks, ransomware mitigation, and post-breach operational forensics when seconds count.
-          </p>
-        </div>
-
-        <!-- Service 4: Threat Hunting -->
-        <div class="consulting-card">
-          <div class="consulting-icon-mono">
-            <i class="fa-solid fa-crosshairs"></i>
-          </div>
-          <h3 class="consulting-title">Threat Hunting</h3>
-          <p class="consulting-desc">
-            Proactive adversarial reconnaissance and telemetry analysis identifying latent threat actor presence before damage or exfiltration occurs.
-          </p>
-        </div>
-
-        <!-- Service 5: Cyber Threat Intelligence -->
-        <div class="consulting-card">
-          <div class="consulting-icon-mono">
-            <i class="fa-solid fa-satellite-dish"></i>
-          </div>
-          <h3 class="consulting-title">Cyber Threat Intelligence</h3>
-          <p class="consulting-desc">
-            Real-time adversary profiling, predictive indicators of compromise (IOCs), and targeted sector threat feeds to preempt attacks.
-          </p>
-        </div>
-
-        <!-- Service 6: MDR -->
-        <div class="consulting-card">
-          <div class="consulting-icon-mono">
-            <i class="fa-solid fa-network-wired"></i>
-          </div>
-          <h3 class="consulting-title">MDR</h3>
-          <p class="consulting-desc">
-            Managed Detection and Response with 24/7 endpoint coverage, automated SOAR orchestration, and continuous attacker dwell-time suppression.
-          </p>
-        </div>
-
-        <!-- Service 7: AI Hybrid SOC -->
-        <div class="consulting-card" style="grid-column: span 2;">
-          <div class="consulting-icon-mono">
-            <i class="fa-solid fa-brain"></i>
-          </div>
-          <h3 class="consulting-title">AI Hybrid SOC</h3>
-          <p class="consulting-desc">
-            Next-generation Security Operations Center blending autonomous machine-speed anomaly detection with seasoned elite human analysts to protect high-stakes enterprise systems 24/7/365.
-          </p>
-        </div>
-
-      </div>
+      <p class="lead-statement-text">
+        <span class="brand-highlight">Anergi</span> is the technology company that protects systems that power industry, infrastructure, and transportation system through intelligent, integrated cybersecurity.
+      </p>
     </div>
   </section>
 
   <!-- ==========================================================================
-       SECTION: WHAT WE DO (Medium Grey Background Matching Navbar)
-       (White Cards, Big Tech Vector Icons with NO Color)
+       SECTION: WHAT WE DO (Core 4 3D Flip Cards with Extracted Catalog Icons)
        ========================================================================== -->
-  <section class="what-we-do-section-grey" id="services-jump">
+  <section class="what-we-do-section" id="what-we-do">
     <div class="container">
       <div class="section-header">
-        <span class="section-label-orange">Enterprise Capabilities</span>
-        <h2 class="section-title-white">What We Do</h2>
-        <p class="section-desc-light">
-          Empowering organizations to protect what matters most through full attack-surface visibility, active containment, and continuous regulatory compliance.
+        <span class="section-label-orange">Core Disciplines</span>
+        <h2 class="section-title">What We Do</h2>
+        <p class="section-desc">
+          Four enterprise pillars engineered to detect, govern, hunt, and assess threats across critical operational environments.
         </p>
       </div>
 
-      <div class="capabilities-grid">
+      <div class="flip-cards-grid">
         
-        <!-- CARD 1: Penetration Testing -->
-        <div class="capability-card">
-          <div class="cap-icon-box-mono">
-            <i class="fa-solid fa-shield-virus"></i>
-          </div>
-          <h3 class="cap-title">Penetration Testing</h3>
-          <p class="cap-body">
-            Using end to end penetration testing across your entire attack surface, harnessing human expertise, AI driven insights, and automation. Our adaptable approach empowers you to select the best-fit solution for your needs.
-          </p>
-          <div class="cap-tags">
-            <span class="cap-chip">Red Team Exercises</span>
-            <span class="cap-chip">Network &amp; Application Pentesting</span>
-            <span class="cap-chip">Social Engineering</span>
-            <span class="cap-chip">Internal &amp; External Testing</span>
-            <span class="cap-chip">Cloud Infrastructure</span>
-            <span class="cap-chip">Executive Reporting</span>
-          </div>
-        </div>
-
-        <!-- CARD 2: Detection and Response -->
-        <div class="capability-card">
-          <div class="cap-icon-box-mono">
-            <i class="fa-solid fa-tower-broadcast"></i>
-          </div>
-          <h3 class="cap-title">Detection and Response</h3>
-          <p class="cap-body">
-            Providing continuous monitoring and threat detection services that empower organizations to identify and respond to security incidents in real time. By integrating endpoint detection, SIEM, and threat intelligence, we help you minimize dwell time, reduce impact, and stay ahead of advanced threats.
-          </p>
-          <div class="cap-tags">
-            <span class="cap-chip">Endpoint Detection &amp; Response (EDR)</span>
-            <span class="cap-chip">SIEM Integration</span>
-            <span class="cap-chip">24/7 Monitoring</span>
-            <span class="cap-chip">Threat Hunting</span>
-            <span class="cap-chip">Alert Triage &amp; Escalation</span>
-            <span class="cap-chip">Incident Containment</span>
+        <!-- CARD 1: CIM (Icon 11) -->
+        <div class="flip-card-wrapper" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-icon-box">
+                <img src="assets/icons/extracted/anergi_icon_11_trans.png" alt="CIM Icon">
+              </div>
+              <h3 class="flip-card-title">Cybersecurity Incident Management (CIM)</h3>
+              <p class="flip-card-desc">
+                High-speed incident containment, crisis playbooks, ransomware mitigation, and post-breach operational forensics when seconds count.
+              </p>
+              <div class="flip-prompt-hint">
+                <span>View Deliverables</span>
+                <i class="fa-solid fa-arrow-rotate-right"></i>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-header">Operational Scope</span>
+              <h4 class="back-title">CIM Deliverables</h4>
+              <ul class="back-deliverables-list">
+                <li><i class="fa-solid fa-check"></i> 24/7 Rapid Incident Containment & Triage</li>
+                <li><i class="fa-solid fa-check"></i> Ransomware Containment & Forensics</li>
+                <li><i class="fa-solid fa-check"></i> Annual Tabletop Crisis Simulations</li>
+                <li><i class="fa-solid fa-check"></i> Executive & Board Incident Briefings</li>
+                <li><i class="fa-solid fa-check"></i> Cyber Insurance Compliance Attestation</li>
+              </ul>
+              <span class="back-return-hint"><i class="fa-solid fa-rotate-left"></i> Click to flip back</span>
+            </div>
           </div>
         </div>
 
-        <!-- CARD 3: Incident Response & Continuity Planning -->
-        <div class="capability-card">
-          <div class="cap-icon-box-mono">
-            <i class="fa-solid fa-fire-extinguisher"></i>
-          </div>
-          <h3 class="cap-title">Incident Response &amp; Continuity Planning</h3>
-          <p class="cap-body">
-            Prepare for the inevitable. From live incident containment to annual tabletop exercises, we develop and test response plans that ensure your team knows what to do when seconds count. Our approach reinforces readiness, builds confidence, and meets cyber insurance or compliance training mandates. We also assist with both pre- and post-incident response services—ensuring your organization is ready before a breach and supported after one occurs.
-          </p>
-          <div class="cap-tags">
-            <span class="cap-chip">IR Plan Development</span>
-            <span class="cap-chip">Tabletop Facilitation</span>
-            <span class="cap-chip">Ransomware &amp; Phishing Scenarios</span>
-            <span class="cap-chip">Roles &amp; Playbooks</span>
-            <span class="cap-chip">Post-Incident Review</span>
-          </div>
-        </div>
-
-        <!-- CARD 4: Risk Assessment & Vulnerability Analysis -->
-        <div class="capability-card">
-          <div class="cap-icon-box-mono">
-            <i class="fa-solid fa-magnifying-glass-chart"></i>
-          </div>
-          <h3 class="cap-title">Risk Assessment &amp; Vulnerability Analysis</h3>
-          <p class="cap-body">
-            By combining technical scanning with strategic risk assessments, we evaluate your organization’s exposure to threats. We help you prioritize vulnerabilities based on impact and likelihood, ensuring you can allocate resources efficiently while improving your security posture.
-          </p>
-          <div class="cap-tags">
-            <span class="cap-chip">Vulnerability Prioritization</span>
-            <span class="cap-chip">Exposure Scoring</span>
-            <span class="cap-chip">Impact Analysis</span>
-            <span class="cap-chip">Posture Modernization</span>
-            <span class="cap-chip">Resource Optimization</span>
+        <!-- CARD 2: GRC (Icon 09) -->
+        <div class="flip-card-wrapper" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-icon-box">
+                <img src="assets/icons/extracted/anergi_icon_09_trans.png" alt="GRC Icon">
+              </div>
+              <h3 class="flip-card-title">Governance Risk &amp; Compliance (GRC)</h3>
+              <p class="flip-card-desc">
+                Harmonizing security controls with regulatory mandates across SOC 2, NIST CSF, ISO 27001, HIPAA, and CMMC frameworks.
+              </p>
+              <div class="flip-prompt-hint">
+                <span>View Deliverables</span>
+                <i class="fa-solid fa-arrow-rotate-right"></i>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-header">Operational Scope</span>
+              <h4 class="back-title">GRC Deliverables</h4>
+              <ul class="back-deliverables-list">
+                <li><i class="fa-solid fa-check"></i> SOC 2 Type II & NIST CSF 2.0 Mapping</li>
+                <li><i class="fa-solid fa-check"></i> CMMC 2.0, HIPAA & ISO 27001 Readiness</li>
+                <li><i class="fa-solid fa-check"></i> Turnkey Control Mapping & Policy Writing</li>
+                <li><i class="fa-solid fa-check"></i> Continuous Gap Analysis & Remediation</li>
+                <li><i class="fa-solid fa-check"></i> Regulatory Audit Defense Packs</li>
+              </ul>
+              <span class="back-return-hint"><i class="fa-solid fa-rotate-left"></i> Click to flip back</span>
+            </div>
           </div>
         </div>
 
-        <!-- CARD 5: Audit and Compliance -->
-        <div class="capability-card">
-          <div class="cap-icon-box-mono">
-            <i class="fa-solid fa-certificate"></i>
-          </div>
-          <h3 class="cap-title">Audit and Compliance</h3>
-          <p class="cap-body">
-            Navigating complex regulatory requirements is critical to maintaining trust and avoiding costly penalties. Specializing in compliance frameworks such as CMMC, HIPAA, ISO, NIST, PCIDSS, SOC, SOX we guide your organization through controls implementation, audit readiness, and policy development, Gap analysis of vulnerabilities ensuring your environment stays secure and compliant.
-          </p>
-          <div class="cap-tags">
-            <span class="cap-chip">HIPAA</span>
-            <span class="cap-chip">NIST CSF &amp; 800-53</span>
-            <span class="cap-chip">SOC 2</span>
-            <span class="cap-chip">PCI-DSS</span>
-            <span class="cap-chip">Control Mapping</span>
-            <span class="cap-chip">Gap Remediation</span>
+        <!-- CARD 3: Threat Hunting (Icon 02) -->
+        <div class="flip-card-wrapper" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-icon-box">
+                <img src="assets/icons/extracted/anergi_icon_02_trans.png" alt="Threat Hunting Icon">
+              </div>
+              <h3 class="flip-card-title">Threat Hunting</h3>
+              <p class="flip-card-desc">
+                Proactive adversarial reconnaissance and telemetry analysis identifying latent threat actor presence before damage occurs.
+              </p>
+              <div class="flip-prompt-hint">
+                <span>View Deliverables</span>
+                <i class="fa-solid fa-arrow-rotate-right"></i>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-header">Operational Scope</span>
+              <h4 class="back-title">Threat Hunting Deliverables</h4>
+              <ul class="back-deliverables-list">
+                <li><i class="fa-solid fa-check"></i> MITRE ATT&CK Matrix Tactic Mapping</li>
+                <li><i class="fa-solid fa-check"></i> Memory & Host Behavioral Telemetry</li>
+                <li><i class="fa-solid fa-check"></i> Lateral Movement & Persistence Probing</li>
+                <li><i class="fa-solid fa-check"></i> Zero-Day Exploit Chain Interception</li>
+                <li><i class="fa-solid fa-check"></i> Continuous Attacker Dwell-Time Suppression</li>
+              </ul>
+              <span class="back-return-hint"><i class="fa-solid fa-rotate-left"></i> Click to flip back</span>
+            </div>
           </div>
         </div>
 
-        <!-- CARD 6: Cybersecurity Consulting -->
-        <div class="capability-card">
-          <div class="cap-icon-box-mono">
-            <i class="fa-solid fa-chess-knight"></i>
-          </div>
-          <h3 class="cap-title">Cybersecurity Consulting</h3>
-          <p class="cap-body">
-            Elevate your security with our strategic guidance and leadership. From CISO support and security roadmaps to executive advisory and cyber insurance assessments, we help you strengthen your cybersecurity from the top down. Our services ensure compliance, resilience, and risk mitigation, preparing you for potential cyber incidents and securing the best Cyber Insurance coverage for your needs.
-          </p>
-          <div class="cap-tags">
-            <span class="cap-chip">CISO Services</span>
-            <span class="cap-chip">Security Strategy</span>
-            <span class="cap-chip">Cyber Maturity</span>
-            <span class="cap-chip">Architecture Review</span>
-            <span class="cap-chip">Executive Advisory</span>
-            <span class="cap-chip">Insurance Assessments</span>
+        <!-- CARD 4: Cybersecurity Assessment (Icon 16) -->
+        <div class="flip-card-wrapper" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-icon-box">
+                <img src="assets/icons/extracted/anergi_icon_16_trans.png" alt="Cybersecurity Assessment Icon">
+              </div>
+              <h3 class="flip-card-title">Cybersecurity Assessment</h3>
+              <p class="flip-card-desc">
+                End-to-end posture discovery and vulnerability assessments measuring organizational exposure against sophisticated modern vectors.
+              </p>
+              <div class="flip-prompt-hint">
+                <span>View Deliverables</span>
+                <i class="fa-solid fa-arrow-rotate-right"></i>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-header">Operational Scope</span>
+              <h4 class="back-title">Assessment Deliverables</h4>
+              <ul class="back-deliverables-list">
+                <li><i class="fa-solid fa-check"></i> Comprehensive Attack Surface Auditing</li>
+                <li><i class="fa-solid fa-check"></i> Cloud & Hybrid Infrastructure Profiling</li>
+                <li><i class="fa-solid fa-check"></i> Vulnerability Impact & Likelihood Scoring</li>
+                <li><i class="fa-solid fa-check"></i> Asset Inventory & Shadow IT Discovery</li>
+                <li><i class="fa-solid fa-check"></i> Prioritized CISO Action Roadmaps</li>
+              </ul>
+              <span class="back-return-hint"><i class="fa-solid fa-rotate-left"></i> Click to flip back</span>
+            </div>
           </div>
         </div>
 
@@ -1199,19 +1271,124 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION: STRATEGIC DEFENSE PRINCIPLES
-       (White Background with Light Blue Cards and Black Text - confirmed perfect)
+       SECTION: PENETRATION TESTING & HARDENING (Navbar Grey Background)
+       ========================================================================== -->
+  <section class="pentest-section-grey" id="penetration-testing">
+    <div class="container">
+      <div class="section-header">
+        <span class="pentest-header-badge">Core Specialization</span>
+        <h2 class="pentest-title-white">Penetration Testing &amp; Enterprise Hardening</h2>
+        <p class="pentest-desc-light">
+          Moving beyond automated scanners to active adversary simulation—identifying critical exploit chains, quantifying real-world blast radius, and delivering board-level remediation playbooks.
+        </p>
+      </div>
+
+      <!-- Split: The Business Challenge vs Why We Test -->
+      <div class="pentest-split-grid">
+        
+        <div class="pentest-intro-card">
+          <h3 class="pentest-intro-title">
+            <i class="fa-solid fa-triangle-exclamation"></i> The Business Pain Points
+          </h3>
+          <ul class="pentest-intro-list">
+            <li>
+              <strong>The Illusion of Safety:</strong> Automated vulnerability scanners detect known CVEs but completely miss multi-stage logic flaws and human privilege escalation.
+            </li>
+            <li>
+              <strong>Regulatory & Insurance Mandates:</strong> Cyber insurance underwriters, SOC 2, and NIST frameworks now require verified, human-led penetration test attestations to maintain active coverage.
+            </li>
+            <li>
+              <strong>Catastrophic Breach Latency:</strong> Attackers linger inside corporate infrastructure an average of 16 days before discovery; penetration testing identifies and cuts off dwell time before malicious detonation.
+            </li>
+          </ul>
+        </div>
+
+        <div class="pentest-intro-card">
+          <h3 class="pentest-intro-title">
+            <i class="fa-solid fa-shield-check"></i> Why Penetration Testing is Done
+          </h3>
+          <ul class="pentest-intro-list">
+            <li>
+              <strong>Active Adversary Emulation:</strong> We test your environment using the exact tools, tactics, and procedures (TTPs) of modern nation-state and criminal threat groups.
+            </li>
+            <li>
+              <strong>Empirical Blast Radius Validation:</strong> We demonstrate what critical assets and customer data can truly be accessed, separating theoretical risk from operational impact.
+            </li>
+            <li>
+              <strong>Actionable Engineer-Ready Outcomes:</strong> You receive prioritized technical tickets for your IT engineers alongside concise executive summaries for your board and insurance brokers.
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 3-Tier Enterprise Diagnostic Architecture -->
+      <div class="stages-grid">
+        
+        <!-- STAGE 1: Surface Perimeter Diagnostic (Mini S.P.A. Concept) -->
+        <div class="stage-card">
+          <span class="stage-number">Stage 01 // Rapid Audit</span>
+          <h4 class="stage-title">Surface Perimeter Reconnaissance</h4>
+          <p class="stage-body">
+            Non-intrusive surface diagnostic interrogating your public digital perimeter in 60 seconds. Evaluates exposed DNS records, TLS cryptographic strength, HSTS headers, and external-facing assets with zero friction or downtime.
+          </p>
+          <div class="stage-deliverables-box">
+            <span class="stage-deliverables-title">Key Artifacts</span>
+            <ul>
+              <li><i class="fa-solid fa-circle-check"></i> Public Surface Tension Score</li>
+              <li><i class="fa-solid fa-circle-check"></i> Cryptographic Alignment Audit</li>
+              <li><i class="fa-solid fa-circle-check"></i> Instant Perimeter Risk Index</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- STAGE 2: Comprehensive Penetration Test (Full S.P.A. Concept) -->
+        <div class="stage-card">
+          <span class="stage-number">Stage 02 // Full Testing</span>
+          <h4 class="stage-title">Adversary Simulation &amp; Exploitation</h4>
+          <p class="stage-body">
+            Controlled, full-scope penetration testing across web applications, cloud configurations, API endpoints, and internal networks. Emulates advanced threat actor techniques to expose privilege escalations and lateral movement.
+          </p>
+          <div class="stage-deliverables-box">
+            <span class="stage-deliverables-title">Key Artifacts</span>
+            <ul>
+              <li><i class="fa-solid fa-circle-check"></i> Exploitable Chain Verification</li>
+              <li><i class="fa-solid fa-circle-check"></i> Data Exfiltration Blast Radius</li>
+              <li><i class="fa-solid fa-circle-check"></i> Red Team Evidence Artifacts</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- STAGE 3: Continuous Threat Hardening (O.N.C.E.T. Concept) -->
+        <div class="stage-card">
+          <span class="stage-number">Stage 03 // Deep Hardening</span>
+          <h4 class="stage-title">Forensic Hardening &amp; Compliance</h4>
+          <p class="stage-body">
+            Deep-dive architectural review converting raw findings into structured defense blueprints. Validates code fixes through rigorous re-testing and delivers certified attestation reports for SOC 2, NIST, HIPAA, and insurance underwriters.
+          </p>
+          <div class="stage-deliverables-box">
+            <span class="stage-deliverables-title">Key Artifacts</span>
+            <ul>
+              <li><i class="fa-solid fa-circle-check"></i> Prioritized Remediation Playbook</li>
+              <li><i class="fa-solid fa-circle-check"></i> Board & Underwriter Attestation</li>
+              <li><i class="fa-solid fa-circle-check"></i> Post-Patch Retest Certification</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: STRATEGIC DEFENSE PRINCIPLES (Approved As-Is)
        ========================================================================== -->
   <section class="principles-section-white">
     <div class="container">
       <div class="section-header">
-        <span class="section-label-orange" style="background: rgba(255, 102, 0, 0.1); border-color: rgba(255, 102, 0, 0.3); color: var(--accent-orange);">
-          Core Mission
-        </span>
-        <h2 class="section-title-white" style="color: var(--text-black); text-shadow: none;">
-          Strategic Defense Principles
-        </h2>
-        <p class="section-desc-light" style="color: var(--text-muted);">
+        <span class="section-label-orange">Core Mission</span>
+        <h2 class="section-title">Strategic Defense Principles</h2>
+        <p class="section-desc">
           Building resilient operational architectures designed to resist attacks and thrive under enterprise scrutiny.
         </p>
       </div>
@@ -1247,20 +1424,87 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION: FREE CYBER RISK ASSESSMENT CTA
-       (Medium Grey Background matching Navbar and Footer, White inside the card)
+       SECTION: S.P.A. TREATMENT BRIDGE (Links into Interactive Pitch Suite)
        ========================================================================== -->
-  <section class="cta-banner-section-grey">
+  <section class="spa-bridge-section">
     <div class="container">
-      <div class="cta-banner-card-white">
-        <h2 class="cta-title-black">Connect With Us for a Free Cyber Risk Assessment</h2>
-        <p class="cta-subtitle-dark">
-          Empower your organization to make cybersecurity more accessible. Partner with us as we build a safer, more secure future together. Let's build together.
+      <div class="spa-bridge-card-white">
+        <span class="spa-bridge-tag">Diagnostic Surface Scanner</span>
+        <h2 class="spa-bridge-title">Could Your Business Use a S.P.A. Treatment?</h2>
+        <p class="spa-bridge-subtitle">
+          <strong>Security Posture Assessment (S.P.A.)</strong> &bull; Experience our non-intrusive interactive perimeter diagnostic suite. Measure surface tension, test cryptographic alignment, and audit digital resilience in seconds.
         </p>
-        <a href="https://anergi.io/contact-us/" target="_blank" rel="noopener" class="btn-pill-orange">
-          <span>Schedule Free Assessment</span>
+        <a href="https://leonrdarden.com/anergipitch" target="_blank" rel="noopener" class="btn-pill-orange">
+          <span>Launch Interactive S.P.A. Suite</span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INFINITE HORIZONTAL LOGO MARQUEE (Ecosystem & Partners)
+       ========================================================================== -->
+  <section class="marquee-section">
+    <div class="marquee-header-label">
+      Strategic Innovation &amp; Collaboration Ecosystem
+    </div>
+    
+    <div class="marquee-wrapper">
+      <!-- Track 1 (Original) -->
+      <div class="marquee-track">
+        <div class="partner-brand-badge">
+          <img src="assets/logos/maineachonelogo.png" alt="Each One Teach One Logo" onerror="this.style.display='none'">
+          <span>Each One Teach One</span>
+        </div>
+        <div class="partner-brand-badge">
+          <img src="assets/logos/burn1_logo.jpg" alt="Burn-1 Logo" onerror="this.style.display='none'">
+          <span>Burn-1.com</span>
+        </div>
+        <div class="partner-brand-badge">
+          <img src="assets/logos/reach_teach_logo.png" alt="Reach and Teach Logo" onerror="this.style.display='none'">
+          <span>Reach &amp; Teach</span>
+        </div>
+        <div class="partner-brand-badge">
+          <i class="fa-solid fa-brain" style="color: #c084fc;"></i>
+          <span>FriedBrains World</span>
+        </div>
+        <div class="partner-brand-badge">
+          <i class="fa-brands fa-youtube" style="color: #ef4444;"></i>
+          <span>Digital Street Smarts</span>
+        </div>
+        <div class="partner-brand-badge">
+          <img src="assets/logos/dardenfoundationlogo.png" alt="Darden Foundation Logo" onerror="this.style.display='none'">
+          <span>Darden Foundation</span>
+        </div>
+      </div>
+
+      <!-- Track 2 (Duplicate for Seamless Infinite Loop) -->
+      <div class="marquee-track" aria-hidden="true">
+        <div class="partner-brand-badge">
+          <img src="assets/logos/maineachonelogo.png" alt="Each One Teach One Logo" onerror="this.style.display='none'">
+          <span>Each One Teach One</span>
+        </div>
+        <div class="partner-brand-badge">
+          <img src="assets/logos/burn1_logo.jpg" alt="Burn-1 Logo" onerror="this.style.display='none'">
+          <span>Burn-1.com</span>
+        </div>
+        <div class="partner-brand-badge">
+          <img src="assets/logos/reach_teach_logo.png" alt="Reach and Teach Logo" onerror="this.style.display='none'">
+          <span>Reach &amp; Teach</span>
+        </div>
+        <div class="partner-brand-badge">
+          <i class="fa-solid fa-brain" style="color: #c084fc;"></i>
+          <span>FriedBrains World</span>
+        </div>
+        <div class="partner-brand-badge">
+          <i class="fa-brands fa-youtube" style="color: #ef4444;"></i>
+          <span>Digital Street Smarts</span>
+        </div>
+        <div class="partner-brand-badge">
+          <img src="assets/logos/dardenfoundationlogo.png" alt="Darden Foundation Logo" onerror="this.style.display='none'">
+          <span>Darden Foundation</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1276,7 +1520,8 @@
         </div>
         <ul class="footer-nav">
           <li><a href="https://anergi.io/">Home</a></li>
-          <li><a href="#services-jump">Services</a></li>
+          <li><a href="#what-we-do">What We Do</a></li>
+          <li><a href="#penetration-testing">Pen Testing</a></li>
           <li><a href="https://anergi.io/news/" target="_blank" rel="noopener">News</a></li>
           <li><a href="https://anergi.io/contact-us/" target="_blank" rel="noopener">Contact</a></li>
         </ul>
